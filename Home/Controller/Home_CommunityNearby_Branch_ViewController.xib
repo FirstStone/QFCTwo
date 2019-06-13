@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Home_CommunityNearby_Branch_ViewController">
+            <connections>
+                <outlet property="SearchBar" destination="6ih-Wl-EkN" id="3ep-9V-fer"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wO-gS-6r9" customClass="Home_NavigationView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELH-PS-NCT">
+                            <rect key="frame" x="365" y="7" width="70" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="MFq-9Y-CBe"/>
+                                <constraint firstAttribute="height" constant="30" id="t2h-M2-VPi"/>
+                            </constraints>
+                            <state key="normal" image="icon_ShopCar_Green"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="HomeShopingCartClick:" destination="-1" eventType="touchUpInside" id="EeB-EC-Ioo"/>
+                            </connections>
+                        </button>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="搜索你想要的" translatesAutoresizingMaskIntoConstraints="NO" id="6ih-Wl-EkN">
+                            <rect key="frame" x="52" y="7" width="303" height="30"/>
+                            <color key="backgroundColor" red="0.59311163430000002" green="0.81316965819999998" blue="0.66257697339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="eYY-Yq-2QL"/>
+                            </constraints>
+                            <color key="tintColor" red="0.59311163430000002" green="0.81316965819999998" blue="0.66257697339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="barTintColor" red="0.59311163430000002" green="0.81316965819999998" blue="0.66257697339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </searchBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-vu-pdg">
+                            <rect key="frame" x="10" y="6" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="OuP-Kk-MTv"/>
+                                <constraint firstAttribute="width" constant="32" id="lZ8-YQ-5pN"/>
+                            </constraints>
+                            <state key="normal" image="icon_HT_XiangQing_Zuo"/>
+                            <connections>
+                                <action selector="LiftButtonPOP:" destination="-1" eventType="touchUpInside" id="hnT-Zg-qWA"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="6ih-Wl-EkN" firstAttribute="leading" secondItem="Bv9-vu-pdg" secondAttribute="trailing" constant="10" id="41P-DQ-Obp"/>
+                        <constraint firstAttribute="height" constant="44" id="DSR-CU-Swb"/>
+                        <constraint firstItem="ELH-PS-NCT" firstAttribute="leading" secondItem="6ih-Wl-EkN" secondAttribute="trailing" constant="10" id="he0-Yf-PCo"/>
+                        <constraint firstItem="Bv9-vu-pdg" firstAttribute="centerY" secondItem="2wO-gS-6r9" secondAttribute="centerY" id="k5v-Zm-pQK"/>
+                        <constraint firstItem="ELH-PS-NCT" firstAttribute="centerY" secondItem="Bv9-vu-pdg" secondAttribute="centerY" id="koP-Oh-GiP"/>
+                        <constraint firstItem="Bv9-vu-pdg" firstAttribute="leading" secondItem="2wO-gS-6r9" secondAttribute="leading" constant="10" id="l0U-pU-VjL"/>
+                        <constraint firstAttribute="trailing" secondItem="ELH-PS-NCT" secondAttribute="trailing" constant="-21" id="ozC-b7-32F"/>
+                        <constraint firstItem="6ih-Wl-EkN" firstAttribute="centerY" secondItem="Bv9-vu-pdg" secondAttribute="centerY" id="sbw-Fe-0va"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZp-Wf-wS9">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="2wO-gS-6r9" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="CPp-ou-F54"/>
+                <constraint firstAttribute="bottom" secondItem="nZp-Wf-wS9" secondAttribute="bottom" id="NAj-Do-G7X"/>
+                <constraint firstItem="nZp-Wf-wS9" firstAttribute="top" secondItem="2wO-gS-6r9" secondAttribute="bottom" id="RgB-md-No9"/>
+                <constraint firstItem="nZp-Wf-wS9" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="nKF-Hq-fcn"/>
+                <constraint firstItem="2wO-gS-6r9" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="pKu-66-Nev"/>
+                <constraint firstItem="2wO-gS-6r9" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="x9E-m9-4Sl"/>
+                <constraint firstItem="nZp-Wf-wS9" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="y6R-iS-dqe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="132" y="131"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_HT_XiangQing_Zuo" width="32" height="31.5"/>
+        <image name="icon_ShopCar_Green" width="19.5" height="18"/>
+    </resources>
+</document>

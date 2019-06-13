@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="H5_Mine_MyShopStoreViewController">
+            <connections>
+                <outlet property="BackView" destination="me7-oA-Aul" id="rL8-XE-y0D"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-nq-Tgy">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me7-oA-Aul">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="me7-oA-Aul" secondAttribute="trailing" id="3B2-x1-UXn"/>
+                <constraint firstAttribute="bottom" secondItem="UQ4-nq-Tgy" secondAttribute="bottom" id="6nd-Ra-We4"/>
+                <constraint firstItem="me7-oA-Aul" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="7Ba-Tn-BbA"/>
+                <constraint firstItem="me7-oA-Aul" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="Fgb-GQ-hXQ"/>
+                <constraint firstItem="UQ4-nq-Tgy" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Lh6-6a-D1G"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="UQ4-nq-Tgy" secondAttribute="trailing" id="c1T-T3-Hy6"/>
+                <constraint firstItem="UQ4-nq-Tgy" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="kB2-5D-fPq"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="me7-oA-Aul" secondAttribute="bottom" id="nrc-CP-Mk3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+</document>

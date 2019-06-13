@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Publish_Lable_VC">
+            <connections>
+                <outlet property="Add_Button" destination="rzN-Rc-t46" id="MNN-7m-9pR"/>
+                <outlet property="Text_Label" destination="e9p-gX-dV9" id="PFf-GZ-gFl"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1R-fS-AwC">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="BO2-pb-41e"/>
+                    </constraints>
+                    <color key="tintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="标签" id="MvF-Qg-14n">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="xuH-wR-iio">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftButtonClick:" destination="-1" id="dOq-88-bu7"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="确认" id="RiT-uI-Xt3">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="SureButtonClick:" destination="-1" id="EWo-UD-lJM"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uE2-Hd-k16">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="自定义标签，最多输入15个字！" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e9p-gX-dV9">
+                            <rect key="frame" x="10" y="10" width="324" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzN-Rc-t46">
+                            <rect key="frame" x="334" y="10" width="70" height="40"/>
+                            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="HZz-Ll-KGf"/>
+                                <constraint firstAttribute="height" constant="40" id="P8d-J9-XzM"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <state key="normal" title="生成标签">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="AddBiuttonClick:" destination="-1" eventType="touchUpInside" id="mUl-ne-0QN"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="rzN-Rc-t46" secondAttribute="trailing" constant="10" id="7Q8-CW-p9m"/>
+                        <constraint firstItem="rzN-Rc-t46" firstAttribute="centerY" secondItem="e9p-gX-dV9" secondAttribute="centerY" id="AMh-Ry-rTb"/>
+                        <constraint firstItem="rzN-Rc-t46" firstAttribute="leading" secondItem="e9p-gX-dV9" secondAttribute="trailing" id="YEc-IX-lxO"/>
+                        <constraint firstItem="e9p-gX-dV9" firstAttribute="leading" secondItem="uE2-Hd-k16" secondAttribute="leading" constant="10" id="evZ-WV-ziD"/>
+                        <constraint firstItem="rzN-Rc-t46" firstAttribute="height" secondItem="e9p-gX-dV9" secondAttribute="height" id="sKn-5P-IZb"/>
+                        <constraint firstItem="rzN-Rc-t46" firstAttribute="top" secondItem="uE2-Hd-k16" secondAttribute="top" constant="10" id="zgo-Kv-jNC"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="J1R-fS-AwC" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="3px-rK-Neu"/>
+                <constraint firstItem="uE2-Hd-k16" firstAttribute="top" secondItem="J1R-fS-AwC" secondAttribute="bottom" id="8dD-ab-9RK"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="uE2-Hd-k16" secondAttribute="trailing" id="Tzi-xh-GqV"/>
+                <constraint firstItem="uE2-Hd-k16" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="UBh-ZM-RK9"/>
+                <constraint firstItem="J1R-fS-AwC" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="aNs-PJ-ant"/>
+                <constraint firstItem="J1R-fS-AwC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="geE-Lf-ZaX"/>
+                <constraint firstAttribute="bottom" secondItem="uE2-Hd-k16" secondAttribute="bottom" id="m4c-c2-d8z"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-62.318840579710148" y="-39.508928571428569"/>
+        </view>
+    </objects>
+</document>

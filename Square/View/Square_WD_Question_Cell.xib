@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="163" id="KGk-i7-Jjw" customClass="Square_WD_Question_Cell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="163"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="162.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKg-Fn-K63">
+                        <rect key="frame" x="10" y="0.0" width="300" height="151.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="phl-qA-uOO">
+                                <rect key="frame" x="10" y="74.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AvA-65-9py"/>
+                                    <constraint firstAttribute="width" constant="30" id="tWA-jc-d3m"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="松江有哪些好玩儿的地方？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fko-yo-hyy">
+                                <rect key="frame" x="10" y="38" width="196" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6E-Wm-Aoa">
+                                <rect key="frame" x="10" y="10" width="105" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="LeX-aT-pYc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="来自附近快友的提问" image="icon_Ditu_LV">
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuH-qZ-ZwI">
+                                <rect key="frame" x="10" y="110.5" width="280" height="1"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="czt-4g-xCc"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="139人参与讨论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sq8-4i-FLI">
+                                <rect key="frame" x="10" y="125.5" width="69.5" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fww-HO-meW">
+                                <rect key="frame" x="247" y="121.5" width="43" height="20"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="8OT-7r-XoI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <state key="normal" title="  去提问  ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快友123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrb-ym-tqt">
+                                <rect key="frame" x="45" y="82.5" width="45.5" height="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KuH-qZ-ZwI" secondAttribute="trailing" constant="10" id="0DQ-bo-dau"/>
+                            <constraint firstAttribute="bottom" secondItem="fww-HO-meW" secondAttribute="bottom" constant="10" id="0jW-IH-Fnw"/>
+                            <constraint firstItem="KuH-qZ-ZwI" firstAttribute="top" secondItem="phl-qA-uOO" secondAttribute="bottom" constant="6" id="A9R-VM-rmJ"/>
+                            <constraint firstItem="G6E-Wm-Aoa" firstAttribute="top" secondItem="FKg-Fn-K63" secondAttribute="top" constant="10" id="Bcv-Yw-HnZ"/>
+                            <constraint firstItem="sq8-4i-FLI" firstAttribute="leading" secondItem="FKg-Fn-K63" secondAttribute="leading" constant="10" id="DYX-vz-IGo"/>
+                            <constraint firstItem="KuH-qZ-ZwI" firstAttribute="leading" secondItem="FKg-Fn-K63" secondAttribute="leading" constant="10" id="LHg-6f-b6y"/>
+                            <constraint firstItem="phl-qA-uOO" firstAttribute="top" secondItem="fko-yo-hyy" secondAttribute="bottom" constant="9" id="OP6-z1-kaI"/>
+                            <constraint firstItem="wrb-ym-tqt" firstAttribute="centerY" secondItem="phl-qA-uOO" secondAttribute="centerY" id="P2G-Be-kfU"/>
+                            <constraint firstItem="wrb-ym-tqt" firstAttribute="leading" secondItem="phl-qA-uOO" secondAttribute="trailing" constant="5" id="VMW-QR-lJ0"/>
+                            <constraint firstItem="fko-yo-hyy" firstAttribute="leading" secondItem="FKg-Fn-K63" secondAttribute="leading" constant="10" id="YR1-Om-rb9"/>
+                            <constraint firstAttribute="trailing" secondItem="fww-HO-meW" secondAttribute="trailing" constant="10" id="crH-ai-fck"/>
+                            <constraint firstItem="fww-HO-meW" firstAttribute="centerY" secondItem="sq8-4i-FLI" secondAttribute="centerY" id="ebZ-TG-Ef1"/>
+                            <constraint firstItem="G6E-Wm-Aoa" firstAttribute="leading" secondItem="FKg-Fn-K63" secondAttribute="leading" constant="10" id="ffK-YI-NgS"/>
+                            <constraint firstItem="fko-yo-hyy" firstAttribute="top" secondItem="G6E-Wm-Aoa" secondAttribute="bottom" constant="10" id="lyu-jI-HGb"/>
+                            <constraint firstItem="phl-qA-uOO" firstAttribute="leading" secondItem="FKg-Fn-K63" secondAttribute="leading" constant="10" id="tJY-wX-En5"/>
+                            <constraint firstItem="fww-HO-meW" firstAttribute="top" secondItem="KuH-qZ-ZwI" secondAttribute="bottom" constant="10" id="yBW-iL-Pot"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="FKg-Fn-K63" secondAttribute="bottom" constant="11" id="OGP-ta-5ZK"/>
+                    <constraint firstItem="FKg-Fn-K63" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Y0f-uy-NSb"/>
+                    <constraint firstItem="FKg-Fn-K63" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ggK-bu-ndW"/>
+                    <constraint firstAttribute="trailing" secondItem="FKg-Fn-K63" secondAttribute="trailing" constant="10" id="tch-nm-Cyp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="Address_BT" destination="G6E-Wm-Aoa" id="Kfh-4c-WFa"/>
+                <outlet property="Name_Label" destination="wrb-ym-tqt" id="3Dt-0a-xTF"/>
+                <outlet property="People_Label" destination="sq8-4i-FLI" id="cM4-NZ-ZrS"/>
+                <outlet property="Questiong_BT" destination="fww-HO-meW" id="eB1-1q-RgY"/>
+                <outlet property="Title_Label" destination="fko-yo-hyy" id="w7t-hs-Hle"/>
+                <outlet property="icon_imageView" destination="phl-qA-uOO" id="XsL-qO-6Xj"/>
+            </connections>
+            <point key="canvasLocation" x="118.84057971014494" y="218.63839285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_Ditu_LV" width="13" height="14"/>
+        <image name="icon_touxiang" width="30" height="30"/>
+    </resources>
+</document>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Mine_MyCard_ViewController">
+            <connections>
+                <outlet property="tableView" destination="t6u-Sx-NfF" id="DTN-uN-YUS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mt-0N-H7w">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t6u-Sx-NfF" customClass="Basic_TableView">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ7-bv-GnY">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Pwl-6Y-uKs"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="卡券管理" id="0HP-HH-3rj">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="3f2-Ht-IDK">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftButtonPOP:" destination="-1" id="1Dk-g9-wlD"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" style="plain" id="LzE-2q-hQq">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PmP-PY-Dcy">
+                                    <rect key="frame" x="313" y="0.0" width="81" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="发布卡券" image="icon_Mine_Activity_FABU">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="AddButtonClick:" destination="-1" eventType="touchUpInside" id="MCo-gD-h0u"/>
+                                    </connections>
+                                </button>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="gJ7-bv-GnY" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="4C0-E2-RBs"/>
+                <constraint firstItem="0Mt-0N-H7w" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Awf-2f-Dgi"/>
+                <constraint firstItem="t6u-Sx-NfF" firstAttribute="top" secondItem="gJ7-bv-GnY" secondAttribute="bottom" id="CIx-6G-tXN"/>
+                <constraint firstItem="0Mt-0N-H7w" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Quo-jw-cE7"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="t6u-Sx-NfF" secondAttribute="bottom" id="Uif-Ma-UUi"/>
+                <constraint firstItem="t6u-Sx-NfF" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Z9p-vN-X1e"/>
+                <constraint firstItem="gJ7-bv-GnY" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="ZXW-rn-iCr"/>
+                <constraint firstItem="gJ7-bv-GnY" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="gFj-6W-HIY"/>
+                <constraint firstItem="0Mt-0N-H7w" firstAttribute="top" secondItem="gJ7-bv-GnY" secondAttribute="bottom" id="kSZ-Un-5Ix"/>
+                <constraint firstItem="t6u-Sx-NfF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="rSC-Sb-BkQ"/>
+                <constraint firstAttribute="bottom" secondItem="0Mt-0N-H7w" secondAttribute="bottom" id="xlk-fr-YhY"/>
+                <constraint firstItem="0Mt-0N-H7w" firstAttribute="top" secondItem="gJ7-bv-GnY" secondAttribute="bottom" id="ysi-Wc-WiU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_Mine_Activity_FABU" width="16" height="19"/>
+    </resources>
+</document>

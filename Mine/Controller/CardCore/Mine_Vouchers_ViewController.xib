@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Mine_Vouchers_ViewController">
+            <connections>
+                <outlet property="tableView" destination="90U-6b-JiE" id="Y5w-Gh-bzL"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch4-Yi-ggR">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="k11-Ak-qyM"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="代金券" id="vnH-Yq-HFO">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="rdr-CD-lrb">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftButtonPOP:" destination="-1" id="UiP-7N-vDs"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZuW-Qd-3Fa">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="90U-6b-JiE" customClass="Basic_TableView">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="6vS-N4-EVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_card_top" translatesAutoresizingMaskIntoConstraints="NO" id="kKT-IJ-tmh">
+                                <rect key="frame" x="10" y="10" width="394" height="96"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kKT-IJ-tmh" secondAttribute="bottom" constant="10" id="40L-vT-kzK"/>
+                            <constraint firstItem="kKT-IJ-tmh" firstAttribute="top" secondItem="6vS-N4-EVQ" secondAttribute="top" constant="10" id="MeI-Kv-O6r"/>
+                            <constraint firstItem="DOy-IR-brX" firstAttribute="trailing" secondItem="kKT-IJ-tmh" secondAttribute="trailing" constant="10" id="U2L-7x-Rl6"/>
+                            <constraint firstItem="kKT-IJ-tmh" firstAttribute="leading" secondItem="DOy-IR-brX" secondAttribute="leading" constant="10" id="w7L-1I-DKa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DOy-IR-brX"/>
+                    </view>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Ch4-Yi-ggR" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="280-cJ-SHp"/>
+                <constraint firstAttribute="bottom" secondItem="ZuW-Qd-3Fa" secondAttribute="bottom" id="B2u-Ik-CLR"/>
+                <constraint firstItem="90U-6b-JiE" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="Ihb-yA-K80"/>
+                <constraint firstItem="ZuW-Qd-3Fa" firstAttribute="top" secondItem="Ch4-Yi-ggR" secondAttribute="bottom" id="Io3-xt-YBV"/>
+                <constraint firstItem="ZuW-Qd-3Fa" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Va5-oL-gn5"/>
+                <constraint firstItem="90U-6b-JiE" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="ffl-dI-8tH"/>
+                <constraint firstItem="90U-6b-JiE" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="hiC-Tu-spS"/>
+                <constraint firstItem="90U-6b-JiE" firstAttribute="top" secondItem="Ch4-Yi-ggR" secondAttribute="bottom" id="jEs-Ft-A3Y"/>
+                <constraint firstItem="ZuW-Qd-3Fa" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="lxT-1h-ayB"/>
+                <constraint firstItem="Ch4-Yi-ggR" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="nc2-wL-8UF"/>
+                <constraint firstItem="Ch4-Yi-ggR" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="wzO-ve-ISq"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_card_top" width="710" height="201"/>
+    </resources>
+</document>

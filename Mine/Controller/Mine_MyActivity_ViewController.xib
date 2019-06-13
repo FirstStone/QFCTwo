@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Mine_MyActivity_ViewController">
+            <connections>
+                <outlet property="tableView" destination="DbN-I7-K0Z" id="0TJ-XY-ZTT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5o-ly-CbJ">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="DbN-I7-K0Z" customClass="Basic_TableView">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMK-g7-X6E">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="jga-Ko-ejc"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="活动管理" id="pqO-kO-WNg">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="AwP-te-dOh">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftButtonPOP:" destination="-1" id="py1-Q4-4cH"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" style="plain" id="9L2-oN-F7M">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dXK-3S-cnO">
+                                    <rect key="frame" x="313" y="0.0" width="81" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="发布活动" image="icon_Mine_Activity_FABU">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="AddButtonClick:" destination="-1" eventType="touchUpInside" id="hlw-21-pBE"/>
+                                    </connections>
+                                </button>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="zMK-g7-X6E" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1vL-mp-qEY"/>
+                <constraint firstItem="zMK-g7-X6E" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="6Ai-XC-UI2"/>
+                <constraint firstItem="DbN-I7-K0Z" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="AtC-qi-f9V"/>
+                <constraint firstItem="DbN-I7-K0Z" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Mm5-f6-Nhm"/>
+                <constraint firstItem="A5o-ly-CbJ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Tju-ai-75A"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="DbN-I7-K0Z" secondAttribute="bottom" id="V59-jT-34U"/>
+                <constraint firstItem="A5o-ly-CbJ" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="WVb-wf-HJI"/>
+                <constraint firstItem="DbN-I7-K0Z" firstAttribute="top" secondItem="zMK-g7-X6E" secondAttribute="bottom" id="c06-Pg-NnB"/>
+                <constraint firstItem="A5o-ly-CbJ" firstAttribute="top" secondItem="zMK-g7-X6E" secondAttribute="bottom" id="sYQ-Ab-bRR"/>
+                <constraint firstAttribute="bottom" secondItem="A5o-ly-CbJ" secondAttribute="bottom" id="yWp-Hk-ubo"/>
+                <constraint firstItem="zMK-g7-X6E" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="zyr-sw-FX7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="47.826086956521742" y="25.446428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_Mine_Activity_FABU" width="16" height="19"/>
+    </resources>
+</document>

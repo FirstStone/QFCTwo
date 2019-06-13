@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Message_NotificationCenter_VC">
+            <connections>
+                <outlet property="tabelView" destination="42a-zs-4wj" id="JXb-pt-opH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dch-hv-rRc">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7C0-vF-b7r">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="QPE-ag-T1B"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="通知消息" id="Nz5-an-8Sg">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="KDw-f3-ZwU">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftButtonPOP:" destination="-1" id="cYM-fh-ws3"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="42a-zs-4wj">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="dch-hv-rRc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="2Mr-Il-b60"/>
+                <constraint firstItem="dch-hv-rRc" firstAttribute="top" secondItem="7C0-vF-b7r" secondAttribute="bottom" id="3Ta-Cu-CyN"/>
+                <constraint firstItem="42a-zs-4wj" firstAttribute="top" secondItem="7C0-vF-b7r" secondAttribute="bottom" id="CqX-Zl-eIw"/>
+                <constraint firstItem="7C0-vF-b7r" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="KPz-2H-qmq"/>
+                <constraint firstItem="7C0-vF-b7r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LSj-YS-Hho"/>
+                <constraint firstItem="42a-zs-4wj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="T6w-np-0Y1"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="7C0-vF-b7r" secondAttribute="trailing" id="VGG-tQ-J2q"/>
+                <constraint firstAttribute="bottom" secondItem="dch-hv-rRc" secondAttribute="bottom" id="WRY-RS-VS0"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="dch-hv-rRc" secondAttribute="trailing" id="YLf-jQ-nMv"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="42a-zs-4wj" secondAttribute="bottom" id="k7O-gc-Pkn"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="42a-zs-4wj" secondAttribute="trailing" id="tqI-mC-9pY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+</document>

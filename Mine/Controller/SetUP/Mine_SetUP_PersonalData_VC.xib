@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Mine_SetUP_PersonalData_VC">
+            <connections>
+                <outlet property="Sure_BT" destination="KD2-rw-cKQ" id="5DZ-Gk-ff3"/>
+                <outlet property="tableView" destination="rXa-70-p8v" id="e4E-PP-TgK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxv-Og-tGC">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="7Xe-ph-DBk"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="个人信息" id="kN6-af-t5S">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="lMv-lE-lFr">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftButtonPOP:" destination="-1" id="qPd-jE-vca"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="确认" id="KD2-rw-cKQ">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="SureButtonClick:" destination="-1" id="Wqp-IM-FGz"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rXa-70-p8v">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Kxv-Og-tGC" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="Fqp-x0-d5m"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="rXa-70-p8v" secondAttribute="trailing" id="Ghi-nn-k8x"/>
+                <constraint firstItem="Kxv-Og-tGC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="L3H-BS-Y2C"/>
+                <constraint firstItem="Kxv-Og-tGC" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="LoW-Xd-DKw"/>
+                <constraint firstItem="rXa-70-p8v" firstAttribute="top" secondItem="Kxv-Og-tGC" secondAttribute="bottom" id="atC-tt-51e"/>
+                <constraint firstItem="rXa-70-p8v" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="toV-Aj-aiq"/>
+                <constraint firstAttribute="bottom" secondItem="rXa-70-p8v" secondAttribute="bottom" id="zTL-HQ-ila"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

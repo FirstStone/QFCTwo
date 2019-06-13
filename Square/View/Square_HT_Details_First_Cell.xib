@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="302" id="KGk-i7-Jjw" customClass="Square_HT_Details_First_Cell">
+            <rect key="frame" x="0.0" y="0.0" width="445" height="302"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="445" height="301.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="HPX-zD-ind">
+                        <rect key="frame" x="10" y="10" width="55" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="1pR-jk-1AW"/>
+                            <constraint firstAttribute="width" constant="55" id="Cfq-QE-SA4"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快友123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mck-a0-OPM">
+                        <rect key="frame" x="75" y="23.5" width="53" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="0Xa-rm-3pt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMi-9U-giE">
+                        <rect key="frame" x="10" y="81" width="425" height="76.5"/>
+                        <string key="text">这几颗去年开的特别好的海棠，今年花少得可怜，看
+花苞只有少得可怜的两三个，通体绿叶。想想觉得特
+别奇妙~感觉花小小的身体也是需要累积几年能量的，
+到能量条满格。</string>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGG-5K-aca">
+                        <rect key="frame" x="394" y="275.5" width="41" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="UMY-Zm-uaq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="999  " image="icon_Fenxiang">
+                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </state>
+                        <connections>
+                            <action selector="ShareButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0V5-TH-h9N"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBr-dQ-ZNS">
+                        <rect key="frame" x="337" y="275.5" width="43" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="x3d-Nu-3Jd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="999  " image="icon_Xihuan_hui">
+                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSw-ah-ngn">
+                        <rect key="frame" x="278" y="275.5" width="45" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="FKp-Ty-bJv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="999  " image="icon_Pinglun">
+                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfo-qo-4NI">
+                        <rect key="frame" x="223" y="275.5" width="41" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="XDo-Xo-NXX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="999  " image="icon_Ding_Hui">
+                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </state>
+                        <state key="selected" image="icon_Ding_Lv"/>
+                        <connections>
+                            <action selector="PraiseButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ixE-YG-qEJ"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZW-yh-De4">
+                        <rect key="frame" x="359" y="28.5" width="46" height="18"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="uya-MX-5Z2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="  +关注  ">
+                            <color key="titleColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="selected" title="  已关注  ">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="9"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorWithUIColor">
+                                <color key="value" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="FollowButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8fc-o5-bi5"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="五分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMi-Wh-vcu">
+                        <rect key="frame" x="75" y="38" width="45" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="5Ct-Ns-HrH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yP1-40-fqj" customClass="PYPhotosView">
+                        <rect key="frame" x="10" y="168.5" width="425" height="87"/>
+                    </scrollView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quo-oX-KJd">
+                        <rect key="frame" x="10" y="300.5" width="425" height="1"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="3ec-CV-Ozd"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAl-nH-4ks">
+                        <rect key="frame" x="420" y="26.5" width="15" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="Gnu-Xh-Ued"/>
+                            <constraint firstAttribute="height" constant="22" id="y2q-w0-0Qv"/>
+                        </constraints>
+                        <state key="normal" image="icon_Xing_hui"/>
+                        <state key="selected" image="icon_xing_lv"/>
+                        <connections>
+                            <action selector="CollectionButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fab-ap-odo"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tSw-ah-ngn" firstAttribute="centerY" secondItem="Sfo-qo-4NI" secondAttribute="centerY" id="1RE-0Y-2cE"/>
+                    <constraint firstItem="KGG-5K-aca" firstAttribute="leading" secondItem="oBr-dQ-ZNS" secondAttribute="trailing" constant="14" id="3c0-9v-xQe"/>
+                    <constraint firstAttribute="bottom" secondItem="KGG-5K-aca" secondAttribute="bottom" constant="14" id="5Xz-og-cls"/>
+                    <constraint firstItem="tSw-ah-ngn" firstAttribute="leading" secondItem="Sfo-qo-4NI" secondAttribute="trailing" constant="14" id="6DU-6S-ull"/>
+                    <constraint firstItem="HPX-zD-ind" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9ff-Bp-1S6"/>
+                    <constraint firstAttribute="trailing" secondItem="KGG-5K-aca" secondAttribute="trailing" constant="10" id="CaO-vT-tc5"/>
+                    <constraint firstItem="oBr-dQ-ZNS" firstAttribute="centerY" secondItem="tSw-ah-ngn" secondAttribute="centerY" id="DLU-Op-8UC"/>
+                    <constraint firstAttribute="trailing" secondItem="yP1-40-fqj" secondAttribute="trailing" constant="10" id="GWt-rJ-Loq"/>
+                    <constraint firstItem="oBr-dQ-ZNS" firstAttribute="leading" secondItem="tSw-ah-ngn" secondAttribute="trailing" constant="14" id="GmK-Sn-pV4"/>
+                    <constraint firstAttribute="trailing" secondItem="JAl-nH-4ks" secondAttribute="trailing" constant="10" id="Ivb-jh-dBJ"/>
+                    <constraint firstItem="JAl-nH-4ks" firstAttribute="centerY" secondItem="wZW-yh-De4" secondAttribute="centerY" id="JHx-ZB-kyO"/>
+                    <constraint firstItem="Mck-a0-OPM" firstAttribute="leading" secondItem="HPX-zD-ind" secondAttribute="trailing" constant="10" id="JXt-KH-ns6"/>
+                    <constraint firstItem="yP1-40-fqj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Quc-L2-Ttc"/>
+                    <constraint firstItem="KGG-5K-aca" firstAttribute="centerY" secondItem="tSw-ah-ngn" secondAttribute="centerY" id="Rdy-bL-Wkm"/>
+                    <constraint firstItem="HPX-zD-ind" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SlP-hx-izf"/>
+                    <constraint firstItem="qMi-9U-giE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="W11-eW-8wE"/>
+                    <constraint firstItem="Mck-a0-OPM" firstAttribute="centerY" secondItem="HPX-zD-ind" secondAttribute="centerY" constant="-7" id="Yod-JG-xn2"/>
+                    <constraint firstItem="KGG-5K-aca" firstAttribute="top" secondItem="yP1-40-fqj" secondAttribute="bottom" constant="20" id="bqP-j4-dYJ"/>
+                    <constraint firstAttribute="bottom" secondItem="quo-oX-KJd" secondAttribute="bottom" id="cg8-mc-4aE"/>
+                    <constraint firstItem="yP1-40-fqj" firstAttribute="top" secondItem="qMi-9U-giE" secondAttribute="bottom" constant="11" id="ekR-eH-vfG"/>
+                    <constraint firstItem="quo-oX-KJd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gmF-Qu-kVf"/>
+                    <constraint firstAttribute="trailing" secondItem="qMi-9U-giE" secondAttribute="trailing" constant="10" id="hQ5-DB-qef"/>
+                    <constraint firstItem="YMi-Wh-vcu" firstAttribute="centerY" secondItem="HPX-zD-ind" secondAttribute="centerY" constant="6" id="hkN-OQ-lbJ"/>
+                    <constraint firstItem="qMi-9U-giE" firstAttribute="top" secondItem="HPX-zD-ind" secondAttribute="bottom" constant="16" id="jDz-ni-alC"/>
+                    <constraint firstItem="JAl-nH-4ks" firstAttribute="leading" secondItem="wZW-yh-De4" secondAttribute="trailing" constant="15" id="kWM-Be-53A"/>
+                    <constraint firstAttribute="trailing" secondItem="quo-oX-KJd" secondAttribute="trailing" constant="10" id="qxg-Qt-jmK"/>
+                    <constraint firstItem="YMi-Wh-vcu" firstAttribute="leading" secondItem="HPX-zD-ind" secondAttribute="trailing" constant="10" id="viF-v9-34D"/>
+                    <constraint firstItem="wZW-yh-De4" firstAttribute="centerY" secondItem="HPX-zD-ind" secondAttribute="centerY" id="yVv-RW-Y2E"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="Collection_BT" destination="JAl-nH-4ks" id="q7d-q6-Jux"/>
+                <outlet property="Follow_BT" destination="wZW-yh-De4" id="d63-fb-zYA"/>
+                <outlet property="Image_View" destination="yP1-40-fqj" id="iNU-8h-4WE"/>
+                <outlet property="Name_Label" destination="Mck-a0-OPM" id="coA-zN-Joy"/>
+                <outlet property="Text_Label" destination="qMi-9U-giE" id="Lgq-Wr-LaD"/>
+                <outlet property="Time_Label" destination="YMi-Wh-vcu" id="fun-ca-HhW"/>
+                <outlet property="ding_BT" destination="Sfo-qo-4NI" id="1rZ-Pm-91N"/>
+                <outlet property="fenxiang_BT" destination="KGG-5K-aca" id="Gkb-ZX-L1C"/>
+                <outlet property="icon_imageView" destination="HPX-zD-ind" id="osO-wS-tzL"/>
+                <outlet property="pinglin_BT" destination="tSw-ah-ngn" id="RXL-ME-djf"/>
+                <outlet property="xihuang_BT" destination="oBr-dQ-ZNS" id="VaD-Lx-35z"/>
+            </connections>
+            <point key="canvasLocation" x="128.2608695652174" y="197.54464285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_Ding_Hui" width="13" height="17"/>
+        <image name="icon_Ding_Lv" width="13" height="17"/>
+        <image name="icon_Fenxiang" width="13" height="12"/>
+        <image name="icon_Pinglun" width="17" height="13.5"/>
+        <image name="icon_Xihuan_hui" width="15" height="13"/>
+        <image name="icon_Xing_hui" width="15" height="15"/>
+        <image name="icon_touxiang" width="30" height="30"/>
+        <image name="icon_xing_lv" width="15" height="15"/>
+    </resources>
+</document>

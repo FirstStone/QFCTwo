@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Mine_ShopCard_ViewController">
+            <connections>
+                <outlet property="tableView" destination="eav-xr-FRC" id="n2e-yt-3Mx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewc-vR-1ha">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="0cJ-uo-G3I"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="店铺券" id="dFH-6Y-7A2">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="tlT-Ew-ecY">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftButtonPOP:" destination="-1" id="bIs-Ec-PnN"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bou-mh-bWV">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eav-xr-FRC" customClass="Basic_TableView">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="KUo-UX-NVG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_card_top" translatesAutoresizingMaskIntoConstraints="NO" id="6Jz-g4-WHd">
+                                <rect key="frame" x="10" y="10" width="394" height="96"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Jz-g4-WHd" firstAttribute="leading" secondItem="RVj-Cm-nn7" secondAttribute="leading" constant="10" id="Fzy-NM-un8"/>
+                            <constraint firstItem="RVj-Cm-nn7" firstAttribute="trailing" secondItem="6Jz-g4-WHd" secondAttribute="trailing" constant="10" id="Xsw-ft-9fi"/>
+                            <constraint firstAttribute="bottom" secondItem="6Jz-g4-WHd" secondAttribute="bottom" constant="10" id="e9g-UH-QLg"/>
+                            <constraint firstItem="6Jz-g4-WHd" firstAttribute="top" secondItem="KUo-UX-NVG" secondAttribute="top" constant="10" id="hM8-8s-Rvm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RVj-Cm-nn7"/>
+                    </view>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Bou-mh-bWV" firstAttribute="top" secondItem="ewc-vR-1ha" secondAttribute="bottom" id="6Hy-EH-doi"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Bou-mh-bWV" secondAttribute="trailing" id="ASQ-it-byK"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="eav-xr-FRC" secondAttribute="bottom" id="GmW-gK-4LB"/>
+                <constraint firstItem="ewc-vR-1ha" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="IER-2e-IVP"/>
+                <constraint firstAttribute="bottom" secondItem="Bou-mh-bWV" secondAttribute="bottom" id="Jkt-GZ-rtL"/>
+                <constraint firstItem="eav-xr-FRC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Jtl-Xx-mKo"/>
+                <constraint firstItem="eav-xr-FRC" firstAttribute="top" secondItem="ewc-vR-1ha" secondAttribute="bottom" id="UeQ-cm-jvZ"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eav-xr-FRC" secondAttribute="trailing" id="eIL-gj-v9D"/>
+                <constraint firstItem="ewc-vR-1ha" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="hof-FA-fZw"/>
+                <constraint firstItem="ewc-vR-1ha" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="tqa-Jz-w0U"/>
+                <constraint firstItem="Bou-mh-bWV" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="zO4-jA-3tJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_card_top" width="710" height="201"/>
+    </resources>
+</document>

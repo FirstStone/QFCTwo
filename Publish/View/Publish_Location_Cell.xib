@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="KGk-i7-Jjw" customClass="Publish_Location_Cell">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="67"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="392" height="66.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpW-zZ-g00">
+                        <rect key="frame" x="34" y="10" width="348" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="qgN-VK-kqB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egX-2F-4Ey">
+                        <rect key="frame" x="34" y="35" width="348" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nog-35-Ub3">
+                        <rect key="frame" x="10" y="22.5" width="14" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="14" id="4Zq-9O-cFl"/>
+                            <constraint firstAttribute="height" constant="22" id="dfr-tK-Eyy"/>
+                        </constraints>
+                        <state key="normal" image="icon_Mine_SetUP_duigou_kong"/>
+                        <state key="selected" image="icon_Mine_SetUP_duigou"/>
+                        <connections>
+                            <action selector="StateButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PDd-py-rCy"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="egX-2F-4Ey" firstAttribute="leading" secondItem="gpW-zZ-g00" secondAttribute="leading" id="8Qm-Re-Iay"/>
+                    <constraint firstAttribute="trailing" secondItem="gpW-zZ-g00" secondAttribute="trailing" constant="10" id="8Zd-TH-Zoh"/>
+                    <constraint firstAttribute="bottom" secondItem="egX-2F-4Ey" secondAttribute="bottom" constant="10" id="9hd-h3-gaF"/>
+                    <constraint firstItem="egX-2F-4Ey" firstAttribute="top" secondItem="gpW-zZ-g00" secondAttribute="bottom" constant="5" id="TvM-mq-heL"/>
+                    <constraint firstItem="gpW-zZ-g00" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="X33-jw-hBb"/>
+                    <constraint firstItem="Nog-35-Ub3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Znl-3S-7Wv"/>
+                    <constraint firstAttribute="trailing" secondItem="egX-2F-4Ey" secondAttribute="trailing" constant="10" id="gAq-Mr-8aX"/>
+                    <constraint firstItem="gpW-zZ-g00" firstAttribute="leading" secondItem="Nog-35-Ub3" secondAttribute="trailing" constant="10" id="irR-DI-0p8"/>
+                    <constraint firstItem="Nog-35-Ub3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="r9s-64-ecs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="State_BT" destination="Nog-35-Ub3" id="giK-Ry-Hgd"/>
+                <outlet property="Sub_Label" destination="egX-2F-4Ey" id="xFw-eR-fUP"/>
+                <outlet property="Title_Label" destination="gpW-zZ-g00" id="HfU-tf-xSA"/>
+            </connections>
+            <point key="canvasLocation" x="149.27536231884059" y="223.32589285714283"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_Mine_SetUP_duigou" width="13.333333015441895" height="13.333333015441895"/>
+        <image name="icon_Mine_SetUP_duigou_kong" width="14" height="14"/>
+    </resources>
+</document>

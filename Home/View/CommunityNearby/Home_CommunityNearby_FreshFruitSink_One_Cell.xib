@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="117" id="KGk-i7-Jjw" customClass="Home_CommunityNearby_Fruits_One_Cell">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="117"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="401" height="116.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G51-iT-JhE">
+                        <rect key="frame" x="10" y="0.0" width="381" height="105"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_5" translatesAutoresizingMaskIntoConstraints="NO" id="qsL-zf-0MB">
+                                <rect key="frame" x="10" y="10" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="fO0-PK-CYg"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LV2019新款女鞋高夏季必选款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzn-nC-wYV">
+                                <rect key="frame" x="105" y="10" width="166" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥320 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEU-yo-vWY">
+                                <rect key="frame" x="105" y="35" width="44" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.28627450980000002" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  满200减60  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zg-dx-y0q">
+                                <rect key="frame" x="105" y="63" width="76" height="15"/>
+                                <color key="backgroundColor" red="1" green="0.28627450980000002" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="qsL-zf-0MB" firstAttribute="leading" secondItem="G51-iT-JhE" secondAttribute="leading" constant="10" id="5Vu-tA-Gsb"/>
+                            <constraint firstItem="Fzn-nC-wYV" firstAttribute="leading" secondItem="qsL-zf-0MB" secondAttribute="trailing" constant="10" id="Ca1-MQ-5GH"/>
+                            <constraint firstAttribute="height" constant="105" id="Ga4-LZ-l9y"/>
+                            <constraint firstItem="qsL-zf-0MB" firstAttribute="top" secondItem="G51-iT-JhE" secondAttribute="top" constant="10" id="Hax-l7-W7v"/>
+                            <constraint firstItem="8Zg-dx-y0q" firstAttribute="top" secondItem="EEU-yo-vWY" secondAttribute="bottom" constant="10" id="JhD-uk-DtK"/>
+                            <constraint firstItem="Fzn-nC-wYV" firstAttribute="top" secondItem="qsL-zf-0MB" secondAttribute="top" id="ZTV-GK-ufq"/>
+                            <constraint firstItem="EEU-yo-vWY" firstAttribute="leading" secondItem="Fzn-nC-wYV" secondAttribute="leading" id="eg3-uZ-dWT"/>
+                            <constraint firstItem="EEU-yo-vWY" firstAttribute="top" secondItem="Fzn-nC-wYV" secondAttribute="bottom" constant="10" id="i9d-ub-pXg"/>
+                            <constraint firstAttribute="bottom" secondItem="qsL-zf-0MB" secondAttribute="bottom" constant="10" id="tas-RG-sar"/>
+                            <constraint firstItem="8Zg-dx-y0q" firstAttribute="leading" secondItem="Fzn-nC-wYV" secondAttribute="leading" id="wrh-Od-Epn"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="G51-iT-JhE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Oji-33-kei"/>
+                    <constraint firstAttribute="trailing" secondItem="G51-iT-JhE" secondAttribute="trailing" constant="10" id="aAJ-9w-Gn3"/>
+                    <constraint firstAttribute="bottom" secondItem="G51-iT-JhE" secondAttribute="bottom" constant="10" id="rGo-WT-WRP"/>
+                    <constraint firstItem="G51-iT-JhE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zMS-eE-zaD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="Price_Label" destination="EEU-yo-vWY" id="Dwe-Mf-4oB"/>
+                <outlet property="Title_Label" destination="Fzn-nC-wYV" id="mZG-k6-noo"/>
+                <outlet property="icon_imageView" destination="qsL-zf-0MB" id="iHg-db-GuR"/>
+            </connections>
+            <point key="canvasLocation" x="199.27536231884059" y="59.263392857142854"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="image_5" width="120" height="140"/>
+    </resources>
+</document>

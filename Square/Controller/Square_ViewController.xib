@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Square_ViewController">
+            <connections>
+                <outlet property="Right_BT" destination="01F-dH-RSf" id="w5l-Yg-RCu"/>
+                <outlet property="segmentedControl" destination="Gdb-ei-ef4" id="Z5U-aL-XNA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhn-Gm-0Kb">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01F-dH-RSf">
+                            <rect key="frame" x="344" y="2" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="88d-5b-aPS"/>
+                                <constraint firstAttribute="height" constant="40" id="iYr-24-qFQ"/>
+                            </constraints>
+                            <state key="normal" image="icon_sousuo"/>
+                            <connections>
+                                <action selector="RightBTClick:" destination="-1" eventType="touchUpInside" id="Hfd-zs-r3U"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdb-ei-ef4" customClass="HMSegmentedControl">
+                            <rect key="frame" x="10" y="0.0" width="314" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="01F-dH-RSf" secondAttribute="trailing" constant="30" id="1vs-dm-ajb"/>
+                        <constraint firstItem="01F-dH-RSf" firstAttribute="centerY" secondItem="Bhn-Gm-0Kb" secondAttribute="centerY" id="26v-Ji-l2s"/>
+                        <constraint firstItem="01F-dH-RSf" firstAttribute="leading" secondItem="Gdb-ei-ef4" secondAttribute="trailing" constant="20" id="fuY-8P-2mi"/>
+                        <constraint firstItem="Gdb-ei-ef4" firstAttribute="top" secondItem="Bhn-Gm-0Kb" secondAttribute="top" id="jIj-th-0Vo"/>
+                        <constraint firstAttribute="bottom" secondItem="Gdb-ei-ef4" secondAttribute="bottom" id="mJn-hU-fGu"/>
+                        <constraint firstAttribute="height" constant="44" id="qZR-nw-Tij"/>
+                        <constraint firstItem="Gdb-ei-ef4" firstAttribute="leading" secondItem="Bhn-Gm-0Kb" secondAttribute="leading" constant="10" id="rch-sg-Cfj"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxS-CP-59S">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Bhn-Gm-0Kb" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="OgK-5S-ca8"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="pxS-CP-59S" secondAttribute="trailing" id="dSD-Lw-Hd5"/>
+                <constraint firstItem="Bhn-Gm-0Kb" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="iGu-k7-msp"/>
+                <constraint firstAttribute="bottom" secondItem="pxS-CP-59S" secondAttribute="bottom" id="jJW-u6-pbT"/>
+                <constraint firstItem="Bhn-Gm-0Kb" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="k04-hH-LGT"/>
+                <constraint firstItem="pxS-CP-59S" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="orW-Qj-mdI"/>
+                <constraint firstItem="pxS-CP-59S" firstAttribute="top" secondItem="Bhn-Gm-0Kb" secondAttribute="bottom" id="tFO-TU-3QN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="153.62318840579712" y="35.491071428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_sousuo" width="15" height="15"/>
+    </resources>
+</document>

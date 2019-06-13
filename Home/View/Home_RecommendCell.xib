@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="220" id="KGk-i7-Jjw" customClass="Home_RecommendCell">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="220"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="411" height="219.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmf-bk-EPv">
+                        <rect key="frame" x="10" y="5" width="391" height="204.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="夏威夷有海鲜自动餐厅 豪华晚餐自助" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvs-sx-7gZ">
+                                <rect key="frame" x="14" y="12" width="249" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="xzk-mg-mQ1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pg-RE-YkW">
+                                <rect key="frame" x="304" y="35" width="77" height="19"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="mu3-2I-V0F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <state key="normal" title="  据您仅1.3公里  ">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIa-pT-Yjm">
+                                <rect key="frame" x="14" y="38" width="215" height="11"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="Qqc-WY-OSx"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="仅售">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="328">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.29019607843137252" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="10" name=".SFNSText"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="元，价值">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="1356">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" metaFont="system" size="10"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="元的优惠套餐，欢迎体验">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="10" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_5" translatesAutoresizingMaskIntoConstraints="NO" id="Doj-O6-MIe">
+                                <rect key="frame" x="10" y="67" width="117" height="127.5"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_6" translatesAutoresizingMaskIntoConstraints="NO" id="Kg6-tW-bE5">
+                                <rect key="frame" x="264" y="67" width="117" height="127.5"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_4" translatesAutoresizingMaskIntoConstraints="NO" id="cTh-ix-Egf">
+                                <rect key="frame" x="137" y="67" width="117" height="127.5"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dvs-sx-7gZ" firstAttribute="top" secondItem="wmf-bk-EPv" secondAttribute="top" constant="12" id="1HW-sb-HN7"/>
+                            <constraint firstAttribute="bottom" secondItem="Doj-O6-MIe" secondAttribute="bottom" constant="10" id="58o-tc-h5K"/>
+                            <constraint firstItem="cIa-pT-Yjm" firstAttribute="leading" secondItem="wmf-bk-EPv" secondAttribute="leading" constant="14" id="9gy-AM-i2Y"/>
+                            <constraint firstItem="7Pg-RE-YkW" firstAttribute="top" secondItem="dvs-sx-7gZ" secondAttribute="bottom" constant="8" id="FII-YI-M5P"/>
+                            <constraint firstItem="dvs-sx-7gZ" firstAttribute="leading" secondItem="wmf-bk-EPv" secondAttribute="leading" constant="14" id="Kze-D2-H9R"/>
+                            <constraint firstItem="Doj-O6-MIe" firstAttribute="width" secondItem="Kg6-tW-bE5" secondAttribute="width" id="L2j-wg-1vm"/>
+                            <constraint firstAttribute="trailing" secondItem="Kg6-tW-bE5" secondAttribute="trailing" constant="10" id="Lmh-9Z-PIr"/>
+                            <constraint firstItem="Doj-O6-MIe" firstAttribute="leading" secondItem="wmf-bk-EPv" secondAttribute="leading" constant="10" id="M68-cX-hDv"/>
+                            <constraint firstItem="cTh-ix-Egf" firstAttribute="top" secondItem="Doj-O6-MIe" secondAttribute="top" id="Thh-Bs-MGA"/>
+                            <constraint firstItem="Doj-O6-MIe" firstAttribute="height" secondItem="Kg6-tW-bE5" secondAttribute="height" id="VOc-OT-eDP"/>
+                            <constraint firstItem="cTh-ix-Egf" firstAttribute="bottom" secondItem="Doj-O6-MIe" secondAttribute="bottom" id="YFZ-AN-Wrg"/>
+                            <constraint firstItem="Kg6-tW-bE5" firstAttribute="top" secondItem="Doj-O6-MIe" secondAttribute="top" id="avh-ka-bN9"/>
+                            <constraint firstItem="Doj-O6-MIe" firstAttribute="top" secondItem="cIa-pT-Yjm" secondAttribute="bottom" constant="18" id="bMh-PF-P3l"/>
+                            <constraint firstItem="cIa-pT-Yjm" firstAttribute="top" secondItem="dvs-sx-7gZ" secondAttribute="bottom" constant="11" id="f1N-BS-T2j"/>
+                            <constraint firstItem="cTh-ix-Egf" firstAttribute="height" secondItem="Kg6-tW-bE5" secondAttribute="height" id="i3f-sN-Zei"/>
+                            <constraint firstItem="Kg6-tW-bE5" firstAttribute="leading" secondItem="cTh-ix-Egf" secondAttribute="trailing" constant="10" id="ia8-PM-vRg"/>
+                            <constraint firstAttribute="trailing" secondItem="7Pg-RE-YkW" secondAttribute="trailing" constant="10" id="kq0-n1-zC6"/>
+                            <constraint firstItem="cTh-ix-Egf" firstAttribute="leading" secondItem="Doj-O6-MIe" secondAttribute="trailing" constant="10" id="sBi-sK-KRQ"/>
+                            <constraint firstItem="cTh-ix-Egf" firstAttribute="width" secondItem="Kg6-tW-bE5" secondAttribute="width" id="yu3-6f-mrc"/>
+                            <constraint firstItem="Kg6-tW-bE5" firstAttribute="bottom" secondItem="Doj-O6-MIe" secondAttribute="bottom" id="zfU-zY-MEj"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="wmf-bk-EPv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0uB-nC-5Je"/>
+                    <constraint firstAttribute="trailing" secondItem="wmf-bk-EPv" secondAttribute="trailing" constant="10" id="CHO-cs-5uc"/>
+                    <constraint firstItem="wmf-bk-EPv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="dvn-tr-trO"/>
+                    <constraint firstAttribute="bottom" secondItem="wmf-bk-EPv" secondAttribute="bottom" constant="10" id="jeG-pd-7Qo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <point key="canvasLocation" x="50" y="100"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="image_4" width="120" height="140"/>
+        <image name="image_5" width="120" height="140"/>
+        <image name="image_6" width="120" height="140"/>
+    </resources>
+</document>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Mine_SettledIn_Housekeeping_ViewController">
+            <connections>
+                <outlet property="Sure_BT" destination="er8-Yx-bgf" id="V9D-Mf-MuZ"/>
+                <outlet property="scrollerView" destination="FS5-27-r6v" id="lrh-jM-0RQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRB-uI-MBf">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Pbt-G8-0Lo"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="家政人员资料" id="Qx3-ey-BQm">
+                            <barButtonItem key="leftBarButtonItem" image="icon_HT_XiangQing_Zuo" id="MyK-Ld-fx4">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftButtonPOP:" destination="-1" id="W2a-kq-EMB"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ux0-tV-tNy">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="er8-Yx-bgf">
+                    <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                    <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="2ww-2y-LyL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal" title="提交申请">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="SureBTClick:" destination="-1" eventType="touchUpInside" id="Smx-FL-Bea"/>
+                    </connections>
+                </button>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FS5-27-r6v">
+                    <rect key="frame" x="0.0" y="88" width="414" height="724"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="HRB-uI-MBf" secondAttribute="trailing" id="Afn-Bd-JWY"/>
+                <constraint firstItem="FS5-27-r6v" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="JTg-TV-D9h"/>
+                <constraint firstAttribute="bottom" secondItem="ux0-tV-tNy" secondAttribute="bottom" id="Oj1-MC-ztQ"/>
+                <constraint firstItem="ux0-tV-tNy" firstAttribute="top" secondItem="HRB-uI-MBf" secondAttribute="bottom" id="QDE-pO-dYH"/>
+                <constraint firstItem="ux0-tV-tNy" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Wrt-OU-Ycc"/>
+                <constraint firstItem="HRB-uI-MBf" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="b7D-so-qgI"/>
+                <constraint firstItem="ux0-tV-tNy" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="dt9-5T-dn5"/>
+                <constraint firstItem="er8-Yx-bgf" firstAttribute="top" secondItem="FS5-27-r6v" secondAttribute="bottom" id="fQy-i9-o55"/>
+                <constraint firstItem="FS5-27-r6v" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="jnw-bW-o4y"/>
+                <constraint firstItem="FS5-27-r6v" firstAttribute="top" secondItem="HRB-uI-MBf" secondAttribute="bottom" id="lEX-LK-VpX"/>
+                <constraint firstItem="HRB-uI-MBf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sJd-Nh-qk7"/>
+                <constraint firstItem="er8-Yx-bgf" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="uof-dr-zoL"/>
+                <constraint firstItem="er8-Yx-bgf" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="yBS-iq-n6Z"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="er8-Yx-bgf" secondAttribute="bottom" id="zMM-fC-TrY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_HT_XiangQing_Zuo" width="32" height="31.5"/>
+    </resources>
+</document>

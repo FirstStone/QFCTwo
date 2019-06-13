@@ -1,0 +1,1292 @@
+//
+//  PCH.pch
+//  QFC
+//
+//  Created by Apple on 2019/4/1.
+//  Copyright © 2019年 Apple. All rights reserved.
+//
+
+#ifndef PCH_pch
+#define PCH_pch
+
+#ifdef __OBJC__
+/**判断是不是iphone X*/
+#define  is_IPhone_X SCREEN_HEIGHT > 812 || SCREEN_HEIGHT == 812
+# define XNLog(format, ...) NSLog((@"[文件名:%s]" "[函数名:%s]" "[行号:%d]" format), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREEN_FRAME [UIScreen mainScreen].bounds
+#define QFC_Color(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define QFC_RColor(r,g,b,d) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(d)]
+#define f_UIColorFromColor16(color16,alp) [UIColor colorWithRed:((float)((color16 & 0xFF0000) >> 16))/255.0 green:((float)((color16 & 0xFF00) >> 8))/255.0 blue:((float)(color16 & 0xFF))/255.0 alpha:alp]
+
+#import "CustomBT.h"
+#import "QFCTabBar.h"
+#import "Basic_ViewController.h"
+#import "Basic_NavigationController.h"
+#import "Basic_TableView.h"
+#import "Home_ViewController.h"
+#import "Square_ViewController.h"
+#import "Message_ViewController.h"
+#import "Mine_ViewController.h"
+#import "Login_USer_ViewController.h"
+#import "Login_PhoneCodeViewControlloer.h"
+#import "FMHorizontalMenuView.h"
+#import "Home_ShangQiang_CollectionViewCell.h"
+#import "Home_CommunityActivities_Cell.h"
+#import "Home_PreferentialCell.h"
+#import "Home_RecommendCell.h"
+#import "Home_CommunityHotSearchCell.h"
+#import "ZXCategorySliderBar.h"
+#import "ZXPageCollectionView.h"
+#import "Square_Tableview.h"
+#import "Square_Default_Cell.h"
+#import "Square_Shop_Cell.h"
+#import "Square_TextCell.h"
+#import "Square_ES_Header_Cell.h"
+#import "Square_HT_ImageCell.h"
+#import "Square_HT_Text_Cell.h"
+#import "Publish_ViewController.h"
+#import "Publish_Tip_View.h"
+#import "Square_WD_ImageCell.h"
+#import "Square_WD_Question_Cell.h"
+#import "Square_WD_Text_Cell.h"
+#import "Square_WD_ImageAndText_Cell.h"
+#import "Square_WD_SD_Cell.h"
+#import "Message_TZ_Cell.h"
+#import "Message_TZ_Default_Cell.h"
+#import "Square_HT_Details_VC.h"
+#import "Square_HT_Details_First_Cell.h"
+#import "Square_HT_Details_Comment_Cell.h"
+#import "Mine_CV_HeaderViewCRV.h"
+#import "Mine_CV_TopImageDownLabel_Cell.h"
+#import "Mine_CV_Public_HeaderViewCRV.h"
+#import "Mine_CV_Shop_Style_Cell.h"
+#import "XKEmptyPlaceView.h"
+#import "Square_HT_Details_Seach_VC.h"
+#import "Square_Prsonal_Details_VC.h"
+#import "Publish_Location_VC.h"
+#import "Publish_Lable_VC.h"
+#import "Mine_FollowViewController.h"
+#import "Mine_PublishViewController.h"
+#import "Mine_CollectionViewController.h"
+#import "Square_QuestionAndAnswersTV.h"
+#import "Square_QuestionsAndAnswersVC.h"
+#import "Message_FansViewController.h"
+#import "Message_ApexViewController.h"
+#import "Message_CommentViewController.h"
+#import "Message_ForwardViewController.h"
+#import "Message_Fans_Cell.h"
+#import "Message_ApexCell.h"
+#import "Message_AnswerViewController.h"
+#import "Message_NotificationCenter_VC.h"
+#import "Message_RunErrands_VC.h"
+#import "Messag_Shoping_VC.h"
+#import "Message_Housekeeping_VC.h"
+#import "Message_NotificationConter_Cell.h"
+#import "Message_RunErrands_Tableview.h"
+#import "Message_RunErrands_Tableview_Cell.h"
+#import "Message_RunErrands_TableView_NoOrderCell.h"
+#import "HMSegmentedControl.h"//导航条
+#import "Message_Shoping_Tableview.h"
+#import "Message_Shoping_Tableview_Cell.h"
+#import "Message_tableView_HeaderView.h"
+#import "Message_tableView_FooterView.h"
+#import "Message_Housekeeping_Tableview.h"
+#import "Message_HouseKeeping_Tableview_Cell.h"
+#import "Mine_FollowView_TableView_Cell.h"
+#import "Mine_Follow_Publish_Collection_Tableview.h"
+#import "Mine_SetUP_ViewController.h"
+#import "Mine_SetUP_Cell.h"
+#import "Mine_SetUP_MyAddress_ViewController.h"
+#import "Mine_SetUP_MyAddress_Cell.h"
+#import "Mine_SetUPUI_MyAddress_NewAdd_VC.h"
+#import "Mine_SetUP_Safe_VC.h"
+#import "Mine_SetUP_Currency_VC.h"
+#import "Mine_SetUP_Text_SwitchBBT_Cell.h"
+#import "Mine_SetUP_Currency_NewMessage_VC.h"
+#import "Mine_SetUP_Privacy_VC.h"
+#import "Mine_SetUP_Privacy_System_VC.h"
+#import "Mine_SetUP_Privacy_Blacklist_VC.h"
+#import "Mine_SetUP_Privacy_Blacklist_Cell.h"
+#import "Mine_SetUP_Feedback_VC.h"
+#import "Mine_SetUP_About_Me_VC.h"
+#import "Mine_SetUP_PersonalData_VC.h"
+#import "Mine_SetUP_Title_image_Cell.h"
+#import "Mine_MyOrder_ViewController.h"
+#import "Mine_MyOrder_User_Tableview.h"
+#import "Mine_MyOrder_TableView_HeaderView.h"
+#import "Mine_MyOrder_TableView_FooterView.h"
+#import "Mine_MyOrder_Shop_Cell.h"
+#import "Mine_MyOrder_RunErrands_Cell.h"
+#import "Mine_MyOrder_HouseKeeping_Cell.h"
+#import "Mine_MyOrder_User_Service_ViewController.h"
+#import "Mine_MyOrder_ButtonAndTableView_View.h"
+#import "Mine_MyOrder_HouseKeeping_ViewController.h"
+#import "Mine_MyOrder_RunErrands_ViewController.h"
+#import "Mine_MyOrder_Shop_ViewController.h"
+#import "Home_ShoppingCart_ViewController.h"
+#import "Home_Shopping_Cell.h"
+#import "Home_ShoppingCatr_HeaderView.h"
+#import "Home_ShoppingCatr_Settlement_ViewController.h"
+#import "Home_ShoppingCatr_Settlement_Cell.h"
+#import "Home_ShopCatr_Settlement_Address_Cell.h"
+#import "Home_ShopCatr_Settlement_FooterView.h"
+#import "Mine_WalletViewController.h"
+#import "Mine_Wallet_CashOut_ViewController.h"
+#import "Mine_Wallet_CashOut_View.h"
+#import "Mine_Wallet_Recharge_ViewController.h"
+#import "Mine_Wallet_Bill_Cell.h"
+#import "Mine_Wallet_Bill_ViewController.h"
+#import "Mine_Wallet_BillDetails_ViewController.h"
+#import "Mine_SettledIn_ViewController.h"
+#import "Mine_SettledIn_Shoping_ViewController.h"
+#import "Mine_SettledIn_Housekeeping_ViewController.h"
+#import "Mine_SettledIn_RunErrands_ViewController.h"
+#import "LabelAndTextField.h"
+#import "Mine_MyOrder_Evaluate_ViewController.h"
+#import "Mine_MyOrder_User_AllEvaluate_ViewController.h"
+#import "Mine_Myorder_RunErrands_AllEvaluate_Cell.h"
+#import "Mine_Myorder_Shoping_AllEvaluate_Cell.h"
+#import "Mine_MyOrder_HouseKeeping_AllEvaluate_Cell.h"
+#import "Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_VC.h"
+#import "Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_TableView.h"
+#import "Home_CommunityNearby_ViewController.h"
+#import "Home_RunErrands_ViewController.h"
+#import "Home_HouseKeeping_ViewController.h"
+#import "Home_HouseKeeping_TableView.h"
+#import "Home_HouseKeepingCell.h"
+#import "RatingBar.h"
+#import "Mine_RunErrands_ServiceViewController.h"
+#import "Mine_HouseKeeping_Service_ViewController.h"
+#import "Mine_Shoping_Service_ViewController.h"
+#import "Mine_ShopingService_Details_ViewController.h"
+#import "Mine_Goods_Supervise_ViewController.h"
+#import "Mine_Goods_Supervise_Cell.h"
+#import "Mine_Goods_Supervise_View.h"
+#import "Home_CommunityNearby_FreshFruitSink_One_Cell.h"
+#import "Home_CommunityNearby_FreshFruitSink_Three_Cell.h"
+#import "Home_CommunityNearby_FirstEnjoy_ThreeCell.h"
+#import "Home_CommunityNearby_FirstEnjoy_OneCell.h"
+#import "Home_CommunityNearby_EspecialRegion_OneCell.h"
+#import "Home_CommunityNearby_EspecialRegion_ThreeCell.h"
+#import "Home_CommunityNearby_EspecialRegionFour_Cell.h"
+#import "Home_CommunityNearby_SectionHeader_View.h"
+#import "Mine_MyOrder_Details_ViewController.h"
+#import "Mine_MyOrderDetails_Statistics_Cell.h"
+#import "Mine_MyOrderDetails_RunErrands_Cell.h"
+#import "Mine_MyOrderDetails_Time_Cell.h"
+#import "Mine_MyOrderDetails_Special_HeaderView.h"
+#import "Mine_MyOrderDetails_HeaderView.h"
+#import "Home_RunErrands_View.h"
+#import "HomeRunErrandsOrderCell.h"
+#import "Home_HouseKeeping_PlaceOrder_ViewController.h"
+#import "Home_HouseKeeping_PlaceOrder_Depth_ViewController.h"
+#import "ButtonAndLabel.h"
+#import "Home_HouseKeeping_StyleCell.h"
+#import "Home_HouseeKeeping_PlaceOrderOrdinaryCell.h"
+#import "Home_HouseKeeping_PlaceOrder_AddressTimeCell.h"
+#import "Home_HouseKeeping_PlacOrder_StandardCell.h"
+#import "Home_HouseKeeping_PlacOrder_RemarksCell.h"
+#import "Home_HouseKeeping_PlacOrder_PriceCell.h"
+#import "Home_HouseKeeping_PlaceOrder_StyleCell.h"
+#import "Home_CommunityNearby_Branch_ViewController.h"
+#import "Home_CommunityNearby_Branch_CollectionView.h"
+#import "Home_CommunityNearby_Branch_CollectionViewCell.h"
+#import "Pay_ViewController.h"
+#import "UIScrollView+XKEmptyConfig.h"
+#import "YMTextView.h"
+#import "PublishBT.h"
+#import "Home_CommunityNearby_Branch_Details_VC.h"
+#import "Message_ApexView_TabelView.h"
+#import "Mine_MyOrderDetails_Statistics_New_Cell.h"
+#import "Square_Answer_VC.h"
+#import "Publish_Location_Cell.h"
+#import "Mine_MyActivity_ViewController.h"
+#import "Mine_MyActivity_HeaderView.h"
+#import "Mine_MyActivity_FooterView.h"
+#import "Mine_MyActivity_Cell.h"
+#import "Mine_MyCard_ViewController.h"
+#import "Mine_MyCardView_Cell.h"
+#import "Mine_ShopCoupon_ViewController.h"
+#import "Mine_ShopCard_ViewController.h"
+#import "Mine_GoodsCard_ViewController.h"
+#import "Mine_Vouchers_ViewController.h"
+#import "Mine_SetUP_PersonalData_Nickname_VC.h"
+#import "Mine_SetUP_MyLabel_VC.h"
+#import "Mine_SetUP_PassWord_VC.h"
+#import "Mine_SetUP_Phone_VC.h"
+#import "Mine_MyOrder_Evaluate_ViewController.h"
+#import "H5_Mine_MyShopStoreViewController.h"
+#import "H5_Mine_AddGoodd_Supervise_ViewController.h"
+#import "H5_MyActivity_ViewController.h"
+#import "H5_MyCard_ViewController.h"
+#import "Message_Conversation_ViewController.h"
+
+//数据模型
+#import "Message_FansList_Model.h"
+#import "Home_ShoppingCatr_Settlement_Model.h"
+#import "Home_ShoppingCart_Model.h"
+#import "Publish_Model.h"
+#import "Square_Details_Model.h"
+#import "Square_WD_Model.h"
+#import "Mine_Order_Model.h"
+#import "Home_CommunityNearby_Model.h"
+#import "Home_HouseKeep_PlaceOrder_Model.h"
+#import "Home_HouseKeeping_Model.h"
+#import "Mine_SetUP_MyAddress_Model.h"
+#import "PickerView.h"
+#import "SquareTitle_Model.h"
+#import "Singleton.h"
+
+//第三方类库倒入
+//不包含实时音视频功能 SDK 的头文件
+#import <HyphenateLite/HyphenateLite.h>
+#import "EaseUI.h"
+
+#import <AMapSearchKit/AMapSearchKit.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
+#import <WXApi.h>
+#import <AlipaySDK/AlipaySDK.h>
+#import <WebKit/WebKit.h>
+#import <IQKeyboardManager.h>
+#import <UIImageView+WebCache.h>
+#import <SVProgressHUD.h>
+#import <MBProgressHUD.h>
+#import "UploadParam.h"
+#import "HttpRequest.h"
+#import <AFNetworking/AFNetworking.h>
+#import <MJRefresh/MJRefresh.h>
+#import <MJExtension/MJExtension.h>
+#import <Masonry.h>
+#import <SDCycleScrollView.h>
+#import <YYKit.h>
+#import <SDCycleScrollView.h>
+#import <PYPhotoBrowser.h>
+#import <TZImagePickerController.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <PYSearch.h>
+#endif
+
+#define QFC_PublishView_NSNotification @"QFCPublishViewNSNotification"
+/**用户界面刷新*/
+#define QFC_UpDataSoureToSelfView_NSNotification @"QFCUPDataSoureToViewNotification"
+
+#define QFC_Color_Green QFC_Color(94,176,115)
+/**32CCF2*/
+#define QFC_Color_32CCF2 QFC_Color(50,204,242)
+/**F8F8F8*/
+#define QFC_BackColor_Gray QFC_Color(249,249,249)
+/**F2793A*/
+#define QFC_Color_F2793A QFC_Color(242,121,58)
+/**FFD21C*/
+#define QFC_Color_FFD21C QFC_Color(255,210,28)
+/**3AABF2*/
+#define QFC_Color_3AABF2 QFC_Color(58,171,242)
+/**55CC88*/
+#define QFC_Color_55CC88 QFC_Color(85,204,136)
+
+/**D8D8D8颜色*/
+#define QFC_Color_D8D8D8 QFC_Color(216,216,216)
+/**999999颜色*/
+#define QFC_Color_999999 QFC_Color(153,153,153)
+/**666666颜色*/
+#define QFC_Color_Six QFC_Color(102,102,102)
+/**30AC65颜色*/
+#define QFC_Color_30AC65 QFC_Color(55,183,120)
+/**333333颜色*/
+#define QFC_Color_333333 QFC_Color(51,51,51)
+/**#FF492B*/
+#define QFC_Color_FF492B QFC_Color(255,73,43)
+/**#F5F5F5*/
+#define QFC_Color_F5F5F5 QFC_Color(245,245,245)
+/**#55CC88*/
+#define QFC_Color_55CC88 QFC_Color(85,204,136)
+/**#EAD923*/
+#define QFC_Color_EAD923 QFC_Color(234,217,35)
+
+/**APPID*/
+#define STOREAPPID @"1461455050"
+
+//用户昵称
+#define User_Nickname @"nickname"
+
+//登录Mid
+#define User_Mid @"UserMid"
+//用户角色
+/**
+ type_id  0普通 1 跑腿 2家政 3商家
+ Audit 0  1审核通过 2待审核 3审核未通过
+ */
+#define User_Type @"UserType"
+//网络请求接口
+//域名头
+#define HTTPHeader @"https://www.txkuaiyou.com/"
+/**
+ //获取社区广场类型
+ Route::rule('plazatype','index/Plazatypes/setType');
+ */
+#define URL_setType HTTPHeader@"index/Plazatypes/setType"
+
+/**
+ //获取社区广场数据列表   没有登录传0  推荐传0
+ Route::rule('plazalist/:uid/:typeid/:page','index/Plazas/plazaList');
+ */
+#define URL_plazaList HTTPHeader@"index/Plazas/plazaList"
+
+/**
+ 获取社区广场问答列表
+ https://www.txkuaiyou.com/index/plazas/plazaanswers?page=1&uid=9
+ */
+#define URL_plazas_plazaanswers HTTPHeader@"index/plazas/plazaanswers"
+
+/**
+ //密码登录
+ Route::rule('passwordlogin/:phone/:password','index/Login/passwordLogin');
+ type_id  0普通 1 跑腿 2家政 3商家
+ Audit 0  1审核通过 2待审核 3审核未通过
+ */
+#define URL_passwordLogin HTTPHeader@"index/Login/passwordLogin"
+
+/**
+ //我的中心用户信息
+ Route::rule('centreuser/:uid','index/Centres/centreUser');
+ */
+#define URL_centreUser HTTPHeader@"index/Centres/centreUser"
+
+/**
+ 图片上传接口
+ index/users/userFiles
+ file  参数
+ */
+#define URL_userFiles HTTPHeader@"index/users/userFiles"
+
+/**
+ //服务商入驻 跑腿入驻    just身份证正面 against身份证反面  hand手持  sex1男2女
+ Route::rule('errandenter/:uid/:realname/:avatar/:sex/:age/:phone/:address/:just/:against/:hand/','index/Users/errandEnter');
+ */
+#define URL_errandEnter HTTPHeader@"index/Users/errandEnter"
+
+/**
+ //服务商入驻 家政入驻    status普通1深度2都干3  sex1男2女
+ Route::rule('husbandryenter/:uid/:realname/:avatar/:sex/:age/:phone/:address/:just/:against/:hand/:status','index/Users/husbandryEnter');
+ */
+#define URL_husbandryEnter HTTPHeader@"index/Users/husbandryEnter"
+
+/**
+ //服务商入驻 商家入驻  begin开始时间 end结束时间 merchant 名
+ Route::rule('merchantenter/:uid/:merchant/:avatar/:type/:realname/:phone/:address /:license /:just/:against/:hand/:begin/:end','index/Users/merchantEnter');
+ */
+#define URL_merchantEnter HTTPHeader@"index/Users/merchantEnter"
+
+/**
+ //收货地址添加
+ Route::rule('addressadd/:uid/:longitude/:latitude/:address/:details/:sex/:phone/:realname','index/UserAddresss/addressAdd');
+ */
+#define URL_addressAdd HTTPHeader@"index/Address/addressAdd"
+
+/**
+ //收货地址列表
+ Route::rule('addresslist/:uid','index/UserAddress/addressList');
+ */
+#define URL_addressList HTTPHeader@"index/Address/addressList"
+
+/**
+ //收货地址删除
+ Route::rule('addressdel/:uid','index/UserAddress/addressDel')
+ */
+#define URL_addressDel HTTPHeader@"index/Address/addressDel"
+
+/**
+ //收货地址修改
+ Route::rule('addressup/:id/:uid/:longitude/:latitude/:address/:details/:sex/:phone/:realname','index/UserAddresss/findUpd');
+ */
+#define URL_findUpd HTTPHeader@"index/Address/findUpd"
+
+/**
+ 默认地址选项
+ index/address/installAddress
+ uid
+ id
+ */
+#define URL_installAddress HTTPHeader@"index/Address/installAddress"
+
+/**
+ //跑腿下单 生成订单
+ Route::rule('errandorder/:uid/:begin/:finish/:times/:type/:weight/:remark','index/Errand/errandOrder');
+ */
+#define URL_errandOrder HTTPHeader@"index/Errand/errandOrder"
+
+/**
+ //家政列表  type 1普通保洁2深度保洁
+ Route::rule('setlist/:uid/:type/:page','index/Husbandry/setList');
+ */
+#define URL_setList HTTPHeader@"index/Husbandry/setList"
+
+/*
+ //家政下单页面 普通保洁
+ Route::rule('generaldetails/:id','index/Husbandry/generalDetails');
+ */
+#define URL_generalDetails HTTPHeader@"index/Husbandry/generalDetails"
+/**
+ //家政下单页面 普通保洁 获取价格
+ Route::rule('generalprice/:id','index/Husbandry/generalPrice');
+ */
+#define URL_generalPrice HTTPHeader@"index/Husbandry/generalPrice"
+/**
+ //家政下单页面 深度保洁
+ Route::rule('depthdetails/:id','index/Husbandry/depthDetails');
+ */
+#define URL_depthDetails HTTPHeader@"index/Husbandry/depthDetails"
+/**
+ //家政下单页面 深度保洁 获取价格  id  1,2,3
+ Route::rule('depthprice/:id','index/Husbandry/depthPrice');
+ */
+#define URL_depthPrice HTTPHeader@"index/Husbandry/depthPrice"
+
+/**
+ //家政生成订单 普通保洁 pid家政ID endid 服务地点ID times服务时间 weight服务类型ID  remark备注
+ Route::rule('generalhorderadd/:uid/:pid/:endid/:times/:weight/:remark','index/Husbandry/generalOrderAdd');
+ */
+#define URL_generalOrderAdd HTTPHeader@"index/Husbandry/generalOrderAdd"
+
+/**
+ //家政生成订单 深度保洁 pid家政ID endid 服务地点ID times服务时间 weight服务类型ID  remark备注
+ Route::rule('depthorderadd/:uid/:pid/:endid/:times/:weight/:remark','index/Husbandry/depthOrderAdd');
+ */
+#define URL_depthOrderAdd HTTPHeader@"index/Husbandry/depthOrderAdd"
+
+#pragma mark----社区周边
+/**
+ //商品分类列表
+  https://www.txkuaiyou.com/index/types/typelist?uid=8&page=1
+ */
+#define URL_typelist HTTPHeader@"index/types/typelist"
+/**
+ //周边商城首页
+ Route::rule('goodshome/:uid/:page','index/Goodss/goodsHome');
+ */
+#define URL_goodsHome HTTPHeader@"index/Goodss/goodsHome"
+/**
+ //周边商城分类列表
+ Route::rule('goodstypelist/:uid/:page/:type','index/Goodss/goodsTypeList');
+ */
+#define URL_goodsTypeList HTTPHeader@"index/Goodss/goodsTypeList"
+
+
+#pragma mark----支付
+/**支付宝支付
+ index/alipay/alipay
+ */
+#define URL_alipay_alipay HTTPHeader@"index/alipay/alipay"
+
+/**
+ 获取订单信息
+ index/orders/ordersnFind
+ 参数  orderid
+ */
+#define URL_orders_ordersnFind HTTPHeader@"index/orders/ordersnFind"
+
+/**
+ 跑腿下单
+ URL : https://www.txkuaiyou.com/index/wxpay/parameter
+ 参数 :
+ orderid 订单ID
+ */
+#define URL_wxpay_parameter HTTPHeader@"index/wxpay/parameter"
+
+#pragma mark----订单
+/**
+ //我发出的订单列表  type 0全部 1代付款 2待接单 3待完成 4待评价
+ Route::rule('OrderList/:uid/:page/:type','index/Orders/OrderList');
+ */
+#define URL_Orders_OrderList HTTPHeader@"index/Orders/OrderList"
+
+/**
+ //我接到的订单列表  type 0全部 1代付款 2待接单 3待完成 4待评价
+ Route::rule('myOrderList/:uid/:page/:type','index/Orders/myOrderList');
+ */
+#define URL_Orders_myOrderList HTTPHeader@"index/Orders/myOrderList"
+
+/**
+ 订单详情
+ URL : https://www.txkuaiyou.com/index/orders/orderDetails
+ 参数 :
+ uid
+ 用户ID
+ orderid
+ 订单ID
+ */
+#define URL_orders_orderDetails HTTPHeader@"index/orders/orderDetails"
+
+
+#pragma mark----家政订单点击
+/**
+ index/husbandry/joinOrderAdd
+ uid
+ orderid
+ 家政接单
+ */
+#define URL_husbandry_joinOrderAdd HTTPHeader@"index/husbandry/joinOrderAdd"
+
+/**
+ index/orders/orderDel
+ orderid
+ uid
+ 取消订单
+ */
+#define URL_orders_orderDel HTTPHeader@"index/orders/orderDel"
+
+/**
+ index/husbandry/joinOrderAdd
+ uid
+ orderid
+ 家政接单
+ */
+#define URL_husbandry_joinOrderAdd HTTPHeader@"index/husbandry/joinOrderAdd"
+
+/**
+ index/husbandry/beginOrder
+ uid
+ orderid
+ 开始服务
+ */
+#define URL_husbandry_beginOrder HTTPHeader@"index/husbandry/beginOrder"
+
+/**
+ index/husbandry/endOrder
+ uid
+ orderid
+ 完成服务
+ */
+#define URL_husbandry_endOrder HTTPHeader@"index/husbandry/endOrder"
+
+/**
+ index/husbandry/finishOrder
+ uid
+ orderid
+ 用户确认完成
+ */
+
+#pragma mark----跑腿订单点击
+
+
+#define URL_husbandry_finishOrder HTTPHeader@"index/husbandry/finishOrder"
+
+/**
+ index/errand/orderReceiving
+ uid
+ orderid
+ 跑腿接单
+ */
+#define URL_errand_orderReceiving HTTPHeader@"index/errand/orderReceiving"
+
+/*
+ index/errand/orderFetch
+ parcel_pw   取货码
+ weight     重量
+ uid
+ orderid
+ 取货
+ */
+#define URL_errand_orderFetch HTTPHeader@"index/errand/orderFetch"
+
+/**
+ index/wxpay/twoParameter
+ orderid
+ 二次付款
+ */
+#define URL_wxpay_twoParameter HTTPHeader@"index/wxpay/twoParameter"
+
+/**
+ index/errand/orderComplete
+ uid
+ orderid
+ 跑腿确认送达借口
+ */
+#define URL_errand_orderComplete HTTPHeader@"index/errand/orderComplete"
+
+/**
+ index/errand/userComplete
+ uid
+ orderid
+ 用户确认订单完成接口
+ */
+#define URL_errand_userComplete HTTPHeader@"index/errand/userComplete"
+
+/**
+ index/errand/merchantErrandFetch
+ uid
+ orderid
+跑腿。商家取货
+ */
+#define URL_errand_merchantErrandFetch HTTPHeader@"index/errand/merchantErrandFetch"
+
+/**跑腿 t对用户
+ index/errand/orderComplete
+ */
+//#define URL_errand_orderComplete HTTPHeader@"index/errand/orderComplete"
+
+#pragma mark----商家
+/**
+ index/merchants/MySildJoinOrder
+ uid
+ orderid
+ 自取接单
+ */
+#define URL_merchants_MySildJoinOrder HTTPHeader@"index/merchants/MySildJoinOrder"
+
+/**
+ index/merchants/MyJoinOrder
+ uid
+ orderid
+ 商家自己配送接单
+ */
+#define URL_merchants_MyJoinOrder HTTPHeader@"index/merchants/MyJoinOrder"
+
+/**
+ index/merchants/ErrandJoinOrder
+ uid
+ orderid
+ 配送 商家接单
+ */
+#define URL_merchants_ErrandJoinOrder HTTPHeader@"index/merchants/ErrandJoinOrder"
+
+/**
+ index/merchants/MerchantComplete
+ uid
+ orderid
+ 商家配送 确认完成
+ */
+#define URL_merchants_MerchantComplete HTTPHeader@"index/merchants/MerchantComplete"
+
+/**
+ index/merchants/userComplete
+ uid
+ orderid
+ 用户确认完成
+ */
+#define URL_merchants_userComplete HTTPHeader@"index/merchants/userComplete"
+
+#pragma mark----广场详情
+
+/**
+ 社区广场 回答问题
+ URL : https://www.txkuaiyou.com/index/Plazas/answerQuestion
+ 参数 :
+ content
+ 内容
+ uid
+ 用户ID
+ address
+ 定位地址
+ longitude
+ 经度
+ latitude
+ 纬度
+ id
+ 问题ID
+ imgurl
+ 图片 [图片1url,图片2url]
+ setting
+ 1所有可看2广场3主页4自己
+ */
+#define URL_Plazas_answerQuestion HTTPHeader@"index/Plazas/answerQuestion"
+
+
+/**
+ 社区广场 个人主页
+ URL : https://www.txkuaiyou.com/index/Plazas/plazaHomepage
+ 参数 :
+ id
+ 用户ID
+ */
+#define URL_Plazas_plazaHomepage HTTPHeader@"index/Plazas/plazaHomepage"
+
+/**
+ 社区广场 个人主页 发布的动态列表
+ URL : https://www.txkuaiyou.com/index/Plazas/plzazHomepageList
+ 参数 :
+ id
+ 用户ID
+ page
+ 分页
+ */
+#define URL_Plazas_plzazHomepageList HTTPHeader@"index/Plazas/plzazHomepageList"
+
+/**
+ 社区广场 普通动态详情
+ id=1
+ URL : https://www.txkuaiyou.com/index/Plazas/plazaDetails
+ */
+#define URL_Plazas_plazaDetails HTTPHeader@"index/Plazas/plazaDetails"
+
+/**
+ 社区广场 获取动态详情 评论列表  问答详情接口一样
+ URL : https://www.txkuaiyou.com/index/Plazas/detailsDiscuss
+ id
+ 动态ID
+ uid
+ 用户ID
+ page
+ 分页默认1
+ */
+#define URL_Plazas_detailsDiscuss HTTPHeader@"index/Plazas/detailsDiscuss"
+
+/**
+ 社区广场 顶一顶
+ uid
+ 用户ID  没有登陆传0
+ plazaid
+ 动态ID
+ URL : https://www.txkuaiyou.com/index/Plazas/plazaLike
+ */
+#define URL_Plazas_plazaLike HTTPHeader@"index/Plazas/plazaLike"
+
+/**
+ //关注  type=1关注  2取消关注
+ Route::rule('attention/:uid/:pid/:type','index/Users/attention');
+ */
+#define URL_Users_attention HTTPHeader@"index/Users/attention"
+/**
+ //收藏
+ Route::rule('plazacollect/:uid/:id','index/Plazas/plazaCollect');
+ */
+#define URL_Plazas_plazaCollect HTTPHeader@"index/Plazas/plazaCollect"
+
+/**
+ 社区广场 分享加1
+ URL : https://www.txkuaiyou.com/index/Plazas/plazaShare
+ 参数 :
+ id
+ 动态ID
+ */
+#define URL_Plazas_plazaShare HTTPHeader@"index/Plazas/plazaShare"
+
+/**
+ 社区广场 获取动态详情 评论点赞
+ URL : https://www.txkuaiyou.com/index/Plazas/discussGive
+ 参数 :
+ id
+ 评价ID
+ uid
+ 用户ID
+ */
+#define URL_Plazas_discussGive HTTPHeader@"index/Plazas/discussGive"
+
+
+/**
+ 社区广场 获取问答动态详情
+ URL : https://www.txkuaiyou.com/index/Plazas/questionsDetails
+ 参数 :
+ id
+ 问答ID
+ uid
+ 用户ID
+ */
+#define URL_Plazas_questionsDetails HTTPHeader@"index/Plazas/questionsDetails"
+
+/**
+ 社区广场 获取问答动态详情 获取回答的列表
+ URL : https://www.txkuaiyou.com/index/Plazas/answerList
+ 参数 :
+ id
+ 问题ID
+ uid
+ 用户ID
+ page
+ 分页默认 1
+ type
+ 0表示时间排序1表示点赞排序
+ */
+#define URL_Plazas_answerList HTTPHeader@"index/Plazas/answerList"
+
+/**
+ index/plazas/plazaanswersList
+ 加载更多
+ uid
+ page
+ */
+#define URL_Plazas_plazaanswersList HTTPHeader@"index/plazas/plazaanswersList"
+
+/**
+ 社区广场 动态评论添加
+ URL : https://www.txkuaiyou.com/index/Plazas/plazaDiscuss
+ 参数 :
+ id
+ 动态ID
+ uid
+ 用户ID
+ content
+ 内容
+ */
+#define URL_Plazas_plazaDiscuss HTTPHeader@"index/Plazas/plazaDiscuss"
+
+/**
+ 社区广场 动态评论回复
+ URL : https://www.txkuaiyou.com/index/Plazas/discussReply
+ 参数 :
+ id
+ 动态ID
+ uid
+ 用户ID
+ content
+ 内容
+ pid
+ 评论ID
+ */
+#define URL_Plazas_discussReply HTTPHeader@"index/Plazas/discussReply"
+
+/**多张图片上传*/
+#define URL_commom_moreFiles HTTPHeader@"index/users/moreFiles"
+
+#pragma mark---发布获取热门标签
+/**
+ 社区广场 发布普通动态获取 热门标签
+ URL : https://www.txkuaiyou.com/index/Plazas/hotLabel
+ */
+#define URL_Plazas_hotLabel HTTPHeader@"index/Plazas/hotLabel"
+
+/**
+ 社区广场 添加标签页面 获取热门标签 获取自己添加的标签
+ URL : https://www.txkuaiyou.com/index/Plazas/hotLabels
+ 参数 :
+ uid
+ 用户ID
+ */
+#define URL_Plazas_hotLabels HTTPHeader@"index/Plazas/hotLabels"
+
+/**
+ 社区广场 添加标签
+ URL : https://www.txkuaiyou.com/index/Plazas/myLabelAdd
+ 参数 :
+ uid
+ 用户ID
+ name
+ 标签名
+ */
+#define URL_Plazas_myLabelAdd HTTPHeader@"index/Plazas/myLabelAdd"
+
+/**
+ 社区广场 删除标签
+ URL : https://www.txkuaiyou.com/index/Plazas/labelDel
+ 参数 :
+ uid
+ 用户ID
+ labelid
+ 标签ID
+ */
+#define URL_Plazas_labelDel HTTPHeader@"index/Plazas/labelDel"
+
+/**
+ 社区广场 发布普通动态
+ URL : https://www.txkuaiyou.com/index/Plazas/plazaadd
+ 参数 :
+ content
+ 内容
+ uid
+ 用户ID
+ address
+ 定位地址
+ longitude
+ 经度
+ latitude
+ 纬度
+ type_id
+ 分类ID
+ setting
+ 1所有可看2广场3主页4自己
+ label
+ 标签 [标签1,标签2]
+ imgurl
+ 图片 [图片1url,图片2url]
+ */
+#define URL_Plazas_plazaadd HTTPHeader@"index/Plazas/plazaadd"
+
+/**
+ 社区广场 发布问题
+ URL : https://www.txkuaiyou.com/index/Plazas/questionAdd
+ 参数 :
+ content
+ 内容
+ uid
+ 用户ID
+ address
+ 定位地址
+ longitude
+ 经度
+ latitude
+ 纬度
+ type_id
+ 分类ID
+ setting
+ 1所有可看2广场3主页4自己
+ */
+#define URL_Plazas_questionAdd HTTPHeader@"index/Plazas/questionAdd"
+
+#pragma mark----购物车
+/**
+ 购物车列表
+ URL : https://www.txkuaiyou.com/index/Shoppings/shoppingList
+ 参数 :
+ uid
+ 用户ID
+ */
+#define URL_Shoppings_shoppingList HTTPHeader@"index/Shoppings/shoppingList"
+
+
+/**
+ 购物车删除
+ URL : https://www.txkuaiyou.com/index/Shoppings/shoppingDel
+ 参数 :
+ uid
+ 用户ID
+ shoppingid
+ 购物车ID  字符串  1,2,3  删除一条 1
+ */
+#define URL_Shoppings_shoppingDel HTTPHeader@"index/Shoppings/shoppingDel"
+
+/**
+ 购物车选择商品 取货生成订单页面的数据
+ URL : https://www.txkuaiyou.com/index/Shoppings/shoppingOrderDetails
+ 参数 :
+ uid
+ 用户ID
+ shoppingid
+ 购物车ID  字符串 1,2,3 单条传 1
+ */
+#define URL_Shoppings_shoppingOrderDetails HTTPHeader@"index/Shoppings/shoppingOrderDetails"
+
+/**
+ 购物车加一
+ URL : https://www.txkuaiyou.com/index/Shoppings/addOne
+ 参数 :
+ uid
+ 用户ID
+ shoppingid
+ 购物车ID
+ */
+#define URL_Shoppings_addOne HTTPHeader@"index/Shoppings/addOne"
+
+/**
+ 购物车减一
+ URL : https://www.txkuaiyou.com/index/Shoppings/delOne
+ 参数 :
+ uid
+ 用户ID
+ shoppingid
+ 购物车ID
+ */
+#define URL_Shoppings_delOne HTTPHeader@"index/Shoppings/delOne"
+
+/**
+ 1.    购物车选择商品 取货生成订单页面的数据
+ URL : https://www.txkuaiyou.com/index/Shoppings/shoppingOrderDetails
+ 参数 :
+ uid    用户ID
+ shoppingid    购物车ID  字符串 1,2,3 单条传 1
+ */
+#define URL_Shoppings_shoppingOrderDetails HTTPHeader@"index/Shoppings/shoppingOrderDetails"
+
+/**
+ 购物车下单
+ index/shoppings/shoppingOrderAdd
+ uid addressid list
+ list：
+ y {
+ jsonObject2.put("merchant_id",goodPayOrderBeen.get(i).getShopId());
+ jsonObject2.put("shoppingid",goodPayOrderBeen.get(i).getShopCartId());
+ jsonObject2.put("discount_id",goodPayOrderBeen.get(i).getYhId());
+ jsonObject2.put("merchant_errand",goodPayOrderBeen.get(i).getPsType());
+ jsonObject2.put("remark",goodPayOrderBeen.get(i).getRemarks());
+ jsonArray.put(jsonObject2);//把object对象装入jsonArray中
+ 
+ {"list":[{
+ "merchant_id":1,
+ "shoppingid":"16,20",
+ "discount_id":0,
+ "merchant_errand":2,
+ "remark":""}
+ 
+ ,{"merchant_id":2,"shoppingid":"19","discount_id":0,"merchant_errand":2,"remark":""}]}
+ 
+ */
+#define URL_Shoppings_shoppingOrderAdd HTTPHeader@"index/shoppings/shoppingOrderAdd"
+
+
+/**
+ 购物车生成订单页面 选择配送获取跑腿价格
+ URL : https://www.txkuaiyou.com/index/Shoppings/deliveryPrice
+ 参数 :
+ addressid
+ 收货地址ID
+ merchantid
+ 商家ID
+ */
+#define URL_Shoppings_deliveryPrice HTTPHeader@"index/Shoppings/deliveryPrice"
+
+
+#pragma mark----消息列表
+
+/**
+ 粉丝列表
+ URL : https://www.txkuaiyou.com/index/Users/fansList
+ 参数 :
+ uid
+ 用户ID
+ page
+ 分页默认1
+ */
+#define URL_Users_fansList HTTPHeader@"index/Users/fansList"
+
+/**
+ 消息页面 获取顶一顶列表
+ URL : https://www.txkuaiyou.com/index/Informations/likelist
+ 参数 :
+ uid
+ 用户ID
+ type
+ 1动态列表 2评论获取点赞列表
+ page
+ 分页
+ */
+#define URL_Informations_likelist HTTPHeader@"index/Informations/likelist"
+
+/**
+ 消息页面 获取评论列表
+ URL : https://www.txkuaiyou.com/index/Informations/discussList
+ 参数 :
+ uid
+ 用户ID
+ page
+ 分页
+ */
+#define URL_Informations_discussList HTTPHeader@"index/Informations/discussList"
+
+/**
+ 1.    获取聊天列表
+ URL : https://www.txkuaiyou.com/index/Informations/infromLists
+ 参数 :
+ uid    用户ID
+ page    分页
+ */
+#define URL_Informations_infromLists HTTPHeader@"index/Informations/infromLists"
+
+#pragma mark----抢单中心
+/**
+ *
+ * 接单相关（商家、家政、跑腿）
+//获取可接单、未完成订单的列表
+public static final String GET_ORDER_LIST = BASE_Client_URL+"index/Informations/joinOrderList";
+ */
+#define URL_Informations_joinOrderList HTTPHeader@"index/Informations/joinOrderList"
+
+#pragma mark----我的功能
+/**
+ 1. 我的关注列表
+ URL : https://www.txkuaiyou.com/index/Centres/attentionList
+ 参数 :
+ uid 用户ID
+ page 分页 默认1
+ type 1关注普通2店铺关注
+ */
+#define URL_Centres_attentionList HTTPHeader@"index/Centres/attentionList"
+
+/**
+ 我的中心 我发布的动态列表
+ URL : https://www.txkuaiyou.com/index/plazas/MyplzazHomepageList
+ 参数 :
+ uid
+ 用户ID
+ page
+ 分页
+ type
+ 0全部 1话题2二手3租房4问答
+ */
+#define URL_plazas_MyplzazHomepageList HTTPHeader@"index/plazas/MyplzazHomepageList"
+
+/**
+ 我的收藏列表
+ URL : https://www.txkuaiyou.com/index/Centres/userCollect
+ 参数 :
+ uid
+ 用户ID
+ page
+ 分页 默认1
+ type
+ 0全部
+ */
+#define URL_Centres_userCollect HTTPHeader@"index/Centres/userCollect"
+
+/**
+ 发送验证码
+ URL : https://www.txkuaiyou.com/index/note/yunNote
+ 参数 :
+ phone
+ 手机号
+ */
+#define URL_note_yunNote HTTPHeader@"index/note/yunNote"
+
+/**
+ 验证码登录
+ URL : https://www.txkuaiyou.com/index/Login/noteLogin
+ 参数 :
+ phone
+ 手机号
+ 验证码
+ 验证码
+ */
+#define URL_Login_noteLogin HTTPHeader@"index/Login/noteLogin"
+
+/**
+ 商品管理
+ 店铺发布的商品列表
+ URL : https://www.txkuaiyou.com/index/goodss/mygoodslist
+ 参数 :
+ page
+ 分页默认1
+ uid
+ 用户ID
+ */
+#define URL_goodss_mygoodslist HTTPHeader@"index/goodss/mygoodslist"
+
+/**
+ 1.    店铺发布的商品 上下架
+ URL : https://www.txkuaiyou.com/index/goodss/myGoodsDown
+ 参数 :
+ goodsid    字符串 1,2,3
+ type    1上架0下架
+ */
+#define URL_goodss_myGoodsDown HTTPHeader@"index/goodss/myGoodsDown"
+
+/**
+ 店铺发布的商品 删除
+ URL : https://www.txkuaiyou.com/index/goodss/mygoodsDel
+ 参数 :
+ goodsid
+ 字符串 1,2,3
+ */
+#define URL_goodss_mygoodsDel HTTPHeader@"index/goodss/mygoodsDel"
+
+#pragma mark--活动管理
+/**
+ 的活动列表
+ URL : https://www.txkuaiyou.com/index/activitys/activityLists
+ 参数 :
+ page
+ 分页
+ uid
+ 用户ID
+ */
+#define URL_activitys_activityLists HTTPHeader@"index/activitys/activityLists"
+
+/**
+ 店铺发布的活动 删除
+ URL : https://www.txkuaiyou.com/index/activitys/activityDel
+ 参数 :
+ activityid
+ 字符串 1,2,3
+ */
+#define URL_activitys_activityDel HTTPHeader@"index/activitys/activityDel"
+
+#pragma mark----卡券管理
+
+/**
+ 店铺发布的优惠卷列表
+ URL : https://www.txkuaiyou.com/index/discounts/discountlist
+ 参数 :
+ uid
+ 用户ID
+ page
+ 分页
+ */
+#define URL_discounts_discountlist HTTPHeader@"index/discounts/discountlist"
+
+/**
+ 店铺发布的优惠卷 删除
+ URL : https://www.txkuaiyou.com/index/discounts/discountDel
+ 参数 :
+ discountid
+ 优惠卷ID字符串 1,2,3
+ */
+#define URL_discounts_discountDel HTTPHeader@"index/discounts/discountDel"
+
+#pragma mark----卡券中心
+/**
+ 获取我的优惠券
+ uid page type 1->店铺券  2->商品券   3->代金券
+index/discounts/mydisountList
+ */
+#define URL_discounts_mydisountList HTTPHeader@"index/discounts/mydisountList"
+
+#pragma mark----个人信息
+/**
+ 修改个人信息获取数据
+ URL : https://www.txkuaiyou.com/index/centres/FindUserInfo
+ 参数 :
+ uid
+ 用户ID
+ */
+#define URL_centres_FindUserInfo HTTPHeader@"index/centres/FindUserInfo"
+
+/**
+ 修改个人信息
+ URL : https://www.txkuaiyou.com/index/centres/UpFindUserInfo
+ 参数 :
+ uid
+ 用户ID
+ birthday
+ 出生日期  2222-22-22
+ hometown
+ 故乡   山东 菏泽 曹县
+ avatar
+ 头像
+ nickname
+ 昵称
+ sex
+ 1男2女
+ signature
+ 签名
+ */
+#define URL_centres_UpFindUserInfo HTTPHeader@"index/centres/UpFindUserInfo"
+
+/**
+ 修改信息发送验证码
+ URL : https://www.txkuaiyou.com/index/note/UpdateNote
+ 参数 :
+ uid
+ 用户ID
+ */
+#define URL_note_UpdateNote HTTPHeader@"index/note/UpdateNote"
+
+/**
+ 密码修改
+ URL : https://www.txkuaiyou.com/index/centres/Upassword
+ 参数 :
+ password
+ 密码
+ note
+ 验证码
+ uid
+ 用户ID
+ */
+#define URL_centres_Upassword HTTPHeader@"index/centres/Upassword"
+
+/**
+ 手机号修改
+ URL : https://www.txkuaiyou.com/index/centres/uPhones
+ 参数 :
+ phone
+ 修改的手机号
+ note
+ 验证码
+ uid
+ 用户ID
+ */
+#define URL_centres_uPhones HTTPHeader@"index/centres/uPhones"
+
+
+#endif /* PCH_pch */
