@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Mine_MyOrder_UserEvaluateViewController">
+            <connections>
+                <outlet property="tableView" destination="3iQ-hX-tvw" id="zxr-62-YS0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USD-hm-hXf">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3iQ-hX-tvw" customClass="Basic_TableView">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAh-u0-2MZ">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="4yS-cf-XEQ"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="评价" id="5yV-Vk-R2b">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="w2A-aT-Gfg">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftButtonPOP:" destination="-1" id="T2M-KS-ZEA"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="全部评价" id="03r-Nf-u78">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="AllButtonClick:" destination="-1" id="d2J-Y6-t5h"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="3iQ-hX-tvw" firstAttribute="top" secondItem="pAh-u0-2MZ" secondAttribute="bottom" id="1Aa-jt-bMH"/>
+                <constraint firstItem="pAh-u0-2MZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1TU-bb-yIK"/>
+                <constraint firstItem="USD-hm-hXf" firstAttribute="top" secondItem="pAh-u0-2MZ" secondAttribute="bottom" id="5RN-zq-maP"/>
+                <constraint firstItem="pAh-u0-2MZ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="9Mi-4L-SdA"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="3iQ-hX-tvw" secondAttribute="trailing" id="Dz7-yK-VSz"/>
+                <constraint firstItem="pAh-u0-2MZ" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="IMb-y7-tyH"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="3iQ-hX-tvw" secondAttribute="bottom" id="K4N-oM-GlC"/>
+                <constraint firstItem="3iQ-hX-tvw" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="OH3-ts-ZSu"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="USD-hm-hXf" secondAttribute="trailing" id="PJQ-LW-cW8"/>
+                <constraint firstItem="USD-hm-hXf" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Xu6-5W-kPz"/>
+                <constraint firstAttribute="bottom" secondItem="USD-hm-hXf" secondAttribute="bottom" id="hOF-lf-RFp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>
