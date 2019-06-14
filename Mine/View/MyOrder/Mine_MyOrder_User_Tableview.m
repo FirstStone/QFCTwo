@@ -269,6 +269,8 @@
                 [footerView.Right_BT setTitle:@"付款" forState:UIControlStateNormal];
                 
             }else if ([model.status intValue] == 1) {
+                footerView.Lift_BT.hidden = NO;
+                [footerView.Lift_BT setTitle:@"退款" forState:UIControlStateNormal];
                 [footerView.Right_BT setTitle:@"待接单" forState:UIControlStateNormal];
                 
             }else if ([model.status intValue] == 2) {
@@ -291,6 +293,8 @@
                 [footerView.Right_BT setTitle:@"付款" forState:UIControlStateNormal];
                 
             }else if ([model.status intValue] == 1) {
+                footerView.Lift_BT.hidden = NO;
+                [footerView.Lift_BT setTitle:@"退款" forState:UIControlStateNormal];
                 [footerView.Right_BT setTitle:@"待接单" forState:UIControlStateNormal];
                 
             }else if ([model.status intValue] == 5) {
@@ -404,7 +408,14 @@
                         payVC.OrderID = model.order_ID;
                         [self.My_NAVC pushViewController:payVC animated:YES];
                     }
-                }else if ([model.status intValue] == 5) {//确认完成
+                }else if ([model.status intValue] == 1) {//退款售后
+                    if (index == 1) {//左
+                        Mine_MyOrder_UserTuikuan_ViewController *tuikuanVC = [[Mine_MyOrder_UserTuikuan_ViewController alloc] init];
+                        tuikuanVC.MyOrder = model;
+                        [tuikuanVC setHidesBottomBarWhenPushed:YES];
+                        [self.My_NAVC pushViewController:tuikuanVC animated:YES];
+                    }
+                } else if ([model.status intValue] == 5) {//确认完成
                     [self PostindexMerchantsUserComplete:model];
                     
                 }else if ([model.status intValue] == 6) {
@@ -423,7 +434,15 @@
                         [self.My_NAVC pushViewController:payVC animated:YES];
                     }
                     
-                }else if ([model.status intValue] == 5) {
+                }else if ([model.status intValue] == 1) {//退款售后
+                    if (index == 1) {//左
+                        Mine_MyOrder_UserTuikuan_ViewController *tuikuanVC = [[Mine_MyOrder_UserTuikuan_ViewController alloc] init];
+                        tuikuanVC.MyOrder = model;
+                        [tuikuanVC setHidesBottomBarWhenPushed:YES];
+                        [self.My_NAVC pushViewController:tuikuanVC animated:YES];
+                    }
+                    
+                } else if ([model.status intValue] == 5) {
                     //                        [footerView.Right_BT setTitle:@"立即取货" forState:UIControlStateNormal];
                 }else if ([model.status intValue] == 6) {
                     //                        [footerView.Right_BT setTitle:@"评价" forState:UIControlStateNormal];

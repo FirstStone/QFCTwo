@@ -76,7 +76,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+//    [self.navigationController setNavigationBarHidden:NO];
 }
 
 
@@ -121,13 +121,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         if ([self.dataArray[indexPath.row] isMemberOfClass:[Message_infromLists_Model class]]) {
-            Message_infromLists_Model *model = self.dataArray[indexPath.row];
-            
-            Message_Conversation_ViewController *EMVC = [[Message_Conversation_ViewController alloc] initWithConversationChatter:model.userid conversationType:EMConversationTypeChat];
-            EMVC.title = model.nickname;
-//            EMVC.money = model.image_text_price;
-            [EMVC setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:EMVC animated:YES];
+//            [self.navigationController setNavigationBarHidden:NO];
+//            Message_infromLists_Model *model = self.dataArray[indexPath.row];
+//            
+//            Message_Conversation_ViewController *EMVC = [[Message_Conversation_ViewController alloc] initWithConversationChatter:model.userid conversationType:EMConversationTypeChat];
+//            EMVC.title = model.nickname;
+////            EMVC.money = model.image_text_price;
+//            [EMVC setHidesBottomBarWhenPushed:YES];
+//            [self.navigationController pushViewController:EMVC animated:YES];
             
         }else {
             if (indexPath.row == 0) {//通知中心

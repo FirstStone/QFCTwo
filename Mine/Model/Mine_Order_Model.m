@@ -133,3 +133,16 @@
 }
 
 @end
+
+
+@implementation Mine_MyOrder_Evalute_Model
+
+/**空替换为空字符串*/
+- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
+    if ([oldValue isKindOfClass:[NSNull class]]) {
+        return @"";
+    }
+    return oldValue;
+}
+
+@end

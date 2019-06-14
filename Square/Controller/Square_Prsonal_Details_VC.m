@@ -211,10 +211,39 @@
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
 }
+
+
+
+
 - (IBAction)MyShopStoreButtonClick:(id)sender {
     H5_Mine_MyShopStoreViewController *MyShopVC = [[H5_Mine_MyShopStoreViewController alloc] init];
     MyShopVC.merchant_id = self.Mymodel.merchant_id;
     [self.navigationController pushViewController:MyShopVC animated:YES];
+}
+
+- (IBAction)ChatButtonClick:(id)sender {
+    
+}
+
+#pragma mark----UPdata
+- (void)TakeChatDataSoure {
+    /**
+     创建聊天链接
+     URL : https://www.txkuaiyou.com/index/Informations/infromAdd
+     参数 :
+     uid
+     用户ID
+     pid
+     用户ID  对方的
+     */
+    /*NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:self.Mymodel. forKey:@"pid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_Informations_infromAdd parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        <#code#>
+    } failure:^(NSError * _Nonnull error) {
+        <#code#>
+    }];*/
 }
 
 

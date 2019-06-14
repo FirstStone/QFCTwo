@@ -11,8 +11,10 @@
 @interface Home_CommunityNearby_FreshFruitSink_One_Cell ()
 @property (strong, nonatomic) IBOutlet UIImageView *icon_imageView;
 @property (strong, nonatomic) IBOutlet UILabel *Title_Label;
+
 @property (strong, nonatomic) IBOutlet UILabel *Price_Label;
 
+@property (strong, nonatomic) IBOutlet UILabel *Sub_Label;
 
 @end
 

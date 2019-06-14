@@ -34,7 +34,7 @@
     self.MyWKWebView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
     
     // 2.创建请求
-    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.tiaoxinkeji.com/dist/#/IosPostGoods/?,%@",[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid]]]];
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.tiaoxinkeji.com/dist/#/IosPostGoods/?,%@,",[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid]]]];
     // 3.加载网页
     [self.MyWKWebView loadRequest:request];
     

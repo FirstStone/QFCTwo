@@ -287,6 +287,13 @@
             [self formatterGoodsAry];
             [self isDataPicker:NO];
         }
+            break;
+        case PickerViewTypeReason:
+        {
+            self.titleLab.text = @"选择退款原因";
+            [self formatterReason];
+            [self isDataPicker:NO];
+        }
         default:
             break;
     }
@@ -661,7 +668,7 @@
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
-    return 110;
+    return SCREEN_WIDTH;//110;
 }
 
 //防止崩溃
@@ -726,6 +733,20 @@
         model.cities = @[@"小于5kg", @"5kg", @"6kg", @"7kg", @"8kg", @"9kg"];
         [self.array addObject:model];
     }
+}
+
+//退款原因
+- (void)formatterReason {
+    /*NSMutableArray *rang = [self.array mutableCopy];
+    
+    [self.array removeAllObjects];
+    for (int i = 0; i < rang.count; i ++) {
+        PickerModel *model = [[PickerModel alloc] init];
+        model.province = rang[i];
+        model.cities = @[@"小于5kg", @"5kg", @"6kg", @"7kg", @"8kg", @"9kg"];
+        [self.array addObject:model];
+    }*/
+    [self.array addObject:@[@"退运费",@"质量问题", @"少件/漏发", @"包装/商品破损", @"服务问题", @"拍错了"]];
 }
 
 

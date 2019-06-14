@@ -33,6 +33,12 @@
 
 @property (nonatomic, strong) NSMutableDictionary *dataDic;
 
+@property (nonatomic, strong) NSMutableArray *Dickey;
+
+@property (nonatomic, strong) NSMutableArray *DicCellArray;
+
+@property (nonatomic, strong) NSMutableArray *SectionHeaderArray;
+
 @end
 
 @implementation Home_CommunityNearby_ViewController
@@ -76,6 +82,27 @@
 }
 - (IBAction)LiftButtonPOP:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (NSMutableArray *)SectionHeaderArray {
+    if (!_SectionHeaderArray) {
+        _SectionHeaderArray = [[NSMutableArray alloc] init];
+    }
+    return _SectionHeaderArray;
+}
+
+- (NSMutableArray *)Dickey {
+    if (!_Dickey) {
+        _Dickey = [[NSMutableArray alloc] init];
+    }
+    return _Dickey;
+}
+
+- (NSMutableArray *)DicCellArray {
+    if (!_DicCellArray) {
+        _DicCellArray = [[NSMutableArray alloc] init];
+    }
+    return _DicCellArray;
 }
 
 - (NSMutableDictionary *)dataDic {
@@ -143,7 +170,7 @@
  @return 列数
  */
 -(NSInteger)numOfColumnsPerPageInHorizontalMenuView:(FMHorizontalMenuView *)horizontalMenuView{
-    return 5;
+    return 4;
 }
 /**
  当选项被点击回调
@@ -169,6 +196,7 @@
 //    }
     
     Home_CommunityNearby_Branch_ViewController *CommunityNearbyVC = [[Home_CommunityNearby_Branch_ViewController alloc] init];
+    CommunityNearbyVC.Type = index;
 //    CommunityNearbyVC.itemArray = self.Title_Array;
 //    CommunityNearbyVC.Title_Array = self.Type_Array;
     [CommunityNearbyVC setHidesBottomBarWhenPushed:YES];
@@ -207,8 +235,51 @@
 }
 //返回一个分区里多少数据
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSArray *Dickey = [self.dataDic allKeys];
-    switch (section) {
+    if ([self.Dickey containsObject:QFC_discountlist]) {
+        NSMutableArray *DataArray = [self.dataDic objectForKey:QFC_discountlist];
+        if (DataArray.count == 3) {
+            [self.Dickey removeObject:QFC_discountlist];
+            return 1;
+        }else if (DataArray.count == 2) {
+            [self.Dickey removeObject:QFC_discountlist];
+            return 2;
+        }else {
+            [self.Dickey removeObject:QFC_discountlist];
+            return 1;
+        }
+    }else if ([self.Dickey containsObject:QFC_hotlist]) {
+        NSMutableArray *DataArray = [self.dataDic objectForKey:QFC_hotlist];
+        if (DataArray.count == 3) {
+            [self.Dickey removeObject:QFC_hotlist];
+            return 1;
+        }else if (DataArray.count == 2) {
+            [self.Dickey removeObject:QFC_hotlist];
+            return 2;
+        }else {
+            [self.Dickey removeObject:QFC_hotlist];
+            return 2;
+        }
+    }else if ([self.Dickey containsObject:QFC_highlist]) {
+        NSMutableArray *DataArray = [self.dataDic objectForKey:QFC_highlist];
+        if (DataArray.count == 3) {
+            [self.Dickey removeObject:QFC_highlist];
+            return 1;
+        }else {
+            [self.Dickey removeObject:QFC_highlist];
+            return 2;
+        }
+    }else {
+        NSMutableArray *DataArray = [self.dataDic objectForKey:QFC_fruitslist];
+        if (DataArray.count == 3) {
+            [self.Dickey removeObject:QFC_fruitslist];
+            return 1;
+        }else {
+            [self.Dickey removeObject:QFC_fruitslist];
+            return 2;
+        }
+    }
+    
+    /*switch (section) {
         case 0:
         {
             if ([Dickey containsObject:QFC_discountlist]) {
@@ -220,6 +291,7 @@
                 }else {
                     return 1;
                 }
+                [Dickey removeObject:QFC_discountlist];
             }else if ([Dickey containsObject:QFC_hotlist]) {
                 NSMutableArray *DataArray = [self.dataDic objectForKey:QFC_hotlist];
                 if (DataArray.count == 3) {
@@ -229,6 +301,7 @@
                 }else {
                     return 2;
                 }
+                [Dickey removeObject:QFC_hotlist];
             }else if ([Dickey containsObject:QFC_highlist]) {
                 NSMutableArray *DataArray = [self.dataDic objectForKey:QFC_highlist];
                 if (DataArray.count == 3) {
@@ -236,6 +309,7 @@
                 }else {
                     return 2;
                 }
+                [Dickey removeObject:QFC_highlist];
             }else {
                 NSMutableArray *DataArray = [self.dataDic objectForKey:QFC_fruitslist];
                 if (DataArray.count == 3) {
@@ -243,6 +317,7 @@
                 }else {
                     return 2;
                 }
+                [Dickey removeObject:QFC_fruitslist];
             }
         }
             break;
@@ -316,12 +391,85 @@
         }else {
             return dicArray.count;
         }
-    }
+    }*/
 }
 // 返回Cell内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *Dickey = [self.dataDic allKeys];
-    switch (indexPath.section) {
+    if ([self.DicCellArray containsObject:QFC_discountlist]) {
+        NSMutableArray *disArray = [self.dataDic objectForKey:QFC_discountlist];
+        if (disArray.count <= 2) {
+            Home_CommunityNearby_EspecialRegion_OneCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyEspecialRegionOneCell];
+            [cell setModelToCell:disArray[indexPath.row]];
+            [self.DicCellArray removeObject:QFC_discountlist];
+            return cell;
+        }else if (disArray.count == 3) {
+            Home_CommunityNearby_EspecialRegion_ThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyEspecialRegionThreeCell];
+            [cell setDataSoureToCell:disArray];
+            [self.DicCellArray removeObject:QFC_discountlist];
+            return cell;
+        }else {
+            Home_CommunityNearby_EspecialRegionFour_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyEspecialRegionFourCell];
+            [cell setDataSoureToCell:disArray];
+            [self.DicCellArray removeObject:QFC_discountlist];
+            return cell;
+        }
+    }else if ([self.DicCellArray containsObject:QFC_hotlist]){//优享专区
+        NSMutableArray *disArray = [self.dataDic objectForKey:QFC_hotlist];
+        if (disArray.count <= 2) {
+            Home_CommunityNearby_FirstEnjoy_OneCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFirstEnjoyOneCell];
+            [cell setDataSoureToCell:disArray[indexPath.row]];
+            [self.DicCellArray removeObject:QFC_hotlist];
+            return cell;
+        }else if (disArray.count == 3) {
+            Home_CommunityNearby_FirstEnjoy_ThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFirstEnjoyThreeCell];
+            [cell setDataSoureToCell:disArray];
+            [self.DicCellArray removeObject:QFC_hotlist];
+            return cell;
+        }else {
+            if (indexPath.row == 0) {
+                Home_CommunityNearby_FirstEnjoy_OneCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFirstEnjoyOneCell];
+                [cell setDataSoureToCell:disArray[indexPath.row]];
+                [self.DicCellArray removeObject:QFC_hotlist];
+                return cell;
+            }else {
+                Home_CommunityNearby_FirstEnjoy_ThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFirstEnjoyThreeCell];
+                [cell setDataSoureToCell:disArray];
+                [self.DicCellArray removeObject:QFC_hotlist];
+                return cell;
+            }
+        }
+    }else if ([self.DicCellArray containsObject:QFC_highlist]) {//尚品臻选
+        NSMutableArray *disArray = [self.dataDic objectForKey:QFC_highlist];
+        if (disArray.count <= 2) {
+            Home_CommunityNearby_FreshFruitSink_One_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFreshFruitSinkOneCell];
+            [cell setDataSoureToCell:disArray[indexPath.row]];
+            [self.DicCellArray removeObject:QFC_highlist];
+            return cell;
+        }else {
+            Home_CommunityNearby_FreshFruitSink_Three_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFreshFruitSinkThreeCell];
+            [cell setLabelHiddle:YES];
+            [cell setDataSoureToCell:disArray];
+            [self.DicCellArray removeObject:QFC_highlist];
+            return cell;
+        }
+    }else {//鲜果汇
+        NSMutableArray *disArray = [self.dataDic objectForKey:QFC_fruitslist];
+        if (disArray.count <= 2) {
+            Home_CommunityNearby_FreshFruitSink_One_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFreshFruitSinkOneCell];
+            [cell setDataSoureToCell:disArray[indexPath.row]];
+            [self.DicCellArray removeObject:QFC_fruitslist];
+            return cell;
+        }else {
+            Home_CommunityNearby_FreshFruitSink_Three_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFreshFruitSinkThreeCell];
+            [cell setLabelHiddle:NO];
+            [cell setDataSoureToCell:disArray];
+            [self.DicCellArray removeObject:QFC_fruitslist];
+            return cell;
+        }
+    }
+    
+    
+    /*switch (indexPath.section) {
         case 0:
         {
             if ([Dickey containsObject:QFC_discountlist]) {
@@ -339,6 +487,7 @@
                     [cell setDataSoureToCell:disArray];
                     return cell;
                 }
+                [Dickey removeObject:QFC_discountlist];
             }else if ([Dickey containsObject:QFC_hotlist]){//优享专区
                 NSMutableArray *disArray = [self.dataDic objectForKey:QFC_hotlist];
                 if (disArray.count <= 2) {
@@ -360,6 +509,7 @@
                         return cell;
                     }
                 }
+                [Dickey removeObject:QFC_hotlist];
             }else if ([Dickey containsObject:QFC_highlist]) {//尚品臻选
                 NSMutableArray *disArray = [self.dataDic objectForKey:QFC_highlist];
                 if (disArray.count <= 2) {
@@ -372,6 +522,7 @@
                     [cell setDataSoureToCell:disArray];
                     return cell;
                 }
+                [Dickey removeObject:QFC_highlist];
             }else {//鲜果汇
                 NSMutableArray *disArray = [self.dataDic objectForKey:QFC_fruitslist];
                 if (disArray.count <= 2) {
@@ -384,6 +535,7 @@
                     [cell setDataSoureToCell:disArray];
                     return cell;
                 }
+                [Dickey removeObject:QFC_fruitslist];
             }
         }
             break;
@@ -410,6 +562,7 @@
                         return cell;
                     }
                 }
+                [Dickey removeObject:QFC_hotlist];
             }else if ([Dickey containsObject:QFC_highlist]) {//尚品臻选
                 NSMutableArray *disArray = [self.dataDic objectForKey:QFC_highlist];
                 if (disArray.count <= 2) {
@@ -422,6 +575,7 @@
                     [cell setDataSoureToCell:disArray];
                     return cell;
                 }
+                [Dickey removeObject:QFC_highlist];
             }else {//鲜果汇
                 NSMutableArray *disArray = [self.dataDic objectForKey:QFC_fruitslist];
                 if (disArray.count <= 2) {
@@ -434,6 +588,7 @@
                     [cell setDataSoureToCell:disArray];
                     return cell;
                 }
+                [Dickey removeObject:QFC_highlist];
             }
         }
             break;
@@ -451,6 +606,7 @@
                     [cell setDataSoureToCell:disArray];
                     return cell;
                 }
+                 [Dickey removeObject:QFC_highlist];
             }else {//鲜果汇
                 NSMutableArray *disArray = [self.dataDic objectForKey:QFC_fruitslist];
                 if (disArray.count <= 2) {
@@ -464,6 +620,7 @@
                     return cell;
                 }
             }
+            [Dickey removeObject:QFC_fruitslist];
         }
             break;
         default:
@@ -480,9 +637,10 @@
                     [cell setDataSourefruitslistToCell:disArray];
                     return cell;
                 }
+            [Dickey removeObject:QFC_fruitslist];
         }
             break;
-    }
+    }*/
     /*if (indexPath.section == 0) {//特惠专区
         if (indexPath.row == 0) {
             Home_CommunityNearby_EspecialRegionFour_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyEspecialRegionFourCell];
@@ -522,7 +680,31 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     Home_CommunityNearby_SectionHeader_View *hederView = [[Home_CommunityNearby_SectionHeader_View alloc] init];
     [hederView.More_BT setTitle:@"查看更多" forState:UIControlStateNormal];
-    NSArray *Dickey = [self.dataDic allKeys];
+    if ([self.SectionHeaderArray containsObject:QFC_discountlist]) {
+        hederView.Title_Label.text = @"#特惠专区";
+        hederView.Title_Label.textColor = QFC_Color_F2793A;
+        hederView.Sub_Label.text = @"特价折扣区";
+        [self.SectionHeaderArray removeObject:QFC_discountlist];
+        
+    }else if ([self.SectionHeaderArray containsObject:QFC_hotlist]){
+        hederView.Title_Label.text = @"#优享专区";
+        hederView.Title_Label.textColor = QFC_Color_FFD21C;
+        hederView.Sub_Label.text = @"物美价廉热销中";
+        [self.SectionHeaderArray removeObject:QFC_hotlist];
+        
+    }else if ([self.SectionHeaderArray containsObject:QFC_highlist]) {
+        hederView.Title_Label.text = @"#尚品臻选";
+        hederView.Title_Label.textColor = QFC_Color_3AABF2;
+        hederView.Sub_Label.text = @"高档商品一网打尽";
+        [self.SectionHeaderArray removeObject:QFC_highlist];
+        
+    }else if ([self.SectionHeaderArray containsObject:QFC_fruitslist]) {
+        hederView.Title_Label.text = @"#鲜果汇";
+        hederView.Title_Label.textColor = QFC_Color_55CC88;
+        hederView.Sub_Label.text = @"水果专场";
+        [self.SectionHeaderArray removeObject:QFC_fruitslist];
+    }
+    /*NSArray *Dickey = [self.dataDic allKeys];
     switch (section) {
         case 0:
         {
@@ -582,7 +764,7 @@
             hederView.Sub_Label.text = @"水果专场";
         }
             break;
-    }
+    }*/
     return hederView;
 }
 
@@ -670,6 +852,9 @@
                 }
                 [self.dataDic setObject:response_MiddleArray forKey:QFC_discountlist];
             }
+            self.SectionHeaderArray = [NSMutableArray arrayWithArray:[self.dataDic allKeys]];
+            self.DicCellArray = [NSMutableArray arrayWithArray:[self.dataDic allKeys]];
+            self.Dickey = [NSMutableArray arrayWithArray:[self.dataDic allKeys]];
             [self.tableView reloadData];
         }else {
             [MBProgressHUD py_showError:@"暂无数据" toView:nil];

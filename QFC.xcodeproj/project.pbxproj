@@ -271,6 +271,8 @@
 		37ACB95822B1F31E00C84669 /* EaseUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB90122B1F31D00C84669 /* EaseUI.m */; };
 		37ACB95A22B1F31E00C84669 /* HyphenateLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB90322B1F31E00C84669 /* HyphenateLite.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		37ACB95C22B1F3CA00C84669 /* HyphenateLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB90322B1F31E00C84669 /* HyphenateLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37ADB17122B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ADB16F22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m */; };
+		37ADB17222B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37ADB17022B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib */; };
 		37AE45D42293912000E4A6DC /* YMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AE45D32293912000E4A6DC /* YMTextView.m */; };
 		37AE45DA2293C4EC00E4A6DC /* Publish_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AE45D82293C4EB00E4A6DC /* Publish_Model.m */; };
 		37AE45DD2293D1C800E4A6DC /* PublishBT.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AE45DC2293D1C800E4A6DC /* PublishBT.m */; };
@@ -383,6 +385,8 @@
 		37C4A8B522769468008347D7 /* Mine_Goods_Supervise_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A8B322769468008347D7 /* Mine_Goods_Supervise_Cell.m */; };
 		37C4A8B622769468008347D7 /* Mine_Goods_Supervise_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A8B422769468008347D7 /* Mine_Goods_Supervise_Cell.xib */; };
 		37C4A8B922769C98008347D7 /* Mine_Goods_Supervise_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A8B822769C98008347D7 /* Mine_Goods_Supervise_View.m */; };
+		37C6437422B382F500FAD214 /* Mine_MyOrder_UserEvaluateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C6437222B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.m */; };
+		37C6437522B382F500FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C6437322B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib */; };
 		37CA64A0225DCF600040387F /* Square_WD_SD_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CA649E225DCF600040387F /* Square_WD_SD_Cell.m */; };
 		37CA64A1225DCF600040387F /* Square_WD_SD_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CA649F225DCF600040387F /* Square_WD_SD_Cell.xib */; };
 		37CA64A5225DEDDC0040387F /* Message_TZ_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CA64A3225DEDDC0040387F /* Message_TZ_Cell.m */; };
@@ -450,6 +454,8 @@
 		37EDA23D2282813300E7B0E5 /* PickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EDA23A2282813200E7B0E5 /* PickerView.m */; };
 		37EDA23E2282813300E7B0E5 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37EDA23B2282813200E7B0E5 /* City.plist */; };
 		37EDA2442283026E00E7B0E5 /* Mine_SetUP_MyAddress_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EDA2432283026E00E7B0E5 /* Mine_SetUP_MyAddress_Model.m */; };
+		37F2C22122B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2C21F22B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m */; };
+		37F2C22222B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F2C22022B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.xib */; };
 		37F500002265CC760012245D /* Message_RunErrands_TableView_NoOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F5FFFE2265CC760012245D /* Message_RunErrands_TableView_NoOrderCell.m */; };
 		37F500012265CC760012245D /* Message_RunErrands_TableView_NoOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F5FFFF2265CC760012245D /* Message_RunErrands_TableView_NoOrderCell.xib */; };
 		37F5FFB6226570C00012245D /* Message_FansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F5FFB4226570C00012245D /* Message_FansViewController.m */; };
@@ -997,6 +1003,9 @@
 		37ACB90022B1F31D00C84669 /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
 		37ACB90122B1F31D00C84669 /* EaseUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EaseUI.m; sourceTree = "<group>"; };
 		37ACB90322B1F31E00C84669 /* HyphenateLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HyphenateLite.framework; sourceTree = "<group>"; };
+		37ADB16E22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_AllEvaluate_Cell.h; sourceTree = "<group>"; };
+		37ADB16F22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_AllEvaluate_Cell.m; sourceTree = "<group>"; };
+		37ADB17022B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_AllEvaluate_Cell.xib; sourceTree = "<group>"; };
 		37AE45D22293911F00E4A6DC /* YMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTextView.h; sourceTree = "<group>"; };
 		37AE45D32293912000E4A6DC /* YMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTextView.m; sourceTree = "<group>"; };
 		37AE45D82293C4EB00E4A6DC /* Publish_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Publish_Model.m; sourceTree = "<group>"; };
@@ -1172,6 +1181,9 @@
 		37C4A8B422769468008347D7 /* Mine_Goods_Supervise_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_Goods_Supervise_Cell.xib; sourceTree = "<group>"; };
 		37C4A8B722769C98008347D7 /* Mine_Goods_Supervise_View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_Goods_Supervise_View.h; sourceTree = "<group>"; };
 		37C4A8B822769C98008347D7 /* Mine_Goods_Supervise_View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_Goods_Supervise_View.m; sourceTree = "<group>"; };
+		37C6437122B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_UserEvaluateViewController.h; sourceTree = "<group>"; };
+		37C6437222B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_UserEvaluateViewController.m; sourceTree = "<group>"; };
+		37C6437322B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_UserEvaluateViewController.xib; sourceTree = "<group>"; };
 		37CA649D225DCF600040387F /* Square_WD_SD_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_WD_SD_Cell.h; sourceTree = "<group>"; };
 		37CA649E225DCF600040387F /* Square_WD_SD_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_WD_SD_Cell.m; sourceTree = "<group>"; };
 		37CA649F225DCF600040387F /* Square_WD_SD_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_WD_SD_Cell.xib; sourceTree = "<group>"; };
@@ -1277,6 +1289,9 @@
 		37EDA23B2282813200E7B0E5 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
 		37EDA2422283026E00E7B0E5 /* Mine_SetUP_MyAddress_Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_SetUP_MyAddress_Model.h; sourceTree = "<group>"; };
 		37EDA2432283026E00E7B0E5 /* Mine_SetUP_MyAddress_Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_SetUP_MyAddress_Model.m; sourceTree = "<group>"; };
+		37F2C21E22B2A05500F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_UserTuikuan_ViewController.h; sourceTree = "<group>"; };
+		37F2C21F22B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_UserTuikuan_ViewController.m; sourceTree = "<group>"; };
+		37F2C22022B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_UserTuikuan_ViewController.xib; sourceTree = "<group>"; };
 		37F5FFB3226570C00012245D /* Message_FansViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message_FansViewController.h; sourceTree = "<group>"; };
 		37F5FFB4226570C00012245D /* Message_FansViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message_FansViewController.m; sourceTree = "<group>"; };
 		37F5FFB5226570C00012245D /* Message_FansViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Message_FansViewController.xib; sourceTree = "<group>"; };
@@ -1384,7 +1399,6 @@
 			isa = PBXGroup;
 			children = (
 				37CE24B4225C45CB0049A57C /* Publish */,
-				3748C7982254499F006D7514 /* Login */,
 				184850092251DC76002B7AA9 /* BasicVC */,
 				1848500A2251DC76002B7AA9 /* Generals */,
 				184850122251DC76002B7AA9 /* Helpers */,
@@ -1531,6 +1545,7 @@
 		184850092251DC76002B7AA9 /* BasicVC */ = {
 			isa = PBXGroup;
 			children = (
+				3748C7982254499F006D7514 /* Login */,
 				1848501B2251DCAD002B7AA9 /* Basic_ViewController.h */,
 				1848501C2251DCAD002B7AA9 /* Basic_ViewController.m */,
 				1848501E2251DCD8002B7AA9 /* Basic_NavigationController.h */,
@@ -2051,7 +2066,8 @@
 				3748C79B2254499F006D7514 /* Model */,
 				3748C79D2254499F006D7514 /* View */,
 			);
-			path = Login;
+			name = Login;
+			path = BasicVC/Login;
 			sourceTree = SOURCE_ROOT;
 		};
 		3748C7992254499F006D7514 /* Controller */ = {
@@ -2666,6 +2682,9 @@
 				37E200942278563400B508B8 /* Mine_MyOrderDetails_Time_Cell.h */,
 				37E200952278563400B508B8 /* Mine_MyOrderDetails_Time_Cell.m */,
 				37E200962278563400B508B8 /* Mine_MyOrderDetails_Time_Cell.xib */,
+				37ADB16E22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.h */,
+				37ADB16F22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m */,
+				37ADB17022B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib */,
 			);
 			path = MyOrder;
 			sourceTree = "<group>";
@@ -2712,6 +2731,9 @@
 				379753682271AC1C000F6A8D /* Mine_MyOrder_User_AllEvaluate_ViewController.h */,
 				379753692271AC1C000F6A8D /* Mine_MyOrder_User_AllEvaluate_ViewController.m */,
 				3797536A2271AC1C000F6A8D /* Mine_MyOrder_User_AllEvaluate_ViewController.xib */,
+				37C6437122B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.h */,
+				37C6437222B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.m */,
+				37C6437322B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib */,
 				37053A432272CF5B003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_VC.h */,
 				37053A442272CF5B003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_VC.m */,
 				37053A452272CF5B003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_VC.xib */,
@@ -2721,6 +2743,9 @@
 				375A9E7522B0974D003C46D3 /* Mine_MyOrder_Evaluate_ViewController.h */,
 				375A9E7622B0974D003C46D3 /* Mine_MyOrder_Evaluate_ViewController.m */,
 				375A9E7722B0974D003C46D3 /* Mine_MyOrder_Evaluate_ViewController.xib */,
+				37F2C21E22B2A05500F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.h */,
+				37F2C21F22B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m */,
+				37F2C22022B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.xib */,
 			);
 			path = MyOrder;
 			sourceTree = "<group>";
@@ -3030,6 +3055,7 @@
 				37DD14812260653D007FD9CB /* Square_HT_Details_Seach_VC.xib in Resources */,
 				377805F322B1EFB8007F14B5 /* H5_MyCard_ViewController.xib in Resources */,
 				3749A891225B67A1006940A3 /* Square_TextCell.xib in Resources */,
+				37F2C22222B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.xib in Resources */,
 				37E200932278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.xib in Resources */,
 				1889D383225A4931008ED787 /* Home_PreferentialCell.xib in Resources */,
 				37CD026E22AE1E1900ED09E8 /* Mine_GoodsCard_ViewController.xib in Resources */,
@@ -3067,6 +3093,7 @@
 				37B4E15022A8A6EF0017A5BA /* Mine_MyActivity_ViewController.xib in Resources */,
 				37B8B6D3226F358800434D61 /* Mine_SetUP_Currency_NewMessage_VC.xib in Resources */,
 				3749A875225B1A99006940A3 /* ZXCategoryItemView.xib in Resources */,
+				37C6437522B382F500FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib in Resources */,
 				372E4E71225603AA006CEB0A /* Home_CommunityActivities_Cell.xib in Resources */,
 				37B4E15522A8AD300017A5BA /* Mine_MyActivity_Cell.xib in Resources */,
 				37B8B729226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.xib in Resources */,
@@ -3118,6 +3145,7 @@
 				3734066422852A9E00FC38F9 /* Home_HouseKeeping_PlaceOrder_ViewController.xib in Resources */,
 				37CE24AE225C32B50049A57C /* Square_HT_ImageCell.xib in Resources */,
 				37B8B72A226F38A400434D61 /* Mine_MyOrder_ViewController.xib in Resources */,
+				37ADB17222B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib in Resources */,
 				37B8B6FE226F381900434D61 /* Mine_MyOrder_Shop_Cell.xib in Resources */,
 				37698F6522867E03003324DC /* Home_HouseKeeping_PlacOrder_PriceCell.xib in Resources */,
 				373406582285291E00FC38F9 /* Home_CommunityNearby_FreshFruitSink_Three_Cell.xib in Resources */,
@@ -3326,6 +3354,7 @@
 				371830DD225DB1B2006B97E5 /* Square_WD_ImageCell.m in Sources */,
 				37053A3C2272A62F003D94DB /* Mine_Myorder_Shoping_AllEvaluate_Cell.m in Sources */,
 				37ACB93B22B1F31E00C84669 /* EaseConversationListViewController.m in Sources */,
+				37F2C22122B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m in Sources */,
 				37B8B6FB226F381900434D61 /* Mine_MyOrder_ButtonAndTableView_View.m in Sources */,
 				37C3ECD42275482B006EB3C3 /* Home_HouseKeeping_ViewController.m in Sources */,
 				3783A404226EB76700A88C32 /* Home_ShoppingCart_ViewController.m in Sources */,
@@ -3432,6 +3461,7 @@
 				376D29F922646389009EA443 /* Square_QuestionsAndAnswersVC.m in Sources */,
 				37ACB93F22B1F31E00C84669 /* EaseViewController.m in Sources */,
 				37ACB93022B1F31E00C84669 /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
+				37ADB17122B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m in Sources */,
 				3740258E225CC692002F9FF0 /* Publish_Tip_View.m in Sources */,
 				37ACB90722B1F31E00C84669 /* NSDate+Category.m in Sources */,
 				371830EC225DC5B0006B97E5 /* Square_WD_ImageAndText_Cell.m in Sources */,
@@ -3519,6 +3549,7 @@
 				37ACB94722B1F31E00C84669 /* EaseImageView.m in Sources */,
 				37B8B6DE226F358800434D61 /* Mine_SetUP_Currency_VC.m in Sources */,
 				37AF757F22AF56BE00328F0A /* Mine_SetUP_PassWord_VC.m in Sources */,
+				37C6437422B382F500FAD214 /* Mine_MyOrder_UserEvaluateViewController.m in Sources */,
 				37B8B6DB226F358800434D61 /* Mine_SetUP_Feedback_VC.m in Sources */,
 				373D2E6822702FEC00ADB8E9 /* Mine_Wallet_CashOut_View.m in Sources */,
 				3748C7B42254D8EA006D7514 /* CustomBT.m in Sources */,

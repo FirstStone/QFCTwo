@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Home_CommunityNearby_Branch_ViewController : Basic_ViewController
 
+@property (nonatomic, assign) NSInteger Type;
 
 @end
 

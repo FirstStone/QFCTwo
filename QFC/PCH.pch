@@ -222,6 +222,9 @@
 #import "H5_MyActivity_ViewController.h"
 #import "H5_MyCard_ViewController.h"
 #import "Message_Conversation_ViewController.h"
+#import "Mine_MyOrder_UserTuikuan_ViewController.h"
+#import "Mine_MyOrder_UserEvaluateViewController.h"
+#import "Mine_MyOrder_AllEvaluate_Cell.h"
 
 //数据模型
 #import "Message_FansList_Model.h"
@@ -522,6 +525,47 @@
  */
 #define URL_orders_orderDetails HTTPHeader@"index/orders/orderDetails"
 
+#pragma mark----评价
+/**
+ 订单 评价列表 我发出的
+ URL : https://www.txkuaiyou.com/index/Orderevaluates/evaluateList
+ 参数 :
+ uid
+ 用户ID
+ page
+ 分页
+ */
+#define URL_Orderevaluates_evaluateList HTTPHeader@"index/Orderevaluates/evaluateList"
+
+
+
+#pragma mark----退款售后
+/**
+ 我发出的订单退款列表
+ URL : https://www.txkuaiyou.com/index/orders/orderRefundList
+ 参数 :
+ uid
+ 用户ID
+ page
+ 分页
+ */
+#define URL_orders_orderRefundList HTTPHeader@"index/orders/orderRefundList"
+/**
+ 订单退款
+ URL : https://www.txkuaiyou.com/index/orders/orderRefund
+ 参数 :
+ orderid
+ 订单ID
+ uid
+ 用户ID
+ cause
+ 退款原因
+ remark
+ 备注
+ cause_img
+ 图片 逗号隔开
+ */
+#define URL_orders_orderRefund HTTPHeader@"index/orders/orderRefund"
 
 #pragma mark----家政订单点击
 /**
@@ -672,6 +716,17 @@
 #define URL_merchants_userComplete HTTPHeader@"index/merchants/userComplete"
 
 #pragma mark----广场详情
+
+/**
+ 创建聊天链接
+ URL : https://www.txkuaiyou.com/index/Informations/infromAdd
+ 参数 :
+ uid
+ 用户ID
+ pid
+ 用户ID  对方的
+ */
+#define URL_Informations_infromAdd HTTPHeader@"index/Informations/infromAdd"
 
 /**
  社区广场 回答问题

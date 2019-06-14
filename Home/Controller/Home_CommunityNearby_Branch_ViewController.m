@@ -82,7 +82,7 @@
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * self.itemArray.count, is_IPhone_X ? (SCREEN_HEIGHT - 88.0f - 34- 40.0f) : (SCREEN_HEIGHT - 64.0f - 40.0f));
         _scrollView.delegate = self;
-        [_scrollView scrollRectToVisible:CGRectMake(0, 0, SCREEN_WIDTH, is_IPhone_X ? (SCREEN_HEIGHT - 88.0f - 34 - 40.0f) : (SCREEN_HEIGHT - 64.0f - 40.0f)) animated:NO];
+        [_scrollView scrollRectToVisible:CGRectMake(SCREEN_WIDTH * self.Type, 0, SCREEN_WIDTH, is_IPhone_X ? (SCREEN_HEIGHT - 88.0f - 34 - 40.0f) : (SCREEN_HEIGHT - 64.0f - 40.0f)) animated:NO];
     }
     return _scrollView;
 }
@@ -90,7 +90,7 @@
     if (!_segmentedControl) {
         _segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, is_IPhone_X ? 88.0f : 64.0f, SCREEN_WIDTH, 40.0f)];
         _segmentedControl.sectionTitles = self.itemArray;
-        _segmentedControl.selectedSegmentIndex = 0;
+        _segmentedControl.selectedSegmentIndex = self.Type;
         _segmentedControl.backgroundColor = QFC_Color_F5F5F5;//[UIColor whiteColor];
         _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor] ,NSFontAttributeName:[UIFont systemFontOfSize:14.0f]};
         _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : QFC_Color_30AC65, NSFontAttributeName :[UIFont systemFontOfSize:14.0f weight:200.0f]};

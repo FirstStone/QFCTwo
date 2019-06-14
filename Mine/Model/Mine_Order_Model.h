@@ -81,7 +81,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *service_avatar;
 /**家政手机号*/
 @property (nonatomic, strong) NSString *service_phone;
-
+/**退款状态*/
+@property (nonatomic, strong) NSString *refundstatus;
 @end
 
 
@@ -307,5 +308,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface Mine_MyOrder_Evalute_Model : NSObject
+
+/**
+ "type": 1,
+ "content": "此用户暂无评价",
+ "imgurl": [],
+ "createtime": "刚刚",
+ "grade": 5,
+ "left_id": 1,
+ "left_name": "李三",
+ "left_avatar": "https://www.txkuaiyou.com/uploads/fileimg/156048080689-2019-06-14.png",
+ "left_remark": "",
+ "userid": 7,
+ "nickname": "快友1023",
+ "avatar": "https://www.txkuaiyou.com/uploads/images/20190523143914.png"
+ */
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSMutableArray *imgurl;
+@property (nonatomic, strong) NSString *createtime;
+@property (nonatomic, strong) NSString *grade;
+@property (nonatomic, strong) NSString *left_id;
+@property (nonatomic, strong) NSString *left_name;
+@property (nonatomic, strong) NSString *left_avatar;
+@property (nonatomic, strong) NSString *left_remark;
+@property (nonatomic, strong) NSString *userid;
+@property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *avatar;
+
+
+@end
 
 NS_ASSUME_NONNULL_END

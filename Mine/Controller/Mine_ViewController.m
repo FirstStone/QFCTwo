@@ -315,9 +315,16 @@
                             }
                             
                         }else if (indexPath.row == 3) {//评论
-                            Mine_MyOrder_Evaluate_ViewController *evaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];
-                            [evaluateVC setHidesBottomBarWhenPushed:YES];
-                            [self.navigationController pushViewController:evaluateVC animated:YES];
+                            if ([[Singleton sharedSingleton].type_id intValue] == 0) {
+                                Mine_MyOrder_UserEvaluateViewController *evaluateVC = [[Mine_MyOrder_UserEvaluateViewController alloc] init];
+                                [evaluateVC setHidesBottomBarWhenPushed:YES];
+                                [self.navigationController pushViewController:evaluateVC animated:YES];
+                            }
+
+//                            Mine_MyOrder_Evaluate_ViewController *evaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];
+//                            [evaluateVC setHidesBottomBarWhenPushed:YES];
+//                            [self.navigationController pushViewController:evaluateVC animated:YES];
+                            
                         }else if (indexPath.row == 4) {//普通用户跳转
                             Mine_MyOrder_User_Service_ViewController *serviceVC = [[Mine_MyOrder_User_Service_ViewController alloc] init];
                             [serviceVC setHidesBottomBarWhenPushed:YES];
@@ -461,9 +468,13 @@
                     }
                     
                 }else if (indexPath.row == 3) {//评论
-                    Mine_MyOrder_Evaluate_ViewController *evaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];
-                    [evaluateVC setHidesBottomBarWhenPushed:YES];
-                    [self.navigationController pushViewController:evaluateVC animated:YES];
+//                    Mine_MyOrder_Evaluate_ViewController *evaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];
+//                    [evaluateVC setHidesBottomBarWhenPushed:YES];
+//                    [self.navigationController pushViewController:evaluateVC animated:YES];
+                    Mine_MyOrder_User_Service_ViewController *serviceVC = [[Mine_MyOrder_User_Service_ViewController alloc] init];
+                    [serviceVC setHidesBottomBarWhenPushed:YES];
+                    [self.navigationController pushViewController:serviceVC animated:YES];
+                    
                 }else if (indexPath.row == 4) {//普通用户跳转
                     Mine_MyOrder_User_Service_ViewController *serviceVC = [[Mine_MyOrder_User_Service_ViewController alloc] init];
                     [serviceVC setHidesBottomBarWhenPushed:YES];

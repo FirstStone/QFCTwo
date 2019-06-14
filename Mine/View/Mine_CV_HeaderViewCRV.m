@@ -129,15 +129,15 @@
 
 - (void)upDataSoureToSelf {
     NSLog(@"%@", [Singleton sharedSingleton].avatar);
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 0) {
-            self.ShopState_BT.hidden = YES;
-        } else {
-            self.ShopState_BT.hidden = NO;
-        }
-    }else {
-        self.ShopState_BT.hidden = YES;
-    }
+//    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+//        if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 0) {
+//            self.ShopState_BT.hidden = YES;
+//        } else {
+//            self.ShopState_BT.hidden = NO;
+//        }
+//    }else {
+//        self.ShopState_BT.hidden = YES;
+//    }
     
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         [self.Photo_imageView sd_setImageWithURL:[NSURL URLWithString:[Singleton sharedSingleton].avatar]];

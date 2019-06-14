@@ -86,12 +86,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"--------------------%ld, %ld", self.SquareRecommend_Array.count, self.index);
     if (self.index == 4) {//问答
-        if (indexPath.row == 0) {//头部
+        if ([self.SquareRecommend_Array[indexPath.row] isMemberOfClass:[Square_info_Model class]]) {//头部
             Square_info_Model *model = self.SquareRecommend_Array[indexPath.row];
             Square_WD_ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_SquareWDImageCell];
             [cell setModelToCell:model];
             return cell;
-        }else if (indexPath.row == 1) {//轮播图
+        }else if ([self.SquareRecommend_Array[indexPath.row] isKindOfClass:[NSArray class]]) {//轮播图
             Square_WD_SD_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_SquareWDSDCell];
             [cell setModelToCell:self.SquareRecommend_Array[indexPath.row]];
             return cell;
