@@ -17,7 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:User_Mid];
+    }
     // appkey替换成自己在环信管理后台注册应用中的appkey
     EMOptions *options = [EMOptions optionsWithAppkey:@"1110190401216669#qfc"];
     // apnsCertName是证书名称，可以先传nil，等后期配置apns推送时在传入证书名称

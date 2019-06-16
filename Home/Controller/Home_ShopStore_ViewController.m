@@ -9,7 +9,7 @@
 #import "Home_ShopStore_ViewController.h"
 
 #define CellID_HomeShopStoreLiftTableViewCell @"HomeShopStoreLiftTableViewCell"
-
+#define CellID_HomeShopStoreRightTableViewCell @"HomeShopStoreRightTableViewCell"
 @interface Home_ShopStore_ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UIImageView *Shop_imageView;
@@ -40,7 +40,10 @@
     self.type = @"0";
     self.Lift_TabelView.delegate = self;
     self.Lift_TabelView.dataSource = self;
+    self.Right_TableView.delegate = self;
+    self.Right_TableView.dataSource = self;
     [self.Lift_TabelView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_ShopStore_Lift_TableViewCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_HomeShopStoreLiftTableViewCell];
+    [self.Right_TableView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_ShopStore_Right_TableViewCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_HomeShopStoreRightTableViewCell];
     [self PostMerchantsMerchantInfo];
     [self PostMerchantsMerchantTypeList];
     [self PostMerchantsmerchantGoodsType];
@@ -72,7 +75,6 @@
 #pragma mark - UITableViewDelegate
 //返回多少个分区
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
     return 1;
 }
 //返回一个分区里多少数据
@@ -85,21 +87,17 @@
 }
 // 返回Cell内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([tableView isMemberOfClass:[Home_ShopStore_Lift_TableViewCell class]]) {
+    if ([tableView isMemberOfClass:[self.Lift_TabelView class]]) {
         Home_ShopStoreStyle_Model *model = self.Lift_DataArray[indexPath.row];
         Home_ShopStore_Lift_TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeShopStoreLiftTableViewCell];
         [cell SetDataSoureToCell:model];
         return cell;
     }else {
-          Home_ShopStore_Right_TableViewCell 
+        Home_ShopStore_Branch_Model *model = self.Right_DataArray[indexPath.row];
+        Home_ShopStore_Right_TableViewCell *Cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeShopStoreRightTableViewCell];
+        [Cell SetDataSoureToRightCell:model];
+        return Cell;
     }
-//    Home_ShopStore_Lift_TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID forIndexPath:indexPath];
-//    //cell右箭头
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    XBPlayModel *model = [self.dataArray objectAtIndex:indexPath.row];
-//    [cell setupUI:model]; //数据赋值
-    
-  
 }
 
 
@@ -174,7 +172,7 @@
     NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
     [parm setObject:self.Shopid forKey:@"merchantid"];
     [parm setObject:self.type forKey:@"type"];
-    [parm setObject:@"1" forKey:@"page"];
+//    [parm setObject:@"1" forKey:@"page"];
     [[HttpRequest sharedInstance] postWithURLString:URL_merchants_merchantGoodsType parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
