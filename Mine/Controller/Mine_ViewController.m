@@ -315,11 +315,9 @@
                             }
                             
                         }else if (indexPath.row == 3) {//评论
-                            if ([[Singleton sharedSingleton].type_id intValue] == 0) {
                                 Mine_MyOrder_UserEvaluateViewController *evaluateVC = [[Mine_MyOrder_UserEvaluateViewController alloc] init];
                                 [evaluateVC setHidesBottomBarWhenPushed:YES];
                                 [self.navigationController pushViewController:evaluateVC animated:YES];
-                            }
 
 //                            Mine_MyOrder_Evaluate_ViewController *evaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];
 //                            [evaluateVC setHidesBottomBarWhenPushed:YES];
@@ -471,12 +469,13 @@
 //                    Mine_MyOrder_Evaluate_ViewController *evaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];
 //                    [evaluateVC setHidesBottomBarWhenPushed:YES];
 //                    [self.navigationController pushViewController:evaluateVC animated:YES];
-                    Mine_MyOrder_User_Service_ViewController *serviceVC = [[Mine_MyOrder_User_Service_ViewController alloc] init];
-                    [serviceVC setHidesBottomBarWhenPushed:YES];
-                    [self.navigationController pushViewController:serviceVC animated:YES];
+                    Mine_MyOrder_UserEvaluateViewController *evaluateVC = [[Mine_MyOrder_UserEvaluateViewController alloc] init];
+                    [evaluateVC setHidesBottomBarWhenPushed:YES];
+                    [self.navigationController pushViewController:evaluateVC animated:YES];
+                    
                     
                 }else if (indexPath.row == 4) {//普通用户跳转
-                    Mine_MyOrder_User_Service_ViewController *serviceVC = [[Mine_MyOrder_User_Service_ViewController alloc] init];
+                    Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC *serviceVC = [[Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC alloc] init];
                     [serviceVC setHidesBottomBarWhenPushed:YES];
                     [self.navigationController pushViewController:serviceVC animated:YES];
                 }
@@ -522,6 +521,7 @@
                     [shopVC setHidesBottomBarWhenPushed:YES];
                     [self.navigationController pushViewController:shopVC animated:YES];
                 }else {
+                    
                 }
             }
         }

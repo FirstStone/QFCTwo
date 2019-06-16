@@ -225,6 +225,15 @@
 #import "Mine_MyOrder_UserTuikuan_ViewController.h"
 #import "Mine_MyOrder_UserEvaluateViewController.h"
 #import "Mine_MyOrder_AllEvaluate_Cell.h"
+#import "Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.h"
+#import "Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.h"
+#import "Mine_MyOrder_TuiKuang_FooterView.h"
+#import "QRCodeViewController.h"
+#import "Home_ShopStore_Cell.h"
+#import "Home_ShopStore_Model.h"
+#import "Home_ShopStore_ViewController.h"
+#import "Home_ShopStore_Lift_TableViewCell.h"
+#import "Home_ShopStore_Right_TableViewCell.h"
 
 //数据模型
 #import "Message_FansList_Model.h"
@@ -537,9 +546,31 @@
  */
 #define URL_Orderevaluates_evaluateList HTTPHeader@"index/Orderevaluates/evaluateList"
 
+/*
+ 订单 评价列表 我接到的
+ URL : https://www.txkuaiyou.com/index/Orderevaluates/myevaluateList
+ 参数 :
+ uid
+ 用户ID
+ page
+ 分页
+ */
+#define URL_Orderevaluates_myevaluateList HTTPHeader@"index/Orderevaluates/myevaluateList"
 
 
 #pragma mark----退款售后
+
+/**
+ 我收到的订单退款列表
+ URL : https://www.txkuaiyou.com/index/orders/myOrderRefundList
+ 参数 :
+ uid
+ 用户ID
+ page
+ 分页
+ */
+#define URL_orders_myOrderRefundList HTTPHeader@"index/orders/myOrderRefundList"
+
 /**
  我发出的订单退款列表
  URL : https://www.txkuaiyou.com/index/orders/orderRefundList
@@ -1083,6 +1114,20 @@
  */
 #define URL_Shoppings_deliveryPrice HTTPHeader@"index/Shoppings/deliveryPrice"
 
+/**
+ 加入购物车
+ URL : https://www.txkuaiyou.com/index/Shoppings/shoppingAdd
+ 参数 :
+ uid
+ 用户ID
+ goodsid
+ 商品ID
+ sum
+ 数量
+ specification
+ 规格   红xl  用空格隔开
+ */
+#define URL_Shoppings_shoppingAdd HTTPHeader@"index/Shoppings/shoppingAdd"
 
 #pragma mark----消息列表
 
@@ -1343,5 +1388,37 @@ index/discounts/mydisountList
  */
 #define URL_centres_uPhones HTTPHeader@"index/centres/uPhones"
 
+#pragma mark----首页
+/**
+ index/merchants/rimMerchantList
+ uid   没有传空
+ page
+ 获取周边商家列表
+ */
+#define URL_merchants_rimMerchantList HTTPHeader@"index/merchants/rimMerchantList"
+
+/**
+ index/merchants/merchantInfo
+ uid
+ merchantid
+ 获取店铺信息
+ */
+#define URL_merchants_merchantInfo HTTPHeader@"index/merchants/merchantInfo"
+
+/**
+ index/merchants/merchantTypeList
+ merchantid
+ 获取店铺分类
+ */
+#define URL_merchants_merchantTypeList HTTPHeader@"index/merchants/merchantTypeList"
+
+/**
+ index/merchants/merchantGoodsType
+ merchantid
+ type
+ page
+ 根据商家分类获取商品列表
+ */
+#define URL_merchants_merchantGoodsType HTTPHeader@"index/merchants/merchantGoodsType"
 
 #endif /* PCH_pch */

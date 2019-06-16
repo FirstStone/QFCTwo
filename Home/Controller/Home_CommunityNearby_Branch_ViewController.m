@@ -68,7 +68,7 @@
         LiftTableview.My_NAVC = self.navigationController;
         LiftTableview.index = i;
         LiftTableview.Type_ID = [self.Title_Array[i] Style_id];
-        [LiftTableview LoadingDataSoure];
+        [LiftTableview CollectionViewUPDataSoure];
         [self.scrollView addSubview:LiftTableview];
     }
 }

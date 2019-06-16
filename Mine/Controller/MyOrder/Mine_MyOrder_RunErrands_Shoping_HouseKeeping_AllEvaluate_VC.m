@@ -30,8 +30,8 @@
     for (int i = 0; i < self.itemArray.count; i++) {
         Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_TableView *LiftTableview = [[Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_TableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, is_IPhone_X ? (SCREEN_HEIGHT - 88.0f - 34 - 40.0f) : (SCREEN_HEIGHT - 64.0f - 40.0f)) style:UITableViewStylePlain];
         LiftTableview.My_NAVC = self.navigationController;
-//        LiftTableview.MyOrderViewStyle = MyOrderViewStyleHouseKeeping;
         LiftTableview.index = i;
+        [LiftTableview TabelViewBeginDataSoure];
         [self.scrollView addSubview:LiftTableview];
     }
 }

@@ -13,6 +13,8 @@
 #define CellID_HomeRecommendCell @"HomeRecommendCell"
 #define CellID_HomeCommunityHotSearchCell @"HomeCommunityHotSearchCell"
 
+#define CellID_HomeShopStoreCell @"HomeShopStoreCell"
+
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
 @interface Home_ViewController ()<FMHorizontalMenuViewDelegate,FMHorizontalMenuViewDataSource,SDCycleScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, AMapLocationManagerDelegate>
@@ -38,6 +40,8 @@
 
 @property (nonatomic, copy) AMapLocatingCompletionBlock completionBlock;
 
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
 @end
 
 @implementation Home_ViewController
@@ -53,15 +57,35 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateApp) name:@"VersionAPP" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUPUIMapView) name:@"setUPUIMapView" object:nil];
     [self updateApp];
-    self.Icon_Array = @[@"icon_zhekou", @"icon_paotui", @"icon_jiazheng", @"icon_ershou", @"icon_zhaofang", @"icon_weixiu"];
-    self.Title_Array = @[@"快友生鲜", @"快友跑腿", @"便民家政", @"跳蚤市场", @"友友找房", @"电子维修"];
+    self.Icon_Array = @[@"icon_zhekou", @"icon_paotui", @"icon_jiazheng", @"icon_ershou", @"icon_zhaofang"];//@"icon_weixiu"
+    self.Title_Array = @[@"优享生鲜", @"快友跑腿", @"便民家政", @"跳蚤市场", @"友友找房"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_CommunityActivities_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_CommunityActivities];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_PreferentialCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_HomePreferentialCell];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_RecommendCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_HomeRecommendCell];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_CommunityHotSearchCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_HomeCommunityHotSearchCell];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_ShopStore_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_HomeShopStoreCell];
     [self setUPUI];
+    MJWeakSelf;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.tableView.Page = 1;
+        [weakSelf.dataArray removeAllObjects];
+        [weakSelf LoadingDataSoure];
+
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        weakSelf.tableView.Page += 1;
+            [weakSelf LoadingDataSoure];
+    }];
+    [self.tableView beginFresh];
+}
+
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray = [[NSMutableArray alloc] init];
+    }
+    return _dataArray;
 }
 
 //self.navigationController.delegate = self;
@@ -387,13 +411,13 @@
 - (void)setupCustomCell:(UICollectionViewCell *)cell forIndex:(NSInteger)index cycleScrollView:(SDCycleScrollView *)view {
     if (view.tag == 59695884) {
         Home_ShangQiang_CollectionViewCell *myCell = (Home_ShangQiang_CollectionViewCell *)cell;
-        NSMutableAttributedString *First_Str = [[NSMutableAttributedString alloc] initWithString:@"[公益] 关注小区流浪动物，请给动物们一个家"];
+        NSMutableAttributedString *First_Str = [[NSMutableAttributedString alloc] initWithString:@"[公益] 关心世界，更关心你"];
         // 改变颜色
         [First_Str addAttribute:NSForegroundColorAttributeName value:QFC_Color(48,172,101) range:NSMakeRange(0, 4)];
         [myCell.Public_Label setAttributedText:First_Str];
         
         
-        NSMutableAttributedString *second_Str = [[NSMutableAttributedString alloc] initWithString:@"[活动] 到底是谁发明出国这件孤独的事儿"];
+        NSMutableAttributedString *second_Str = [[NSMutableAttributedString alloc] initWithString:@"[活动] “火种计划——商家扶持”"];
         // 改变颜色
         [second_Str addAttribute:NSForegroundColorAttributeName value:QFC_Color(48,172,101) range:NSMakeRange(0, 4)];
         [myCell.Activity_Label setAttributedText:second_Str];
@@ -412,37 +436,52 @@
 }
 //返回一个分区里多少数据
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;//self.dataArray.count;
+    return self.dataArray.count;
 }
 // 返回Cell内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
+    Home_ShopStore_Model *model = self.dataArray[indexPath.row];
+    Home_ShopStore_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeShopStoreCell];
+    [cell SetDataSoureToCell:model];
+    return cell;
+/*    if (indexPath.row == 0) {
         Home_CommunityActivities_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_CommunityActivities];
         if (!cell) {
-            
+
         }
         return cell;
-    }if (indexPath.row == 1){
+    }
+    if (indexPath.row == 0){
         Home_PreferentialCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomePreferentialCell];
         if (!cell) {
             
         }
         return cell;
-    } if (indexPath.row == 2) {
+    } else {// (indexPath.row == 1)
         Home_RecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeRecommendCell];
         if (!cell) {
             
         }
         return cell;
-    }else {
+    }
+    else {
         Home_CommunityHotSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityHotSearchCell];
         if (!cell) {
-            
+
         }
         return cell;
-    }
+    }*/
  
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Home_ShopStore_Model *model = self.dataArray[indexPath.row];
+    Home_ShopStore_ViewController *ShopStoreVC = [[Home_ShopStore_ViewController alloc] init];
+    ShopStoreVC.Shopid = model.Shop_id;
+    [ShopStoreVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:ShopStoreVC animated:YES];
+}
+
 - (IBAction)HomeShopingCartClick:(id)sender {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         Home_ShoppingCart_ViewController *shoppingVC = [[Home_ShoppingCart_ViewController alloc] init];
@@ -597,5 +636,40 @@
 {
     [locationManager requestAlwaysAuthorization];
 }
+
+#pragma mark----UPdata
+- (void)LoadingDataSoure {
+    /**
+     index/merchants/rimMerchantList
+     uid   没有传空
+     page
+     获取周边商家列表
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:@(self.tableView.Page) forKey:@"page"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_merchants_rimMerchantList parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        [self.tableView endRefresh];
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSArray *Array = [responseObject objectForKey:@"list"];
+            for (NSDictionary *dic in Array) {
+                Home_ShopStore_Model *model = [Home_ShopStore_Model mj_objectWithKeyValues:dic];
+                [self.dataArray addObject:model];
+            }
+            if (!Array.count) {
+                [self.tableView hidenFooterView:NO];
+            }
+        }
+        if (!self.dataArray.count && self.tableView.Page == 1) {
+            [self.tableView hidenFooterView:YES];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
 
 @end

@@ -132,6 +132,11 @@
 		375A9E7922B0974D003C46D3 /* Mine_MyOrder_Evaluate_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 375A9E7722B0974D003C46D3 /* Mine_MyOrder_Evaluate_ViewController.xib */; };
 		375A9E7D22B0A172003C46D3 /* H5_Mine_MyShopStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 375A9E7B22B0A172003C46D3 /* H5_Mine_MyShopStoreViewController.m */; };
 		375A9E7E22B0A172003C46D3 /* H5_Mine_MyShopStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 375A9E7C22B0A172003C46D3 /* H5_Mine_MyShopStoreViewController.xib */; };
+		3762201522B5FF6E00F20613 /* Home_ShopStore_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3762201322B5FF6E00F20613 /* Home_ShopStore_Cell.m */; };
+		3762201622B5FF6E00F20613 /* Home_ShopStore_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3762201422B5FF6E00F20613 /* Home_ShopStore_Cell.xib */; };
+		3762201922B60F0000F20613 /* Home_ShopStore_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3762201822B60F0000F20613 /* Home_ShopStore_Model.m */; };
+		3762201D22B62D5600F20613 /* Home_ShopStore_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3762201B22B62D5500F20613 /* Home_ShopStore_ViewController.m */; };
+		3762201E22B62D5600F20613 /* Home_ShopStore_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3762201C22B62D5500F20613 /* Home_ShopStore_ViewController.xib */; };
 		3762456B22605BF300FB9A31 /* UIScrollView+XKEmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3762456322605BF200FB9A31 /* UIScrollView+XKEmptyDataSet.m */; };
 		3762456C22605BF300FB9A31 /* UIImage+Edit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3762456422605BF200FB9A31 /* UIImage+Edit.m */; };
 		3762456D22605BF300FB9A31 /* XKEmptyPlaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3762456522605BF200FB9A31 /* XKEmptyPlaceView.m */; };
@@ -186,6 +191,15 @@
 		37A29BE622534F9000495D1B /* Message_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A29BE422534F9000495D1B /* Message_ViewController.xib */; };
 		37A29BEF225350C500495D1B /* Mine_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A29BED225350C500495D1B /* Mine_ViewController.m */; };
 		37A29BF0225350C500495D1B /* Mine_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A29BEE225350C500495D1B /* Mine_ViewController.xib */; };
+		37A3D20822B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A3D20722B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.m */; };
+		37A3D21D22B5DC170037F12E /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A3D21B22B5DC160037F12E /* QRCodeViewController.m */; };
+		37A61BDF22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A61BDD22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.m */; };
+		37A61BE022B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A61BDE22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.xib */; };
+		37A61BE422B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A61BE222B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.m */; };
+		37A61BE522B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A61BE322B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.xib */; };
+		37A91BD922B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A91BD722B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m */; };
+		37A91BDA22B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A91BD822B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib */; };
+		37A91BE222B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A91BE122B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m */; };
 		37ACB90622B1F31E00C84669 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB83522B1F31D00C84669 /* UIViewController+HUD.m */; };
 		37ACB90722B1F31E00C84669 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB83622B1F31D00C84669 /* NSDate+Category.m */; };
 		37ACB90822B1F31E00C84669 /* NSString+Valid.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB83722B1F31D00C84669 /* NSString+Valid.m */; };
@@ -733,6 +747,14 @@
 		375A9E7A22B0A172003C46D3 /* H5_Mine_MyShopStoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H5_Mine_MyShopStoreViewController.h; sourceTree = "<group>"; };
 		375A9E7B22B0A172003C46D3 /* H5_Mine_MyShopStoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H5_Mine_MyShopStoreViewController.m; sourceTree = "<group>"; };
 		375A9E7C22B0A172003C46D3 /* H5_Mine_MyShopStoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = H5_Mine_MyShopStoreViewController.xib; sourceTree = "<group>"; };
+		3762201222B5FF6E00F20613 /* Home_ShopStore_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_ShopStore_Cell.h; sourceTree = "<group>"; };
+		3762201322B5FF6E00F20613 /* Home_ShopStore_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_ShopStore_Cell.m; sourceTree = "<group>"; };
+		3762201422B5FF6E00F20613 /* Home_ShopStore_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_ShopStore_Cell.xib; sourceTree = "<group>"; };
+		3762201722B60F0000F20613 /* Home_ShopStore_Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_ShopStore_Model.h; sourceTree = "<group>"; };
+		3762201822B60F0000F20613 /* Home_ShopStore_Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_ShopStore_Model.m; sourceTree = "<group>"; };
+		3762201A22B62D5500F20613 /* Home_ShopStore_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_ShopStore_ViewController.h; sourceTree = "<group>"; };
+		3762201B22B62D5500F20613 /* Home_ShopStore_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_ShopStore_ViewController.m; sourceTree = "<group>"; };
+		3762201C22B62D5500F20613 /* Home_ShopStore_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_ShopStore_ViewController.xib; sourceTree = "<group>"; };
 		3762456322605BF200FB9A31 /* UIScrollView+XKEmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XKEmptyDataSet.m"; sourceTree = "<group>"; };
 		3762456422605BF200FB9A31 /* UIImage+Edit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Edit.m"; sourceTree = "<group>"; };
 		3762456522605BF200FB9A31 /* XKEmptyPlaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XKEmptyPlaceView.m; sourceTree = "<group>"; };
@@ -822,6 +844,21 @@
 		37A29BEC225350C500495D1B /* Mine_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_ViewController.h; sourceTree = "<group>"; };
 		37A29BED225350C500495D1B /* Mine_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_ViewController.m; sourceTree = "<group>"; };
 		37A29BEE225350C500495D1B /* Mine_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_ViewController.xib; sourceTree = "<group>"; };
+		37A3D20622B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_TuiKuang_FooterView.h; sourceTree = "<group>"; };
+		37A3D20722B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_TuiKuang_FooterView.m; sourceTree = "<group>"; };
+		37A3D21B22B5DC160037F12E /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		37A3D21C22B5DC170037F12E /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
+		37A61BDC22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_ShopStore_Lift_TableViewCell.h; sourceTree = "<group>"; };
+		37A61BDD22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_ShopStore_Lift_TableViewCell.m; sourceTree = "<group>"; };
+		37A61BDE22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_ShopStore_Lift_TableViewCell.xib; sourceTree = "<group>"; };
+		37A61BE122B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_ShopStore_Right_TableViewCell.h; sourceTree = "<group>"; };
+		37A61BE222B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_ShopStore_Right_TableViewCell.m; sourceTree = "<group>"; };
+		37A61BE322B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_ShopStore_Right_TableViewCell.xib; sourceTree = "<group>"; };
+		37A91BD622B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.h; sourceTree = "<group>"; };
+		37A91BD722B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m; sourceTree = "<group>"; };
+		37A91BD822B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib; sourceTree = "<group>"; };
+		37A91BE022B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.h; sourceTree = "<group>"; };
+		37A91BE122B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m; sourceTree = "<group>"; };
 		37ACB82F22B1F31D00C84669 /* EaseUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseUI.h; sourceTree = "<group>"; };
 		37ACB83222B1F31D00C84669 /* EaseLocalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseLocalDefine.h; sourceTree = "<group>"; };
 		37ACB83422B1F31D00C84669 /* UIViewController+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DismissKeyboard.h"; sourceTree = "<group>"; };
@@ -1633,6 +1670,9 @@
 				37D999442295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.h */,
 				37D999452295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.m */,
 				37D999462295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.xib */,
+				3762201A22B62D5500F20613 /* Home_ShopStore_ViewController.h */,
+				3762201B22B62D5500F20613 /* Home_ShopStore_ViewController.m */,
+				3762201C22B62D5500F20613 /* Home_ShopStore_ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1650,6 +1690,8 @@
 				37D9994A2295395A00A2122B /* Home_ShoppingCart_Model.m */,
 				378CA7A3229799B70087B29C /* Home_ShoppingCatr_Settlement_Model.h */,
 				378CA7A4229799B70087B29C /* Home_ShoppingCatr_Settlement_Model.m */,
+				3762201722B60F0000F20613 /* Home_ShopStore_Model.h */,
+				3762201822B60F0000F20613 /* Home_ShopStore_Model.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1715,6 +1757,15 @@
 				37698F6122867E03003324DC /* Home_HouseKeeping_PlacOrder_PriceCell.h */,
 				37698F6222867E03003324DC /* Home_HouseKeeping_PlacOrder_PriceCell.m */,
 				37698F6322867E03003324DC /* Home_HouseKeeping_PlacOrder_PriceCell.xib */,
+				3762201222B5FF6E00F20613 /* Home_ShopStore_Cell.h */,
+				3762201322B5FF6E00F20613 /* Home_ShopStore_Cell.m */,
+				3762201422B5FF6E00F20613 /* Home_ShopStore_Cell.xib */,
+				37A61BDC22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.h */,
+				37A61BDD22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.m */,
+				37A61BDE22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.xib */,
+				37A61BE122B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.h */,
+				37A61BE222B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.m */,
+				37A61BE322B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2137,6 +2188,8 @@
 		3769D4922269F17E00356EF1 /* SetUP */ = {
 			isa = PBXGroup;
 			children = (
+				37A3D21C22B5DC170037F12E /* QRCodeViewController.h */,
+				37A3D21B22B5DC160037F12E /* QRCodeViewController.m */,
 				37B8B6C4226F358800434D61 /* Mine_SetUP_About_Me_VC.h */,
 				37B8B6AF226F358600434D61 /* Mine_SetUP_About_Me_VC.m */,
 				37B8B6AD226F358600434D61 /* Mine_SetUP_About_Me_VC.xib */,
@@ -2666,6 +2719,8 @@
 				37B8B6F2226F381800434D61 /* Mine_MyOrder_User_Tableview.m */,
 				37053A482272D618003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_TableView.h */,
 				37053A492272D618003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_TableView.m */,
+				37A91BE022B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.h */,
+				37A91BE122B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m */,
 				37E25A7222783A7F00EB90A0 /* Mine_MyOrderDetails_HeaderView.h */,
 				37E25A7322783A7F00EB90A0 /* Mine_MyOrderDetails_HeaderView.m */,
 				37E25A7522783BC600EB90A0 /* Mine_MyOrderDetails_Special_HeaderView.h */,
@@ -2685,6 +2740,8 @@
 				37ADB16E22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.h */,
 				37ADB16F22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m */,
 				37ADB17022B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib */,
+				37A3D20622B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.h */,
+				37A3D20722B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.m */,
 			);
 			path = MyOrder;
 			sourceTree = "<group>";
@@ -2719,6 +2776,9 @@
 				37B8B71F226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.h */,
 				37B8B727226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.m */,
 				37B8B71B226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.xib */,
+				37A91BD622B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.h */,
+				37A91BD722B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m */,
+				37A91BD822B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib */,
 				37B8B722226F38A400434D61 /* Mine_MyOrder_Shop_ViewController.h */,
 				37B8B725226F38A400434D61 /* Mine_MyOrder_Shop_ViewController.m */,
 				37B8B724226F38A400434D61 /* Mine_MyOrder_Shop_ViewController.xib */,
@@ -3055,6 +3115,7 @@
 				37DD14812260653D007FD9CB /* Square_HT_Details_Seach_VC.xib in Resources */,
 				377805F322B1EFB8007F14B5 /* H5_MyCard_ViewController.xib in Resources */,
 				3749A891225B67A1006940A3 /* Square_TextCell.xib in Resources */,
+				3762201622B5FF6E00F20613 /* Home_ShopStore_Cell.xib in Resources */,
 				37F2C22222B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.xib in Resources */,
 				37E200932278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.xib in Resources */,
 				1889D383225A4931008ED787 /* Home_PreferentialCell.xib in Resources */,
@@ -3100,6 +3161,7 @@
 				3749A88C225B62D7006940A3 /* Square_Shop_Cell.xib in Resources */,
 				37A29BE122534F3F00495D1B /* Square_ViewController.xib in Resources */,
 				371830E3225DB8AF006B97E5 /* Square_WD_Question_Cell.xib in Resources */,
+				37A61BE022B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.xib in Resources */,
 				37E25A7F227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.xib in Resources */,
 				37F5FFCB226574840012245D /* Message_Fans_Cell.xib in Resources */,
 				37CA64B0225E06920040387F /* Square_HT_Details_VC.xib in Resources */,
@@ -3111,6 +3173,7 @@
 				37053A422272B1C9003D94DB /* Mine_MyOrder_HouseKeeping_AllEvaluate_Cell.xib in Resources */,
 				373406822285A7D900FC38F9 /* Home_HouseKeeping_PlaceOrder_AddressTimeCell.xib in Resources */,
 				18484FD72251DA2C002B7AA9 /* Main.storyboard in Resources */,
+				37A91BDA22B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib in Resources */,
 				37F5FFFC2265B9800012245D /* Message_RunErrands_Tableview_Cell.xib in Resources */,
 				37632D4C2275AE3A00EB09B7 /* Mine_Goods_Supervise_ViewController.xib in Resources */,
 				37B8B6D0226F358800434D61 /* Mine_SetUP_About_Me_VC.xib in Resources */,
@@ -3132,6 +3195,7 @@
 				37C4A8B622769468008347D7 /* Mine_Goods_Supervise_Cell.xib in Resources */,
 				37CE24C2225C45EE0049A57C /* Publish_ViewController.xib in Resources */,
 				37B8B6D5226F358800434D61 /* Mine_SetUP_PersonalData_VC.xib in Resources */,
+				3762201E22B62D5600F20613 /* Home_ShopStore_ViewController.xib in Resources */,
 				37B8B6D7226F358800434D61 /* Mine_SetUP_Currency_VC.xib in Resources */,
 				3749A865225AE485006940A3 /* Home_RecommendCell.xib in Resources */,
 				37053A472272CF5B003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_VC.xib in Resources */,
@@ -3158,6 +3222,7 @@
 				37D999482295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.xib in Resources */,
 				37C458AE2271935F004CDE32 /* Mine_SettledIn_Shoping_ViewController.xib in Resources */,
 				3748C7A622544A07006D7514 /* Login_USer_ViewController.xib in Resources */,
+				37A61BE522B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.xib in Resources */,
 				370B41FC225F48CA009489BA /* Mine_CV_Public_HeaderViewCRV.xib in Resources */,
 				375A9E7922B0974D003C46D3 /* Mine_MyOrder_Evaluate_ViewController.xib in Resources */,
 			);
@@ -3248,6 +3313,7 @@
 				37ACB90F22B1F31E00C84669 /* EaseEmoji.m in Sources */,
 				376D29FD22646CB4009EA443 /* Square_QuestionAndAnswersTV.m in Sources */,
 				37C3ECEE22759C94006EB3C3 /* Mine_Shoping_Service_ViewController.m in Sources */,
+				3762201522B5FF6E00F20613 /* Home_ShopStore_Cell.m in Sources */,
 				3749A876225B1A99006940A3 /* ZXCategoryItemView.m in Sources */,
 				37B4E16422A8F7EF0017A5BA /* Mine_MyCardView_Cell.m in Sources */,
 				373406562285291E00FC38F9 /* Home_CommunityNearby_FreshFruitSink_Three_Cell.m in Sources */,
@@ -3273,6 +3339,7 @@
 				37C458AD2271935F004CDE32 /* Mine_SettledIn_ViewController.m in Sources */,
 				375A9E7D22B0A172003C46D3 /* H5_Mine_MyShopStoreViewController.m in Sources */,
 				37ACB93522B1F31E00C84669 /* PSTGridLayoutRow.m in Sources */,
+				37A3D20822B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.m in Sources */,
 				37B8B6DC226F358800434D61 /* Mine_SetUP_PersonalData_VC.m in Sources */,
 				37ACB95622B1F31E00C84669 /* EaseSDKHelper.m in Sources */,
 				37E7D42A22673CCE00905BD5 /* Message_Housekeeping_Tableview.m in Sources */,
@@ -3282,6 +3349,7 @@
 				3762456D22605BF300FB9A31 /* XKEmptyPlaceView.m in Sources */,
 				37C3ECDF2275524A006EB3C3 /* Home_HouseKeepingCell.m in Sources */,
 				372E4E70225603AA006CEB0A /* Home_CommunityActivities_Cell.m in Sources */,
+				37A3D21D22B5DC170037F12E /* QRCodeViewController.m in Sources */,
 				37B8B713226F382300434D61 /* Mine_SetUP_Cell.m in Sources */,
 				3749A88B225B62D7006940A3 /* Square_Shop_Cell.m in Sources */,
 				37E7D42622673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.m in Sources */,
@@ -3352,6 +3420,7 @@
 				37ACB94922B1F31E00C84669 /* EaseFaceView.m in Sources */,
 				37ACB91822B1F31E00C84669 /* wav.mm in Sources */,
 				371830DD225DB1B2006B97E5 /* Square_WD_ImageCell.m in Sources */,
+				3762201922B60F0000F20613 /* Home_ShopStore_Model.m in Sources */,
 				37053A3C2272A62F003D94DB /* Mine_Myorder_Shoping_AllEvaluate_Cell.m in Sources */,
 				37ACB93B22B1F31E00C84669 /* EaseConversationListViewController.m in Sources */,
 				37F2C22122B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m in Sources */,
@@ -3360,6 +3429,7 @@
 				3783A404226EB76700A88C32 /* Home_ShoppingCart_ViewController.m in Sources */,
 				37B8B694226EFBC200434D61 /* Home_ShoppingCatr_Settlement_ViewController.m in Sources */,
 				37698F5F22867BB5003324DC /* Home_HouseKeeping_PlacOrder_RemarksCell.m in Sources */,
+				37A91BD922B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m in Sources */,
 				37698F6422867E03003324DC /* Home_HouseKeeping_PlacOrder_PriceCell.m in Sources */,
 				37A29BE022534F3F00495D1B /* Square_ViewController.m in Sources */,
 				37B8B6D4226F358800434D61 /* Mine_SetUP_Privacy_Blacklist_VC.m in Sources */,
@@ -3394,6 +3464,7 @@
 				37B8B69C226F04DB00434D61 /* Home_ShoppingCatr_Settlement_Cell.m in Sources */,
 				37C458A82271935F004CDE32 /* Mine_Wallet_CashOut_ViewController.m in Sources */,
 				37B8B732226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.m in Sources */,
+				37A61BE422B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.m in Sources */,
 				37ACB94522B1F31E00C84669 /* EaseBaseMessageCell.m in Sources */,
 				37F500002265CC760012245D /* Message_RunErrands_TableView_NoOrderCell.m in Sources */,
 				37ACB95022B1F31E00C84669 /* EaseBubbleView+File.m in Sources */,
@@ -3461,6 +3532,7 @@
 				376D29F922646389009EA443 /* Square_QuestionsAndAnswersVC.m in Sources */,
 				37ACB93F22B1F31E00C84669 /* EaseViewController.m in Sources */,
 				37ACB93022B1F31E00C84669 /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
+				37A91BE222B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m in Sources */,
 				37ADB17122B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m in Sources */,
 				3740258E225CC692002F9FF0 /* Publish_Tip_View.m in Sources */,
 				37ACB90722B1F31E00C84669 /* NSDate+Category.m in Sources */,
@@ -3522,9 +3594,11 @@
 				37ACB94F22B1F31E00C84669 /* EaseBubbleView+Location.m in Sources */,
 				37B8B6D6226F358800434D61 /* Mine_SetUP_Privacy_VC.m in Sources */,
 				37B8B72F226F38A400434D61 /* Mine_MyOrder_HouseKeeping_ViewController.m in Sources */,
+				37A61BDF22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.m in Sources */,
 				3734067522855F4D00FC38F9 /* Home_HouseKeep_PlaceOrder_Model.m in Sources */,
 				37EB082F22A92F22001FD70C /* Mine_ShopCoupon_ViewController.m in Sources */,
 				37ACB94C22B1F31E00C84669 /* EaseRecordView.m in Sources */,
+				3762201D22B62D5600F20613 /* Home_ShopStore_ViewController.m in Sources */,
 				37ACB91122B1F31E00C84669 /* EaseEmojiEmoticons.m in Sources */,
 				37ACB92122B1F31E00C84669 /* EMCDDeviceManagerBase.m in Sources */,
 				37CD026D22AE1E1900ED09E8 /* Mine_GoodsCard_ViewController.m in Sources */,

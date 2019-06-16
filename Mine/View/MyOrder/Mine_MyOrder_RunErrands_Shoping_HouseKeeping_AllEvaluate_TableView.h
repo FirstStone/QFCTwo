@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UINavigationController *My_NAVC;
 
+- (void)TabelViewBeginDataSoure;
 
 @end
 

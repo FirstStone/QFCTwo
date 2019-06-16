@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="115" id="KGk-i7-Jjw" customClass="Home_ShopStore_Right_TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="115"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="343" height="114.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BaT-E1-iVf">
+                        <rect key="frame" x="10" y="10" width="90" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="8ax-K8-Nbb"/>
+                            <constraint firstAttribute="height" constant="90" id="UxK-r1-OkV"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNq-y6-zTJ">
+                        <rect key="frame" x="115" y="10" width="38" height="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfj-Pu-qsZ">
+                        <rect key="frame" x="115" y="37" width="31" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWp-bG-2tt">
+                        <rect key="frame" x="115" y="82" width="32" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" red="1" green="0.34509803919999998" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZK-sV-HQB">
+                        <rect key="frame" x="243" y="70" width="80" height="30"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-bL-HiE">
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="ahz-V3-eEr"/>
+                                </constraints>
+                                <state key="normal" image="icon_ShopStore__JIAN"/>
+                            </button>
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UnW-CN-0hx">
+                                <rect key="frame" x="50" y="0.0" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="TxC-Ox-fGz"/>
+                                </constraints>
+                                <state key="normal" image="icon_ShopStore_JIA"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQi-DE-xTE">
+                                <rect key="frame" x="30" y="0.0" width="20" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="CfJ-bL-HiE" secondAttribute="bottom" id="3qC-px-4kI"/>
+                            <constraint firstAttribute="trailing" secondItem="UnW-CN-0hx" secondAttribute="trailing" id="96A-Qj-XJs"/>
+                            <constraint firstAttribute="bottom" secondItem="OQi-DE-xTE" secondAttribute="bottom" id="DV1-NE-NJI"/>
+                            <constraint firstItem="UnW-CN-0hx" firstAttribute="leading" secondItem="OQi-DE-xTE" secondAttribute="trailing" id="HJf-FV-Quz"/>
+                            <constraint firstAttribute="bottom" secondItem="UnW-CN-0hx" secondAttribute="bottom" id="IEy-iT-Txm"/>
+                            <constraint firstAttribute="width" constant="80" id="P6U-9Z-G05"/>
+                            <constraint firstItem="UnW-CN-0hx" firstAttribute="top" secondItem="JZK-sV-HQB" secondAttribute="top" id="cNo-rr-aSI"/>
+                            <constraint firstItem="CfJ-bL-HiE" firstAttribute="top" secondItem="JZK-sV-HQB" secondAttribute="top" id="eAu-Bn-vMG"/>
+                            <constraint firstAttribute="height" constant="30" id="hTX-bw-h4v"/>
+                            <constraint firstItem="OQi-DE-xTE" firstAttribute="top" secondItem="JZK-sV-HQB" secondAttribute="top" id="iqV-mg-SnA"/>
+                            <constraint firstItem="OQi-DE-xTE" firstAttribute="leading" secondItem="CfJ-bL-HiE" secondAttribute="trailing" id="nAJ-Rd-C0t"/>
+                            <constraint firstItem="CfJ-bL-HiE" firstAttribute="leading" secondItem="JZK-sV-HQB" secondAttribute="leading" id="r2C-ty-xA8"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQS-wk-gJJ">
+                        <rect key="frame" x="298" y="76" width="25" height="24"/>
+                        <state key="normal" image="icon_ShopStore_Cart"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Cfj-Pu-qsZ" firstAttribute="leading" secondItem="fNq-y6-zTJ" secondAttribute="leading" id="Aqp-wv-Pyz"/>
+                    <constraint firstItem="fQS-wk-gJJ" firstAttribute="bottom" secondItem="BaT-E1-iVf" secondAttribute="bottom" id="CFw-Gk-jBb"/>
+                    <constraint firstItem="oWp-bG-2tt" firstAttribute="bottom" secondItem="BaT-E1-iVf" secondAttribute="bottom" id="Cik-V9-FAx"/>
+                    <constraint firstItem="Cfj-Pu-qsZ" firstAttribute="top" secondItem="fNq-y6-zTJ" secondAttribute="bottom" constant="10" id="FSN-ii-a5Q"/>
+                    <constraint firstAttribute="trailing" secondItem="fQS-wk-gJJ" secondAttribute="trailing" constant="20" id="II7-Ll-8QY"/>
+                    <constraint firstItem="oWp-bG-2tt" firstAttribute="leading" secondItem="fNq-y6-zTJ" secondAttribute="leading" id="Kxe-Dc-DjU"/>
+                    <constraint firstItem="fNq-y6-zTJ" firstAttribute="leading" secondItem="BaT-E1-iVf" secondAttribute="trailing" constant="15" id="MAH-r7-gvg"/>
+                    <constraint firstItem="JZK-sV-HQB" firstAttribute="bottom" secondItem="BaT-E1-iVf" secondAttribute="bottom" id="Utb-8B-w2H"/>
+                    <constraint firstAttribute="trailing" secondItem="JZK-sV-HQB" secondAttribute="trailing" constant="20" id="Vh8-gt-D7L"/>
+                    <constraint firstItem="fNq-y6-zTJ" firstAttribute="top" secondItem="BaT-E1-iVf" secondAttribute="top" id="c8v-Wx-IYo"/>
+                    <constraint firstItem="BaT-E1-iVf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="iMD-vo-IhK"/>
+                    <constraint firstAttribute="bottom" secondItem="BaT-E1-iVf" secondAttribute="bottom" constant="10" id="lZe-ud-JR4"/>
+                    <constraint firstItem="BaT-E1-iVf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="vBJ-Xd-c2a"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="Cart_BT" destination="UnW-CN-0hx" id="Ksp-ky-6dl"/>
+                <outlet property="Icon_ImageView" destination="BaT-E1-iVf" id="Toa-Gz-G6c"/>
+                <outlet property="Jia_BT" destination="UnW-CN-0hx" id="Xma-OL-2Cs"/>
+                <outlet property="Jian_BT" destination="CfJ-bL-HiE" id="cPT-oB-1g2"/>
+                <outlet property="Price_Label" destination="oWp-bG-2tt" id="Z2e-V1-hXb"/>
+                <outlet property="ShopStore_Label" destination="fNq-y6-zTJ" id="5aw-Co-jA9"/>
+                <outlet property="Sub_Label" destination="Cfj-Pu-qsZ" id="N1c-T0-lhe"/>
+                <outlet property="Sum_Label" destination="OQi-DE-xTE" id="IE9-wV-frz"/>
+                <outlet property="Sum_View" destination="JZK-sV-HQB" id="nDc-GE-6ff"/>
+            </connections>
+            <point key="canvasLocation" x="154.34782608695653" y="176.45089285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_ShopStore_Cart" width="25" height="24"/>
+        <image name="icon_ShopStore_JIA" width="22.5" height="22"/>
+        <image name="icon_ShopStore__JIAN" width="22" height="22"/>
+    </resources>
+</document>

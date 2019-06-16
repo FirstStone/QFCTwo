@@ -45,6 +45,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, strong) Mine_Order_Model *MyModel;
 
+
 @end
 
 NS_ASSUME_NONNULL_END

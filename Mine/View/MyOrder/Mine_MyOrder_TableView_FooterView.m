@@ -144,6 +144,7 @@
         [_More_BT setTitle:@"更多" forState:UIControlStateNormal];
         _More_BT.titleLabel.font = [UIFont systemFontOfSize:12.0f weight:UIFontWeightMedium];
         [_More_BT setTitleColor:QFC_Color_Six forState:UIControlStateNormal];
+        _More_BT.hidden = YES;
     }
     return _More_BT;
 }
@@ -171,5 +172,7 @@
         [self.delegate buttonStyle:2 model:self.MyModel OrderStyle:self.OrderCellStyle];
     }
 }
+
+
 
 @end

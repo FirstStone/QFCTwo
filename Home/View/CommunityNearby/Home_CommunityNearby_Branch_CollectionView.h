@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *Type_ID;
 
-- (void)LoadingDataSoure;
+- (void)CollectionViewUPDataSoure;
 
 @end
 

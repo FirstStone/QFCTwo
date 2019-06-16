@@ -31,7 +31,7 @@
                             <barButtonItem key="leftBarButtonItem" title="返回" id="ewj-DT-PnE">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="LiftButtonPOP:" destination="-1" id="7aD-HW-wjV"/>
+                                    <action selector="LiftButtonPOP:" destination="-1" id="ntY-RG-rnJ"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>

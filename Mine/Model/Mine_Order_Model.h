@@ -83,6 +83,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *service_phone;
 /**退款状态*/
 @property (nonatomic, strong) NSString *refundstatus;
+
+@property (nonatomic, strong) NSString *nickname;
+
+@property (nonatomic, strong) NSString *avatar;
+
 @end
 
 

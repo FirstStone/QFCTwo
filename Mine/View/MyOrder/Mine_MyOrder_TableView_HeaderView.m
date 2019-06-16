@@ -37,7 +37,7 @@
     }];
     [contentView addSubview:self.Icon_imageView];
     [self.Icon_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_offset(CGSizeMake(25.0f, 25.0f));
+        make.size.mas_offset(CGSizeMake(26.0f, 26.0f));
         make.top.equalTo(contentView.mas_top).offset(11.0f);
         make.left.equalTo(contentView.mas_left).offset(11.0f);
     }];
@@ -91,6 +91,8 @@
     if (!_Icon_imageView) {
         _Icon_imageView = [[UIImageView alloc] init];
         _Icon_imageView.image = [UIImage imageNamed:@"icon_touxiang"];
+        _Icon_imageView.layer.cornerRadius = 13.0f;
+        _Icon_imageView.layer.masksToBounds = YES;
     }
     return _Icon_imageView;
 }

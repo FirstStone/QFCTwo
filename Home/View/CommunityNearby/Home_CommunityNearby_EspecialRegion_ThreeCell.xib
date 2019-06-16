@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEC-Ub-5Bv">
                         <rect key="frame" x="10" y="0.0" width="448" height="207.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_1" translatesAutoresizingMaskIntoConstraints="NO" id="L9e-rv-ZU0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_1" translatesAutoresizingMaskIntoConstraints="NO" id="L9e-rv-ZU0">
                                 <rect key="frame" x="10" y="10" width="136" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ldm-Ia-Ka5"/>
@@ -76,7 +76,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_1" translatesAutoresizingMaskIntoConstraints="NO" id="d5A-HY-cxI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_1" translatesAutoresizingMaskIntoConstraints="NO" id="d5A-HY-cxI">
                                 <rect key="frame" x="156" y="10" width="136" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="dED-hm-KZI"/>
@@ -133,7 +133,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_1" translatesAutoresizingMaskIntoConstraints="NO" id="SEe-fW-zIi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_1" translatesAutoresizingMaskIntoConstraints="NO" id="SEe-fW-zIi">
                                 <rect key="frame" x="302" y="10" width="136" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="6ee-Hc-qsS"/>

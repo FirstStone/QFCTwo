@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
+@property (nonatomic, assign) NSInteger Page;
+
 @end
 @implementation Home_CommunityNearby_Branch_CollectionView
 
@@ -26,8 +28,22 @@
         self.dataSource = self;
         self.showsHorizontalScrollIndicator = NO;
         self.backgroundColor = QFC_Color_F5F5F5;
+        MJWeakSelf;
+        self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            weakSelf.Page = 1;
+            [weakSelf.dataArray removeAllObjects];
+            [weakSelf LoadingDataSoure];
+        }];
+        self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            weakSelf.Page += 1;
+            [weakSelf LoadingDataSoure];
+        }];
     }
     return self;
+}
+
+- (void)CollectionViewUPDataSoure {
+    [self.mj_header beginRefreshing];
 }
 
 - (NSMutableArray *)dataArray {
@@ -89,9 +105,11 @@
 - (void)LoadingDataSoure {
     NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
     [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
-    [parm setObject:@"1" forKey:@"page"];
+    [parm setObject:@(self.Page) forKey:@"page"];
     [parm setObject:self.Type_ID forKey:@"type"];
     [[HttpRequest sharedInstance] postWithURLString:URL_goodsTypeList parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        [self.mj_header endRefreshing];
+        [self.mj_footer endRefreshing];
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             NSArray *Array = [responseObject objectForKey:@"list"];
@@ -101,14 +119,14 @@
             }
             [self reloadData];
             if (!Array.count) {
-                [self configDefaultEmptyView];
-                [self.emptyPlaceView showWithImgName:@"暂无内容" title:@"暂无数据" des:Nil tapClick:^{
-                    
-                }];
+                 [self.mj_footer endRefreshingWithNoMoreData];
             }
-        }else {
-            [MBProgressHUD py_showError:@"暂无数据" toView:nil];
-            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+        if (!self.dataArray.count && self.Page == 1) {
+            [self configDefaultEmptyView];
+            [self.emptyPlaceView showWithImgName:@"暂无内容" title:@"暂无数据" des:nil btnText:@"刷新" btnImg:nil tapClick:^{
+                [self.mj_header beginRefreshing];
+            }];
         }
     } failure:^(NSError * _Nonnull error) {
         [MBProgressHUD py_showError:@"加载失败" toView:nil];

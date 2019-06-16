@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setModelToCell:(Home_CommunityNearby_ActivityBranch_Model *)model;
 
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -118,6 +118,13 @@
     self.ShopState_BT.selected = !self.ShopState_BT.selected;
 }
 
+- (IBAction)QRCoderButtonClick:(id)sender {
+    QRCodeViewController *QrcodeVC = [[QRCodeViewController alloc] init];
+    self.My_NVC.navigationBarHidden = NO;
+    [QrcodeVC setHidesBottomBarWhenPushed:YES];
+    [self.My_NVC pushViewController:QrcodeVC animated:YES];
+}
+
 
 
 - (void)balanceLabelClick:(UITapGestureRecognizer *)Zer {

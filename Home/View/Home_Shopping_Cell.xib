@@ -34,7 +34,7 @@
                                     <action selector="CellStateButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oE9-rL-b9A"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_2" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-zf-dUW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_2" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-zf-dUW">
                                 <rect key="frame" x="45" y="10.5" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="NLB-mP-duT"/>
