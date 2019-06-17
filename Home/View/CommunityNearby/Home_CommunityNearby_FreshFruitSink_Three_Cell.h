@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol HomeCommunityNearbyFreshFruitSinkThreeCellDelegate <NSObject>
+
+- (void)HomeCommunityNearbyFreshFruitSinkThreeCellImageLiftClick:(NSString *) goodsid;
+- (void)HomeCommunityNearbyFreshFruitSinkThreeCellMiddleImageClick:(NSString *) goodsid;
+- (void)HomeCommunityNearbyFreshFruitSinkThreeCellRightImageClick:(NSString *) goodsid;
+
+@end
 
 @interface Home_CommunityNearby_FreshFruitSink_Three_Cell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *LiftMoney_Label;
@@ -21,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setDataSoureToCell:(NSMutableArray *)dataArray;
 
 - (void)setDataSourefruitslistToCell:(NSMutableArray *)dataArray;
+
+@property (nonatomic, assign) id <HomeCommunityNearbyFreshFruitSinkThreeCellDelegate> delegate;
 
 @end
 

@@ -28,6 +28,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *Right_CostLabel;
 @property (strong, nonatomic) IBOutlet UIButton *Right_Skip_BT;
 
+@property (nonatomic, strong) NSMutableArray *MyArray;
+
 @end
 
 @implementation Home_CommunityNearby_EspecialRegion_ThreeCell
@@ -40,15 +42,24 @@
 }
 
 - (void)LiftButtonClick:(UIButton *)button {
-    
+    if ([self.delegate respondsToSelector:@selector(HomeCommunityNearbyEspecialRegionThreeCellImageLiftClick:)]) {
+        Home_CommunityNearby_Activity_Model *model = self.MyArray[0];
+        [self.delegate HomeCommunityNearbyEspecialRegionThreeCellImageLiftClick:model.activity_id];
+    }
 }
 
 - (void)MiddleButtonClick:(UIButton *)button {
-    
+    if ([self.delegate respondsToSelector:@selector(HomeCommunityNearbyEspecialRegionThreeCellMiddleImageClick:)]) {
+        Home_CommunityNearby_Activity_Model *model = self.MyArray[1];
+        [self.delegate HomeCommunityNearbyEspecialRegionThreeCellMiddleImageClick:model.activity_id];
+    }
 }
 
 - (void)RightButtonClick:(UIButton *)button {
-    
+    if ([self.delegate respondsToSelector:@selector(HomeCommunityNearbyEspecialRegionThreeCellRightImageClick:)]) {
+        Home_CommunityNearby_Activity_Model *model = self.MyArray[2];
+        [self.delegate HomeCommunityNearbyEspecialRegionThreeCellRightImageClick:model.activity_id];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -59,6 +70,7 @@
 
 
 - (void)setDataSoureToCell:(NSMutableArray *)dataArray; {
+    self.MyArray = dataArray;
     for (int i = 0; i < dataArray.count; i++) {
         Home_CommunityNearby_Activity_Model *model = dataArray[i];
         if (i == 0) {

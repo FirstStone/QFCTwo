@@ -31,10 +31,10 @@
     UITapGestureRecognizer *LiftZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(LiftimageViewClick:)];
     [self.Lift_imageView addGestureRecognizer:LiftZer];
     UITapGestureRecognizer *MiddleZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MiddleimageViewClick:)];
-    [self.Lift_imageView addGestureRecognizer:MiddleZer];
+    [self.Middle_imageView addGestureRecognizer:MiddleZer];
     
     UITapGestureRecognizer *RightZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(RightimageViewClick:)];
-    [self.Lift_imageView addGestureRecognizer:RightZer];
+    [self.Right_imageView addGestureRecognizer:RightZer];
 }
 - (void)LiftimageViewClick:(UIGestureRecognizer*)Zer {
     if ([self.delegate respondsToSelector:@selector(HomeCommunityNearbyFirstEnjoyThreeCellMiddleImageClick:)]) {
