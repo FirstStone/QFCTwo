@@ -102,7 +102,7 @@
         _Title_Label = [[UILabel alloc] init];
         _Title_Label.font = [UIFont systemFontOfSize:12.0f weight:UIFontWeightMedium];
         _Title_Label.textColor = QFC_Color_333333;
-        _Title_Label.text = @"臻品果园";
+        _Title_Label.text = @"";
     }
     return _Title_Label;
 }

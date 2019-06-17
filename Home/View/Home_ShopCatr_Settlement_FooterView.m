@@ -208,6 +208,7 @@
 
 - (void)setDataSoureToCell:(Home_ShoppingCatr_Settlement_Model *)model {
     self.MyModel = model;
+    self.
     self.Price_Label.text = [NSString stringWithFormat:@"%@元",model.RunPrice];
     self.Remarks_Field.text = model.Remark;
     if (model.DeliveryState) {

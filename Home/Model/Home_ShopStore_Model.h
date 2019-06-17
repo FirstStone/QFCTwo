@@ -65,6 +65,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *price;
 @property (nonatomic, strong) NSString *sales_sum;
 @property (nonatomic, strong) NSString *sum;
+@property (nonatomic, assign) BOOL Cart_Sate;
+
+@end
+
+@interface Home_ShopStore_Total_Model : NSObject
+/**
+ price = "110.95";
+ shoppingid = "478,479,480";
+ sum = 12;
+ */
+@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *shoppingid;
+@property (nonatomic, strong) NSString *sum;
 
 @end
 

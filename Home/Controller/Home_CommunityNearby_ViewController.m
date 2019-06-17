@@ -20,7 +20,7 @@
 #define QFC_highlist @"highlist"
 #define QFC_fruitslist @"fruitslist"
 
-@interface Home_CommunityNearby_ViewController ()<UINavigationControllerDelegate,FMHorizontalMenuViewDelegate,FMHorizontalMenuViewDataSource,SDCycleScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface Home_CommunityNearby_ViewController ()<UINavigationControllerDelegate,FMHorizontalMenuViewDelegate,FMHorizontalMenuViewDataSource,SDCycleScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, HomeCommunityNearbyFirstEnjoyThreeCellDelegate>
 @property (weak, nonatomic) IBOutlet Basic_TableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *SearchBar;
 @property (strong, nonatomic) IBOutlet SDCycleScrollView *sdcscrollView;
@@ -401,7 +401,7 @@
     switch (indexPath.section) {
         case 0:
         {
-            if ([Dickey containsObject:QFC_discountlist]) {
+            if ([Dickey containsObject:QFC_discountlist]) {//特惠专区
                 NSMutableArray *disArray = [self.dataDic objectForKey:QFC_discountlist];
                 if (disArray.count <= 2) {
                     Home_CommunityNearby_EspecialRegion_OneCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyEspecialRegionOneCell];
@@ -424,6 +424,7 @@
                     return cell;
                 }else if (disArray.count == 3) {
                     Home_CommunityNearby_FirstEnjoy_ThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFirstEnjoyThreeCell];
+                    cell.delegate = self;
                     [cell setDataSoureToCell:disArray];
                     return cell;
                 }else {
@@ -433,6 +434,7 @@
                         return cell;
                     }else {
                         Home_CommunityNearby_FirstEnjoy_ThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFirstEnjoyThreeCell];
+                        cell.delegate = self;
                         [cell setDataSoureToCell:disArray];
                         return cell;
                     }
@@ -474,6 +476,7 @@
                     return cell;
                 }else if (disArray.count == 3) {
                     Home_CommunityNearby_FirstEnjoy_ThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFirstEnjoyThreeCell];
+                    cell.delegate = self;
                     [cell setDataSoureToCell:disArray];
                     return cell;
                 }else {
@@ -483,6 +486,7 @@
                         return cell;
                     }else {
                         Home_CommunityNearby_FirstEnjoy_ThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFirstEnjoyThreeCell];
+                        cell.delegate = self;
                         [cell setDataSoureToCell:disArray];
                         return cell;
                     }
@@ -598,7 +602,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     Home_CommunityNearby_SectionHeader_View *hederView = [[Home_CommunityNearby_SectionHeader_View alloc] init];
-    [hederView.More_BT setTitle:@"查看更多" forState:UIControlStateNormal];
+//    [hederView.More_BT setTitle:@"查看更多" forState:UIControlStateNormal];
    /* if ([self.SectionHeaderArray containsObject:QFC_discountlist]) {
         hederView.Title_Label.text = @"#特惠专区";
         hederView.Title_Label.textColor = QFC_Color_F2793A;
@@ -780,6 +784,27 @@
         [MBProgressHUD py_showError:@"数据加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
+}
+
+#pragma mark----HomeCommunityNearbyFirstEnjoyThreeCellDelegate
+- (void)HomeCommunityNearbyFirstEnjoyThreeCellLiftImageClick:(NSString *)goodsid {
+    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+    VC.goodid = goodsid;
+    [VC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:VC animated:YES];
+}
+
+- (void)HomeCommunityNearbyFirstEnjoyThreeCellMiddleImageClick:(NSString *)goodsid {
+    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+    VC.goodid = goodsid;
+    [VC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:VC animated:YES];
+}
+- (void)HomeCommunityNearbyFirstEnjoyThreeCellRightImageClick:(NSString *)goodsid {
+    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+    VC.goodid = goodsid;
+    [VC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 @end

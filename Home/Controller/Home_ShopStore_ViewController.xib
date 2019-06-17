@@ -23,6 +23,7 @@
                 <outlet property="Shop_imageView" destination="EfX-u1-jP5" id="8br-a1-tuL"/>
                 <outlet property="Tatal_BT" destination="2Da-PE-40K" id="lgO-Vr-OIg"/>
                 <outlet property="Time_Label" destination="lYS-h2-NMw" id="X42-ey-IeL"/>
+                <outlet property="Tip_Label" destination="EYq-T3-q7r" id="lfu-fK-6Um"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -134,12 +135,28 @@
                             <state key="normal" title="结算">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="BalanceButtonClick:" destination="-1" eventType="touchUpInside" id="Anc-qK-Yzy"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ki-RY-qSv">
                             <rect key="frame" x="267.5" y="15" width="46.5" height="19.5"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="textColor" red="1" green="0.34509803919999998" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYq-T3-q7r">
+                            <rect key="frame" x="55.5" y="0.0" width="14.5" height="14.5"/>
+                            <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,8 +165,10 @@
                         <constraint firstItem="Smw-U2-cMe" firstAttribute="top" secondItem="eAf-6Z-w4I" secondAttribute="top" id="B1C-7O-CwH"/>
                         <constraint firstItem="2Da-PE-40K" firstAttribute="leading" secondItem="8ki-RY-qSv" secondAttribute="trailing" constant="20" id="GHa-2L-GFO"/>
                         <constraint firstItem="2Da-PE-40K" firstAttribute="centerY" secondItem="8ki-RY-qSv" secondAttribute="centerY" id="JeD-86-BdM"/>
+                        <constraint firstItem="EYq-T3-q7r" firstAttribute="trailing" secondItem="Smw-U2-cMe" secondAttribute="trailing" id="Jgd-Rd-riV"/>
                         <constraint firstAttribute="bottom" secondItem="Smw-U2-cMe" secondAttribute="bottom" id="Khs-Ae-frK"/>
                         <constraint firstAttribute="height" constant="49" id="MCU-WV-nPP"/>
+                        <constraint firstItem="EYq-T3-q7r" firstAttribute="top" secondItem="Smw-U2-cMe" secondAttribute="top" id="T3r-wH-LHV"/>
                         <constraint firstAttribute="trailing" secondItem="2Da-PE-40K" secondAttribute="trailing" id="nsN-AC-9zc"/>
                         <constraint firstAttribute="bottom" secondItem="2Da-PE-40K" secondAttribute="bottom" id="p6R-mW-0zT"/>
                         <constraint firstItem="Smw-U2-cMe" firstAttribute="leading" secondItem="eAf-6Z-w4I" secondAttribute="leading" constant="20" id="rPM-Hp-Qjg"/>

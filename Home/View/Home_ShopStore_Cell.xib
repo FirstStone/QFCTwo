@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wr-Om-ZQS">
-                        <rect key="frame" x="120" y="66" width="0.0" height="0.0"/>
+                        <rect key="frame" x="120" y="63" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -44,21 +44,21 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pAr-YY-U6k">
-                        <rect key="frame" x="120" y="33" width="23" height="23"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_shopStore_Xing" translatesAutoresizingMaskIntoConstraints="NO" id="pAr-YY-U6k">
+                        <rect key="frame" x="120" y="33" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="23" id="3EL-Tu-uuU"/>
-                            <constraint firstAttribute="width" constant="23" id="ft8-OC-q1q"/>
+                            <constraint firstAttribute="height" constant="20" id="3EL-Tu-uuU"/>
+                            <constraint firstAttribute="width" constant="20" id="ft8-OC-q1q"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aw6-gE-kRq">
-                        <rect key="frame" x="153" y="44.5" width="0.0" height="0.0"/>
+                        <rect key="frame" x="150" y="43" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3c-YH-yHv">
-                        <rect key="frame" x="120" y="61" width="0.0" height="0.0"/>
+                        <rect key="frame" x="120" y="58" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                         <color key="textColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -94,4 +94,7 @@
             <point key="canvasLocation" x="160.86956521739131" y="175.78125"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_shopStore_Xing" width="13.5" height="12.5"/>
+    </resources>
 </document>

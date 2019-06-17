@@ -42,6 +42,10 @@
     config.userContentController = [WKUserContentController new];
     //在创建wkWebView时，需要将被js调用的方法注册进去,oc与js端对应实现
     [config.userContentController addScriptMessageHandler:self name:@"ToPayOrder"];
+    [config.userContentController addScriptMessageHandler:self name:@"Iosback"];
+    [config.userContentController addScriptMessageHandler:self name:@"AndroidgoodsmainBtn"];
+    [config.userContentController addScriptMessageHandler:self name:@"AndroidToGoodsDetails"];
+    [config.userContentController addScriptMessageHandler:self name:@"AndroidAddressBtn"];
     config.preferences = [[WKPreferences alloc] init];
     config.preferences.minimumFontSize = 10;
     config.preferences.javaScriptEnabled = YES;
@@ -105,11 +109,19 @@
     [super viewWillAppear:animated];
 //    [self.MyWKWebView.configuration.userContentController addScriptMessageHandler:self name:@"ToPayOrder"];
 }
+- (void)dealloc {
+//    [super dealloc];
+    [self.MyWKWebView.configuration.userContentController removeScriptMessageHandlerForName:@"ToPayOrder"];
+    [self.MyWKWebView.configuration.userContentController removeScriptMessageHandlerForName:@"Iosback"];
+    [self.MyWKWebView.configuration.userContentController removeScriptMessageHandlerForName:@"AndroidgoodsmainBtn"];
+    [self.MyWKWebView.configuration.userContentController removeScriptMessageHandlerForName:@"AndroidToGoodsDetails"];
+    [self.MyWKWebView.configuration.userContentController removeScriptMessageHandlerForName:@"AndroidAddressBtn"];
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.MyWKWebView.configuration.userContentController removeScriptMessageHandlerForName:@"ToPayOrder"];
 }
+
 
 - (IBAction)LiftButtonPOP:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -167,6 +179,34 @@
         if ([[DataSoure objectForKey:@"orderids"] intValue]) {
             [self PayViewController:[DataSoure objectForKey:@"orderids"]];
         }
+    }else if ([message.name isEqualToString:@"Iosback"]){
+        NSDictionary *DataSoure = message.body;
+        if ([DataSoure objectForKey:@"orderids"]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }else if ([message.name isEqualToString:@"AndroidgoodsmainBtn"]){
+        NSDictionary *DataSoure = message.body;
+        if ([DataSoure objectForKey:@"merchantid"]) {
+            Home_ShopStore_ViewController *ShopStoreVC = [[Home_ShopStore_ViewController alloc] init];
+            ShopStoreVC.Shopid = [DataSoure objectForKey:@"merchantid"];
+            [ShopStoreVC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:ShopStoreVC animated:YES];
+        }
+    }else if ([message.name isEqualToString:@"AndroidToGoodsDetails"]) {
+        NSDictionary *DataSoure = message.body;
+        NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.tiaoxinkeji.com/dist/#/?,%@,%@",[DataSoure objectForKey:@"uid"], [[NSUserDefaults standardUserDefaults] objectForKey:User_Mid]]]];
+        // 3.加载网页
+        [self.MyWKWebView loadRequest:request];
+//        if ([DataSoure objectForKey:@"merchantid"]) {
+//            Home_ShopStore_ViewController *ShopStoreVC = [[Home_ShopStore_ViewController alloc] init];
+//            ShopStoreVC.Shopid = [DataSoure objectForKey:@"merchantid"];
+//            [ShopStoreVC setHidesBottomBarWhenPushed:YES];
+//            [self.navigationController pushViewController:ShopStoreVC animated:YES];
+//        }
+    }else if ([message.name isEqualToString:@"AndroidAddressBtn"]) {
+//        NSDictionary *DataSoure = message.body;
+        Mine_SetUPUI_MyAddress_NewAdd_VC *addVC = [[Mine_SetUPUI_MyAddress_NewAdd_VC alloc] init];
+        [self.navigationController pushViewController:addVC animated:YES];
     }
 }
 

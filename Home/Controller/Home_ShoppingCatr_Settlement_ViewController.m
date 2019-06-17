@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) NSString *AddressID;
 
+@property (nonatomic, strong) NSString *merchatid;
+
 @end
 
 @implementation Home_ShoppingCatr_Settlement_ViewController
@@ -43,7 +45,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)SureButtonClick:(id)sender {
-    [self setDataSoureTobacker];
+    if ([self.AddressID intValue]) {
+        [self setDataSoureTobacker];
+    }else {
+        [MBProgressHUD py_showError:@"请选择地址" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -52,6 +59,7 @@
     
     return self.dataArray.count;
 }
+
 //返回一个分区里多少数据
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ([self.dataArray[section] isMemberOfClass:[Mine_SetUP_MyAddress_Model class]]) {
@@ -61,6 +69,7 @@
         return model.goods.count;
     }
 }
+
 // 返回Cell内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.dataArray[indexPath.section] isMemberOfClass:[Mine_SetUP_MyAddress_Model class]]) {
@@ -81,7 +90,7 @@
     } else {
         Home_ShoppingCatr_Settlement_Model *model = self.dataArray[section];
         Mine_MyOrder_TableView_HeaderView *headerView = [[Mine_MyOrder_TableView_HeaderView alloc] init];
-        headerView.Icon_imageView.image = [UIImage imageNamed:@"icon_WD_Order_Dianpu_hui"];
+        [headerView.Icon_imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
         headerView.Title_Label.text = model.merchant;
         headerView.Right_imageView.hidden = YES;
         headerView.Right_Label.hidden = YES;
@@ -117,6 +126,20 @@
     }
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0 && indexPath.row == 0) {
+        MJWeakSelf;
+        Mine_SetUP_MyAddress_ViewController *MyaddressVC = [[Mine_SetUP_MyAddress_ViewController alloc] init];
+        MyaddressVC.MineSetUPMyAddressBlock = ^(Mine_SetUP_MyAddress_Model * _Nonnull model) {
+            weakSelf.dataArray[0] = model;
+            weakSelf.AddressID = model.MyAddress_id;
+            [weakSelf GetDataSourePrice:weakSelf.merchatid];
+        };
+        [self.navigationController pushViewController:MyaddressVC animated:YES];
+    }
+}
+
 #pragma mark----UPdata
 /*
  购物车选择商品 取货生成订单页面的数据
@@ -138,11 +161,15 @@
             if (addressDic) {
                 Mine_SetUP_MyAddress_Model *addModel = [Mine_SetUP_MyAddress_Model mj_objectWithKeyValues:addressDic];
                 self.AddressID = addModel.MyAddress_id;
+                if (!addModel.address.length) {
+                    addModel.address = @"您还没有选择地址去选一个吧";
+                }
                 [self.dataArray addObject:addModel];
             }
             NSArray *Array = [responseObject objectForKey:@"list"];
             for (NSDictionary *dic in Array) {
                 Home_ShoppingCatr_Settlement_Model *model = [Home_ShoppingCatr_Settlement_Model mj_objectWithKeyValues:dic];
+                self.merchatid = model.merchant_id;
                 model.RunPrice = @"0";
                 model.ShoppingId = @"";
                 model.Remark = @"";
@@ -223,7 +250,13 @@
                     [self.tableView reloadData];
                     break;
                 } else {//配送
-                    [self GetDataSourePrice:modleid];
+                    if ([self.AddressID intValue]) {
+                        [self GetDataSourePrice:modleid];
+                    }else {
+                        [MBProgressHUD py_showError:@"请选择地址" toView:nil];
+                        [MBProgressHUD setAnimationDelay:0.7f];
+                    }
+                    break;
                 }
             }
         }

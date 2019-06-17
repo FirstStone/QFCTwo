@@ -20,13 +20,39 @@
 @property (strong, nonatomic) IBOutlet UIImageView *Right_imageView;
 @property (strong, nonatomic) IBOutlet UILabel *Right_Title_Label;
 
+@property (nonatomic, strong) NSMutableArray *MyArray;
+
 @end
 
 @implementation Home_CommunityNearby_FirstEnjoy_ThreeCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    UITapGestureRecognizer *LiftZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(LiftimageViewClick:)];
+    [self.Lift_imageView addGestureRecognizer:LiftZer];
+    UITapGestureRecognizer *MiddleZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MiddleimageViewClick:)];
+    [self.Lift_imageView addGestureRecognizer:MiddleZer];
+    
+    UITapGestureRecognizer *RightZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(RightimageViewClick:)];
+    [self.Lift_imageView addGestureRecognizer:RightZer];
+}
+- (void)LiftimageViewClick:(UIGestureRecognizer*)Zer {
+    if ([self.delegate respondsToSelector:@selector(HomeCommunityNearbyFirstEnjoyThreeCellMiddleImageClick:)]) {
+        Home_CommunityNearby_Activity_Model *model = self.MyArray[0];
+        [self.delegate HomeCommunityNearbyFirstEnjoyThreeCellMiddleImageClick:model.activity_id];
+    }
+}
+- (void)MiddleimageViewClick:(UIGestureRecognizer*)Zer {
+    if ([self.delegate respondsToSelector:@selector(HomeCommunityNearbyFirstEnjoyThreeCellMiddleImageClick:)]) {
+        Home_CommunityNearby_Activity_Model *model = self.MyArray[1];
+        [self.delegate HomeCommunityNearbyFirstEnjoyThreeCellMiddleImageClick:model.activity_id];
+    }
+}
+- (void)RightimageViewClick:(UIGestureRecognizer*)Zer {
+    if ([self.delegate respondsToSelector:@selector(HomeCommunityNearbyFirstEnjoyThreeCellRightImageClick:)]) {
+        Home_CommunityNearby_Activity_Model *model = self.MyArray[2];
+        [self.delegate HomeCommunityNearbyFirstEnjoyThreeCellRightImageClick:model.activity_id];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -36,6 +62,7 @@
 }
 
 - (void)setDataSoureToCell:(NSMutableArray *)dataArray {
+    self.MyArray = dataArray;
     for (int i = 0; i < dataArray.count; i++) {
         Home_CommunityNearby_Activity_Model *model = dataArray[i];
         if (i == 0) {

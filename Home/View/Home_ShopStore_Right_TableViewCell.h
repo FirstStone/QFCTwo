@@ -10,9 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class Home_ShopStore_Branch_Model;
+@protocol HomeShopStoreRightTableViewCellDelegate <NSObject>
+
+- (void)HomeShopStoreRightTableViewCellCartButtonClick:(Home_ShopStore_Branch_Model *)model;
+- (void)HomeShopStoreRightTableViewCellAddButtonClick:(Home_ShopStore_Branch_Model *)model;
+- (void)HomeShopStoreRightTableViewCellSubtractButtonClick:(Home_ShopStore_Branch_Model *)model;
+
+@end
 @interface Home_ShopStore_Right_TableViewCell : UITableViewCell
 
 - (void)SetDataSoureToRightCell:(Home_ShopStore_Branch_Model *)model;
+
+@property (nonatomic, assign) id <HomeShopStoreRightTableViewCellDelegate> delegate;
 
 @end
 

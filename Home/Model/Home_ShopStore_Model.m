@@ -56,5 +56,16 @@
     return @{@"Goods_id" : @"id"};
 }
 
+@end
+
+@implementation Home_ShopStore_Total_Model
+
+/**空替换为空字符串*/
+- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
+    if ([oldValue isKindOfClass:[NSNull class]]) {
+        return @"";
+    }
+    return oldValue;
+}
 
 @end

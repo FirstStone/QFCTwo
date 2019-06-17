@@ -66,6 +66,13 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.MineSetUPMyAddressBlock) {
+        self.MineSetUPMyAddressBlock(self.dataArray[indexPath.row]);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 /**
  //收货地址列表
  Route::rule('addresslist/:uid','index/UserAddresss/addressList');

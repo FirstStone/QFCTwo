@@ -21,81 +21,28 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wz8-63-yFK">
-                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guG-je-Ux8">
-                            <rect key="frame" x="365" y="7" width="70" height="30"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="h4E-QP-Ppz"/>
-                                <constraint firstAttribute="width" constant="70" id="jKY-tR-pUV"/>
-                            </constraints>
-                            <state key="normal" image="icon_ShopCar_Green"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="15"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="HomeShopingCartClick:" destination="-1" eventType="touchUpInside" id="S7W-7C-Brv"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSG-BM-FHi">
-                            <rect key="frame" x="172" y="11.5" width="70" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6N-XF-sZK">
-                            <rect key="frame" x="10" y="7" width="31" height="30"/>
-                            <state key="normal" title="返回">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="LiftButtonPOP:" destination="-1" eventType="touchUpInside" id="aGp-XI-Qh4"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="guG-je-Ux8" firstAttribute="centerY" secondItem="Wz8-63-yFK" secondAttribute="centerY" id="2pW-Og-7oh"/>
-                        <constraint firstAttribute="height" constant="44" id="FN3-KA-7YF"/>
-                        <constraint firstItem="lSG-BM-FHi" firstAttribute="centerX" secondItem="Wz8-63-yFK" secondAttribute="centerX" id="IlA-wB-Mta"/>
-                        <constraint firstAttribute="trailing" secondItem="guG-je-Ux8" secondAttribute="trailing" constant="-21" id="Mz4-6z-9ID"/>
-                        <constraint firstItem="I6N-XF-sZK" firstAttribute="centerY" secondItem="Wz8-63-yFK" secondAttribute="centerY" id="efj-f5-SZe"/>
-                        <constraint firstItem="I6N-XF-sZK" firstAttribute="leading" secondItem="Wz8-63-yFK" secondAttribute="leading" constant="10" id="xfq-Ec-ZFL"/>
-                        <constraint firstItem="lSG-BM-FHi" firstAttribute="centerY" secondItem="Wz8-63-yFK" secondAttribute="centerY" id="zzU-56-nWc"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obU-QS-MNZ">
-                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTh-WG-ktu">
-                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="obU-QS-MNZ" secondAttribute="trailing" id="4iw-NC-Cjt"/>
-                <constraint firstItem="Wz8-63-yFK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="DBL-bD-m9o"/>
-                <constraint firstItem="obU-QS-MNZ" firstAttribute="top" secondItem="Wz8-63-yFK" secondAttribute="bottom" id="GyF-Tt-a5U"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="yTh-WG-ktu" secondAttribute="bottom" id="I0R-Xc-hlh"/>
+                <constraint firstItem="obU-QS-MNZ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="JMs-ZY-alg"/>
                 <constraint firstAttribute="bottom" secondItem="obU-QS-MNZ" secondAttribute="bottom" id="KRV-NE-Owl"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="yTh-WG-ktu" secondAttribute="trailing" id="WuC-K2-gXu"/>
+                <constraint firstItem="yTh-WG-ktu" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="ZoI-HU-j1r"/>
                 <constraint firstItem="yTh-WG-ktu" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="dfp-Bf-SVw"/>
                 <constraint firstItem="obU-QS-MNZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="lUG-6I-bBp"/>
-                <constraint firstItem="yTh-WG-ktu" firstAttribute="top" secondItem="Wz8-63-yFK" secondAttribute="bottom" id="v6j-gB-59Y"/>
-                <constraint firstItem="Wz8-63-yFK" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="xCk-Hk-U9G"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Wz8-63-yFK" secondAttribute="trailing" id="y6g-vM-fhg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </view>
     </objects>
-    <resources>
-        <image name="icon_ShopCar_Green" width="19.5" height="18"/>
-    </resources>
 </document>

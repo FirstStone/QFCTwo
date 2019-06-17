@@ -1421,4 +1421,32 @@ index/discounts/mydisountList
  */
 #define URL_merchants_merchantGoodsType HTTPHeader@"index/merchants/merchantGoodsType"
 
+/**
+ 1. 商家店铺商品加入购物车 加一
+ URL : https://www.txkuaiyou.com/index/shoppings/shoppingAdds
+ 参数 :
+ goodsid 商品ID
+ uid 用户ID
+ sum 传1
+ */
+#define URL_shoppings_shoppingAdds HTTPHeader@"index/shoppings/shoppingAdds"
+
+/**
+ 2. 商家店铺商品加入购物车 减一
+ URL : https://www.txkuaiyou.com/index/shoppings/shoppingDels
+ 参数 :
+ goodsid 商品ID
+ uid 用户ID
+ */
+#define URL_shoppings_shoppingDels HTTPHeader@"index/shoppings/shoppingDels"
+
+/**
+ index/shoppings/merchantShopping
+ uid
+ merchantid
+ 获取店铺 购物车的数量  总价
+ */
+#define URL_shoppings_merchantShopping HTTPHeader@"index/shoppings/merchantShopping"
+
+
 #endif /* PCH_pch */
