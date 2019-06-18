@@ -796,69 +796,115 @@
 
 #pragma mark----HomeCommunityNearbyFirstEnjoyThreeCellDelegate
 - (void)HomeCommunityNearbyFirstEnjoyThreeCellLiftImageClick:(NSString *)goodsid {
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = goodsid;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = goodsid;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
+    
 }
 
 - (void)HomeCommunityNearbyFirstEnjoyThreeCellMiddleImageClick:(NSString *)goodsid {
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = goodsid;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = goodsid;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 - (void)HomeCommunityNearbyFirstEnjoyThreeCellRightImageClick:(NSString *)goodsid {
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = goodsid;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = goodsid;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 #pragma mark----HomeCommunityNearbyFreshFruitSinkThreeCellDelegate
 
 
 - (void)HomeCommunityNearbyFreshFruitSinkThreeCellImageLiftClick:(nonnull NSString *)goodsid {
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = goodsid;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = goodsid;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 - (void)HomeCommunityNearbyFreshFruitSinkThreeCellMiddleImageClick:(nonnull NSString *)goodsid {
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = goodsid;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = goodsid;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 - (void)HomeCommunityNearbyFreshFruitSinkThreeCellRightImageClick:(nonnull NSString *)goodsid {
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = goodsid;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = goodsid;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 #pragma mark----HomeCommunityNearbyEspecialRegionThreeCellDelegate
 
 - (void)HomeCommunityNearbyEspecialRegionThreeCellImageLiftClick:(NSString *)goodsid {
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = goodsid;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = goodsid;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 - (void)HomeCommunityNearbyEspecialRegionThreeCellMiddleImageClick:(NSString *)goodsid {
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = goodsid;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = goodsid;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 - (void)HomeCommunityNearbyEspecialRegionThreeCellRightImageClick:(NSString *)goodsid {
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = goodsid;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = goodsid;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 @end

@@ -88,6 +88,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *avatar;
 
+@property (nonatomic, strong) NSString *cause;
+
 @end
 
 

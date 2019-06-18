@@ -13,7 +13,6 @@
 @interface Mine_MyOrder_User_Tableview ()<UITableViewDelegate, UITableViewDataSource, MineMyOrderTableViewFooterViewDelegate>
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
-
 @end
 
 @implementation Mine_MyOrder_User_Tableview
@@ -369,6 +368,9 @@
                 
             }else if ([model.status intValue] == 6) {
                 //                    [footerView.Right_BT setTitle:@"评价" forState:UIControlStateNormal];
+                Mine_MyOrder_Evaluate_ViewController *EvaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];
+                EvaluateVC.OrderID = model.order_ID;
+                [self.My_NAVC pushViewController:EvaluateVC animated:YES];
             }
         }
             break;
@@ -393,6 +395,9 @@
                 
             }else if ([model.status intValue] == 6) {
                 //                    [footerView.Right_BT setTitle:@"评价" forState:UIControlStateNormal];
+                Mine_MyOrder_Evaluate_ViewController *EvaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];
+                EvaluateVC.OrderID = model.order_ID;
+                [self.My_NAVC pushViewController:EvaluateVC animated:YES];
             }
         }
             break;
@@ -443,9 +448,13 @@
                     }
                     
                 } else if ([model.status intValue] == 5) {
-                    //                        [footerView.Right_BT setTitle:@"立即取货" forState:UIControlStateNormal];
+//                                            [footerView.Right_BT setTitle:@"立即取货" forState:UIControlStateNormal];
+                    [self PostIndexOrdersOrderQrcode:model];
                 }else if ([model.status intValue] == 6) {
                     //                        [footerView.Right_BT setTitle:@"评价" forState:UIControlStateNormal];
+                    Mine_MyOrder_Evaluate_ViewController *EvaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];
+                    EvaluateVC.OrderID = model.order_ID;
+                    [self.My_NAVC pushViewController:EvaluateVC animated:YES];
                 }
             }
         }
@@ -454,7 +463,28 @@
             break;
     }
 }
-
+/**用户立即取货
+ index/orders/OrderQrcode
+ orderid
+ */
+- (void)PostIndexOrdersOrderQrcode:(Mine_Order_Model *)model {
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    //    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:model.order_ID forKey:@"orderid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_orders_OrderQrcode parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            Mine_OrderQrcode_View *View = [[Mine_OrderQrcode_View alloc] init];
+            [self addSubview:View];
+        }else {
+            [MBProgressHUD py_showError:[responseObject objectForKey:@"message"] toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
 
 /**
  index/orders/orderDel

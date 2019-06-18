@@ -191,6 +191,7 @@
 		37A29BE622534F9000495D1B /* Message_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A29BE422534F9000495D1B /* Message_ViewController.xib */; };
 		37A29BEF225350C500495D1B /* Mine_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A29BED225350C500495D1B /* Mine_ViewController.m */; };
 		37A29BF0225350C500495D1B /* Mine_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A29BEE225350C500495D1B /* Mine_ViewController.xib */; };
+		37A3593822B8E3F6003AE63A /* Mine_OrderQrcode_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A3593722B8E3EF003AE63A /* Mine_OrderQrcode_View.m */; };
 		37A3D20822B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A3D20722B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.m */; };
 		37A3D21D22B5DC170037F12E /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A3D21B22B5DC160037F12E /* QRCodeViewController.m */; };
 		37A61BDF22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A61BDD22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.m */; };
@@ -844,6 +845,8 @@
 		37A29BEC225350C500495D1B /* Mine_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_ViewController.h; sourceTree = "<group>"; };
 		37A29BED225350C500495D1B /* Mine_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_ViewController.m; sourceTree = "<group>"; };
 		37A29BEE225350C500495D1B /* Mine_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_ViewController.xib; sourceTree = "<group>"; };
+		37A3593622B8E3EE003AE63A /* Mine_OrderQrcode_View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_OrderQrcode_View.h; sourceTree = "<group>"; };
+		37A3593722B8E3EF003AE63A /* Mine_OrderQrcode_View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_OrderQrcode_View.m; sourceTree = "<group>"; };
 		37A3D20622B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_TuiKuang_FooterView.h; sourceTree = "<group>"; };
 		37A3D20722B5A67E0037F12E /* Mine_MyOrder_TuiKuang_FooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_TuiKuang_FooterView.m; sourceTree = "<group>"; };
 		37A3D21B22B5DC160037F12E /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
@@ -2717,6 +2720,8 @@
 				37B8B6F6226F381900434D61 /* Mine_MyOrder_TableView_HeaderView.m */,
 				37B8B6E6226F381800434D61 /* Mine_MyOrder_User_Tableview.h */,
 				37B8B6F2226F381800434D61 /* Mine_MyOrder_User_Tableview.m */,
+				37A3593622B8E3EE003AE63A /* Mine_OrderQrcode_View.h */,
+				37A3593722B8E3EF003AE63A /* Mine_OrderQrcode_View.m */,
 				37053A482272D618003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_TableView.h */,
 				37053A492272D618003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_TableView.m */,
 				37A91BE022B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.h */,
@@ -3354,6 +3359,7 @@
 				3749A88B225B62D7006940A3 /* Square_Shop_Cell.m in Sources */,
 				37E7D42622673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.m in Sources */,
 				37C458A92271935F004CDE32 /* Mine_SettledIn_Housekeeping_ViewController.m in Sources */,
+				37A3593822B8E3F6003AE63A /* Mine_OrderQrcode_View.m in Sources */,
 				37CE24B2225C35B60049A57C /* Square_HT_Text_Cell.m in Sources */,
 				37ACB90B22B1F31E00C84669 /* FixFopen.c in Sources */,
 				37D9994B2295395A00A2122B /* Home_ShoppingCart_Model.m in Sources */,

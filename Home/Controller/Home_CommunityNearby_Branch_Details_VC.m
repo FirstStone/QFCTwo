@@ -168,7 +168,6 @@
     {
         decisionHandler(WKNavigationActionPolicyAllow);
     }
-    
 }
 
 #pragma mark----WKScriptMessageHandler
@@ -179,6 +178,7 @@
         if ([[DataSoure objectForKey:@"orderids"] intValue]) {
             [self PayViewController:[DataSoure objectForKey:@"orderids"]];
         }
+        
     }else if ([message.name isEqualToString:@"Iosback"]){
         NSDictionary *DataSoure = message.body;
         if ([DataSoure objectForKey:@"orderids"]) {

@@ -18,7 +18,7 @@ typedef enum : NSUInteger {
 }FooterOrderStyle;
 
 @protocol MineMyOrderTuiKuangFooterViewDelegate <NSObject>
-//1为左。2为右
+/**1为左。2为右*/
 - (void)buttonStyle:(NSInteger)index model:(Mine_Order_Model *)model OrderStyle:(OrderStyle)style;
 
 @end

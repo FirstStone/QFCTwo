@@ -125,6 +125,9 @@
                                 <constraint firstAttribute="width" constant="50" id="VQv-Q5-6zG"/>
                             </constraints>
                             <state key="normal" image="icon_ShopStore_Cart"/>
+                            <connections>
+                                <action selector="CartButtonClick:" destination="-1" eventType="touchUpInside" id="COG-aI-n0p"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Da-PE-40K">
                             <rect key="frame" x="334" y="0.0" width="80" height="49"/>

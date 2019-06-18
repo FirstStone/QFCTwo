@@ -234,6 +234,8 @@
 #import "Home_ShopStore_ViewController.h"
 #import "Home_ShopStore_Lift_TableViewCell.h"
 #import "Home_ShopStore_Right_TableViewCell.h"
+#import "Mine_OrderQrcode_View.h"
+
 
 //数据模型
 #import "Message_FansList_Model.h"
@@ -705,6 +707,12 @@
  */
 //#define URL_errand_orderComplete HTTPHeader@"index/errand/orderComplete"
 
+/**用户立即取货
+ index/orders/OrderQrcode
+ orderid
+ */
+#define URL_orders_OrderQrcode HTTPHeader@"index/orders/OrderQrcode"
+
 #pragma mark----商家
 /**
  index/merchants/MySildJoinOrder
@@ -745,6 +753,19 @@
  用户确认完成
  */
 #define URL_merchants_userComplete HTTPHeader@"index/merchants/userComplete"
+
+/**
+ 服务商退款审核
+ URL : https://www.txkuaiyou.com/index/orders/refundMerchantYes
+ 参数 :
+ id
+ 退款列表ID
+ uid
+ 用户ID
+ type
+ 1同意2不同意
+ */
+#define URL_orders_refundMerchantYes HTTPHeader@"index/orders/refundMerchantYes"
 
 #pragma mark----广场详情
 
@@ -837,6 +858,15 @@
  Route::rule('attention/:uid/:pid/:type','index/Users/attention');
  */
 #define URL_Users_attention HTTPHeader@"index/Users/attention"
+
+/**关注店铺
+ index/merchants/attention
+ merchantid
+ uid
+ */
+#define URL_merchants_attention HTTPHeader@"index/merchants/attention"
+
+
 /**
  //收藏
  Route::rule('plazacollect/:uid/:id','index/Plazas/plazaCollect');

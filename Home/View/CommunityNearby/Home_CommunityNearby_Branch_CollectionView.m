@@ -91,10 +91,15 @@
 //每个item 点击
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Home_CommunityNearby_ActivityBranch_Model *model = self.dataArray[indexPath.row];
-    Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-    VC.goodid = model.Branch_id;
-    [VC setHidesBottomBarWhenPushed:YES];
-    [self.My_NAVC pushViewController:VC animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+        VC.goodid = model.Branch_id;
+        [VC setHidesBottomBarWhenPushed:YES];
+        [self.My_NAVC pushViewController:VC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.My_NAVC presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 #pragma mark----UPdata

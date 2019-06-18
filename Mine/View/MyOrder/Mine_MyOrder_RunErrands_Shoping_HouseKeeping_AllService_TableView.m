@@ -11,7 +11,7 @@
 #define CellID_MineMyOrderRunErrandsCell @"MineMyOrderRunErrandsCell."
 #define CellID_MineMyOrderHouseKeepingCell @"MineMyOrderHouseKeepingCell"
 
-@interface Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView ()<UITableViewDelegate, UITableViewDataSource>
+@interface Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView ()<UITableViewDelegate, UITableViewDataSource, MineMyOrderTuiKuangFooterViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -152,6 +152,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     Mine_Order_Model *model = self.dataArray[section];
     Mine_MyOrder_TuiKuang_FooterView *footerView = [[Mine_MyOrder_TuiKuang_FooterView alloc] init];
+    footerView.delegate = self;
     footerView.OrderCellStyle = MyOrderFooterStyleShop;
     footerView.MyModel = model;
     if ([model.refundstatus intValue] == 0) {
@@ -254,6 +255,30 @@
     return 110.0f;
 }
 
+#pragma mark----MineMyOrderTuiKuangFooterViewDelegate
+
+- (void)buttonStyle:(NSInteger)index model:(Mine_Order_Model *)model OrderStyle:(OrderStyle)style {
+    if ((index = 2) && (self.index == 1) && (style == MyOrderFooterStyleShop)) {
+        if ([model.refundstatus intValue] == 0) {
+            UIAlertController *alertV = [UIAlertController alertControllerWithTitle:@"提示" message:model.cause preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"同意" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //成功返回Block
+                [self POSTIndexOrdersRefundMerchantYes:@"1" HomeModel:model];
+            }];
+            UIAlertAction *CancelAction = [UIAlertAction actionWithTitle:@"拒绝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //成功返回Block
+                [self POSTIndexOrdersRefundMerchantYes:@"2" HomeModel:model];
+            }];
+            
+            [alertV addAction:okAction];
+            [alertV addAction:CancelAction];
+            
+            [self.My_NAVC presentViewController:alertV animated:YES completion:nil];
+        }
+    }
+}
+
+
 #pragma mark----UPdata
 - (void)LoadingDataSoure {
     /**
@@ -326,6 +351,33 @@
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
     
+}
+
+- (void)POSTIndexOrdersRefundMerchantYes:(NSString *)State HomeModel:(Mine_Order_Model *)model {
+    /**
+     服务商退款审核
+     URL : https://www.txkuaiyou.com/index/orders/refundMerchantYes
+     参数 :
+     id
+     退款列表ID
+     uid
+     用户ID
+     type
+     1同意2不同意
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:model.order_ID forKey:@"id"];
+    [parm setObject:State forKey:@"type"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_orders_refundMerchantYes parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [self beginFresh];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
 }
 
 @end

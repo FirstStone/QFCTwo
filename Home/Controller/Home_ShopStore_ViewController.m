@@ -54,16 +54,44 @@
     [self POSTShoppingsMerchantShopping];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self POSTShoppingsMerchantShopping];
+    [self PostMerchantsmerchantGoodsType];
+}
+
 - (IBAction)LiftButtonPOP:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)CartButtonClick:(id)sender {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Home_ShoppingCart_ViewController *shoppingVC = [[Home_ShoppingCart_ViewController alloc] init];
+        [shoppingVC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:shoppingVC animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
+}
+
+
 - (IBAction)FollowButtonClick:(id)sender {
-    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        [self POSTIndexMerchantsAttention];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 - (IBAction)BalanceButtonClick:(id)sender {
-    [self PostPayAlipliy];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        [self PostPayAlipliy];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 
@@ -117,11 +145,16 @@
         self.type = model.Style_id;
         [self PostMerchantsmerchantGoodsType];
     }else {
-//        Home_ShopStore_Branch_Model *model = self.Right_DataArray[indexPath.row];
-//        Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
-//        VC.goodid = model.Goods_id;
-//        [VC setHidesBottomBarWhenPushed:YES];
-//        [self.navigationController pushViewController:VC animated:YES];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+            Home_ShopStore_Branch_Model *model = self.Right_DataArray[indexPath.row];
+            Home_CommunityNearby_Branch_Details_VC *VC = [[Home_CommunityNearby_Branch_Details_VC alloc] init];
+            VC.goodid = model.Goods_id;
+            [VC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:VC animated:YES];
+        }else {
+            Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+            [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+        }
     }
 }
 
@@ -140,18 +173,27 @@
 - (void)HomeShopStoreRightTableViewCellSubtractButtonClick:(Home_ShopStore_Branch_Model *)model {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         [self POSTShoppingsShoppingDels:model.Goods_id SelectModel:model];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
     }
 }
 /**点击加号按钮*/
 - (void)HomeShopStoreRightTableViewCellAddButtonClick:(Home_ShopStore_Branch_Model *)model {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         [self POSTShoppingsShoppingAdds:model.Goods_id SelectModel:model];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
     }
 }
 /**购物车按钮点击*/
 - (void)HomeShopStoreRightTableViewCellCartButtonClick:(Home_ShopStore_Branch_Model *)model {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         [self POSTShoppingsShoppingAdds:model.Goods_id SelectModel:model];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
     }
 }
 
@@ -385,6 +427,32 @@
     } failure:^(NSError * _Nonnull error) {
         self.Tatal_BT.userInteractionEnabled = YES;
         [MBProgressHUD py_showError:@"下单失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
+
+- (void)POSTIndexMerchantsAttention {
+    /**关注店铺
+     index/merchants/attention
+     merchantid
+     uid
+     */
+    self.Follow_BT.userInteractionEnabled = NO;
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:self.Shopid forKey:@"merchantid"];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_merchants_attention parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        self.Follow_BT.userInteractionEnabled = YES;
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [MBProgressHUD py_showError:@"操作成功" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+            [self PostMerchantsMerchantInfo];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        self.Follow_BT.userInteractionEnabled = YES;
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
 }
