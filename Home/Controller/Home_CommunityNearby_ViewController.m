@@ -471,7 +471,7 @@
             break;
         case 1:
         {
-            if ([Dickey containsObject:QFC_hotlist]){//优享专区
+            if ([Dickey containsObject:QFC_hotlist] && [Dickey containsObject:QFC_discountlist]){//优享专区
                 NSMutableArray *disArray = [self.dataDic objectForKey:QFC_hotlist];
                 if (disArray.count <= 2) {
                     Home_CommunityNearby_FirstEnjoy_OneCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFirstEnjoyOneCell];
@@ -525,7 +525,7 @@
             break;
         case 2:
         {
-             if ([Dickey containsObject:QFC_highlist]) {//尚品臻选
+             if ([Dickey containsObject:QFC_highlist] && [Dickey containsObject:QFC_hotlist] && [Dickey containsObject:QFC_discountlist]) {//尚品臻选
                 NSMutableArray *disArray = [self.dataDic objectForKey:QFC_highlist];
                 if (disArray.count <= 2) {
                     Home_CommunityNearby_FreshFruitSink_One_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityNearbyFreshFruitSinkOneCell];
@@ -660,7 +660,7 @@
             break;
             case 1:
         {
-            if ([Dickey containsObject:QFC_hotlist]){
+            if ([Dickey containsObject:QFC_hotlist] && [Dickey containsObject:QFC_discountlist]){
                 hederView.Title_Label.text = @"#优享专区";
                 hederView.Title_Label.textColor = QFC_Color_FFD21C;
                 hederView.Sub_Label.text = @"物美价廉热销中";
@@ -677,7 +677,7 @@
             break;
         case 2:
         {
-            if ([Dickey containsObject:QFC_highlist]) {
+            if ([Dickey containsObject:QFC_highlist] && [Dickey containsObject:QFC_discountlist] && [Dickey containsObject:QFC_hotlist]) {
                 hederView.Title_Label.text = @"#尚品臻选";
                 hederView.Title_Label.textColor = QFC_Color_3AABF2;
                 hederView.Sub_Label.text = @"高档商品一网打尽";

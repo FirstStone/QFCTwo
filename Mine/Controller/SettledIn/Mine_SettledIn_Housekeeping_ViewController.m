@@ -335,6 +335,7 @@
         _Housekeeping_Address_View = [[LabelAndTextField alloc] init];
         _Housekeeping_Address_View.Title_Label.text = @"服务地址：";
         _Housekeeping_Address_View.Text_Field.placeholder = @"请输入服务地址";
+        _Housekeeping_Address_View.Text_Field.tag = 848483;
     }
     return _Housekeeping_Address_View;
 }
@@ -480,6 +481,23 @@
         }else {
             button.backgroundColor = QFC_Color_F5F5F5;
         }
+    }
+}
+
+#pragma mark----UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (textField.tag ==  848483) {
+        Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
+        //    MJWeakSelf;
+        LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
+            //        [weakSelf.Sure_parm setObject:Address forKey:@"address"];
+            textField.text = Address;
+        };
+        [self.navigationController pushViewController:LocationVC animated:YES];
+        return NO;
+    }else {
+        return YES;
     }
 }
 

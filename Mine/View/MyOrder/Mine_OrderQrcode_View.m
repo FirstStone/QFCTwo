@@ -39,11 +39,20 @@
     [self addGestureRecognizer:backViewZer];
     self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     self.frame = [UIScreen mainScreen].bounds;
-    [self addSubview:self.image_View];
-    [self.image_View mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_offset(CGSizeMake(SCREEN_WIDTH - 40.0f, SCREEN_WIDTH - 40.0f));
+    UIView *BackView = ({
+        UIView *view = [[UIView alloc] init];
+        view.backgroundColor = [UIColor whiteColor];
+        view;
+    });
+    [self addSubview:BackView];
+    [BackView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_offset(CGSizeMake(200, 200));
         make.centerX.equalTo(self.mas_centerX);
         make.centerY.equalTo(self.mas_centerY);
+    }];
+    [BackView addSubview:self.image_View];
+    [self.image_View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 }
 

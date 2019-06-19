@@ -449,7 +449,10 @@
                     
                 } else if ([model.status intValue] == 5) {
 //                                            [footerView.Right_BT setTitle:@"立即取货" forState:UIControlStateNormal];
-                    [self PostIndexOrdersOrderQrcode:model];
+                    NSMutableDictionary *dataSoure = [[NSMutableDictionary alloc] init];
+                    [dataSoure setObject:model.order_ID forKey:@"orderid"];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"SetOrderQecode" object:nil userInfo:[NSDictionary dictionaryWithDictionary:dataSoure]];
+//                    [self PostIndexOrdersOrderQrcode:model];
                 }else if ([model.status intValue] == 6) {
                     //                        [footerView.Right_BT setTitle:@"评价" forState:UIControlStateNormal];
                     Mine_MyOrder_Evaluate_ViewController *EvaluateVC = [[Mine_MyOrder_Evaluate_ViewController alloc] init];

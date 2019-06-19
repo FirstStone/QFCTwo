@@ -66,6 +66,9 @@
 
 - (void)setDataSoureToCell:(SquareRecommend_Model *)model {
     self.My_Model = model;
+    self.Lift_image.hidden = YES;
+    self.Middle_image.hidden = YES;
+    self.Right_image.hidden = YES;
     self.ding_BT.selected = [model.likestatus intValue];
     [self.Photo_imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
     self.Name_Lable.text = model.nickname;
@@ -120,6 +123,9 @@
 
 - (void)setSquareQuestionsAndAnswersListModelToCell:(Square_QuestionsAndAnswers_List_Model *)model {
     self.My_ListModel = model;
+    self.Lift_image.hidden = YES;
+    self.Middle_image.hidden = YES;
+    self.Right_image.hidden = YES;
     self.ding_BT.selected = [model.likestatus intValue];
     [self.Photo_imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
     self.Name_Lable.text = model.nickname;

@@ -144,10 +144,10 @@
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         //初始化相机设备
-        _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        self.device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
         
         //初始化输入流
-        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
+        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:nil];
         
         //初始化输出流
         AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc] init];
@@ -155,23 +155,23 @@
         [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
         
         //初始化链接对象
-        _session = [[AVCaptureSession alloc] init];
+        self.session = [[AVCaptureSession alloc] init];
         //高质量采集率
-        [_session setSessionPreset:AVCaptureSessionPresetHigh];
+        [self.session setSessionPreset:AVCaptureSessionPresetHigh];
         
-        if ([_session canAddInput:input]) [_session addInput:input];
-        if ([_session canAddOutput:output]) [_session addOutput:output];
+        if ([self.session canAddInput:input]) [self.session addInput:input];
+        if ([self.session canAddOutput:output]) [self.session addOutput:output];
         
         //条码类型（二维码/条形码）
         output.metadataObjectTypes = [NSArray arrayWithObjects:AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeQRCode, nil];
         
         //更新界面
         dispatch_async(dispatch_get_main_queue(), ^{
-            _preview = [AVCaptureVideoPreviewLayer layerWithSession:_session];
-            _preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
-            _preview.frame = CGRectMake(0, 0, KMainW, KMainH);
-            [self.view.layer insertSublayer:_preview atIndex:0];
-            [_session startRunning];
+            self.preview = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
+            self.preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
+            self.preview.frame = CGRectMake(0, 0, KMainW, KMainH);
+            [self.view.layer insertSublayer:self.preview atIndex:0];
+            [self.session startRunning];
         });
     });
 }
@@ -237,34 +237,44 @@
         //停止扫描
 //        [self stopScanning];
         //显示结果
-        if ([[[metadataObjects firstObject] stringValue] containsString:@"checkactivityqrcode"]) {
-            [self getDataImage:[[metadataObjects firstObject] stringValue]];
+        if ([[[metadataObjects firstObject] stringValue] containsString:@"kuaiyoumerchantOrder"]){
+            NSDictionary *dic = [[[metadataObjects firstObject] stringValue] mj_JSONObject];
+            if ([[dic objectForKey:@"uid"] intValue] == [[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+                if ([[dic objectForKey:@"orderid"] intValue]) {
+                    [self getDataImage:dic];
+                }else {
+                    [self showAlertWithTitle:@"提示" message:@"订单失效" sureHandler:nil cancelHandler:nil];
+                }
+            }else {
+                [self showAlertWithTitle:@"提示" message:@"您没有权限" sureHandler:nil cancelHandler:nil];
+            }
         }else {
-            [self showAlertWithTitle:@"提示" message:@"不是本店铺的二维码" sureHandler:nil cancelHandler:nil];
+            [self showAlertWithTitle:@"提示" message:@"请扫描快友取货二维码" sureHandler:nil cancelHandler:nil];
         }
     }
 }
 
-- (void)getDataImage:(NSString *)URL_string {
+- (void)getDataImage:(NSDictionary *)QRCordDic {
     
-    /*NSString * shop_ID = [self subStringFrom:URL_string beginString:@"shop_id=" to:@"&user_id"];
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"shopid"] isEqualToString:shop_ID]) {
-        [WKPHttpRequest get:URL_string param:nil finish:^(NSData *data, NSDictionary *obj, NSError *error) {
-            NSLog(@"%@", obj);
-            if ([[obj objectForKey:@"ret"] intValue]) {
-                self.report_id = [obj objectForKey:@"report_id"];
-                [self getGotoDatasoure];
-            }else {
-                [self showAlertWithTitle:@"扫描结果" message:[obj objectForKey:@"msg"] sureHandler:nil cancelHandler:nil];
-                //            [SVProgressHUD showImage:nil status:[obj objectForKey:@"msg"]];
-                //            [SVProgressHUD dismissWithDelay:0.7f];
-            }
-        }];
-    }else {
-        [self showAlertWithTitle:@"提示" message:@"非本店活动二维码！" sureHandler:nil cancelHandler:nil];
-//        [SVProgressHUD showImage:nil status:@"非本店活动二维码！"];
-//        [SVProgressHUD dismissWithDelay:0.7f];
-    }*/
+    Mine_MyOrder_Details_ViewController *detailsVC = [[Mine_MyOrder_Details_ViewController alloc] init];
+    detailsVC.OrderID = [QRCordDic objectForKey:@"orderid"];
+    detailsVC.MyOrderDetailsStyle = MineMyOrderDetailsQRCode;
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController pushViewController:detailsVC animated:YES];
+    
+//    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+//    [parm setObject:[QRCordDic objectForKey:@"uid"] forKey:@"uid"];
+//    [parm setObject:[QRCordDic objectForKey:@"QRCordDic"] forKey:@"orderid"];
+//
+//    [[HttpRequest sharedInstance] postWithURLString:URL_merchants_orderInvite parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+//        NSLog(@"%@", responseObject);
+//        if ([[responseObject objectForKey:@"status"] intValue]) {
+//
+//        }
+//    } failure:^(NSError * _Nonnull error) {
+//        [MBProgressHUD py_showError:@"订单信息获取失败" toView:nil];
+//        [MBProgressHUD setAnimationDelay:0.7f];
+//    }];
 }
 - (void)getGotoDatasoure {
     /*NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];

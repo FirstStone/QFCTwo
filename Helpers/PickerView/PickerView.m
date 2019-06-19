@@ -668,7 +668,11 @@
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
-    return SCREEN_WIDTH;//110;
+    if (self.type == PickerViewTypeCity || self.type == PickerViewTypeGoods) {
+        return 110;
+    }else {
+     return SCREEN_WIDTH;//110;
+    }
 }
 
 //防止崩溃

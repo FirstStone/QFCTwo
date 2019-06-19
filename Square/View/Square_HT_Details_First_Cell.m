@@ -38,7 +38,7 @@
     self.Image_View.photoWidth = (SCREEN_WIDTH - 60.0f)/3.0f;
     self.Image_View.photoHeight = (SCREEN_WIDTH - 60.0f)/3.0f;
     self.Image_View.photoMargin = 10.0f;
-//    self.Image_View.oneImageFullFrame = NO;
+    self.Image_View.oneImageFullFrame = NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

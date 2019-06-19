@@ -14,6 +14,7 @@ typedef enum : NSUInteger {
     MineMyOrderDetailsShop,
     MineMyOrderDetailsHouseKeeping,
     MineMyOrderDetailsRunErrands,
+    MineMyOrderDetailsQRCode
 } MineMyOrderDetailsStyle;
 @interface Mine_MyOrder_Details_ViewController : Basic_ViewController
 

@@ -41,12 +41,17 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Mine_MyOrderDetails_Statistics_New_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_MineMyOrderDetailsStatisticsNewCell];
     
     self.HeadView = [[Mine_MyOrderDetails_Special_HeaderView alloc] init];
+    [self.HeadView.Pickup_BT addTarget:self action:@selector(TipButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.HeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 130.0f);//170
     self.tableView.tableHeaderView = self.HeadView;
     [self LoadingDataSoure];
 }
 - (IBAction)LiftButtonPOP:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.MyOrderDetailsStyle == MineMyOrderDetailsQRCode) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -141,7 +146,7 @@
             NSDictionary *dic = [responseObject objectForKey:@"info"];
             self.MyDetails_Model  = [Mine_Order_Details_Model mj_objectWithKeyValues:dic];
             [self.HeadView.Photo_View sd_setImageWithURL:[NSURL URLWithString:self.MyDetails_Model.service_avatar]];
-            switch ([self.MyDetails_Model.merchant_status intValue]) {
+            switch ([self.MyDetails_Model.status intValue]) {
                 case 0:
                     {
                         self.HeadView.Tip_Label.text = @"等待付款...";
@@ -152,24 +157,37 @@
                     self.HeadView.Tip_Label.text = @"等待接单...";
                 }
                     break;
-                case 2:
-                {
-                    self.HeadView.Tip_Label.text = @"待跑腿取货...";
-                }
-                    break;
+//                case 2:
+//                {
+//                    self.HeadView.Tip_Label.text = @"等待服务...";
+//                }
+//                    break;
                 case 3:
                 {
-                    self.HeadView.Tip_Label.text = @"待跑腿取货...";
+                    self.HeadView.Tip_Label.text = @"等待服务...";
                 }
                     break;
                 case 4:
                 {
-                    self.HeadView.Tip_Label.text = @"待送达...";
+                    self.HeadView.Tip_Label.text = @"服务中...";
                 }
                     break;
                 case 5:
                 {
-                    self.HeadView.Tip_Label.text = @"待确认...";
+                    if (self.MyOrderDetailsStyle == MineMyOrderDetailsQRCode) {
+                        self.HeadView.Tip_Label.hidden = YES;
+                        self.HeadView.Pickup_BT.hidden = NO;
+//                        self.HeadView.Tip_Label.text = @" 点击确认取货 ";
+                    }else {
+                        self.HeadView.Tip_Label.hidden = NO;
+                        self.HeadView.Pickup_BT.hidden = YES;
+                        self.HeadView.Tip_Label.text = @"确认完成...";
+                    }
+                }
+                    break;
+                case 6:
+                {
+                    self.HeadView.Tip_Label.text = @"评价...";
                 }
                     break;
                 default:
@@ -190,6 +208,23 @@
     }];
 }
 
+
+- (void)TipButtonClick:(UIButton *)button {
+        NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+        [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+        [parm setObject:self.OrderID forKey:@"orderid"];
+        [[HttpRequest sharedInstance] postWithURLString:URL_merchants_orderInvite parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+            NSLog(@"%@", responseObject);
+            if ([[responseObject objectForKey:@"status"] intValue]) {
+                [MBProgressHUD py_showError:@"操作成功" toView:nil];
+                [MBProgressHUD setAnimationDelay:0.7f];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+        } failure:^(NSError * _Nonnull error) {
+            [MBProgressHUD py_showError:@"操作失败" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }];
+}
 
 
 @end

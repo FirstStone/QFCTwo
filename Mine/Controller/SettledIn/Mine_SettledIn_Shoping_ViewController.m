@@ -404,6 +404,7 @@
         _Shop_Address_View = [[LabelAndTextField alloc] init];
         _Shop_Address_View.Title_Label.text = @"联系地址：";
         _Shop_Address_View.Text_Field.placeholder = @"请输入联系地址";
+        _Shop_Address_View.Text_Field.delegate = self;
     }
     return _Shop_Address_View;
 }
@@ -522,6 +523,20 @@
     }];
     return contView;
 }
+
+#pragma mark----UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
+    //    MJWeakSelf;
+    LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
+        //        [weakSelf.Sure_parm setObject:Address forKey:@"address"];
+        textField.text = Address;
+    };
+    [self.navigationController pushViewController:LocationVC animated:YES];
+    return NO;
+}
+
 
 #pragma mark----PYPhotosViewDelegate
 

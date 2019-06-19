@@ -43,13 +43,16 @@
         make.top.equalTo(self.Photo_View.mas_bottom).offset(8.0f);
         make.bottom.equalTo(contentView.mas_bottom).offset(-10.0f);
     }];
-    /*[contentView addSubview:self.Pickup_BT];
+    [contentView addSubview:self.Pickup_BT];
     [self.Pickup_BT mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.offset(20.0f);
+        make.centerX.equalTo(contentView.mas_centerX);
         make.top.equalTo(self.Photo_View.mas_bottom).offset(8.0f);
-        make.centerX.equalTo(contentView);
+        make.bottom.equalTo(contentView.mas_bottom).offset(-10.0f);
+//        make.height.offset(20.0f);
+//        make.top.equalTo(self.Photo_View.mas_bottom).offset(8.0f);
+//        make.centerX.equalTo(contentView);
     }];
-    [contentView addSubview:self.PickupNumber_Label];
+    /*[contentView addSubview:self.PickupNumber_Label];
     [self.PickupNumber_Label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(contentView);
         make.top.equalTo(self.Pickup_BT.mas_bottom).offset(7.0f);
@@ -77,11 +80,12 @@
 - (UIButton *)Pickup_BT {
     if (!_Pickup_BT) {
         _Pickup_BT = [[UIButton alloc] init];
-        [_Pickup_BT setTitle:@"  取货二维码  " forState:UIControlStateNormal];
+        [_Pickup_BT setTitle:@"  点击确认取货  " forState:UIControlStateNormal];
         _Pickup_BT.backgroundColor = QFC_Color_30AC65;
         _Pickup_BT.titleLabel.font = [UIFont systemFontOfSize:12.0f weight:UIFontWeightBold];
         [_Pickup_BT setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _Pickup_BT.layer.cornerRadius = 10.0f;
+        _Pickup_BT.hidden = YES;
     }
     return _Pickup_BT;
 }

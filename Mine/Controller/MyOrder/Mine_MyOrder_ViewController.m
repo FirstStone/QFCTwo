@@ -19,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(OrderQecode:) name:@"SetOrderQecode" object:nil];
+    
     self.itemArray =@[@"全部", @"待付款", @"待接单", @"待完成", @"待评价"];
     [self.view addSubview:self.segmentedControl];
     __weak typeof(self)weakSelf = self;
@@ -80,6 +82,35 @@
     NSInteger page = scrollView.contentOffset.x / pageWidth;
     
     [self.segmentedControl setSelectedSegmentIndex:page animated:YES];
+}
+
+
+- (void)OrderQecode:(NSNotification *)notification {
+    [self PostIndexOrdersOrderQrcode:notification.userInfo[@"orderid"]];
+}
+
+/**用户立即取货
+ index/orders/OrderQrcode
+ orderid
+ */
+- (void)PostIndexOrdersOrderQrcode:(NSString *)orderID {
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    //    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:orderID forKey:@"orderid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_orders_OrderQrcode parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            Mine_OrderQrcode_View *View = [[Mine_OrderQrcode_View alloc] init];
+            [View SetImageViewToCell:[responseObject objectForKey:@"url"]];
+            [self.view addSubview:View];
+        }else {
+            [MBProgressHUD py_showError:[responseObject objectForKey:@"message"] toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
 }
 
 

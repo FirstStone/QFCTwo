@@ -23,7 +23,8 @@
     config.userContentController = [[WKUserContentController alloc] init];
     config.userContentController = [WKUserContentController new];
     //在创建wkWebView时，需要将被js调用的方法注册进去,oc与js端对应实现
-    [config.userContentController addScriptMessageHandler:self name:@"gos"];
+    [config.userContentController addScriptMessageHandler:self name:@"Iosback"];
+    [config.userContentController addScriptMessageHandler:self name:@"IosOrderEvaluatePost"];
     config.preferences = [[WKPreferences alloc] init];
     config.preferences.minimumFontSize = 10;
     config.preferences.javaScriptEnabled = YES;
@@ -52,9 +53,13 @@
     }];
 }
 
+- (void)dealloc {
+    [self.MyWKWebView.configuration.userContentController removeScriptMessageHandlerForName:@"Iosback"];
+    [self.MyWKWebView.configuration.userContentController removeScriptMessageHandlerForName:@"IosOrderEvaluatePost"];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.MyWKWebView.configuration.userContentController removeScriptMessageHandlerForName:@"gos"];
 }
 
 - (void)webView:(WKWebView* )webView decidePolicyForNavigationResponse:(WKNavigationResponse* )navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
@@ -93,11 +98,18 @@
 
 #pragma mark----WKScriptMessageHandler
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
-    if ([message.name isEqualToString:@"gos"]) {
+    if ([message.name isEqualToString:@"Iosback"]) {
+        NSLog(@"-------------------------------%@", message.body);
+        [self.navigationController popViewControllerAnimated:YES];
+//        NSDictionary *DataSoure = message.body;
+//        if ([[DataSoure objectForKey:@"orderids"] intValue]) {
+//            [self PayViewController:[DataSoure objectForKey:@"orderids"]];
+//        }
+    }else if ([message.name isEqualToString:@"IosOrderEvaluatePost"]) {
         NSLog(@"-------------------------------%@", message.body);
         NSDictionary *DataSoure = message.body;
-        if ([[DataSoure objectForKey:@"orderids"] intValue]) {
-//            [self PayViewController:[DataSoure objectForKey:@"orderids"]];
+        if ([[DataSoure objectForKey:@"status"] intValue]) {
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }
 }

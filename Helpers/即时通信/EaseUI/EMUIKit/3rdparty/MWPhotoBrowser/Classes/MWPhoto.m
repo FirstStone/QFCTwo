@@ -6,7 +6,7 @@
 //  Copyright 2010 d3i. All rights reserved.
 //
 
-#import "SDWebImageDecoder.h"
+//#import "SDWebImageDecoder.h"
 #import "SDWebImageManager.h"
 #import "SDWebImageOperation.h"
 #import <AssetsLibrary/AssetsLibrary.h>

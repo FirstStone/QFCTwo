@@ -3,7 +3,7 @@ inhibit_all_warnings!
 target 'QFC' do
 
 #pod 'SDWebImage'
-pod 'SDWebImage', '~>4.0.0'
+pod 'SDWebImage'
 pod "MBProgressHUD"
 pod 'PYPhotoBrowser', '~>1.5.2'
 pod "TZImagePickerController"
