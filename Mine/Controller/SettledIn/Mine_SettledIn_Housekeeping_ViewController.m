@@ -306,6 +306,7 @@
         _Housekeeping_Sex_View.Title_Label.text = @"性    别：";
         _Housekeeping_Sex_View.Text_Field.placeholder = @"请输入性别";
         _Housekeeping_Sex_View.Text_Field.delegate = self;
+        _Housekeeping_Sex_View.Text_Field.tag = 848484;
     }
     return _Housekeeping_Sex_View;
 }
@@ -335,6 +336,7 @@
         _Housekeeping_Address_View = [[LabelAndTextField alloc] init];
         _Housekeeping_Address_View.Title_Label.text = @"服务地址：";
         _Housekeeping_Address_View.Text_Field.placeholder = @"请输入服务地址";
+        _Housekeeping_Address_View.Text_Field.delegate = self;
         _Housekeeping_Address_View.Text_Field.tag = 848483;
     }
     return _Housekeeping_Address_View;

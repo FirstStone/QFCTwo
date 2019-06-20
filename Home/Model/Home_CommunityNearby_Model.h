@@ -56,4 +56,31 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
+@interface Home_Seach_Model : NSObject
+/**
+ "id": 90,
+ "goods_name": "李子",
+ "price": "9.90",
+ "goods_img": "https://www.txkuaiyou.com/uploads/fileimg/156050327741-2019-06-14.png",
+ "activity_price": "0.00"
+ 
+ "id": 1,
+ "merchant": "果子铺",
+ "avatar": "https://www.txkuaiyou.com/uploads/fileimg/1560669894343-2019-06-16.png",
+ "grade": "9.27"
+ */
+@property (nonatomic, strong) NSString *SearchID;
+@property (nonatomic, strong) NSString *goods_name;
+@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *goods_img;
+@property (nonatomic, strong) NSString *activity_price;
+@property (nonatomic, strong) NSString *merchant;
+@property (nonatomic, strong) NSString *avatar;
+@property (nonatomic, strong) NSString *grade;
+@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *imgurl;
+
+
+@end
+
 NS_ASSUME_NONNULL_END

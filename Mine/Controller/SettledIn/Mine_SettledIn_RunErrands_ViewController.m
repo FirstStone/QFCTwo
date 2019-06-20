@@ -280,6 +280,7 @@
         _RunErrands_Sex_View.Title_Label.text = @"性    别：";
         _RunErrands_Sex_View.Text_Field.placeholder = @"请输入性别";
         _RunErrands_Sex_View.Text_Field.delegate = self;
+        _RunErrands_Sex_View.Text_Field.tag = 7947477;
     }
     return _RunErrands_Sex_View;
 }
@@ -309,6 +310,8 @@
         _RunErrands_Address_View = [[LabelAndTextField alloc] init];
         _RunErrands_Address_View.Title_Label.text = @"服务地址：";
         _RunErrands_Address_View.Text_Field.placeholder = @"请输入服务地址";
+        _RunErrands_Address_View.Text_Field.tag = 7947476;
+        _RunErrands_Address_View.Text_Field.delegate = self;
     }
     return _RunErrands_Address_View;
 }
@@ -806,9 +809,26 @@
 //    return YES;
 //}
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    PickerView *pick = [[PickerView alloc] init];
-    pick.delegate = self;
-    pick.type = PickerViewTypeSex;
-    [self.view addSubview:pick];
+    if (textField.tag == 7947477) {//性别
+        PickerView *pick = [[PickerView alloc] init];
+        pick.delegate = self;
+        pick.type = PickerViewTypeSex;
+        [self.view addSubview:pick];
+    }
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (textField.tag ==  7947476) {//地址
+        Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
+        //    MJWeakSelf;
+        LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
+            //        [weakSelf.Sure_parm setObject:Address forKey:@"address"];
+            textField.text = Address;
+        };
+        [self.navigationController pushViewController:LocationVC animated:YES];
+        return NO;
+    }else {
+        return YES;
+    }
 }
 @end

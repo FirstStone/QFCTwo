@@ -17,7 +17,7 @@
 
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
-@interface Home_ViewController ()<FMHorizontalMenuViewDelegate,FMHorizontalMenuViewDataSource,SDCycleScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, AMapLocationManagerDelegate>
+@interface Home_ViewController ()<FMHorizontalMenuViewDelegate,FMHorizontalMenuViewDataSource,SDCycleScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, AMapLocationManagerDelegate, UISearchBarDelegate, PYSearchViewControllerDelegate, PYSearchViewControllerDataSource>
 @property (weak, nonatomic) IBOutlet Basic_TableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *SearchBar;
 
@@ -41,6 +41,12 @@
 @property (nonatomic, copy) AMapLocatingCompletionBlock completionBlock;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, strong) NSMutableArray *hotTopArray;
+
+@property(nonatomic,strong)PYSearchViewController *searchViewController;
+
+@property (nonatomic, strong) Home_SearchResult_ViewContraller *searchResultVC;
 
 @end
 
@@ -88,6 +94,13 @@
     return _dataArray;
 }
 
+- (NSMutableArray *)hotTopArray {
+    if (!_hotTopArray) {
+        _hotTopArray = [[NSMutableArray alloc] init];
+    }
+    return _hotTopArray;
+}
+
 //self.navigationController.delegate = self;
 //#pragma mark----UINavigationController?Delegate
 ////将要显示的控制器是否是自己
@@ -101,6 +114,7 @@
     [super viewWillAppear:animated];
 //    self.navigationController.navigationBar.tintColor = QFC_Color_Green;
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self loadingHotTopDataSoure];
 }
 
 - (IBAction)AddressButtonClick:(id)sender {
@@ -108,8 +122,10 @@
 }
 
 - (void)setUPUI{
+    self.SearchBar.delegate = self;
     [self.SearchBar setImage:[UIImage imageNamed:@"icon_sousuo"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     UITextField *searchField = [self.SearchBar valueForKey:@"_searchField"];
+    searchField.backgroundColor = QFC_Color_97CFA9;
     [searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [searchField setValue:[UIFont boldSystemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
     searchField.textAlignment = NSTextAlignmentCenter;
@@ -270,6 +286,46 @@
     
     
     return contView;
+}
+
+#pragma mark----UISearchBarDelegate
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    [self goToSearchVC:self.hotTopArray];
+    return NO;
+}
+
+-(void)goToSearchVC:(NSArray *)hotDataArry;
+{
+//    UIButton * backBT= ({
+//        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [button setImage:[UIImage imageNamed:@"icon_Lift"] forState:UIControlStateNormal];
+//        button;
+//    });
+//    _searchViewController.lif
+    // 2. 创建搜索控制器
+    MJWeakSelf
+    _searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotDataArry searchBarPlaceholder:@"搜索你想要的" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+        weakSelf.searchResultVC = [[Home_SearchResult_ViewContraller alloc] init];
+//        _searchResultVC.searchTypeArry = _typeArry;
+//        _searchResultVC.VCtag = 0;
+        
+        weakSelf.searchResultVC.SearcgText = searchText;
+        weakSelf.searchViewController.searchResultController = weakSelf.searchResultVC;
+        weakSelf.searchViewController.searchResultShowMode = PYSearchResultShowModeEmbed;
+//        weakSelf.searchViewController.searchSuggestionView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64.0f);
+        // 开始(点击)搜索时执行以下代码
+    }];
+    //     设置热门搜索为彩色标签风格
+    _searchViewController.navigationController.navigationBar.tintColor = QFC_Color_30AC65;
+    _searchViewController.hotSearchStyle = PYHotSearchStyleBorderTag;
+    [_searchViewController setCancelButton:nil];
+    _searchViewController.delegate = self;
+    _searchViewController.dataSource = self;
+    _searchViewController.searchSuggestionHidden = NO;
+    self.navigationController.navigationBarHidden = NO;
+    [_searchViewController setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:_searchViewController animated:NO];
+    [self.SearchBar endEditing:YES];
 }
 
 #pragma mark === FMHorizontalMenuViewDataSource
@@ -671,5 +727,29 @@
     }];
 }
 
+- (void)loadingHotTopDataSoure {
+    /**
+     首页全局搜索 获取热门搜索列表
+     URL : https://www.txkuaiyou.com/index/Search/HotSearch
+     参数 :
+     type
+     1
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:@"1" forKey:@"type"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_Search_HotSearch parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSArray *Array = [responseObject objectForKey:@"list"];
+            [self.hotTopArray removeAllObjects];
+            for (NSString *HotStr in Array) {
+                [self.hotTopArray addObject:HotStr];
+            }
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
 
 @end

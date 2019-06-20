@@ -235,7 +235,11 @@
 #import "Home_ShopStore_Lift_TableViewCell.h"
 #import "Home_ShopStore_Right_TableViewCell.h"
 #import "Mine_OrderQrcode_View.h"
-
+#import "Home_SearchResult_ViewContraller.h"
+#import "Home_Seach_Goods_Cell.h"
+#import "Home_Seach_ShopStore_Cell.h"
+#import "Home_Seach_HT_Cell.h"
+#import "Home_Seach_ES_Cell.h"
 
 //数据模型
 #import "Message_FansList_Model.h"
@@ -302,6 +306,8 @@
 #define QFC_Color_3AABF2 QFC_Color(58,171,242)
 /**55CC88*/
 #define QFC_Color_55CC88 QFC_Color(85,204,136)
+/**97CFA9*/
+#define QFC_Color_97CFA9 QFC_Color(134,209,166)
 
 /**D8D8D8颜色*/
 #define QFC_Color_D8D8D8 QFC_Color(216,216,216)
@@ -1439,6 +1445,27 @@ index/discounts/mydisountList
 #define URL_centres_uPhones HTTPHeader@"index/centres/uPhones"
 
 #pragma mark----首页
+
+/**
+ 首页全局搜索
+ URL : https://www.txkuaiyou.com/index/Search/SearchHome
+ 参数 :
+ keyword
+ 搜索内容
+ uid
+ 当前用户ID  没有传0或不传
+ */
+#define URL_Search_SearchHome HTTPHeader@"index/Search/SearchHome"
+
+/**
+ 首页全局搜索 获取热门搜索列表
+ URL : https://www.txkuaiyou.com/index/Search/HotSearch
+ 参数 :
+ type
+ 1
+ */
+#define URL_Search_HotSearch HTTPHeader@"index/Search/HotSearch"
+
 /**
  index/merchants/rimMerchantList
  uid   没有传空
