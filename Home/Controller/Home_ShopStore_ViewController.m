@@ -208,7 +208,7 @@
     NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
     [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
     [parm setObject:self.Shopid forKey:@"merchantid"];
-    [[HttpRequest sharedInstance] postWithURLString:URL_merchants_merchantInfo parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+    [[HttpRequest sharedInstance] postWithURLString:URL_Merchants_merchantInfo parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             NSDictionary *infoDic = [responseObject objectForKey:@"info"];

@@ -17,7 +17,7 @@
 
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
-@interface Home_ViewController ()<FMHorizontalMenuViewDelegate,FMHorizontalMenuViewDataSource,SDCycleScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, AMapLocationManagerDelegate, UISearchBarDelegate, PYSearchViewControllerDelegate, PYSearchViewControllerDataSource>
+@interface Home_ViewController ()<FMHorizontalMenuViewDelegate,FMHorizontalMenuViewDataSource,SDCycleScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, AMapLocationManagerDelegate, UISearchBarDelegate, PYSearchViewControllerDelegate, PYSearchViewControllerDataSource, TLCityPickerDelegate>
 @property (weak, nonatomic) IBOutlet Basic_TableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *SearchBar;
 
@@ -118,7 +118,7 @@
 }
 
 - (IBAction)AddressButtonClick:(id)sender {
-//    [self setUPUIMapView];
+    [self goToChooseCity];
 }
 
 - (void)setUPUI{
@@ -288,6 +288,37 @@
     return contView;
 }
 
+
+-(void)goToChooseCity
+{
+    TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
+    
+    [cityPickerVC setDelegate:self];
+    
+    // 设置定位城市
+    cityPickerVC.locationCityID = @"200010000";
+    
+    // 最近访问城市，如果不设置，将自动管理
+    //  cityPickerVC.commonCitys = [[NSMutableArray alloc] initWithArray: @[@"1400010000", @"100010000"]];
+    
+    // 热门城市，需手动设置
+    cityPickerVC.hotCitys = @[@"200010000"];
+    
+    // 支持push、present方式跳入，但需要有UINavigationController
+    [self.navigationController setNavigationBarHidden:NO];
+    [cityPickerVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:cityPickerVC animated:YES];
+//    self.hidesBottomBarWhenPushed=NO;
+}
+
+#pragma mark----TLCityPickerDelegate
+- (void)cityPickerController:(TLCityPickerController *)cityPickerViewController didSelectCity:(TLCity *)city {
+    [self.tableView beginFresh];
+    [self.Address_BT setTitle:city.cityName forState:UIControlStateNormal];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 #pragma mark----UISearchBarDelegate
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     [self goToSearchVC:self.hotTopArray];
@@ -427,7 +458,7 @@
 
 - (SDCycleScrollView *)sdcscrollView {
     if (!_sdcscrollView) {
-        _sdcscrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 150) imageNamesGroup:@[@"Home_back_image", @"Home_back_image"]];
+        _sdcscrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 150) imageURLStringsGroup:@[@"https://www.txkuaiyou.com/uploads/images/20190615192428.png", @"https://www.txkuaiyou.com/uploads/images/20190615192440.png", @"https://www.txkuaiyou.com/uploads/images/20190615192445.png"]];
         _sdcscrollView.showPageControl = YES;
         _sdcscrollView.pageControlDotSize = CGSizeMake(13.0f, 3.0f);
         _sdcscrollView.currentPageDotColor = QFC_Color(233,233,233);

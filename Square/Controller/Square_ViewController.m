@@ -220,11 +220,20 @@
                 [self.Title_Array addObject:model];
                 [self.itemArray addObject:model.Type_name];
             }
+        }
+        if (self.Title_Array.count && self.itemArray.count) {
             [self setUPUI];
+        }else {
+            [self.scrollView configDefaultEmptyView];
+            [self.scrollView.emptyPlaceView showWithImgName:@"加载失败" title:@"暂无数据" des:nil btnText:@"刷新" btnImg:nil tapClick:^{
+                [self LoadingDataSoure];
+            }];
         }
     } failure:^(NSError * _Nonnull error) {
-        [MBProgressHUD py_showError:@"加载失败" toView:nil];
-        [MBProgressHUD setAnimationDelay:0.7f];
+        [self.scrollView configDefaultEmptyView];
+        [self.scrollView.emptyPlaceView showWithImgName:@"加载失败" title:@"暂无数据" des:nil btnText:@"刷新" btnImg:nil tapClick:^{
+            [self LoadingDataSoure];
+        }];
     }];
 }
 

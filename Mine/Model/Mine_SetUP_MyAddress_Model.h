@@ -62,6 +62,35 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *year;
 @property (nonatomic, strong) NSString *User_id;
 
+@end
+
+@interface Mine_MyShopStore_Model : NSObject
+/**
+ address = "\U4e0a\U6d77\U5e02\U677e\U6c5f\U533a";
+ "attention_sum" = 5;
+ avatar = "https://www.txkuaiyou.com/uploads/fileimg/1560669894343-2019-06-16.png";
+ beginbusiness = "00:00";
+ endbusiness = "23:59";
+ grade = "9.27";
+ id = 1;
+ latitude = "31.09255";
+ longitude = "121.32384";
+ merchant = "\U679c\U5b50\U94fa";
+ phone = 17639895136;
+ range = "\U6c34\U679c\Uff0c\U852c\U83dc\Uff0c\U719f\U98df\Uff0c\U7cd5\U70b9\Uff0c\U5e72\U8d27\Uff0c\U6c34\U4ea7\Uff0c\U8089\U7c7b";
+ */
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *attention_sum;
+@property (nonatomic, strong) NSString *avatar;
+@property (nonatomic, strong) NSString *beginbusiness;
+@property (nonatomic, strong) NSString *endbusiness;
+@property (nonatomic, strong) NSString *grade;
+@property (nonatomic, strong) NSString *ShopID;
+@property (nonatomic, strong) NSString *latitude;
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *merchant;
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *range;
 
 @end
 

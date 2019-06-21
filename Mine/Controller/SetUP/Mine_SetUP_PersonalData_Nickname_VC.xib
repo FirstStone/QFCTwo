@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Mine_SetUP_PersonalData_Nickname_VC">
             <connections>
+                <outlet property="Navigation" destination="oZW-N5-vkg" id="FGw-co-Tqi"/>
                 <outlet property="Sure_BT" destination="ZyN-pH-Taj" id="63Z-Y6-yNM"/>
                 <outlet property="Text_Field" destination="KHS-Ok-a4P" id="4JY-zc-sHW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -77,7 +78,7 @@
                 <constraint firstItem="Kqq-sd-JGQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="s33-GR-O6c"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+            <point key="canvasLocation" x="-94" y="162"/>
         </view>
     </objects>
 </document>

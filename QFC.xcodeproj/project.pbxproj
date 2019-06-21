@@ -412,6 +412,14 @@
 		37C4A8B922769C98008347D7 /* Mine_Goods_Supervise_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A8B822769C98008347D7 /* Mine_Goods_Supervise_View.m */; };
 		37C6437422B382F500FAD214 /* Mine_MyOrder_UserEvaluateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C6437222B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.m */; };
 		37C6437522B382F500FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C6437322B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib */; };
+		37C9E6FB22BC6B6B00443BC2 /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6F022BC6B6A00443BC2 /* TLCity.m */; };
+		37C9E6FC22BC6B6B00443BC2 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37C9E6F122BC6B6A00443BC2 /* CityData.plist */; };
+		37C9E6FD22BC6B6B00443BC2 /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6F222BC6B6A00443BC2 /* TLCityGroupCell.m */; };
+		37C9E6FE22BC6B6B00443BC2 /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6F722BC6B6A00443BC2 /* TLCityPickerController.m */; };
+		37C9E6FF22BC6B6B00443BC2 /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6F822BC6B6A00443BC2 /* TLCityPickerSearchResultController.m */; };
+		37C9E70022BC6B6B00443BC2 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6F922BC6B6A00443BC2 /* TLCityHeaderView.m */; };
+		37C9E70422BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E70222BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.m */; };
+		37C9E70522BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C9E70322BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.xib */; };
 		37CA64A0225DCF600040387F /* Square_WD_SD_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CA649E225DCF600040387F /* Square_WD_SD_Cell.m */; };
 		37CA64A1225DCF600040387F /* Square_WD_SD_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CA649F225DCF600040387F /* Square_WD_SD_Cell.xib */; };
 		37CA64A5225DEDDC0040387F /* Message_TZ_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CA64A3225DEDDC0040387F /* Message_TZ_Cell.m */; };
@@ -1249,6 +1257,21 @@
 		37C6437122B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_UserEvaluateViewController.h; sourceTree = "<group>"; };
 		37C6437222B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_UserEvaluateViewController.m; sourceTree = "<group>"; };
 		37C6437322B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_UserEvaluateViewController.xib; sourceTree = "<group>"; };
+		37C9E6EF22BC6B6A00443BC2 /* TLCityPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerController.h; sourceTree = "<group>"; };
+		37C9E6F022BC6B6A00443BC2 /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
+		37C9E6F122BC6B6A00443BC2 /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
+		37C9E6F222BC6B6A00443BC2 /* TLCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityGroupCell.m; sourceTree = "<group>"; };
+		37C9E6F322BC6B6A00443BC2 /* TLCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityHeaderView.h; sourceTree = "<group>"; };
+		37C9E6F422BC6B6A00443BC2 /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
+		37C9E6F522BC6B6A00443BC2 /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
+		37C9E6F622BC6B6A00443BC2 /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
+		37C9E6F722BC6B6A00443BC2 /* TLCityPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerController.m; sourceTree = "<group>"; };
+		37C9E6F822BC6B6A00443BC2 /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
+		37C9E6F922BC6B6A00443BC2 /* TLCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityHeaderView.m; sourceTree = "<group>"; };
+		37C9E6FA22BC6B6A00443BC2 /* TLCityGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityGroupCell.h; sourceTree = "<group>"; };
+		37C9E70122BC828900443BC2 /* Mine_BeginAnd_EndTimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_BeginAnd_EndTimeCell.h; sourceTree = "<group>"; };
+		37C9E70222BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_BeginAnd_EndTimeCell.m; sourceTree = "<group>"; };
+		37C9E70322BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_BeginAnd_EndTimeCell.xib; sourceTree = "<group>"; };
 		37CA649D225DCF600040387F /* Square_WD_SD_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_WD_SD_Cell.h; sourceTree = "<group>"; };
 		37CA649E225DCF600040387F /* Square_WD_SD_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_WD_SD_Cell.m; sourceTree = "<group>"; };
 		37CA649F225DCF600040387F /* Square_WD_SD_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_WD_SD_Cell.xib; sourceTree = "<group>"; };
@@ -1816,6 +1839,7 @@
 		184850122251DC76002B7AA9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				37C9E6ED22BC6B6A00443BC2 /* TLCityPicker */,
 				37ACB82A22B1F31D00C84669 /* 即时通信 */,
 				37EDA2362282813200E7B0E5 /* PickerView */,
 				377F5E41227E70D5003B3E19 /* HttpRequest */,
@@ -2797,6 +2821,9 @@
 				37B8B70E226F382300434D61 /* Mine_SetUP_Cell.h */,
 				37B8B705226F382200434D61 /* Mine_SetUP_Cell.m */,
 				37B8B704226F382200434D61 /* Mine_SetUP_Cell.xib */,
+				37C9E70122BC828900443BC2 /* Mine_BeginAnd_EndTimeCell.h */,
+				37C9E70222BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.m */,
+				37C9E70322BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.xib */,
 				37B8B707226F382300434D61 /* Mine_SetUP_MyAddress_Cell.h */,
 				37B8B701226F382200434D61 /* Mine_SetUP_MyAddress_Cell.m */,
 				37B8B70C226F382300434D61 /* Mine_SetUP_MyAddress_Cell.xib */,
@@ -2894,6 +2921,33 @@
 				37C4589B2271935D004CDE32 /* Mine_SettledIn_Shoping_ViewController.xib */,
 			);
 			path = SettledIn;
+			sourceTree = "<group>";
+		};
+		37C9E6ED22BC6B6A00443BC2 /* TLCityPicker */ = {
+			isa = PBXGroup;
+			children = (
+				37C9E6EE22BC6B6A00443BC2 /* TLCityPicker */,
+			);
+			path = TLCityPicker;
+			sourceTree = "<group>";
+		};
+		37C9E6EE22BC6B6A00443BC2 /* TLCityPicker */ = {
+			isa = PBXGroup;
+			children = (
+				37C9E6EF22BC6B6A00443BC2 /* TLCityPickerController.h */,
+				37C9E6F022BC6B6A00443BC2 /* TLCity.m */,
+				37C9E6F122BC6B6A00443BC2 /* CityData.plist */,
+				37C9E6F222BC6B6A00443BC2 /* TLCityGroupCell.m */,
+				37C9E6F322BC6B6A00443BC2 /* TLCityHeaderView.h */,
+				37C9E6F422BC6B6A00443BC2 /* TLCityPickerSearchResultController.h */,
+				37C9E6F522BC6B6A00443BC2 /* TLCityPickerDelegate.h */,
+				37C9E6F622BC6B6A00443BC2 /* TLCity.h */,
+				37C9E6F722BC6B6A00443BC2 /* TLCityPickerController.m */,
+				37C9E6F822BC6B6A00443BC2 /* TLCityPickerSearchResultController.m */,
+				37C9E6F922BC6B6A00443BC2 /* TLCityHeaderView.m */,
+				37C9E6FA22BC6B6A00443BC2 /* TLCityGroupCell.h */,
+			);
+			path = TLCityPicker;
 			sourceTree = "<group>";
 		};
 		37CD026922ADEAA100ED09E8 /* CardCore */ = {
@@ -3226,7 +3280,9 @@
 				37F5FFFC2265B9800012245D /* Message_RunErrands_Tableview_Cell.xib in Resources */,
 				37632D4C2275AE3A00EB09B7 /* Mine_Goods_Supervise_ViewController.xib in Resources */,
 				37B8B6D0226F358800434D61 /* Mine_SetUP_About_Me_VC.xib in Resources */,
+				37C9E70522BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.xib in Resources */,
 				37B8B6DA226F358800434D61 /* Mine_SetUP_ViewController.xib in Resources */,
+				37C9E6FC22BC6B6B00443BC2 /* CityData.plist in Resources */,
 				37698F6022867BB5003324DC /* Home_HouseKeeping_PlacOrder_RemarksCell.xib in Resources */,
 				37E7D42F2267462400905BD5 /* Mine_FollowView_TableView_Cell.xib in Resources */,
 				37A29BD622534D4B00495D1B /* Home_ViewController.xib in Resources */,
@@ -3432,6 +3488,7 @@
 				378C8C43228D04C90041EAAD /* Square_WD_Model.m in Sources */,
 				37B8B6CA226F358800434D61 /* Mine_SetUP_ViewController.m in Sources */,
 				37CA64AA225DF41A0040387F /* Message_TZ_Default_Cell.m in Sources */,
+				37C9E70022BC6B6B00443BC2 /* TLCityHeaderView.m in Sources */,
 				37B8B6FC226F381900434D61 /* Mine_MyOrder_Shop_Cell.m in Sources */,
 				37CA64A0225DCF600040387F /* Square_WD_SD_Cell.m in Sources */,
 				37ACB95122B1F31E00C84669 /* EaseBubbleView.m in Sources */,
@@ -3482,6 +3539,7 @@
 				37C3ECD42275482B006EB3C3 /* Home_HouseKeeping_ViewController.m in Sources */,
 				3783A404226EB76700A88C32 /* Home_ShoppingCart_ViewController.m in Sources */,
 				37B8B694226EFBC200434D61 /* Home_ShoppingCatr_Settlement_ViewController.m in Sources */,
+				37C9E6FF22BC6B6B00443BC2 /* TLCityPickerSearchResultController.m in Sources */,
 				37698F5F22867BB5003324DC /* Home_HouseKeeping_PlacOrder_RemarksCell.m in Sources */,
 				37A91BD922B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m in Sources */,
 				37698F6422867E03003324DC /* Home_HouseKeeping_PlacOrder_PriceCell.m in Sources */,
@@ -3550,6 +3608,7 @@
 				37ACB93122B1F31E00C84669 /* PSTCollectionViewUpdateItem.m in Sources */,
 				37E25A7E227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.m in Sources */,
 				37E25A7422783A7F00EB90A0 /* Mine_MyOrderDetails_HeaderView.m in Sources */,
+				37C9E70422BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.m in Sources */,
 				37F5FFD92265A8DA0012245D /* Message_NotificationCenter_VC.m in Sources */,
 				37ACB90822B1F31E00C84669 /* NSString+Valid.m in Sources */,
 				37C3ECD822754FAD006EB3C3 /* Home_HouseKeeping_TableView.m in Sources */,
@@ -3568,12 +3627,14 @@
 				3715E8E622603C7D00111C1C /* Mine_CV_TopImageDownLabel_Cell.m in Sources */,
 				3749A874225B1A99006940A3 /* ZXCategorySliderBar.m in Sources */,
 				3734066A22854BAE00FC38F9 /* ButtonAndLabel.m in Sources */,
+				37C9E6FD22BC6B6B00443BC2 /* TLCityGroupCell.m in Sources */,
 				371830E7225DC17E006B97E5 /* Square_WD_Text_Cell.m in Sources */,
 				37F5FFB6226570C00012245D /* Message_FansViewController.m in Sources */,
 				37ACB94222B1F31E00C84669 /* EaseMessageTimeCell.m in Sources */,
 				37F5FFBB226570E30012245D /* Message_ApexViewController.m in Sources */,
 				370B4200225F5370009489BA /* Mine_CV_Shop_Style_Cell.m in Sources */,
 				37AE45DA2293C4EC00E4A6DC /* Publish_Model.m in Sources */,
+				37C9E6FB22BC6B6B00443BC2 /* TLCity.m in Sources */,
 				37E200972278563400B508B8 /* Mine_MyOrderDetails_Time_Cell.m in Sources */,
 				37698F5A22867750003324DC /* Home_HouseKeeping_PlacOrder_StandardCell.m in Sources */,
 				37ACB93322B1F31E00C84669 /* PSTCollectionViewItemKey.m in Sources */,
@@ -3682,6 +3743,7 @@
 				37C6437422B382F500FAD214 /* Mine_MyOrder_UserEvaluateViewController.m in Sources */,
 				37B8B6DB226F358800434D61 /* Mine_SetUP_Feedback_VC.m in Sources */,
 				373D2E6822702FEC00ADB8E9 /* Mine_Wallet_CashOut_View.m in Sources */,
+				37C9E6FE22BC6B6B00443BC2 /* TLCityPickerController.m in Sources */,
 				3748C7B42254D8EA006D7514 /* CustomBT.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
