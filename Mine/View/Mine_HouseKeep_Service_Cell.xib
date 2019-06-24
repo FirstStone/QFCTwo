@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="64" id="KGk-i7-Jjw" customClass="Mine_HouseKeep_Service_Cell">
+            <rect key="frame" x="0.0" y="0.0" width="442" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="442" height="63.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务类型：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaB-5m-wvW">
+                        <rect key="frame" x="10" y="23" width="72" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="9qw-Sk-7J1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAY-26-fmn">
+                        <rect key="frame" x="0.0" y="61" width="442" height="2"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="0p8-5l-ByK"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01B-KX-GSv">
+                        <rect key="frame" x="102" y="16" width="72" height="29"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="  日常清洁  ">
+                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="LiftButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2U4-yf-N3F"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eP-jF-emP">
+                        <rect key="frame" x="194" y="16" width="72" height="29"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="  深层清洁  ">
+                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="RightButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="058-ZH-PgA"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(可多选)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQg-no-3CG">
+                        <rect key="frame" x="386" y="23" width="46" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="CAY-26-fmn" secondAttribute="bottom" id="753-jI-eTo"/>
+                    <constraint firstItem="2eP-jF-emP" firstAttribute="centerY" secondItem="HaB-5m-wvW" secondAttribute="centerY" id="A0v-9d-Z0C"/>
+                    <constraint firstItem="eQg-no-3CG" firstAttribute="centerY" secondItem="2eP-jF-emP" secondAttribute="centerY" id="F6K-7X-ksz"/>
+                    <constraint firstItem="CAY-26-fmn" firstAttribute="top" secondItem="HaB-5m-wvW" secondAttribute="bottom" constant="23" id="KHQ-6m-OJG"/>
+                    <constraint firstItem="CAY-26-fmn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NTX-0J-HJL"/>
+                    <constraint firstItem="HaB-5m-wvW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="aLS-YO-Dlt"/>
+                    <constraint firstAttribute="trailing" secondItem="CAY-26-fmn" secondAttribute="trailing" id="ack-5N-QPJ"/>
+                    <constraint firstItem="01B-KX-GSv" firstAttribute="leading" secondItem="HaB-5m-wvW" secondAttribute="trailing" constant="20" id="dEQ-kL-fcl"/>
+                    <constraint firstItem="HaB-5m-wvW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="23" id="rYH-WN-LgL"/>
+                    <constraint firstItem="2eP-jF-emP" firstAttribute="leading" secondItem="01B-KX-GSv" secondAttribute="trailing" constant="20" id="wK9-mS-biU"/>
+                    <constraint firstAttribute="trailing" secondItem="eQg-no-3CG" secondAttribute="trailing" constant="10" id="zAc-ta-ezF"/>
+                    <constraint firstItem="01B-KX-GSv" firstAttribute="centerY" secondItem="HaB-5m-wvW" secondAttribute="centerY" id="zlj-Cc-3Jc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="Lift_Button" destination="01B-KX-GSv" id="ovp-Ax-GbT"/>
+                <outlet property="Right_Button" destination="2eP-jF-emP" id="YX7-MV-JGY"/>
+            </connections>
+            <point key="canvasLocation" x="114.49275362318842" y="150"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -242,6 +242,8 @@
 #import "Home_Seach_ES_Cell.h"
 #import "TLCityPickerController.h"
 #import "Mine_BeginAnd_EndTimeCell.h"
+#import "Mine_HouseKeep_Service_Cell.h"
+#import "Mine_Agreement_VC.h"
 
 //数据模型
 #import "Message_FansList_Model.h"
@@ -722,6 +724,31 @@
 #define URL_orders_OrderQrcode HTTPHeader@"index/orders/OrderQrcode"
 
 #pragma mark----商家
+
+/**
+ 家政信息修改
+ URL : https://www.txkuaiyou.com/index/centres/UpServiceInfo
+ 参数 :
+ serviceid
+ 服务商ID
+ type
+ 2
+ phone
+ 手机号
+ avatar
+ 头像
+ address
+ 地址
+ longitude
+ 经度
+ latitude
+ 纬度
+ status
+ 1普通2深度3全干
+ label
+ 标签  上海市,埃斯沙德   逗号隔开
+ */
+#define URL_centres_UpServiceInfo HTTPHeader@"index/centres/UpServiceInfo"
 
 /**
  跑腿信息修改

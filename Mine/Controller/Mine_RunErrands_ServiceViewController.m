@@ -10,7 +10,7 @@
 #define CellID_MineSetUPCell @"MineSetUPCell"
 #define CellID_MineSetUPTitleimageCell @"MineSetUPTitleimageCell"
 
-@interface Mine_RunErrands_ServiceViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface Mine_RunErrands_ServiceViewController ()<UITableViewDataSource, UITableViewDelegate, TZImagePickerControllerDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

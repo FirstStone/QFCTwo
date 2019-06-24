@@ -94,4 +94,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface Mine_MyHouseKeep_Model : NSObject
+/**
+ address = "\U4e0a\U6d77\U516c\U5171\U4ea4\U901a\U5361\U670d\U52a1\U7ad9(\U8398\U5e84\U7ad9\U5206\U7ad9)";
+ age = 18;
+ avatar = "https://www.txkuaiyou.com/uploads/fileimg/1561346096497-2019-06-24.png";
+ grade = 10;
+ id = 2;
+ label =         (
+ "\U8001\U5b9e\U672c\U5206",
+ "\U52e4\U594b\U80fd\U5e72"
+ );
+ latitude = "<null>";
+ longitude = "<null>";
+ phone = 15038607764;
+ province = "\U4e0a\U6d77\U5e02";
+ realname = "\U77f3\U5148\U751f";
+ sex = 1;
+ type = 3;
+ */
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *age;
+@property (nonatomic, strong) NSString *avatar;
+@property (nonatomic, strong) NSString *grade;
+@property (nonatomic, strong) NSString *HouseKeep_ID;
+@property (nonatomic, strong) NSArray *label;
+@property (nonatomic, strong) NSString *latitude;
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *province;
+@property (nonatomic, strong) NSString *realname;
+@property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSString *type;
+
+@end
+
 NS_ASSUME_NONNULL_END

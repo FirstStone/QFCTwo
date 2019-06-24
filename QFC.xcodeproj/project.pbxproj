@@ -462,6 +462,10 @@
 		37DD14952260AFEB007FD9CB /* Publish_Lable_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DD14932260AFEB007FD9CB /* Publish_Lable_VC.xib */; };
 		37DFD74C22B1DF7800F3B9B6 /* H5_Mine_AddGoodd_Supervise_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DFD74A22B1DF7800F3B9B6 /* H5_Mine_AddGoodd_Supervise_ViewController.m */; };
 		37DFD74D22B1DF7800F3B9B6 /* H5_Mine_AddGoodd_Supervise_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DFD74B22B1DF7800F3B9B6 /* H5_Mine_AddGoodd_Supervise_ViewController.xib */; };
+		37E04B6522C0999400693DB5 /* Mine_HouseKeep_Service_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E04B6322C0999400693DB5 /* Mine_HouseKeep_Service_Cell.m */; };
+		37E04B6622C0999400693DB5 /* Mine_HouseKeep_Service_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E04B6422C0999400693DB5 /* Mine_HouseKeep_Service_Cell.xib */; };
+		37E04B6A22C0C3BB00693DB5 /* Mine_Agreement_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E04B6822C0C3BA00693DB5 /* Mine_Agreement_VC.m */; };
+		37E04B6B22C0C3BB00693DB5 /* Mine_Agreement_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E04B6922C0C3BA00693DB5 /* Mine_Agreement_VC.xib */; };
 		37E200922278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E200902278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.m */; };
 		37E200932278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E200912278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.xib */; };
 		37E200972278563400B508B8 /* Mine_MyOrderDetails_Time_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E200952278563400B508B8 /* Mine_MyOrderDetails_Time_Cell.m */; };
@@ -1336,6 +1340,12 @@
 		37DFD74922B1DF7800F3B9B6 /* H5_Mine_AddGoodd_Supervise_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H5_Mine_AddGoodd_Supervise_ViewController.h; sourceTree = "<group>"; };
 		37DFD74A22B1DF7800F3B9B6 /* H5_Mine_AddGoodd_Supervise_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H5_Mine_AddGoodd_Supervise_ViewController.m; sourceTree = "<group>"; };
 		37DFD74B22B1DF7800F3B9B6 /* H5_Mine_AddGoodd_Supervise_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = H5_Mine_AddGoodd_Supervise_ViewController.xib; sourceTree = "<group>"; };
+		37E04B6222C0999400693DB5 /* Mine_HouseKeep_Service_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_HouseKeep_Service_Cell.h; sourceTree = "<group>"; };
+		37E04B6322C0999400693DB5 /* Mine_HouseKeep_Service_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_HouseKeep_Service_Cell.m; sourceTree = "<group>"; };
+		37E04B6422C0999400693DB5 /* Mine_HouseKeep_Service_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_HouseKeep_Service_Cell.xib; sourceTree = "<group>"; };
+		37E04B6722C0C3BA00693DB5 /* Mine_Agreement_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_Agreement_VC.h; sourceTree = "<group>"; };
+		37E04B6822C0C3BA00693DB5 /* Mine_Agreement_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_Agreement_VC.m; sourceTree = "<group>"; };
+		37E04B6922C0C3BA00693DB5 /* Mine_Agreement_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_Agreement_VC.xib; sourceTree = "<group>"; };
 		37E2008F2278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrderDetails_RunErrands_Cell.h; sourceTree = "<group>"; };
 		37E200902278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrderDetails_RunErrands_Cell.m; sourceTree = "<group>"; };
 		37E200912278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrderDetails_RunErrands_Cell.xib; sourceTree = "<group>"; };
@@ -2094,6 +2104,9 @@
 				37B4E16122A8F7EF0017A5BA /* Mine_MyCardView_Cell.h */,
 				37B4E16222A8F7EF0017A5BA /* Mine_MyCardView_Cell.m */,
 				37B4E16322A8F7EF0017A5BA /* Mine_MyCardView_Cell.xib */,
+				37E04B6222C0999400693DB5 /* Mine_HouseKeep_Service_Cell.h */,
+				37E04B6322C0999400693DB5 /* Mine_HouseKeep_Service_Cell.m */,
+				37E04B6422C0999400693DB5 /* Mine_HouseKeep_Service_Cell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2260,6 +2273,9 @@
 				37B8B6C4226F358800434D61 /* Mine_SetUP_About_Me_VC.h */,
 				37B8B6AF226F358600434D61 /* Mine_SetUP_About_Me_VC.m */,
 				37B8B6AD226F358600434D61 /* Mine_SetUP_About_Me_VC.xib */,
+				37E04B6722C0C3BA00693DB5 /* Mine_Agreement_VC.h */,
+				37E04B6822C0C3BA00693DB5 /* Mine_Agreement_VC.m */,
+				37E04B6922C0C3BA00693DB5 /* Mine_Agreement_VC.xib */,
 				37B8B6C9226F358800434D61 /* Mine_SetUP_Currency_NewMessage_VC.h */,
 				37B8B6BF226F358800434D61 /* Mine_SetUP_Currency_NewMessage_VC.m */,
 				37B8B6B1226F358600434D61 /* Mine_SetUP_Currency_NewMessage_VC.xib */,
@@ -3236,6 +3252,7 @@
 				37C458A62271935F004CDE32 /* Mine_Wallet_Bill_ViewController.xib in Resources */,
 				37DD148622607384007FD9CB /* Square_Prsonal_Details_VC.xib in Resources */,
 				37B8B6CD226F358800434D61 /* Mine_SetUP_Privacy_System_VC.xib in Resources */,
+				37E04B6622C0999400693DB5 /* Mine_HouseKeep_Service_Cell.xib in Resources */,
 				37C458AA2271935F004CDE32 /* Mine_SettledIn_ViewController.xib in Resources */,
 				376D29F02264136A009EA443 /* Mine_PublishViewController.xib in Resources */,
 				37410F4B22BB6CAB001B884E /* Home_SearchResult_ViewContraller.xib in Resources */,
@@ -3315,6 +3332,7 @@
 				37CE24AE225C32B50049A57C /* Square_HT_ImageCell.xib in Resources */,
 				37B8B72A226F38A400434D61 /* Mine_MyOrder_ViewController.xib in Resources */,
 				37ADB17222B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib in Resources */,
+				37E04B6B22C0C3BB00693DB5 /* Mine_Agreement_VC.xib in Resources */,
 				37B8B6FE226F381900434D61 /* Mine_MyOrder_Shop_Cell.xib in Resources */,
 				37698F6522867E03003324DC /* Home_HouseKeeping_PlacOrder_PriceCell.xib in Resources */,
 				373406582285291E00FC38F9 /* Home_CommunityNearby_FreshFruitSink_Three_Cell.xib in Resources */,
@@ -3570,6 +3588,7 @@
 				37632D4B2275AE3A00EB09B7 /* Mine_Goods_Supervise_ViewController.m in Sources */,
 				1848501D2251DCAD002B7AA9 /* Basic_ViewController.m in Sources */,
 				37DD14942260AFEB007FD9CB /* Publish_Lable_VC.m in Sources */,
+				37E04B6522C0999400693DB5 /* Mine_HouseKeep_Service_Cell.m in Sources */,
 				3749A864225AE485006940A3 /* Home_RecommendCell.m in Sources */,
 				37F5FFD42265A3280012245D /* Message_AnswerViewController.m in Sources */,
 				375A9E7822B0974D003C46D3 /* Mine_MyOrder_Evaluate_ViewController.m in Sources */,
@@ -3612,6 +3631,7 @@
 				37F5FFD92265A8DA0012245D /* Message_NotificationCenter_VC.m in Sources */,
 				37ACB90822B1F31E00C84669 /* NSString+Valid.m in Sources */,
 				37C3ECD822754FAD006EB3C3 /* Home_HouseKeeping_TableView.m in Sources */,
+				37E04B6A22C0C3BB00693DB5 /* Mine_Agreement_VC.m in Sources */,
 				3704976E227145DC00851623 /* LabelAndTextField.m in Sources */,
 				37F5FFF42265B7C00012245D /* Message_RunErrands_Tableview.m in Sources */,
 				373406552285291E00FC38F9 /* Home_CommunityNearby_SectionHeader_View.m in Sources */,

@@ -31,6 +31,9 @@
     }else if (self.Number == 3) {
         self.Navigation.topItem.title = @"修改经营范围";
         self.Text_Field.placeholder = @"请输入经营类目逗号隔开";
+    }else if (self.Number == 4){
+        self.Navigation.topItem.title = @"我的标签";
+        self.Text_Field.placeholder = @"请输入标签逗号隔开";
     }
 }
 - (IBAction)LiftButtonPOP:(id)sender {

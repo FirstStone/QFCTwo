@@ -369,8 +369,9 @@
                             [self.navigationController pushViewController:houserVC animated:YES];
                         }
                     }else {//在线客服
-                        [MBProgressHUD py_showError:@"暂未开通" toView:nil];
-                        [MBProgressHUD setAnimationDelay:0.7f];
+                        [self callNumber];
+//                        [MBProgressHUD py_showError:@"暂未开通" toView:nil];
+//                        [MBProgressHUD setAnimationDelay:0.7f];
                     }
                 }
                     break;
@@ -521,7 +522,7 @@
                     [shopVC setHidesBottomBarWhenPushed:YES];
                     [self.navigationController pushViewController:shopVC animated:YES];
                 }else {
-                    
+                    [self callNumber];
                 }
             }
         }
@@ -611,6 +612,8 @@
                 if ([[defaults objectForKey:User_Type] intValue] > 0) {
                     self.FindTitle_Array = @[@"使用帮助", @"我的服务", @"在线客服"];
                     self.FindIcon_Array = @[@"icon_WD_SYBZ", @"icon_WD_KSRZ", @"icon_WD_ZXKF"];
+                }else {
+                    self.FindTitle_Array = @[@"使用帮助", @"快速入驻", @"在线客服"];
                 }
                 self.ShopHiddle = YES;
                 self.SectionTitle_Array = @[@"", @"我的订单  ",@"卡券中心  " ,@"发现更多  "];
@@ -622,6 +625,14 @@
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
+}
+
+- (void)callNumber
+{
+    NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"021-57626859"];
+    // NSLog(@"str======%@",str);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    //记得添加到view上
 }
 
 @end

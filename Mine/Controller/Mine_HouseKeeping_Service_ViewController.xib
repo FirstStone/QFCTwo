@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Mine_HouseKeeping_Service_ViewController">
             <connections>
+                <outlet property="Sure_BT" destination="eHz-9U-d0e" id="zui-RM-WF6"/>
                 <outlet property="tableView" destination="Bqg-2U-Lri" id="ucC-c8-Yhe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,6 +34,12 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="LiftButtonPOP:" destination="-1" id="c2s-rL-1JH"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="修改" id="eHz-9U-d0e">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="SureButtonClick:" destination="-1" id="Ggp-Hy-MD8"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>

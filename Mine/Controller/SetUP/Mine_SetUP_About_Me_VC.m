@@ -47,5 +47,12 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Mine_Agreement_VC *VC = [[Mine_Agreement_VC alloc] init];
+    [VC setHidesBottomBarWhenPushed:YES];
+    VC.Type = indexPath.row;
+    [self.navigationController pushViewController:VC animated:YES];
+}
+
 
 @end
