@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.ShopHiddle = YES;
-    self.SectionTitle_Array = @[@"", @"我的订单  ",@"卡券中心  " ,@"发现更多  "];
+    self.SectionTitle_Array = @[@"我的钱柜", @"我的订单  ",@"卡券中心  " ,@"发现更多  "];
     self.MyOrderTitle_Array = @[@"待付款", @"待接单", @"待完成", @"评价", @"退款/售后"];
     self.MyOrderIcon_Array = @[@"icon_WD_daifukuan", @"icon_WD_daijiedan", @"icon_WD_daiwancheng", @"icon_WD_pingjia", @"icon_WD_shouhou"];
     
@@ -65,7 +65,7 @@
         [self LoadingDataSoure];
     }else {
         self.ShopHiddle = YES;
-        self.SectionTitle_Array = @[@"", @"我的订单  ",@"卡券中心  " ,@"发现更多  "];
+        self.SectionTitle_Array = @[@"我的钱柜", @"我的订单  ",@"卡券中心  " ,@"发现更多  "];
         self.FindTitle_Array = @[@"使用帮助", @"快速入驻", @"在线客服"];
         self.FindIcon_Array = @[@"icon_WD_SYBZ", @"icon_WD_KSRZ", @"icon_WD_ZXKF"];
         [self.collectionView reloadData];
@@ -217,7 +217,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return CGSizeMake(SCREEN_WIDTH, 200.0f);
+        return CGSizeMake(SCREEN_WIDTH, 300.0f);//200.0f
     }else {
         return CGSizeMake(SCREEN_WIDTH, 40.0f);
     }
@@ -605,7 +605,7 @@
             [Singleton sharedSingleton].phone = [DataSoure objectForKey:@"phone"];
             if ([[defaults objectForKey:User_Type] intValue] == 3) {
                 self.ShopHiddle = NO;
-                self.SectionTitle_Array = @[@"", @"我的订单  ", @"商家必备  " ,@"卡券中心  " ,@"发现更多  "];
+                self.SectionTitle_Array = @[@"我的钱柜", @"我的订单  ", @"商家必备  " ,@"卡券中心  " ,@"发现更多  "];
                 self.FindTitle_Array = @[@"使用帮助", @"我的小店", @"在线客服"];
                 self.FindIcon_Array = @[@"icon_WD_SYBZ", @"icon_WD_WDXD", @"icon_WD_ZXKF"];
             } else {
@@ -616,7 +616,7 @@
                     self.FindTitle_Array = @[@"使用帮助", @"快速入驻", @"在线客服"];
                 }
                 self.ShopHiddle = YES;
-                self.SectionTitle_Array = @[@"", @"我的订单  ",@"卡券中心  " ,@"发现更多  "];
+                self.SectionTitle_Array = @[@"我的钱柜", @"我的订单  ",@"卡券中心  " ,@"发现更多  "];
             }
             [self.collectionView reloadData];
             [[NSNotificationCenter defaultCenter] postNotificationName:QFC_UpDataSoureToSelfView_NSNotification object:nil];
