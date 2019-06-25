@@ -41,7 +41,6 @@
 }
 
 
-
 - (UIImageView *)icon_View {
     if (!_icon_View) {
         _icon_View = [[UIImageView alloc] init];

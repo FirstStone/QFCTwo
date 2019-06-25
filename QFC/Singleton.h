@@ -67,6 +67,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**手机号*/
 @property (nonatomic, strong) NSString *phone;
 
+@property (nonatomic, strong) NSDictionary *weiXinIfon;
+
 @end
 
 NS_ASSUME_NONNULL_END

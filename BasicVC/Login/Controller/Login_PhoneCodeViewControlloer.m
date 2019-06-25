@@ -20,12 +20,26 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *Sure_BT;
 
+@property (strong, nonatomic) IBOutlet UIView *Down_View;
+
+@property (strong, nonatomic) IBOutlet UIButton *WX_BT;
+
+@property (strong, nonatomic) IBOutlet UIButton *QQ_BT;
+
 @end
 
 @implementation Login_PhoneCodeViewControlloer
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weiChatOK) name:@"weiChatOK" object:NULL];
+    if ([WXApi isWXAppInstalled]) {
+        self.Down_View.hidden = NO;
+        self.WX_BT.hidden = NO;
+    }else {
+        self.Down_View.hidden = YES;
+        self.WX_BT.hidden = YES;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,6 +68,9 @@
         }];
     }
 }
+- (IBAction)WXButtonClick:(id)sender {
+    [self sendWXAuthReq];
+}
 
 - (IBAction)GotoUserLoginController:(id)sender {
     Login_USer_ViewController *UserVC = [[Login_USer_ViewController alloc] init];
@@ -68,6 +85,92 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)AgreementLiftButtonClick:(id)sender {
+    Mine_Agreement_VC *VC = [[Mine_Agreement_VC alloc] init];
+    [VC setHidesBottomBarWhenPushed:YES];
+    VC.Type = 1;
+    [self.navigationController pushViewController:VC animated:YES];
+    
+}
+- (IBAction)AgreementRightButtonClick:(id)sender {
+    Mine_Agreement_VC *VC = [[Mine_Agreement_VC alloc] init];
+    [VC setHidesBottomBarWhenPushed:YES];
+    VC.Type = 3;
+    [self.navigationController pushViewController:VC animated:YES];
+}
+- (void)sendWXAuthReq{//复制即可
+    
+    if([WXApi isWXAppInstalled]){//判断用户是否已安装微信App
+        
+        SendAuthReq *req = [[SendAuthReq alloc] init];
+        req.state = @"wx_oauth_authorization_state";//用于保持请求和回调的状态，授权请求或原样带回
+        req.scope = @"snsapi_userinfo";//授权作用域：获取用户个人信息
+        //唤起微信
+        [WXApi sendReq:req];
+    }
+    //    else{
+    //        //自己简单封装的alert
+    //        [self showAlertControllerWithTitle:@"温馨提示" withMessage:@"未安装微信应用或版本过低"];
+    //    }
+}
+
+-(void)weiChatOK{//第三方登录:(NSNotification *)notification
+    //    NSLog(@"我收到微信登录的信息 通知了---%@",[Singleton sharedSingleton].weiXinIfon);
+    //    NSDictionary *weChatDic = [Singleton sharedSingleton].weiXinIfon;
+    //    //判断三方登录是否手机认证接口(这里就按照需求走了)
+    //    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithCapacity:3];
+    //    [parameters setValue:@"3" forKey:@"type"];
+    //    [parameters setValue:weChatDic[@"openid"] forKey:@"id"];
+    //    [parameters setValue:weChatDic[@"token"] forKey:@"token"];
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[Singleton sharedSingleton].weiXinIfon mj_JSONString] forKey:@"code"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_login_Appialogue parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSDictionary *DataSoure = [responseObject objectForKey:@"messahe"];
+            NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
+            [defaults setObject:[DataSoure objectForKey:@"id"] forKey:User_Mid];
+            [defaults setObject:[DataSoure objectForKey:@"type_id"] forKey:User_Type];
+            [defaults setObject:[DataSoure objectForKey:@"nickname"] forKey:User_Nickname];
+            [Singleton sharedSingleton].nickname = [DataSoure objectForKey:@"nickname"];
+            [Singleton sharedSingleton].soleid = [DataSoure objectForKey:@"soleid"];
+            [Singleton sharedSingleton].avatar = [DataSoure objectForKey:@"avatar"];
+            [Singleton sharedSingleton].type_id = [DataSoure objectForKey:@"type_id"];
+            [Singleton sharedSingleton].address = [DataSoure objectForKey:@"address"];
+            [Singleton sharedSingleton].audit = [DataSoure objectForKey:@"audit"];
+            [Singleton sharedSingleton].Mid = [DataSoure objectForKey:@"id"];
+            [Singleton sharedSingleton].balance = [DataSoure objectForKey:@"balance"];
+            [Singleton sharedSingleton].phone = [DataSoure objectForKey:@"phone"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:QFC_UpDataSoureToSelfView_NSNotification object:nil];
+            [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+                if (aError==nil) {
+                    NSLog(@"注册成功");
+                }
+            }];
+            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+                if (!aError) {
+                    NSLog(@"-----------------------------------登录成功");
+                    [[EMClient sharedClient] updatePushNotifiationDisplayName:[Singleton sharedSingleton].nickname completion:^(NSString *aDisplayName, EMError *aError) {
+                        if (aError) {
+                            NSLog(@"-----------------------------------昵称设置成功");
+                        }
+                    }];
+                }
+            }];
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }else {
+            [MBProgressHUD py_showError:[responseObject objectForKey:@"message"] toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"登录失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"weiChatOK" object:self];
+}
 
 - (UITabBarController *)setTabBar {
     UITabBarController * contVC = [[UITabBarController alloc] init];
