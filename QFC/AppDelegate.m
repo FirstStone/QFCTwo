@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+static NSString *appKey = @"f74baa13307e0fdae9225276";
+static NSString *channel = @"Publish channel";
+static BOOL isProduction = FALSE;
 
-@interface AppDelegate ()<UITabBarControllerDelegate, UIApplicationDelegate, WXApiDelegate>
+@interface AppDelegate ()<UITabBarControllerDelegate, UIApplicationDelegate, WXApiDelegate, JPUSHRegisterDelegate>
 @property (nonatomic, strong) UITabBarController *tabVC;
 
 @end
@@ -20,6 +23,41 @@
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:User_Mid];
     }
+    //激光推送
+    //Required
+    //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义 categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    // Required
+    // init Push
+    // notice: 2.1.5 版本的 SDK 新增的注册方法，改成可上报 IDFA，如果没有使用 IDFA 直接传 nil
+//    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    [JPUSHService setupWithOption:launchOptions appKey:appKey
+                          channel:channel
+                 apsForProduction:isProduction
+            advertisingIdentifier:nil];
+    [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
+        if(resCode == 0){
+            NSLog(@"registrationID获取成功：%@",registrationID);
+//            self.registrationID = registrationID;
+            if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+                //        [JPUSHService deleteAlias:nil seq:123];
+                [JPUSHService setAlias:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+//                    [self inputResponseCode:iResCode content:iAlias andSeq:seq];
+                } seq:123];
+            }
+        }
+        else{
+            NSLog(@"registrationID获取失败，code：%d",resCode);
+        }
+    }];
+    
     // appkey替换成自己在环信管理后台注册应用中的appkey
     EMOptions *options = [EMOptions optionsWithAppkey:@"1110190401216669#qfc"];
     // apnsCertName是证书名称，可以先传nil，等后期配置apns推送时在传入证书名称
@@ -59,6 +97,63 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+//激光推送
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+#pragma mark- JPUSHRegisterDelegate
+
+// iOS 12 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{
+    if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //从通知界面直接进入应用
+    }else{
+        //从通知设置界面进入应用
+    }
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    [self play];
+    //清除角标
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [JPUSHService setBadge:0];
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    [self play];
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required, For systems with less than or equal to iOS 6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
+
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     NSLog(@"%ld", (long)tabBarController.tabBar.selectedItem.tag);
@@ -323,6 +418,14 @@
         
     });
     
+}
+
+- (void)play {
+    NSString *path = [NSString stringWithFormat:@"%@%@", [[NSBundle mainBundle] resourcePath], @"/叮咚 您有新的订单 请及时处理.wav"];
+    SystemSoundID soundID;
+    NSURL *filePath = [NSURL fileURLWithPath:path isDirectory:NO];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    AudioServicesPlaySystemSound(soundID);
 }
 
 @end

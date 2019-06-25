@@ -121,6 +121,7 @@
                     }];
                 }
             }];
+            [self setJPUSHService];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }else {
             [MBProgressHUD py_showError:[responseObject objectForKey:@"message"] toView:nil];
@@ -172,6 +173,7 @@
                     }];
                 }
             }];
+            [self setJPUSHService];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }else {
             [MBProgressHUD py_showError:[responseObject objectForKey:@"message"] toView:nil];
@@ -251,6 +253,13 @@
     XNLog(@"发布");
     Publish_ViewController *pVC = [[Publish_ViewController alloc] init];
     [self.tabVC presentViewController:pVC animated:YES completion:Nil];
+}
+- (void)setJPUSHService {
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:User_Mid]);
+    NSString *alias = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid]];
+    [JPUSHService setAlias:alias completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        NSLog(@"%ld",(long)iResCode);
+    } seq:123];
 }
 
 @end

@@ -157,6 +157,7 @@
                     }];
                 }
             }];
+            [self setJPUSHService];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }else {
             [MBProgressHUD py_showError:[responseObject objectForKey:@"message"] toView:nil];
@@ -329,6 +330,7 @@
                     }];
                 }
             }];
+            [self setJPUSHService];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }else {
             [MBProgressHUD py_showError:[responseObject objectForKey:@"message"] toView:nil];
@@ -338,6 +340,10 @@
         [MBProgressHUD py_showError:@"登录失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
+}
+- (void)setJPUSHService {
+    [JPUSHService setAlias:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+    } seq:123];
 }
 
 @end

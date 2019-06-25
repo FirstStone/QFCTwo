@@ -211,6 +211,8 @@
 		37A91BD922B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A91BD722B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m */; };
 		37A91BDA22B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A91BD822B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib */; };
 		37A91BE222B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A91BE122B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m */; };
+		37AA7FB922C210F100101551 /* 叮咚 您有新的订单 请及时处理.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37AA7FB822C210EC00101551 /* 叮咚 您有新的订单 请及时处理.wav */; };
+		37AA7FBB22C2168E00101551 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AA7FBA22C2168D00101551 /* AudioToolbox.framework */; };
 		37ACB90622B1F31E00C84669 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB83522B1F31D00C84669 /* UIViewController+HUD.m */; };
 		37ACB90722B1F31E00C84669 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB83622B1F31D00C84669 /* NSDate+Category.m */; };
 		37ACB90822B1F31E00C84669 /* NSString+Valid.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB83722B1F31D00C84669 /* NSString+Valid.m */; };
@@ -899,6 +901,9 @@
 		37A91BD822B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib; sourceTree = "<group>"; };
 		37A91BE022B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.h; sourceTree = "<group>"; };
 		37A91BE122B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m; sourceTree = "<group>"; };
+		37AA7FB522C1E88E00101551 /* QFC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QFC.entitlements; sourceTree = "<group>"; };
+		37AA7FB822C210EC00101551 /* 叮咚 您有新的订单 请及时处理.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "叮咚 您有新的订单 请及时处理.wav"; sourceTree = "<group>"; };
+		37AA7FBA22C2168D00101551 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37ACB82F22B1F31D00C84669 /* EaseUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseUI.h; sourceTree = "<group>"; };
 		37ACB83222B1F31D00C84669 /* EaseLocalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseLocalDefine.h; sourceTree = "<group>"; };
 		37ACB83422B1F31D00C84669 /* UIViewController+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DismissKeyboard.h"; sourceTree = "<group>"; };
@@ -1446,6 +1451,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37AA7FBB22C2168E00101551 /* AudioToolbox.framework in Frameworks */,
 				37ACB91722B1F31E00C84669 /* libopencore-amrnb.a in Frameworks */,
 				37ACB91622B1F31E00C84669 /* libopencore-amrwb.a in Frameworks */,
 				37239F4E228A712C002D2ADC /* Foundation.framework in Frameworks */,
@@ -1496,6 +1502,7 @@
 		18484FCE2251DA2C002B7AA9 /* QFC */ = {
 			isa = PBXGroup;
 			children = (
+				37AA7FB522C1E88E00101551 /* QFC.entitlements */,
 				37CE24B4225C45CB0049A57C /* Publish */,
 				184850092251DC76002B7AA9 /* BasicVC */,
 				1848500A2251DC76002B7AA9 /* Generals */,
@@ -1509,6 +1516,7 @@
 				184850212251DD18002B7AA9 /* PCH.pch */,
 				37CB945F2280155E0013786A /* Singleton.h */,
 				37CB94602280155E0013786A /* Singleton.m */,
+				37AA7FB822C210EC00101551 /* 叮咚 您有新的订单 请及时处理.wav */,
 				37CA64B1225E0DB70040387F /* Assets.xcassets */,
 				18484FD52251DA2C002B7AA9 /* Main.storyboard */,
 				18484FDA2251DA2E002B7AA9 /* LaunchScreen.storyboard */,
@@ -3044,6 +3052,7 @@
 		A78528FF9CF9687DECA729DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37AA7FBA22C2168D00101551 /* AudioToolbox.framework */,
 				37239F4F228A7B38002D2ADC /* SystemConfiguration.framework */,
 				37239F4D228A712C002D2ADC /* Foundation.framework */,
 				780CC87169810AEFE206CA04 /* libPods-QFC.a */,
@@ -3132,6 +3141,9 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -3224,6 +3236,7 @@
 				3734065C2285291E00FC38F9 /* Home_CommunityNearby_EspecialRegionFour_Cell.xib in Resources */,
 				37C458B02271935F004CDE32 /* Mine_SettledIn_RunErrands_ViewController.xib in Resources */,
 				37B8B6FA226F381900434D61 /* Mine_MyOrder_RunErrands_Cell.xib in Resources */,
+				37AA7FB922C210F100101551 /* 叮咚 您有新的订单 请及时处理.wav in Resources */,
 				37CD028222AE46A900ED09E8 /* Mine_SetUP_MyLabel_VC.xib in Resources */,
 				376D29F52264144F009EA443 /* Mine_CollectionViewController.xib in Resources */,
 				37EDA23E2282813300E7B0E5 /* City.plist in Resources */,
@@ -3940,6 +3953,7 @@
 			baseConfigurationReference = AAA9398118B4A5F8A05882AF /* Pods-QFC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QFC/QFC.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F2V5ZZ2ZD;
@@ -4037,6 +4051,7 @@
 			baseConfigurationReference = 2971328F65403F65EA5D1288 /* Pods-QFC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QFC/QFC.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F2V5ZZ2ZD;

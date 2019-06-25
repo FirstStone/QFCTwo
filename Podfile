@@ -22,6 +22,7 @@ pod 'AMapSearch-NO-IDFA'
 pod 'MJRefresh'
 pod 'Masonry'
 pod 'YYKit'
+pod 'JPush'
 #pod 'PNChart'
 #pod 'FSCalendar'
 # U-Share SDK UI模块（分享面板，建议添加）
