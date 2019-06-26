@@ -8,7 +8,7 @@
 
 #import "Home_CommunityNearby_Branch_ViewController.h"
 
-@interface Home_CommunityNearby_Branch_ViewController ()<UIScrollViewDelegate>
+@interface Home_CommunityNearby_Branch_ViewController ()<UIScrollViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *SearchBar;
 
@@ -56,6 +56,14 @@
 
 
 - (void)setUPUI {
+    self.SearchBar.delegate = self;
+    [self.SearchBar setImage:[UIImage imageNamed:@"icon_sousuo"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    UITextField *searchField = [self.SearchBar valueForKey:@"_searchField"];
+    searchField.backgroundColor = QFC_Color_97CFA9;
+    [searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [searchField setValue:[UIFont boldSystemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
+    searchField.textAlignment = NSTextAlignmentCenter;
+    
     [self.view addSubview:self.segmentedControl];
     __weak typeof(self)weakSelf = self;
     [self.segmentedControl setIndexChangeBlock:^(NSInteger index) {

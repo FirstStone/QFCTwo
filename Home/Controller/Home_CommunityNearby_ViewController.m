@@ -54,6 +54,7 @@
 //    self.Title_Array = @[@"水果", @"蔬菜", @"生鲜", @"服装", @"家电", @"箱包", @"数码", @"鞋子", @"手机", @"家纺"];
     [self.SearchBar setImage:[UIImage imageNamed:@"icon_sousuo"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     UITextField *searchField = [self.SearchBar valueForKey:@"_searchField"];
+    searchField.backgroundColor = QFC_Color_97CFA9;
     [searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [searchField setValue:[UIFont boldSystemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
     searchField.textAlignment = NSTextAlignmentCenter;

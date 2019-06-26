@@ -45,6 +45,12 @@
                                     <action selector="LeftItemClick:" destination="-1" id="Fws-iV-DrJ"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="举报" id="7x1-6j-JIF">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="RightbuttonClick:" destination="-1" id="2aQ-kf-jFh"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>

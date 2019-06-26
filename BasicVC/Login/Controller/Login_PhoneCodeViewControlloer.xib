@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Login_PhoneCodeViewControlloer">
             <connections>
+                <outlet property="AgmentBT" destination="IJy-e7-kwK" id="xIo-UZ-JVF"/>
                 <outlet property="Code_BT" destination="nfH-0M-nF4" id="Ewr-np-q2q"/>
                 <outlet property="Code_Field" destination="dUk-Rh-Fbi" id="nP8-9Z-xSq"/>
                 <outlet property="Down_View" destination="KaE-E6-LI4" id="WXR-QK-gZ6"/>
@@ -141,29 +142,33 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2F-js-mGr">
-                    <rect key="frame" x="119.5" y="490" width="123" height="27"/>
+                    <rect key="frame" x="144.5" y="490" width="123" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="《快友社区使用协议》"/>
+                    <state key="normal" title="《快友社区使用协议》">
+                        <color key="titleColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="AgreementLiftButtonClick:" destination="-1" eventType="touchUpInside" id="eNa-Gh-ecV"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6V-SK-xmY">
-                    <rect key="frame" x="255" y="490" width="74" height="27"/>
+                    <rect key="frame" x="280" y="490" width="74" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="《隐私条款》"/>
+                    <state key="normal" title="《隐私条款》">
+                        <color key="titleColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="AgreementRightButtonClick:" destination="-1" eventType="touchUpInside" id="w0v-R2-u31"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dj-Cf-l6n">
-                    <rect key="frame" x="58" y="496" width="61.5" height="14.5"/>
+                    <rect key="frame" x="83" y="496" width="61.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="和" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mp8-9j-9SO">
-                    <rect key="frame" x="242.5" y="496" width="12.5" height="14.5"/>
+                    <rect key="frame" x="267.5" y="496" width="12.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -240,6 +245,18 @@
                         <constraint firstItem="tAb-6P-PGr" firstAttribute="leading" secondItem="KaE-E6-LI4" secondAttribute="leading" constant="114" id="vtD-wm-rfK"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJy-e7-kwK">
+                    <rect key="frame" x="58" y="493.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="CQ1-mK-2nY"/>
+                        <constraint firstAttribute="height" constant="20" id="TQJ-M9-ZRa"/>
+                    </constraints>
+                    <state key="normal" image="icon_Agment_kong"/>
+                    <state key="selected" image="icon_Agment_Gou"/>
+                    <connections>
+                        <action selector="AgmentButtonClick:" destination="-1" eventType="touchUpInside" id="BzL-Nk-sMQ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -256,13 +273,15 @@
                 <constraint firstItem="HLm-zA-Fcn" firstAttribute="top" secondItem="dUk-Rh-Fbi" secondAttribute="bottom" id="Muz-ha-6sC"/>
                 <constraint firstItem="HLm-zA-Fcn" firstAttribute="top" secondItem="zGn-vr-XYy" secondAttribute="bottom" constant="50" id="Nvn-bE-cIP"/>
                 <constraint firstItem="cGx-9Y-bR5" firstAttribute="top" secondItem="at8-d4-mUP" secondAttribute="bottom" constant="50" id="QVc-xp-SEi"/>
+                <constraint firstItem="0dj-Cf-l6n" firstAttribute="centerY" secondItem="IJy-e7-kwK" secondAttribute="centerY" id="TN4-OP-XNw"/>
                 <constraint firstItem="zGn-vr-XYy" firstAttribute="leading" secondItem="K3F-oh-Dc5" secondAttribute="leading" id="V90-XW-CdL"/>
+                <constraint firstItem="IJy-e7-kwK" firstAttribute="leading" secondItem="cGx-9Y-bR5" secondAttribute="leading" id="aeT-Uv-E9Z"/>
                 <constraint firstItem="HLm-zA-Fcn" firstAttribute="trailing" secondItem="zGn-vr-XYy" secondAttribute="trailing" id="aiA-Ur-2th"/>
                 <constraint firstItem="Tyt-68-3dK" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="cad-pt-ChI"/>
-                <constraint firstItem="0dj-Cf-l6n" firstAttribute="leading" secondItem="cGx-9Y-bR5" secondAttribute="leading" id="cnF-xf-0P2"/>
                 <constraint firstItem="Tyt-68-3dK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="e1B-01-4ck"/>
                 <constraint firstItem="zGn-vr-XYy" firstAttribute="top" secondItem="K3F-oh-Dc5" secondAttribute="bottom" constant="3" id="e42-S8-hRD"/>
                 <constraint firstItem="q6t-ZN-HGJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eMV-QL-cuC"/>
+                <constraint firstItem="0dj-Cf-l6n" firstAttribute="leading" secondItem="IJy-e7-kwK" secondAttribute="trailing" constant="5" id="fnA-cl-X6H"/>
                 <constraint firstItem="KaE-E6-LI4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="fzu-Vw-nFP"/>
                 <constraint firstItem="jvd-L3-eES" firstAttribute="leading" secondItem="K3F-oh-Dc5" secondAttribute="trailing" constant="10" id="g1B-eb-cqh"/>
                 <constraint firstItem="zGn-vr-XYy" firstAttribute="top" secondItem="jvd-L3-eES" secondAttribute="bottom" id="hhc-Mx-XPZ"/>
@@ -288,6 +307,8 @@
         </view>
     </objects>
     <resources>
+        <image name="icon_Agment_Gou" width="32" height="32"/>
+        <image name="icon_Agment_kong" width="32" height="32"/>
         <image name="icon_Login_QX" width="15" height="15"/>
         <image name="icon_Logo" width="60" height="60"/>
         <image name="icon_QQ" width="44.5" height="44"/>

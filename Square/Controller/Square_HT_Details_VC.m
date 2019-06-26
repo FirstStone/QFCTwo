@@ -52,6 +52,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)RightbuttonClick:(id)sender {
+    Square_Complaint_ViewController *complaintVC = [[Square_Complaint_ViewController alloc] init];
+    [complaintVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:complaintVC animated:YES];
+}
+
+
 - (NSMutableDictionary *)AdddiscussReplyParm {
     if (!_AdddiscussReplyParm) {
         _AdddiscussReplyParm = [[NSMutableDictionary alloc] init];

@@ -87,7 +87,12 @@
 
 - (IBAction)BalanceButtonClick:(id)sender {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
-        [self PostPayAlipliy];
+        if ([self.TotalModel.price doubleValue]) {
+            [self PostPayAlipliy];
+        }else {
+            [MBProgressHUD py_showError:@"没有商品可以结算哦" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
     }else {
         Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
         [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];

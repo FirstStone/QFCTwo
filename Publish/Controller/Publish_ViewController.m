@@ -616,12 +616,18 @@
         image.mimeType = @".jpg";
         [imageArray addObject:image];
     }
+    [MBProgressHUD py_showLoading:@"发布中。。。" toView:nil];
     [[HttpRequest sharedInstance] uploadWithURLString:URL_commom_moreFiles parameters:nil uploadParam:imageArray success:^(NSDictionary * _Nonnull success) {
         NSLog(@"%@", success);
-        [self.Sure_parm setObject:[success objectForKey:@"list"] forKey:@"imgurl"];
-        [self addDataSoureToBacker];
-        
+        if ([[success objectForKey:@"status"] intValue]) {
+            [self.Sure_parm setObject:[success objectForKey:@"list"] forKey:@"imgurl"];
+            [self addDataSoureToBacker];
+        }else {
+            [MBProgressHUD py_showError:[success objectForKey:@"list"] toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
     } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD setAnimationDelay:0.7f];
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
@@ -672,6 +678,7 @@
     [self.Sure_parm setObject:self.type_id forKey:@"type_id"];
     [self.Sure_parm setObject:self.setting_type forKey:@"setting"];
     [[HttpRequest sharedInstance] postWithURLString:URL_Plazas_plazaadd parameters:self.Sure_parm success:^(NSDictionary * _Nonnull responseObject) {
+        [MBProgressHUD setAnimationDelay:0.7f];
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             [MBProgressHUD py_showError:@"发布成功" toView:nil];
@@ -679,6 +686,7 @@
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD setAnimationDelay:0.7f];
         [MBProgressHUD py_showError:@"发布失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];

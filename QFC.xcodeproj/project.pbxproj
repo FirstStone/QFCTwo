@@ -478,6 +478,8 @@
 		37E25A7722783BC600EB90A0 /* Mine_MyOrderDetails_Special_HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E25A7622783BC600EB90A0 /* Mine_MyOrderDetails_Special_HeaderView.m */; };
 		37E25A7E227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E25A7C227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.m */; };
 		37E25A7F227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E25A7D227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.xib */; };
+		37E6D8BD22C33A770042E96F /* Square_Complaint_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E6D8BB22C33A330042E96F /* Square_Complaint_ViewController.m */; };
+		37E6D8BE22C33A770042E96F /* Square_Complaint_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E6D8BC22C33A330042E96F /* Square_Complaint_ViewController.xib */; };
 		37E7D42622673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D42422673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.m */; };
 		37E7D42722673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7D42522673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.xib */; };
 		37E7D42A22673CCE00905BD5 /* Message_Housekeeping_Tableview.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D42922673CCE00905BD5 /* Message_Housekeeping_Tableview.m */; };
@@ -1367,6 +1369,9 @@
 		37E25A7B227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrderDetails_Statistics_Cell.h; sourceTree = "<group>"; };
 		37E25A7C227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrderDetails_Statistics_Cell.m; sourceTree = "<group>"; };
 		37E25A7D227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrderDetails_Statistics_Cell.xib; sourceTree = "<group>"; };
+		37E6D8BA22C33A320042E96F /* Square_Complaint_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_Complaint_ViewController.h; sourceTree = "<group>"; };
+		37E6D8BB22C33A330042E96F /* Square_Complaint_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_Complaint_ViewController.m; sourceTree = "<group>"; };
+		37E6D8BC22C33A330042E96F /* Square_Complaint_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_Complaint_ViewController.xib; sourceTree = "<group>"; };
 		37E7D42322673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message_HouseKeeping_Tableview_Cell.h; sourceTree = "<group>"; };
 		37E7D42422673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message_HouseKeeping_Tableview_Cell.m; sourceTree = "<group>"; };
 		37E7D42522673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Message_HouseKeeping_Tableview_Cell.xib; sourceTree = "<group>"; };
@@ -1921,6 +1926,9 @@
 				37C24F2822A756560062B4B2 /* Square_Answer_VC.h */,
 				37C24F2922A756560062B4B2 /* Square_Answer_VC.m */,
 				37C24F2A22A756560062B4B2 /* Square_Answer_VC.xib */,
+				37E6D8BA22C33A320042E96F /* Square_Complaint_ViewController.h */,
+				37E6D8BB22C33A330042E96F /* Square_Complaint_ViewController.m */,
+				37E6D8BC22C33A330042E96F /* Square_Complaint_ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3186,6 +3194,7 @@
 			files = (
 				37ACB93822B1F31E00C84669 /* MWPhotoBrowser.bundle in Resources */,
 				379A46F822898FB5003CAA46 /* Home_CommunityNearby_Branch_ViewController.xib in Resources */,
+				37E6D8BE22C33A770042E96F /* Square_Complaint_ViewController.xib in Resources */,
 				37CD027D22AE3DA900ED09E8 /* Mine_SetUP_PersonalData_Nickname_VC.xib in Resources */,
 				37239F46228A6728002D2ADC /* Pay_ViewController.xib in Resources */,
 				37F5FFDA2265A8DA0012245D /* Message_NotificationCenter_VC.xib in Resources */,
@@ -3586,6 +3595,7 @@
 				37B8B6CF226F358800434D61 /* Mine_SetUP_Privacy_System_VC.m in Sources */,
 				379A46FF228994C5003CAA46 /* Home_CommunityNearby_Branch_CollectionViewCell.m in Sources */,
 				37AE45D42293912000E4A6DC /* YMTextView.m in Sources */,
+				37E6D8BD22C33A770042E96F /* Square_Complaint_ViewController.m in Sources */,
 				37C458AC2271935F004CDE32 /* Mine_SettledIn_Shoping_ViewController.m in Sources */,
 				37B8B6D1226F358800434D61 /* Mine_SetUP_About_Me_VC.m in Sources */,
 				378CA7A8229847770087B29C /* Message_FansList_Model.m in Sources */,

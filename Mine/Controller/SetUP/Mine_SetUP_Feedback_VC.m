@@ -9,6 +9,7 @@
 #import "Mine_SetUP_Feedback_VC.h"
 
 @interface Mine_SetUP_Feedback_VC ()
+@property (strong, nonatomic) IBOutlet YMTextView *Text_View;
 
 @end
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.Text_View.placeholder = @"请输入问题描述，帮助我们更快处理您的反馈~";
+    self.Text_View.placeholderColor = QFC_Color_Six;
 }
 - (IBAction)LiftButtonPOP:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

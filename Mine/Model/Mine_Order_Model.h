@@ -347,4 +347,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface Mine_Wallet_Model : NSObject
+/**
+ balance = "0.00";
+ "earnings_sum" = "0.00";
+ */
+@property (nonatomic, strong) NSString *balance;
+@property (nonatomic, strong) NSString *earnings_sum;
+
+@end
+
 NS_ASSUME_NONNULL_END

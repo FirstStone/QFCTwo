@@ -44,7 +44,7 @@
     [self.search AMapNearbySearch:request];*/
     AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
     
-    request.location            = [AMapGeoPoint locationWithLatitude:121.385373 longitude:31.111152];
+    request.location            = [AMapGeoPoint locationWithLatitude:[[Singleton sharedSingleton].latitude floatValue] longitude:[[Singleton sharedSingleton].longitude floatValue]];
 //    request.keywords            = @"地名地址信息";
     /* 按照距离排序. */
     request.sortrule            = 0;

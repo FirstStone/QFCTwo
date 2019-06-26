@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Login__USer_ViewController">
             <connections>
+                <outlet property="AgmentBT" destination="bd2-Vi-0fs" id="o6I-Cu-b4z"/>
                 <outlet property="Down_View" destination="YHz-H4-a6l" id="uCO-Lm-a22"/>
+                <outlet property="Login_BT" destination="Y3H-JR-WBV" id="9LK-Jf-qw4"/>
                 <outlet property="Password_Field" destination="9Xo-Zk-bFr" id="2tm-Mm-KAu"/>
                 <outlet property="PhoneCode_BT" destination="4JJ-dl-VkK" id="gHB-EL-yOu"/>
                 <outlet property="PhoneNumber_Field" destination="EX5-Bg-o7a" id="CpD-FF-w9W"/>
@@ -188,31 +190,47 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8K-XF-LKx">
-                    <rect key="frame" x="119.5" y="488" width="123" height="27"/>
+                    <rect key="frame" x="144.5" y="488" width="123" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="《快友社区使用协议》"/>
+                    <state key="normal" title="《快友社区使用协议》">
+                        <color key="titleColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="AgreementLiftButtonClick:" destination="-1" eventType="touchUpInside" id="ods-iV-nnl"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCi-QW-GVj">
-                    <rect key="frame" x="58" y="494" width="61.5" height="14.5"/>
+                    <rect key="frame" x="83" y="494" width="61.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="和" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDh-oV-zNa">
-                    <rect key="frame" x="242.5" y="494" width="12.5" height="14.5"/>
+                    <rect key="frame" x="267.5" y="494" width="12.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="il8-5H-IlO">
-                    <rect key="frame" x="255" y="488" width="74" height="27"/>
+                    <rect key="frame" x="280" y="488" width="74" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="《隐私条款》"/>
+                    <state key="normal" title="《隐私条款》">
+                        <color key="titleColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="AgreementRightButtonClick:" destination="-1" eventType="touchUpInside" id="1dx-Ud-rb5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd2-Vi-0fs">
+                    <rect key="frame" x="58" y="491.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Rsg-Qd-Tja"/>
+                        <constraint firstAttribute="width" constant="20" id="uHq-6F-5ec"/>
+                    </constraints>
+                    <state key="normal" image="icon_Agment_kong"/>
+                    <state key="selected" image="icon_Agment_Gou"/>
+                    <connections>
+                        <action selector="AgmentButtonClick:" destination="-1" eventType="touchUpInside" id="eZQ-7q-fah"/>
                     </connections>
                 </button>
             </subviews>
@@ -237,10 +255,12 @@
                 <constraint firstItem="9Xo-Zk-bFr" firstAttribute="leading" secondItem="EX5-Bg-o7a" secondAttribute="leading" id="O0p-iJ-J6Q"/>
                 <constraint firstItem="bCK-H4-Xpo" firstAttribute="trailing" secondItem="9Xo-Zk-bFr" secondAttribute="trailing" id="Ptg-Yi-1xh"/>
                 <constraint firstItem="7ls-r5-7kK" firstAttribute="top" secondItem="EX5-Bg-o7a" secondAttribute="bottom" id="PuF-lh-D8i"/>
+                <constraint firstItem="tCi-QW-GVj" firstAttribute="leading" secondItem="bd2-Vi-0fs" secondAttribute="trailing" constant="5" id="Q8p-tG-Zi9"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="YHz-H4-a6l" secondAttribute="bottom" id="SR8-F5-pJL"/>
                 <constraint firstItem="tCi-QW-GVj" firstAttribute="top" secondItem="Y3H-JR-WBV" secondAttribute="bottom" constant="10" id="VIz-M7-5g5"/>
                 <constraint firstItem="exY-HL-q2l" firstAttribute="centerY" secondItem="EX5-Bg-o7a" secondAttribute="centerY" id="WTi-hp-OcH"/>
                 <constraint firstItem="bCK-H4-Xpo" firstAttribute="trailing" secondItem="9Xo-Zk-bFr" secondAttribute="trailing" id="WfR-SE-op9"/>
+                <constraint firstItem="tCi-QW-GVj" firstAttribute="centerY" secondItem="bd2-Vi-0fs" secondAttribute="centerY" id="WiW-Mk-0SC"/>
                 <constraint firstItem="tCi-QW-GVj" firstAttribute="centerY" secondItem="z8K-XF-LKx" secondAttribute="centerY" id="Xpi-ov-YbZ"/>
                 <constraint firstItem="N1g-W0-LgB" firstAttribute="centerX" secondItem="exY-HL-q2l" secondAttribute="centerX" id="aby-sv-Q7O"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Y3H-JR-WBV" secondAttribute="trailing" constant="58" id="cWT-ug-UUi"/>
@@ -253,15 +273,17 @@
                 <constraint firstItem="exY-HL-q2l" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="58" id="rJE-wH-6Or"/>
                 <constraint firstItem="bCK-H4-Xpo" firstAttribute="leading" secondItem="9Xo-Zk-bFr" secondAttribute="leading" id="rip-oa-wx8"/>
                 <constraint firstItem="4JJ-dl-VkK" firstAttribute="trailing" secondItem="9Xo-Zk-bFr" secondAttribute="trailing" id="scV-cA-pwJ"/>
+                <constraint firstItem="bd2-Vi-0fs" firstAttribute="leading" secondItem="Y3H-JR-WBV" secondAttribute="leading" id="uyr-ai-VAq"/>
                 <constraint firstItem="Y3H-JR-WBV" firstAttribute="top" secondItem="4JJ-dl-VkK" secondAttribute="bottom" constant="50" id="wsE-Rh-bVe"/>
                 <constraint firstItem="bCK-H4-Xpo" firstAttribute="top" secondItem="9Xo-Zk-bFr" secondAttribute="bottom" constant="5.5" id="yWR-kb-eLj"/>
-                <constraint firstItem="tCi-QW-GVj" firstAttribute="leading" secondItem="Y3H-JR-WBV" secondAttribute="leading" id="yiF-Zg-I45"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="-642.02898550724638" y="66.964285714285708"/>
         </view>
     </objects>
     <resources>
+        <image name="icon_Agment_Gou" width="32" height="32"/>
+        <image name="icon_Agment_kong" width="32" height="32"/>
         <image name="icon_Login_QX" width="15" height="15"/>
         <image name="icon_Logo" width="60" height="60"/>
         <image name="icon_Password" width="16" height="18.5"/>

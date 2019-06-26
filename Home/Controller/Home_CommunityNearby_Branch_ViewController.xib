@@ -41,7 +41,7 @@
                                 <action selector="HomeShopingCartClick:" destination="-1" eventType="touchUpInside" id="EeB-EC-Ioo"/>
                             </connections>
                         </button>
-                        <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="搜索你想要的" translatesAutoresizingMaskIntoConstraints="NO" id="6ih-Wl-EkN">
+                        <searchBar contentMode="redraw" text="" placeholder="搜索你想要的" translatesAutoresizingMaskIntoConstraints="NO" id="6ih-Wl-EkN">
                             <rect key="frame" x="52" y="7" width="303" height="30"/>
                             <color key="backgroundColor" red="0.59311163430000002" green="0.81316965819999998" blue="0.66257697339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
@@ -59,6 +59,7 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="15"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-vu-pdg">

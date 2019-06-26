@@ -244,6 +244,8 @@
 #import "Mine_BeginAnd_EndTimeCell.h"
 #import "Mine_HouseKeep_Service_Cell.h"
 #import "Mine_Agreement_VC.h"
+#import "Square_Complaint_ViewController.h"
+
 
 //数据模型
 #import "Message_FansList_Model.h"
@@ -301,6 +303,9 @@
 #define QFC_PublishView_NSNotification @"QFCPublishViewNSNotification"
 /**用户界面刷新*/
 #define QFC_UpDataSoureToSelfView_NSNotification @"QFCUPDataSoureToViewNotification"
+
+/**D5D5D5*/
+#define QFC_Color_D5D5D5 QFC_Color(213,213,213)
 
 #define QFC_Color_Green QFC_Color(94,176,115)
 /**32CCF2*/
@@ -1337,6 +1342,16 @@ public static final String GET_ORDER_LIST = BASE_Client_URL+"index/Informations/
 #define URL_Informations_joinOrderList HTTPHeader@"index/Informations/joinOrderList"
 
 #pragma mark----我的功能
+
+/**
+ 我的中心获取用户 余额 累计收益
+ URL : https://www.txkuaiyou.com/index/Centres/balance
+ 参数 :
+ uid
+ 用户ID
+ */
+#define URL_Centres_balance HTTPHeader@"index/Centres/balance"
+
 /**
  1. 我的关注列表
  URL : https://www.txkuaiyou.com/index/Centres/attentionList

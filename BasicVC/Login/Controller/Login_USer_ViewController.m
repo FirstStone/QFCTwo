@@ -22,6 +22,9 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *QQ_BT;
 
+@property (strong, nonatomic) IBOutlet UIButton *AgmentBT;
+
+@property (strong, nonatomic) IBOutlet UIButton *Login_BT;
 
 @end
 
@@ -38,6 +41,18 @@
         self.WX_BT.hidden = YES;
     }
 }
+
+- (IBAction)AgmentButtonClick:(id)sender {
+    self.AgmentBT.selected = !self.AgmentBT.selected;
+    if (self.AgmentBT.selected) {
+        self.Login_BT.userInteractionEnabled = YES;
+        self.Login_BT.backgroundColor = QFC_Color_55CC88;
+    }else {
+        self.Login_BT.userInteractionEnabled = NO;
+        self.Login_BT.backgroundColor = QFC_Color_D5D5D5;
+    }
+}
+
 
 - (IBAction)POPHomeView:(id)sender {
      [self.navigationController dismissViewControllerAnimated:YES completion:nil];

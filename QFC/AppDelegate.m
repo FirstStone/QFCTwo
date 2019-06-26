@@ -264,7 +264,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
-    [WXApi handleOpenURL:url delegate:self];
+//    [WXApi handleOpenURL:url delegate:self];
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
@@ -412,7 +412,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
             [Singleton sharedSingleton].weiXinIfon = dic;
             //微信返回信息后,会跳到登录页面,添加通知进行其他逻辑操作
             [[NSNotificationCenter defaultCenter] postNotificationName:@"weiChatOK" object:nil];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"weiChatOK" object:nil userInfo:dataSoure];
             
         });
         

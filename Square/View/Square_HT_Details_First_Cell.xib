@@ -19,18 +19,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="445" height="301.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="HPX-zD-ind">
-                        <rect key="frame" x="10" y="10" width="55" height="55"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="HPX-zD-ind">
+                        <rect key="frame" x="10" y="10" width="56" height="56"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="55" id="1pR-jk-1AW"/>
-                            <constraint firstAttribute="width" constant="55" id="Cfq-QE-SA4"/>
+                            <constraint firstAttribute="height" constant="56" id="1pR-jk-1AW"/>
+                            <constraint firstAttribute="width" constant="56" id="Cfq-QE-SA4"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="23"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快友123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mck-a0-OPM">
-                        <rect key="frame" x="75" y="23.5" width="53" height="14"/>
+                        <rect key="frame" x="76" y="24" width="53" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="0Xa-rm-3pt"/>
                         </constraints>
@@ -39,7 +42,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMi-9U-giE">
-                        <rect key="frame" x="10" y="81" width="425" height="76.5"/>
+                        <rect key="frame" x="10" y="82" width="425" height="76.5"/>
                         <string key="text">这几颗去年开的特别好的海棠，今年花少得可怜，看
 花苞只有少得可怜的两三个，通体绿叶。想想觉得特
 别奇妙~感觉花小小的身体也是需要累积几年能量的，
@@ -96,7 +99,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZW-yh-De4">
-                        <rect key="frame" x="359" y="28.5" width="46" height="18"/>
+                        <rect key="frame" x="359" y="29" width="46" height="18"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="uya-MX-5Z2"/>
@@ -125,7 +128,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="五分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMi-Wh-vcu">
-                        <rect key="frame" x="75" y="38" width="45" height="11"/>
+                        <rect key="frame" x="76" y="38.5" width="45" height="11"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="11" id="5Ct-Ns-HrH"/>
                         </constraints>
@@ -134,7 +137,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yP1-40-fqj" customClass="PYPhotosView">
-                        <rect key="frame" x="10" y="168.5" width="425" height="87"/>
+                        <rect key="frame" x="10" y="169.5" width="425" height="86"/>
                     </scrollView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quo-oX-KJd">
                         <rect key="frame" x="10" y="300.5" width="425" height="1"/>
@@ -144,7 +147,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAl-nH-4ks">
-                        <rect key="frame" x="420" y="26.5" width="15" height="22"/>
+                        <rect key="frame" x="420" y="27" width="15" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="Gnu-Xh-Ued"/>
                             <constraint firstAttribute="height" constant="22" id="y2q-w0-0Qv"/>

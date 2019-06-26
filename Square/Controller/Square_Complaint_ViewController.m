@@ -1,61 +1,70 @@
 //
-//  Mine_MyOrder_UserTuikuan_ViewController.m
+//  Square_Complaint_ViewController.m
 //  QFC
 //
-//  Created by tiaoxin on 2019/6/13.
+//  Created by tiaoxin on 2019/6/26.
 //  Copyright © 2019 Apple. All rights reserved.
 //
 
-#import "Mine_MyOrder_UserTuikuan_ViewController.h"
+#import "Square_Complaint_ViewController.h"
 
-@interface Mine_MyOrder_UserTuikuan_ViewController ()<PYPhotosViewDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, TZImagePickerControllerDelegate, PickerViewResultDelegate>
+@interface Square_Complaint_ViewController ()<PYPhotosViewDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, TZImagePickerControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *OrderNumber_Label;
+@property (strong, nonatomic) IBOutlet UIButton *One_BT;
 
-@property (strong, nonatomic) IBOutlet UILabel *Time_Label;
+@property (strong, nonatomic) IBOutlet UIButton *Two_BT;
 
-@property (strong, nonatomic) IBOutlet UIView *Reason_View;
+@property (strong, nonatomic) IBOutlet UIButton *Three_BT;
 
-@property (strong, nonatomic) IBOutlet UILabel *Price_Label;
+@property (strong, nonatomic) IBOutlet UIButton *Four_BT;
 
-@property (strong, nonatomic) IBOutlet UITextField *Text_Label;
+@property (strong, nonatomic) IBOutlet UIButton *Five_BT;
 
-@property (strong, nonatomic) IBOutlet PYPhotosView *photoView;
+@property (strong, nonatomic) IBOutlet UIButton *Six_BT;
 
-@property (strong, nonatomic) IBOutlet UILabel *Reason_Label;
+@property (strong, nonatomic) IBOutlet YMTextView *Text_View;
+
+@property (strong, nonatomic) IBOutlet PYPhotosView *image_View;
+
+@property (strong, nonatomic) IBOutlet UIButton *Sure_BT;
 
 @end
 
-@implementation Mine_MyOrder_UserTuikuan_ViewController
+@implementation Square_Complaint_ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.OrderNumber_Label.text = self.MyOrder.ordersn;
-    self.Time_Label.text = self.MyOrder.createtime;
-    self.Price_Label.text = [NSString stringWithFormat:@"¥%@", self.MyOrder.actual_price];
-    self.photoView.photoWidth = (SCREEN_WIDTH - 40.0f)/3.0f;
-    self.photoView.photoHeight = 115.0f;
-    self.photoView.photosMaxCol = 3.0f;
-    self.photoView.imagesMaxCountWhenWillCompose = 3;
-    self.photoView.delegate = self;
-    UITapGestureRecognizer *TapZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ReasonViewButtonClick:)];
-    [self.Reason_View addGestureRecognizer:TapZer];
-
+    self.Text_View.placeholder = @"请输入问题描述，帮助我们更快处理您的反馈~";
+    self.Text_View.placeholderColor = QFC_Color_Six;
+    [self.One_BT addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.Two_BT addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.Three_BT addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.Four_BT addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.Five_BT addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.Six_BT addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.image_View.photoWidth = (SCREEN_WIDTH - 40.0f)/3.0f;
+    self.image_View.photoHeight = 115.0f;
+    self.image_View.photosMaxCol = 3.0f;
+    self.image_View.imagesMaxCountWhenWillCompose = 3;
+    self.image_View.delegate = self;
 }
 
 - (IBAction)LiftButtonPOP:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-- (IBAction)SureButtonClick:(id)sender {
-    if (self.photoView.images.count && ![self.Reason_Label.text isEqualToString:@"请选择"]) {
-        [self setImageToBacker];
-    }else if (![self.Reason_Label.text isEqualToString:@"请选择"]) {
-        [self LoadingDataSoure:@""];
-    }else {
-        [MBProgressHUD py_showError:@"请选择退款原因" toView:nil];
+- (IBAction)SureButtonclick:(id)sender {
+    if (!self.One_BT.selected && !self.Two_BT.selected && !self.Three_BT.selected && !self.Four_BT.selected && !self.Five_BT.selected && !self.Six_BT.selected) {
+        [MBProgressHUD py_showError:@"请选择举报的类型" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
+    }else {
+        [MBProgressHUD py_showSuccess:@"信息已提交" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+        [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+- (void)buttonClick:(UIButton *)button {
+    button.selected = !button.selected;
 }
 
 #pragma mark----PYPhotosViewDelegate
@@ -196,13 +205,13 @@
     //   NSMutableArray *imageArr = self.photoView.images.count > 0 ? [self.photoView.images copy] : [[NSMutableArray alloc] init];
     
     NSMutableArray *imageArr = [[NSMutableArray alloc] init];
-    if (self.photoView.images.count) {
-        imageArr = self.photoView.images;
+    if (self.image_View.images.count) {
+        imageArr = self.image_View.images;
     }
     [imageArr addObjectsFromArray:photos];
-    self.photoView.images = imageArr;
-    [self.photoView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_offset([self.photoView sizeWithPhotoCount:self.photoView.images.count photosState:0]);
+    self.image_View.images = imageArr;
+    [self.image_View mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_offset([self.image_View sizeWithPhotoCount:self.image_View.images.count photosState:0]);
     }];
     //    self.photoView.images = [NSMutableArray arrayWithArray:photos];
 }
@@ -213,13 +222,13 @@
     //    [imageArr addObject:image];
     //    self.photoView.images = imageArr;
     NSMutableArray *imageArr = [[NSMutableArray alloc] init];
-    if (self.photoView.images.count) {
-        imageArr = self.photoView.images;
+    if (self.image_View.images.count) {
+        imageArr = self.image_View.images;
     }
     [imageArr addObject:image];
-    self.photoView.images = imageArr;
-    [self.photoView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_offset([self.photoView sizeWithPhotoCount:self.photoView.images.count photosState:0]);
+    self.image_View.images = imageArr;
+    [self.image_View mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_offset([self.image_View sizeWithPhotoCount:self.image_View.images.count photosState:0]);
     }];
     //    [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -228,95 +237,14 @@
  * imageIndex : 删除的图片在之前图片数组的位置
  */
 - (void)photosView:(PYPhotosView *)photosView didDeleteImageIndex:(NSInteger)imageIndex {
-    [self.photoView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_offset([self.photoView sizeWithPhotoCount:self.photoView.images.count photosState:0]);
+    [self.image_View mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_offset([self.image_View sizeWithPhotoCount:self.image_View.images.count photosState:0]);
     }];
 }
 
 //进入拍摄页面点击取消按钮
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)setImageToBacker {
-    NSMutableArray *imageArray = [[NSMutableArray alloc] init];
-    for (UIImage *photo in self.photoView.images) {
-        UploadParam *image = [[UploadParam alloc] init];
-        image.data = UIImagePNGRepresentation(photo);
-        image.name = @"file[]";
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        formatter.dateFormat = @"yyyyMMddHHmmss";
-        NSString *str = [formatter stringFromDate:[NSDate date]];
-        image.filename = str;
-        image.mimeType = @".jpg";
-        [imageArray addObject:image];
-    }
-    [MBProgressHUD py_showLoading:@"正在提交..." toView:nil];
-    [[HttpRequest sharedInstance] uploadWithURLString:URL_commom_moreFiles parameters:nil uploadParam:imageArray success:^(NSDictionary * _Nonnull success) {
-        NSLog(@"%@", success);
-//        [self.Sure_parm setObject:[success objectForKey:@"list"] forKey:@"imgurl"];
-        [self LoadingDataSoure:[success objectForKey:@"list"]];
-        
-        
-    } failure:^(NSError * _Nonnull error) {
-        [MBProgressHUD setAnimationDelay:0.7f];
-        [MBProgressHUD py_showError:@"加载失败" toView:nil];
-        [MBProgressHUD setAnimationDelay:0.7f];
-    }];
-}
-
-#pragma mark----UPdata
-- (void)LoadingDataSoure:(NSString *)imageURL {
-    /**
-     订单退款
-     URL : https://www.txkuaiyou.com/index/orders/orderRefund
-     参数 :
-     orderid
-     订单ID
-     uid
-     用户ID
-     cause
-     退款原因
-     remark
-     备注
-     cause_img
-     图片 逗号隔开
-     */
-    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
-    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
-    [parm setObject:self.MyOrder.order_ID forKey:@"orderid"];
-    [parm setObject:self.Reason_Label.text forKey:@"cause"];
-    [parm setObject:self.Text_Label.text forKey:@"remark"];
-    [parm setObject:imageURL forKey:@"cause_img"];
-    [[HttpRequest sharedInstance] postWithURLString:URL_orders_orderRefund parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
-        NSLog(@"%@", responseObject);
-        [MBProgressHUD setAnimationDelay:0.7f];
-        if ([[responseObject objectForKey:@"status"] intValue]) {
-            [MBProgressHUD py_showError:@"申请已提交" toView:nil];
-            [MBProgressHUD setAnimationDelay:0.7f];
-            [self.navigationController popViewControllerAnimated:YES];
-        }else {
-            [MBProgressHUD py_showError:@"提交失败" toView:nil];
-            [MBProgressHUD setAnimationDelay:0.7f];
-        }
-    } failure:^(NSError * _Nonnull error) {
-        [MBProgressHUD setAnimationDelay:0.7f];
-        [MBProgressHUD py_showError:@"操作失败" toView:nil];
-        [MBProgressHUD setAnimationDelay:0.7f];
-    }];
-}
-
-- (void)ReasonViewButtonClick:(UIGestureRecognizer *)Zer {
-    PickerView *pick = [[PickerView alloc] init];
-    pick.delegate = self;
-    pick.type = PickerViewTypeReason;
-    [self.view addSubview:pick];
-}
-
-#pragma mark----PickerViewResultDelegate
-
-- (void)pickerView:(UIView *)pickerView result:(NSString *)string {
-    self.Reason_Label.text = string;
 }
 
 @end

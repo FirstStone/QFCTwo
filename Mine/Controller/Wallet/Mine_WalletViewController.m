@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSArray *Title_Array;
 @property (nonatomic, strong) NSArray *Icon_Array;
 
+@property (nonatomic, strong) Mine_Wallet_Model *My_model;
+
 @end
 
 @implementation Mine_WalletViewController
@@ -30,6 +32,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
+    [self LoadingDataSoure];
 }
 - (IBAction)LiftButtonPOP:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -74,5 +77,34 @@
         [self.navigationController pushViewController:billVC animated:YES];
     }
 }
+
+#pragma mark----UPdata
+- (void)LoadingDataSoure {
+    /**
+     我的中心获取用户 余额 累计收益
+     URL : https://www.txkuaiyou.com/index/Centres/balance
+     参数 :
+     uid
+     用户ID
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_Centres_balance parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSDictionary *dic = [responseObject objectForKey:@"info"];
+            self.My_model = [Mine_Wallet_Model mj_objectWithKeyValues:dic];
+            self.Balance_Label.text = [NSString stringWithFormat:@"¥%@",self.My_model.balance];
+            self.ProfitBalance_Label.text = [NSString stringWithFormat:@"¥%@",self.My_model.earnings_sum];
+        }else {
+            [MBProgressHUD py_showError:@"暂无数据" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"获取失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
 
 @end

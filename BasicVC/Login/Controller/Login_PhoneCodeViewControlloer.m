@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *Sure_BT;
 
+@property (strong, nonatomic) IBOutlet UIButton *AgmentBT;
+
 @property (strong, nonatomic) IBOutlet UIView *Down_View;
 
 @property (strong, nonatomic) IBOutlet UIButton *WX_BT;
@@ -45,6 +47,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+- (IBAction)AgmentButtonClick:(id)sender {
+    self.AgmentBT.selected = !self.AgmentBT.selected;
+    if (self.AgmentBT.selected) {
+        self.Sure_BT.userInteractionEnabled = YES;
+        self.Sure_BT.backgroundColor = QFC_Color_55CC88;
+    }else {
+        self.Sure_BT.userInteractionEnabled = NO;
+        self.Sure_BT.backgroundColor = QFC_Color_D5D5D5;
+    }
 }
 
 - (IBAction)CodeButtonClick:(id)sender {
@@ -122,6 +135,7 @@
     //    [parameters setValue:@"3" forKey:@"type"];
     //    [parameters setValue:weChatDic[@"openid"] forKey:@"id"];
     //    [parameters setValue:weChatDic[@"token"] forKey:@"token"];
+   
     NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
     [parm setObject:[[Singleton sharedSingleton].weiXinIfon mj_JSONString] forKey:@"code"];
     [[HttpRequest sharedInstance] postWithURLString:URL_login_Appialogue parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
