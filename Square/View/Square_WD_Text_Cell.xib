@@ -81,6 +81,15 @@
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnD-Sz-Q30">
+                                <rect key="frame" x="260" y="126.5" width="30" height="30"/>
+                                <state key="normal" title="∙∙∙">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="MoreButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jP8-TU-ifO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -90,6 +99,7 @@
                             <constraint firstItem="wss-uz-hks" firstAttribute="leading" secondItem="tJe-Yq-1PJ" secondAttribute="leading" constant="10" id="P3t-Dl-1ma"/>
                             <constraint firstItem="U8x-On-SAZ" firstAttribute="top" secondItem="tJe-Yq-1PJ" secondAttribute="top" constant="13" id="PbW-s8-48W"/>
                             <constraint firstItem="U8x-On-SAZ" firstAttribute="leading" secondItem="tJe-Yq-1PJ" secondAttribute="leading" constant="10" id="Qlr-wS-ScL"/>
+                            <constraint firstItem="MnD-Sz-Q30" firstAttribute="centerY" secondItem="HJZ-cw-YtZ" secondAttribute="centerY" id="aes-YH-v0T"/>
                             <constraint firstItem="YrE-RZ-c1I" firstAttribute="centerY" secondItem="W1C-PY-5tX" secondAttribute="centerY" id="gRe-OO-W6t"/>
                             <constraint firstItem="0UG-Z5-Tgr" firstAttribute="top" secondItem="pdC-IB-uoa" secondAttribute="bottom" constant="7" id="jGL-rF-Aez"/>
                             <constraint firstAttribute="trailing" secondItem="0UG-Z5-Tgr" secondAttribute="trailing" constant="7" id="je1-Nh-b8B"/>
@@ -101,6 +111,7 @@
                             <constraint firstItem="W1C-PY-5tX" firstAttribute="leading" secondItem="tJe-Yq-1PJ" secondAttribute="leading" constant="10" id="ljR-B8-lxU"/>
                             <constraint firstAttribute="trailing" secondItem="U8x-On-SAZ" secondAttribute="trailing" constant="10" id="nG1-x3-Ok2"/>
                             <constraint firstItem="YrE-RZ-c1I" firstAttribute="leading" secondItem="W1C-PY-5tX" secondAttribute="trailing" constant="5" id="v0l-dP-KB5"/>
+                            <constraint firstAttribute="trailing" secondItem="MnD-Sz-Q30" secondAttribute="trailing" constant="10" id="zIA-oP-xDe"/>
                             <constraint firstItem="HJZ-cw-YtZ" firstAttribute="centerY" secondItem="wss-uz-hks" secondAttribute="centerY" id="zKT-sm-Sy4"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

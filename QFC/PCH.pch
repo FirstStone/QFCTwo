@@ -246,7 +246,6 @@
 #import "Mine_Agreement_VC.h"
 #import "Square_Complaint_ViewController.h"
 
-
 //数据模型
 #import "Message_FansList_Model.h"
 #import "Home_ShoppingCatr_Settlement_Model.h"
@@ -895,6 +894,38 @@
 #define URL_orders_refundMerchantYes HTTPHeader@"index/orders/refundMerchantYes"
 
 #pragma mark----广场详情
+
+/**
+ index/plazas/shieldOne
+ uid
+ plazaid
+ 屏蔽单条
+ */
+#define URL_plazas_shieldOne HTTPHeader@"index/plazas/shieldOne"
+
+/**
+ index/plazas/block
+ uid
+ pid
+ 拉黑  屏蔽此人
+ */
+#define URL_plazas_block HTTPHeader@"index/plazas/block"
+
+/**
+ index/plazas/delBlock
+ uid
+ pid
+ 取消拉黑
+ */
+#define URL_plazas_delBlock HTTPHeader@"index/plazas/delBlock"
+
+/**
+ index/plazas/blockList
+ uid
+ page
+ 拉黑列表
+ */
+#define URL_plazas_blockList HTTPHeader@"index/plazas/blockList"
 
 /**
  创建聊天链接

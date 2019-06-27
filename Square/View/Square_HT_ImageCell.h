@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)iconViewClick:(NSString *)mid;
 
+- (void)SquareHTImageCellMoreButtonClick:(SquareRecommend_Model*)model QuestionsAndAnswersModel:(Square_QuestionsAndAnswers_List_Model *)ListModel Style:(NSInteger)index;
+
 @end
 
 @interface Square_HT_ImageCell : UITableViewCell

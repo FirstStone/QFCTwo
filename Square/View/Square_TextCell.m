@@ -40,6 +40,19 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)MoreButtonClick:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(SquareTextCellMoreButtonClick:QuestionsAndAnswersModel:Style:)]) {
+        if (self.My_Model) {
+            [self.delegate SquareTextCellMoreButtonClick:self.My_Model QuestionsAndAnswersModel:self.My_ListModel Style:1];
+        }else {
+            [self.delegate SquareTextCellMoreButtonClick:self.My_Model QuestionsAndAnswersModel:self.My_ListModel Style:2];
+        }
+    }
+    
+}
+
+
+
 - (void)iconImageViewClick:(UIGestureRecognizer *)zer {
     if ([self.delegate respondsToSelector:@selector(SquareTextCellIconViewClick:)]) {
         if ([self.My_ListModel.item_id intValue]) {

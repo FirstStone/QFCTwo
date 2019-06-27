@@ -85,6 +85,29 @@
     return _dataArray;
 }
 
+- (IBAction)MoreButtonClick:(id)sender {
+    UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *TowAction = [UIAlertAction actionWithTitle:@"屏蔽他的动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+        [self PostindexPlazasBlock:self.uid];
+    }];
+    UIAlertAction *ThreeAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        Square_Complaint_ViewController *complaintVC = [[Square_Complaint_ViewController alloc] init];
+        [complaintVC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:complaintVC animated:YES];
+        //成功返回Block
+    }];
+    [alertV addAction:cancelAction];
+    [alertV addAction:TowAction];
+    [alertV addAction:ThreeAction];
+    
+    [self presentViewController:alertV animated:YES completion:nil];
+}
+
+
 #pragma mark - UITableViewDelegate
 //返回多少个分区
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -244,6 +267,35 @@
     } failure:^(NSError * _Nonnull error) {
         <#code#>
     }];*/
+}
+
+
+- (void)PostindexPlazasBlock:(NSString *)pid {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue] == [pid intValue]) {
+        [MBProgressHUD py_showError:@"不能屏蔽自己哦" toView:nil];
+        return;
+    }
+    /**
+     index/plazas/block
+     uid
+     pid
+     拉黑  屏蔽此人
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:pid forKey:@"pid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_plazas_block parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            if (self.backBlock) {
+                self.backBlock();
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
 }
 
 

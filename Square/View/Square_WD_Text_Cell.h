@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)SquareWDTextCellIconView:(NSString *)mid;
 
+- (void)SquareWDTextCellMoreButtonClick:(SquareRecommend_Model*)model QuestionsAndAnswersModel:(Square_WD_Model *)WDModel Style:(NSInteger)index;
+
 @end
 
 @interface Square_WD_Text_Cell : UITableViewCell

@@ -10,9 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^SquareHTDetailsVCBlock)(void);
 @interface Square_HT_Details_VC : UIViewController
 
 @property (nonatomic, strong) NSString *item_id;
+
+@property (nonatomic, copy) SquareHTDetailsVCBlock backBlock;
 
 
 @end

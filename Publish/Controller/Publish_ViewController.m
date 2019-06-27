@@ -618,6 +618,7 @@
     }
     [MBProgressHUD py_showLoading:@"发布中。。。" toView:nil];
     [[HttpRequest sharedInstance] uploadWithURLString:URL_commom_moreFiles parameters:nil uploadParam:imageArray success:^(NSDictionary * _Nonnull success) {
+        [MBProgressHUD setAnimationDelay:0.7f];
         NSLog(@"%@", success);
         if ([[success objectForKey:@"status"] intValue]) {
             [self.Sure_parm setObject:[success objectForKey:@"list"] forKey:@"imgurl"];

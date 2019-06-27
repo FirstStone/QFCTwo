@@ -53,14 +53,17 @@
                             <rightBarButtonItems>
                                 <barButtonItem style="plain" id="a1o-jC-H0C">
                                     <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="z7q-i9-2AR">
-                                        <rect key="frame" x="361" y="5.5" width="33" height="33"/>
+                                        <rect key="frame" x="353" y="5" width="41" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="icon_GC_fenxiang"/>
+                                        <state key="normal" title="∙∙∙"/>
+                                        <connections>
+                                            <action selector="MoreButtonClick:" destination="-1" eventType="touchUpInside" id="q7I-Ka-BWD"/>
+                                        </connections>
                                     </button>
                                 </barButtonItem>
                                 <barButtonItem style="plain" id="OL0-bI-wIk">
                                     <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Sjk-3v-lL6">
-                                        <rect key="frame" x="335" y="11" width="18" height="22"/>
+                                        <rect key="frame" x="327" y="11" width="18" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="kiw-zl-BgS"/>
@@ -371,7 +374,6 @@
         </view>
     </objects>
     <resources>
-        <image name="icon_GC_fenxiang" width="16.5" height="16.5"/>
         <image name="icon_GR_bianji" width="12" height="10.5"/>
         <image name="icon_GT_Dianpu" width="18" height="17.5"/>
         <image name="icon_HT_XiangQing_Zuo" width="32" height="31.5"/>

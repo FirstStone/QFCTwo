@@ -49,6 +49,17 @@
     }
 }
 
+- (IBAction)MoreButtonClick:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(SquareWDImageAndTextCellMoreButtonClick:SquareWDModel:Style:)]) {
+        if (self.My_Model) {
+            [self.delegate SquareWDImageAndTextCellMoreButtonClick:self.My_Model SquareWDModel:self.WD_Model Style:1];
+        }else {
+            [self.delegate SquareWDImageAndTextCellMoreButtonClick:self.My_Model SquareWDModel:self.WD_Model Style:2];
+        }
+    }
+    
+}
+
 - (void)setDataSoureToCell:(SquareRecommend_Model *)model {
     self.My_Model = model;
     [self.Photo_imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];

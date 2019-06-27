@@ -53,6 +53,17 @@
     }
 }
 
+- (IBAction)MoreButtonClick:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(SquareHTImageCellMoreButtonClick:QuestionsAndAnswersModel:Style:)]) {
+        if (self.My_Model) {
+            [self.delegate SquareHTImageCellMoreButtonClick:self.My_Model QuestionsAndAnswersModel:self.My_ListModel Style:1];
+        }else {
+            [self.delegate SquareHTImageCellMoreButtonClick:self.My_Model QuestionsAndAnswersModel:self.My_ListModel Style:2];
+        }
+    }
+    
+}
+
 
 - (IBAction)PraiseButtonClick:(id)sender {
     if ([self.delegate respondsToSelector:@selector(SquareHTImageCellButtonClick:SquareRecommendModel:)]) {

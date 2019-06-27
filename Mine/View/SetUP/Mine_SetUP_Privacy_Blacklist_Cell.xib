@@ -25,6 +25,12 @@
                             <constraint firstAttribute="width" constant="40" id="FwR-yP-vdd"/>
                             <constraint firstAttribute="height" constant="40" id="ymJ-XX-Peo"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="花花" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLN-RE-Vy6">
                         <rect key="frame" x="57" y="17" width="29" height="14"/>
@@ -47,6 +53,9 @@
                         <state key="normal" title="移出黑名单">
                             <color key="titleColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="SureButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="R9e-2g-qRY"/>
+                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WhE-cB-EC5">
                         <rect key="frame" x="303" y="11.5" width="1" height="39"/>
@@ -83,6 +92,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="Sure_BT" destination="66h-5w-pe2" id="K93-zH-r9v"/>
+                <outlet property="Time_Label" destination="qMG-ds-bYY" id="lIP-2E-npG"/>
+                <outlet property="Title_Label" destination="TLN-RE-Vy6" id="YnU-BZ-AVZ"/>
+                <outlet property="icon_View" destination="De5-UO-OZi" id="3gS-QP-LzY"/>
+            </connections>
             <point key="canvasLocation" x="141.30434782608697" y="187.83482142857142"/>
         </tableViewCell>
     </objects>

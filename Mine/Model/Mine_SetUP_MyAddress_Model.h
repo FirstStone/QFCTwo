@@ -129,4 +129,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface Mine_BlackUser_Model : NSObject
+/**
+ avatar = "https://www.txkuaiyou.com/uploads/fileimg/1560427593544-2019-06-13.png";
+ createtime = "1970-01-01";
+ id = 2;
+ nickname = "\U6211\U4e0d\U5b66\U524d\U7aef\U4e86";
+ */
+@property (nonatomic, strong) NSString *avatar;
+@property (nonatomic, strong) NSString *createtime;
+@property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *userID;
+
+@end
+
 NS_ASSUME_NONNULL_END

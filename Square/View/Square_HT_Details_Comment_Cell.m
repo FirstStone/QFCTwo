@@ -67,7 +67,12 @@
     }
     
 }
-
+- (IBAction)MoreButtonClick:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(SquareHTDetailsCommentCellMoreButton:)]) {
+        [self.delegate SquareHTDetailsCommentCellMoreButton:self.My_Model];
+    }
+    
+}
 
 
 

@@ -46,6 +46,16 @@
     }
 }
 
+- (IBAction)MoreButtonClick:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(SquareWDTextCellMoreButtonClick:QuestionsAndAnswersModel:Style:)]) {
+        if (self.RecommendModel) {
+            [self.delegate SquareWDTextCellMoreButtonClick:self.RecommendModel QuestionsAndAnswersModel:self.WDModel Style:1];
+        }else {
+            [self.delegate SquareWDTextCellMoreButtonClick:self.RecommendModel QuestionsAndAnswersModel:self.WDModel Style:2];
+        }
+    }
+    
+}
 
 - (void)setDataSoureToCell:(SquareRecommend_Model *)model {
     self.RecommendModel = model;

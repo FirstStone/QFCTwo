@@ -45,7 +45,7 @@
                                     <action selector="LeftItemClick:" destination="-1" id="Fws-iV-DrJ"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="举报" id="7x1-6j-JIF">
+                            <barButtonItem key="rightBarButtonItem" title="∙∙∙" id="7x1-6j-JIF">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="RightbuttonClick:" destination="-1" id="2aQ-kf-jFh"/>
@@ -106,7 +106,7 @@
                 <constraint firstItem="8Kr-Ub-G2I" firstAttribute="top" secondItem="hka-57-ngd" secondAttribute="bottom" id="rOX-GB-jd7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-175.36231884057972" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-120" y="101"/>
         </view>
     </objects>
     <resources>

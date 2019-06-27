@@ -72,7 +72,7 @@
     __weak typeof(self)weakSelf = self;
     [self.Image_View mas_updateConstraints:^(MASConstraintMaker *make) {
         if (model.imgurl.count) {
-            make.size.mas_offset([weakSelf.Image_View sizeWithPhotoCount:model.imgurl.count photosState:0]).priorityHigh();
+            make.size.mas_offset([weakSelf.Image_View sizeWithPhotoCount:model.imgurl.count photosState:1]).priorityHigh();
         }else {
             make.height.offset(0.0f);
         }

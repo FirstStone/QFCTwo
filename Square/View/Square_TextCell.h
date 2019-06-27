@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)SquareTextCellIconViewClick:(NSString *)mid;
 
+- (void)SquareTextCellMoreButtonClick:(SquareRecommend_Model*)model QuestionsAndAnswersModel:(Square_QuestionsAndAnswers_List_Model *)ListModel Style:(NSInteger)index;
+
 @end
 
 @interface Square_TextCell : UITableViewCell

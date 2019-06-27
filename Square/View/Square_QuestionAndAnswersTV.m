@@ -103,6 +103,9 @@
 #pragma mark----SquareTextCellDelegate
 - (void)SquareTextCellIconViewClick:(NSString *)mid {
     Square_Prsonal_Details_VC *preVC  = [[Square_Prsonal_Details_VC alloc] init];
+    preVC.backBlock = ^{
+        [self beginFresh];
+    };
     preVC.uid = mid;
     [preVC setHidesBottomBarWhenPushed:YES];
     [self.My_NAVC pushViewController:preVC animated:YES];
@@ -111,6 +114,9 @@
 #pragma mark----SquareDefaultCellDelegate
 - (void)iconViewClick:(NSString *)mid {
     Square_Prsonal_Details_VC *preVC  = [[Square_Prsonal_Details_VC alloc] init];
+    preVC.backBlock = ^{
+        [self beginFresh];
+    };
     preVC.uid = mid;
     [preVC setHidesBottomBarWhenPushed:YES];
     [self.My_NAVC pushViewController:preVC animated:YES];

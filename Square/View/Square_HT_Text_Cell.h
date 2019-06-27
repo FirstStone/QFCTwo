@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)SquareHTTextCellIconImageViewClick:(NSString *)mid;
 
+- (void)SquareHTTextCellMoreButtonClick:(SquareRecommend_Model *)model;
+
 @end
 @interface Square_HT_Text_Cell : UITableViewCell
 

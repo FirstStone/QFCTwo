@@ -51,6 +51,7 @@
     }];*/
     
 }
+
 - (void)setUPUI {
     self.segmentedControl.sectionTitles = self.itemArray;
     self.segmentedControl.selectedSegmentIndex = 0;

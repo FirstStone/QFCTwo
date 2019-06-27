@@ -90,6 +90,15 @@
                             <action selector="AnswerButtonClaick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="C8e-Bk-hUy"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gV-Pe-tWm">
+                        <rect key="frame" x="422" y="66" width="30" height="30"/>
+                        <state key="normal" title="∙∙∙">
+                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="MoreButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="v3A-W0-sWR"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="B52-fc-SWe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="50O-VB-AEU"/>
@@ -109,6 +118,8 @@
                     <constraint firstItem="azc-nG-zLI" firstAttribute="centerY" secondItem="fOU-Uw-JkK" secondAttribute="centerY" id="m4g-C6-lKU"/>
                     <constraint firstAttribute="trailing" secondItem="ahZ-fz-Gr0" secondAttribute="trailing" id="pNi-I2-4Zf"/>
                     <constraint firstItem="KeR-9v-QhT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qsf-r0-khm"/>
+                    <constraint firstAttribute="trailing" secondItem="3gV-Pe-tWm" secondAttribute="trailing" constant="10" id="w0W-sR-yAO"/>
+                    <constraint firstItem="3gV-Pe-tWm" firstAttribute="centerY" secondItem="azc-nG-zLI" secondAttribute="centerY" id="weF-YA-mWA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

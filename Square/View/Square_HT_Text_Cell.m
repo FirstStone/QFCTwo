@@ -42,6 +42,13 @@
     }
 }
 
+- (IBAction)MoreButtonClick:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(SquareHTTextCellMoreButtonClick:)]) {
+        [self.delegate SquareHTTextCellMoreButtonClick:self.My_Model];
+    }
+    
+}
+
 - (void)setDataSoureToCell:(SquareRecommend_Model *)model {
     self.My_Model = model;
     [self.Photo_imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
@@ -52,7 +59,7 @@
     [self.pinglin_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
     [self.xihuang_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
     [self.fenxiang_BT setTitle:model.share_sum forState:UIControlStateNormal];
-    [self.Address_BT setTitle:model.address forState:UIControlStateNormal];
+//    [self.Address_BT setTitle:model.address forState:UIControlStateNormal];
 }
 
 

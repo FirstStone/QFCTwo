@@ -29,7 +29,10 @@
                                     <constraint firstAttribute="height" constant="30" id="kar-0V-VSQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快友123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc8-bz-UFJ">
@@ -54,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2H-GN-f36">
-                                <rect key="frame" x="294" y="137.5" width="41" height="12"/>
+                                <rect key="frame" x="181" y="137.5" width="41" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="N9J-yI-09j"/>
                                 </constraints>
@@ -64,7 +67,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYQ-m1-EST">
-                                <rect key="frame" x="237" y="137.5" width="43" height="12"/>
+                                <rect key="frame" x="124" y="137.5" width="43" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="mko-F4-BVv"/>
                                 </constraints>
@@ -74,7 +77,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REt-Lg-vZd">
-                                <rect key="frame" x="178" y="137.5" width="45" height="12"/>
+                                <rect key="frame" x="65" y="137.5" width="45" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="WCk-Iz-8IY"/>
                                 </constraints>
@@ -84,7 +87,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWd-Vp-w5l">
-                                <rect key="frame" x="123" y="137.5" width="41" height="12"/>
+                                <rect key="frame" x="10" y="137.5" width="41" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="C2Z-uF-fwN"/>
                                 </constraints>
@@ -93,18 +96,6 @@
                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <state key="selected" image="icon_Ding_Lv"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1j-ca-Zig">
-                                <rect key="frame" x="10" y="136.5" width="80" height="14"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Bwo-4H-fjD"/>
-                                    <constraint firstAttribute="height" constant="14" id="Y0g-gt-cvs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="地图定位位置信息" image="icon_Ditu_LV">
-                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAB-2H-J8r">
                                 <rect key="frame" x="115" y="19.5" width="38" height="15"/>
@@ -122,6 +113,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiL-En-efd">
+                                <rect key="frame" x="309" y="128.5" width="30" height="30"/>
+                                <state key="normal" title="∙∙∙">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="MoreButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fwf-nl-hAc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -129,23 +129,23 @@
                             <constraint firstItem="EBw-AO-Kkt" firstAttribute="top" secondItem="fFf-8O-yHR" secondAttribute="bottom" constant="12" id="1mO-am-2VQ"/>
                             <constraint firstItem="I2H-GN-f36" firstAttribute="leading" secondItem="QYQ-m1-EST" secondAttribute="trailing" constant="14" id="6jw-8f-88X"/>
                             <constraint firstItem="yc8-bz-UFJ" firstAttribute="leading" secondItem="fFf-8O-yHR" secondAttribute="trailing" constant="6" id="85d-Fz-Scc"/>
-                            <constraint firstItem="X1j-ca-Zig" firstAttribute="leading" secondItem="Xak-7W-PLC" secondAttribute="leading" constant="10" id="9go-mE-Q0W"/>
                             <constraint firstItem="QYQ-m1-EST" firstAttribute="centerY" secondItem="REt-Lg-vZd" secondAttribute="centerY" id="E6a-UJ-RsL"/>
                             <constraint firstItem="fFf-8O-yHR" firstAttribute="leading" secondItem="Xak-7W-PLC" secondAttribute="leading" constant="10" id="O4Y-1q-klF"/>
                             <constraint firstAttribute="trailing" secondItem="qRM-BO-Rsx" secondAttribute="trailing" constant="11" id="OaB-wS-fDK"/>
                             <constraint firstItem="qRM-BO-Rsx" firstAttribute="centerY" secondItem="yc8-bz-UFJ" secondAttribute="centerY" id="SQp-6a-F3g"/>
                             <constraint firstItem="REt-Lg-vZd" firstAttribute="leading" secondItem="AWd-Vp-w5l" secondAttribute="trailing" constant="14" id="UBi-yx-VuV"/>
+                            <constraint firstAttribute="trailing" secondItem="HiL-En-efd" secondAttribute="trailing" constant="10" id="Vac-kU-omZ"/>
                             <constraint firstAttribute="trailing" secondItem="EBw-AO-Kkt" secondAttribute="trailing" constant="10" id="WhT-jX-6Pg"/>
+                            <constraint firstItem="HiL-En-efd" firstAttribute="centerY" secondItem="I2H-GN-f36" secondAttribute="centerY" id="bWp-z6-Usj"/>
                             <constraint firstItem="yc8-bz-UFJ" firstAttribute="centerY" secondItem="fFf-8O-yHR" secondAttribute="centerY" id="cbz-Jg-ApQ"/>
                             <constraint firstItem="REt-Lg-vZd" firstAttribute="centerY" secondItem="AWd-Vp-w5l" secondAttribute="centerY" id="eom-gj-v2y"/>
                             <constraint firstItem="I2H-GN-f36" firstAttribute="top" secondItem="EBw-AO-Kkt" secondAttribute="bottom" constant="11" id="jCl-C3-XIV"/>
                             <constraint firstItem="EBw-AO-Kkt" firstAttribute="leading" secondItem="Xak-7W-PLC" secondAttribute="leading" constant="10" id="k4N-oq-QTK"/>
+                            <constraint firstItem="AWd-Vp-w5l" firstAttribute="leading" secondItem="Xak-7W-PLC" secondAttribute="leading" constant="10" id="lZT-tg-A3p"/>
                             <constraint firstItem="ZAB-2H-J8r" firstAttribute="centerY" secondItem="yc8-bz-UFJ" secondAttribute="centerY" id="le2-4d-fpj"/>
                             <constraint firstItem="fFf-8O-yHR" firstAttribute="top" secondItem="Xak-7W-PLC" secondAttribute="top" constant="12" id="oX3-m6-QmK"/>
                             <constraint firstItem="ZAB-2H-J8r" firstAttribute="leading" secondItem="yc8-bz-UFJ" secondAttribute="trailing" constant="16" id="ob6-Vq-mXo"/>
                             <constraint firstAttribute="bottom" secondItem="I2H-GN-f36" secondAttribute="bottom" constant="10" id="pus-pS-pr8"/>
-                            <constraint firstAttribute="trailing" secondItem="I2H-GN-f36" secondAttribute="trailing" constant="14" id="qGd-Y4-YG3"/>
-                            <constraint firstItem="AWd-Vp-w5l" firstAttribute="centerY" secondItem="X1j-ca-Zig" secondAttribute="centerY" id="t7O-sX-5Q8"/>
                             <constraint firstItem="I2H-GN-f36" firstAttribute="centerY" secondItem="REt-Lg-vZd" secondAttribute="centerY" id="xK3-YA-WPt"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -165,7 +165,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="Address_BT" destination="X1j-ca-Zig" id="Ldf-lh-ycy"/>
                 <outlet property="Ding_BT" destination="ZAB-2H-J8r" id="DpJ-hV-seH"/>
                 <outlet property="Name_Lable" destination="yc8-bz-UFJ" id="d9J-uA-vpm"/>
                 <outlet property="Photo_imageView" destination="fFf-8O-yHR" id="aJb-4k-qh2"/>
@@ -182,7 +181,6 @@
     <resources>
         <image name="icon_Ding_Hui" width="13" height="17"/>
         <image name="icon_Ding_Lv" width="13" height="17"/>
-        <image name="icon_Ditu_LV" width="13" height="14"/>
         <image name="icon_Fenxiang" width="13" height="12"/>
         <image name="icon_Pinglun" width="17" height="13.5"/>
         <image name="icon_Xihuan_hui" width="15" height="13"/>

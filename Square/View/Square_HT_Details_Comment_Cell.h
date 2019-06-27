@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**1 回复   2点赞*/
 - (void)SquareHTDetailsCommentCell:(NSInteger)index model:(Square_detailsDiscuss_Model *)model;
 
+- (void)SquareHTDetailsCommentCellMoreButton:(Square_detailsDiscuss_Model *)model;
+
 @end
 @interface Square_HT_Details_Comment_Cell : UITableViewCell
 
