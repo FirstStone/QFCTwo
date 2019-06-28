@@ -53,8 +53,8 @@
             [weakSelf LoadingDataSoure];
         }];
         self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            weakSelf.Page += 1;
             if (weakSelf.index < 4) {
-                weakSelf.Page += 1;
                 [weakSelf LoadingDataSoure];
             }else {
                 [weakSelf getgetDataSourePlazaanswersMoreList];
@@ -619,9 +619,9 @@
                 Square_WD_Model *model = [Square_WD_Model mj_objectWithKeyValues:dic];
                 [self.SquareRecommend_Array addObject:model];
             }
-            if (self.SquareRecommend_Array.count && self.Page == 1) {
+            if (!list_Array.count) {
                 [self hidenFooterView:NO];
-            }else {
+            }else if (!self.SquareRecommend_Array.count){
                 [self hidenFooterView:YES];
             }
             [self reloadData];

@@ -32,8 +32,13 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self LoadingDataSoure];
 }
+
 - (IBAction)LiftButtonPOP:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

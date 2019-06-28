@@ -8,7 +8,7 @@
 
 #import "Square_QuestionsAndAnswersVC.h"
 
-@interface Square_QuestionsAndAnswersVC ()<UIScrollViewDelegate>
+@interface Square_QuestionsAndAnswersVC ()<UIScrollViewDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *DownBackView;
 
@@ -38,13 +38,21 @@
 
 @property (nonatomic, strong) UILabel *Name_Label;
 
-
+@property (weak, nonatomic) IBOutlet UISearchBar *SearchBar;
 @end
 
 @implementation Square_QuestionsAndAnswersVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.SearchBar.delegate = self;
+    [self.SearchBar setImage:[UIImage imageNamed:@"icon_sousuo"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    UITextField *searchField = [self.SearchBar valueForKey:@"_searchField"];
+    searchField.backgroundColor = QFC_Color_97CFA9;
+    [searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [searchField setValue:[UIFont boldSystemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
+    searchField.textAlignment = NSTextAlignmentCenter;
+    
     UITapGestureRecognizer *DownViewZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(DownViewClick:)];
     [self.DownBackView addGestureRecognizer:DownViewZer];
     self.itemArray = @[@"默认", @"置顶"];

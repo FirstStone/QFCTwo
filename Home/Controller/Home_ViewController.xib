@@ -25,12 +25,15 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xf7-WL-JQF">
                     <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Brk-11-gPK" customClass="Basic_TableView">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </tableView>
+                    </subviews>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Brk-11-gPK" customClass="Basic_TableView">
-                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
-                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xnr-c5-Xmx" customClass="Home_NavigationView">
                     <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                     <subviews>
@@ -106,11 +109,7 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="xf7-WL-JQF" secondAttribute="trailing" id="0Xz-KY-1YT"/>
                 <constraint firstItem="xf7-WL-JQF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="9Dm-vs-Mp5"/>
                 <constraint firstItem="Xnr-c5-Xmx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="BI7-Qk-RQH"/>
-                <constraint firstItem="Brk-11-gPK" firstAttribute="top" secondItem="Xnr-c5-Xmx" secondAttribute="bottom" id="Eju-Iu-2ZM"/>
                 <constraint firstAttribute="bottom" secondItem="xf7-WL-JQF" secondAttribute="bottom" id="P5e-3g-ra6"/>
-                <constraint firstItem="Brk-11-gPK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Q8c-rD-6pB"/>
-                <constraint firstItem="Brk-11-gPK" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Wsi-h9-V3z"/>
-                <constraint firstItem="Brk-11-gPK" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="dud-fB-aIs"/>
                 <constraint firstItem="xf7-WL-JQF" firstAttribute="top" secondItem="Xnr-c5-Xmx" secondAttribute="bottom" id="jbP-3D-5kY"/>
                 <constraint firstItem="Xnr-c5-Xmx" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="qty-hg-7PT"/>
                 <constraint firstItem="Xnr-c5-Xmx" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="xae-OF-SWg"/>

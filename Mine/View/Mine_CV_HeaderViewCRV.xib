@@ -160,7 +160,7 @@
                         <constraint firstItem="Ir0-jp-SJp" firstAttribute="top" secondItem="saA-Li-ikX" secondAttribute="bottom" constant="5" id="yyx-R5-JbC"/>
                     </constraints>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQ7-fA-fxE">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQ7-fA-fxE">
                     <rect key="frame" x="10" y="154" width="364" height="145"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的钱柜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znt-qr-uUM">

@@ -131,7 +131,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 // iOS 10 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
-    [self play];
+//    [self play];
     // Required
     NSDictionary * userInfo = response.notification.request.content.userInfo;
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
@@ -262,7 +262,55 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    if ([url.host isEqualToString:@"safepay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"reslut = %@",resultDic);
+            NSString *subTitle = @"";
+            NSString *resultStatus = resultDic[@"resultStatus"];
+            switch ([resultStatus intValue]) {
+                case 9000:
+                    subTitle = @"支付成功";
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"AlipalyPaySuccess" object:nil];
+                    //移除购买成功商品
+                    //                     [self removesuessInfo];
+                    break;
+                case 8000:
+                {
+                    subTitle = @"正在处理中";
+                    
+                }
+                    break;
+                case 4000:
+                {
+                    subTitle = @"支付失败";
+                }
+                    break;
+                case 6001:
+                {
+                    subTitle = @"已取消";
+                }
+                    break;
+                case 6002:
+                {
+                    subTitle = @"网络连接出错";
+                }
+                    break;
+                default:
+                    break;
+            }
+            NSLog(@"resultStatus==%@",resultStatus);
+            [SVProgressHUD showSuccessWithStatus:subTitle];
+            [SVProgressHUD dismissWithDelay:0.7f];
+        }];
+    }else {//微信登录if ([url.host isEqualToString:@"oauth"])
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    return YES;
+}
+
+/*- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
 //    [WXApi handleOpenURL:url delegate:self];
     if ([url.host isEqualToString:@"safepay"]) {
@@ -306,11 +354,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
             [SVProgressHUD showSuccessWithStatus:subTitle];
             [SVProgressHUD dismissWithDelay:0.7f];
         }];
-    }else if ([url.host isEqualToString:@"oauth"]){//微信登录
+    }else {//微信登录if ([url.host isEqualToString:@"oauth"])
         return [WXApi handleOpenURL:url delegate:self];
     }
     return YES;
-}
+}*/
 
 //微信SDK自带的方法，处理从微信客户端完成操作后返回程序之后的回调方法,显示支付结果的
 -(void)onResp:(BaseResp*)resp

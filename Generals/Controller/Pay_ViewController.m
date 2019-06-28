@@ -32,8 +32,8 @@
 @implementation Pay_ViewController
 
 - (void)viewDidLoad {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AlipalyPaySuccess) name:@"AlipalyPaySuccess" object:nil];
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AlipalyPaySuccess) name:@"AlipalyPaySuccess" object:nil];
     UITapGestureRecognizer *ApliayZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ApliayZer:)];
     [self.Apliay_View addGestureRecognizer:ApliayZer];
     
@@ -140,7 +140,7 @@
 }
 
 - (void)ApliayPay:(NSString *)SearchStr {
-    [[AlipaySDK defaultService] payOrder:SearchStr fromScheme:@"2019042664354132" callback:^(NSDictionary *resultDic) {
+    [[AlipaySDK defaultService] payOrder:SearchStr fromScheme:@"QFC" callback:^(NSDictionary *resultDic) {
         NSLog(@"reslut = %@",resultDic);
         NSString *subTitle = @"";
         NSString *resultStatus = resultDic[@"resultStatus"];

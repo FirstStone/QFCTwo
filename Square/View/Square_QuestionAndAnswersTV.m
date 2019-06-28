@@ -111,6 +111,41 @@
     [self.My_NAVC pushViewController:preVC animated:YES];
 }
 
+- (void)SquareTextCellMoreButtonClick:(SquareRecommend_Model *)model QuestionsAndAnswersModel:(Square_QuestionsAndAnswers_List_Model *)ListModel Style:(NSInteger)index {
+    UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *oneAction = [UIAlertAction actionWithTitle:@"屏蔽此条动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+        if (index == 1) {
+            [self PostindexPlazasShieldOne:model.SquareRecommend_ID pid:model.uid];
+        } else {
+            [self PostindexPlazasShieldOne:ListModel.item_id pid:ListModel.uid];
+        }
+    }];
+    UIAlertAction *TowAction = [UIAlertAction actionWithTitle:@"屏蔽他的动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+        if (index == 1) {
+            [self PostindexPlazasBlock:model.uid];
+        } else {
+            [self PostindexPlazasBlock:ListModel.uid];
+        }
+    }];
+    UIAlertAction *ThreeAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        Square_Complaint_ViewController *complaintVC = [[Square_Complaint_ViewController alloc] init];
+        [complaintVC setHidesBottomBarWhenPushed:YES];
+        [self.My_NAVC pushViewController:complaintVC animated:YES];
+        //成功返回Block
+    }];
+    [alertV addAction:cancelAction];
+    [alertV addAction:oneAction];
+    [alertV addAction:TowAction];
+    [alertV addAction:ThreeAction];
+    
+    [self.My_NAVC presentViewController:alertV animated:YES completion:nil];
+}
+
 #pragma mark----SquareDefaultCellDelegate
 - (void)iconViewClick:(NSString *)mid {
     Square_Prsonal_Details_VC *preVC  = [[Square_Prsonal_Details_VC alloc] init];
@@ -129,6 +164,40 @@
     }
 }
 
+- (void)SquareHTImageCellMoreButtonClick:(SquareRecommend_Model *)model QuestionsAndAnswersModel:(Square_QuestionsAndAnswers_List_Model *)ListModel Style:(NSInteger)index {
+    UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *oneAction = [UIAlertAction actionWithTitle:@"屏蔽此条动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+        if (index == 1) {
+            [self PostindexPlazasShieldOne:model.SquareRecommend_ID pid:model.uid];
+        } else {
+            [self PostindexPlazasShieldOne:ListModel.item_id pid:ListModel.uid];
+        }
+    }];
+    UIAlertAction *TowAction = [UIAlertAction actionWithTitle:@"屏蔽他的动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+        if (index == 1) {
+            [self PostindexPlazasBlock:model.uid];
+        } else {
+            [self PostindexPlazasBlock:ListModel.uid];
+        }
+    }];
+    UIAlertAction *ThreeAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        Square_Complaint_ViewController *complaintVC = [[Square_Complaint_ViewController alloc] init];
+        [complaintVC setHidesBottomBarWhenPushed:YES];
+        [self.My_NAVC pushViewController:complaintVC animated:YES];
+        //成功返回Block
+    }];
+    [alertV addAction:cancelAction];
+    [alertV addAction:oneAction];
+    [alertV addAction:TowAction];
+    [alertV addAction:ThreeAction];
+    
+    [self.My_NAVC presentViewController:alertV animated:YES completion:nil];
+}
 
 #pragma mark----UPdata
 /**
@@ -193,6 +262,57 @@
             [MBProgressHUD py_showError:@"操作成功" toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
             [self LoadingDataSoure];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
+
+- (void)PostindexPlazasShieldOne:(NSString *)plazaid pid:(NSString *)pid{
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue] == [pid intValue]) {
+        [MBProgressHUD py_showError:@"不能屏蔽自己的动态哦" toView:nil];
+        return;
+    }
+    /**
+     index/plazas/shieldOne
+     uid
+     plazaid
+     屏蔽单条
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:plazaid forKey:@"plazaid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_plazas_shieldOne parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [self beginFresh];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
+- (void)PostindexPlazasBlock:(NSString *)pid {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue] == [pid intValue]) {
+        [MBProgressHUD py_showError:@"不能屏蔽自己哦" toView:nil];
+        return;
+    }
+    /**
+     index/plazas/block
+     uid
+     pid
+     拉黑  屏蔽此人
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:pid forKey:@"pid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_plazas_block parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [self beginFresh];
         }
     } failure:^(NSError * _Nonnull error) {
         [MBProgressHUD py_showError:@"操作失败" toView:nil];
