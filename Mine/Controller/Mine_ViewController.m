@@ -217,7 +217,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return CGSizeMake(SCREEN_WIDTH, 300.0f );//200.0f
+        return CGSizeMake(SCREEN_WIDTH, 300.0f);//200.0f
     }else {
         return CGSizeMake(SCREEN_WIDTH, 40.0f);
     }
@@ -352,8 +352,12 @@
                 case 3://发现更多
                 {
                     if (indexPath.row == 0) {//使用帮助
-                        [MBProgressHUD py_showError:@"暂未开通" toView:nil];
-                        [MBProgressHUD setAnimationDelay:0.7f];
+                        Mine_Agreement_VC *VC = [[Mine_Agreement_VC alloc] init];
+                        [VC setHidesBottomBarWhenPushed:YES];
+                        VC.Type = 5;
+                        [self.navigationController pushViewController:VC animated:YES];
+//                        [MBProgressHUD py_showError:@"暂未开通" toView:nil];
+//                        [MBProgressHUD setAnimationDelay:0.7f];
                     }else if (indexPath.row == 1) {//我的服务 快速入驻
                         if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 0) {//普通用户  入驻跳转
                             Mine_SettledIn_ViewController *settledinVC = [[Mine_SettledIn_ViewController alloc] init];
@@ -515,6 +519,10 @@
                 
             } else if (indexPath.section == 4) {//发现更多
                 if (indexPath.row == 0) {
+                    Mine_Agreement_VC *VC = [[Mine_Agreement_VC alloc] init];
+                    [VC setHidesBottomBarWhenPushed:YES];
+                    VC.Type = 5;
+                    [self.navigationController pushViewController:VC animated:YES];
                     //家政
                 }else if (indexPath.row == 1) {
                     //我的小店

@@ -200,6 +200,8 @@
 - (UITextField *)Money_Field {
     if (!_Money_Field) {
         _Money_Field = [[UITextField alloc] init];
+        _Money_Field.keyboardType = UIKeyboardTypeDecimalPad;
+        _Money_Field.placeholder = @"请输入提现金额，最多保留两位小数";
     }
     return _Money_Field;
 }
@@ -225,5 +227,7 @@
     }
     return _Sure_BT;
 }
+
+
 
 @end

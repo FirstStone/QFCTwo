@@ -48,10 +48,16 @@
 }
 
 - (IBAction)SureButtonClick:(id)sender {
-    if (self.Apliay_BT.selected) {
-        [self PostindexAlipayCharge];
+    NSString *balace = [NSString stringWithFormat:@"%0.2lf",[self.Price_Label.text doubleValue]];
+    if ([balace doubleValue]) {
+        if (self.Apliay_BT.selected) {
+            [self PostindexAlipayCharge];
+        }else {
+            [self PostindexWxpayChargeParameter];
+        }
     }else {
-        [self PostindexWxpayChargeParameter];
+        [MBProgressHUD py_showError:@"请输入充值金额" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
     }
 }
 

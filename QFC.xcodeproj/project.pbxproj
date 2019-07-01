@@ -300,6 +300,8 @@
 		37ACB95C22B1F3CA00C84669 /* HyphenateLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB90322B1F31E00C84669 /* HyphenateLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37ADB17122B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ADB16F22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m */; };
 		37ADB17222B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37ADB17022B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib */; };
+		37AE225F22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AE225D22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.m */; };
+		37AE226022C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37AE225E22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.xib */; };
 		37AE45D42293912000E4A6DC /* YMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AE45D32293912000E4A6DC /* YMTextView.m */; };
 		37AE45DA2293C4EC00E4A6DC /* Publish_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AE45D82293C4EB00E4A6DC /* Publish_Model.m */; };
 		37AE45DD2293D1C800E4A6DC /* PublishBT.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AE45DC2293D1C800E4A6DC /* PublishBT.m */; };
@@ -1090,6 +1092,9 @@
 		37ADB16E22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_AllEvaluate_Cell.h; sourceTree = "<group>"; };
 		37ADB16F22B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_AllEvaluate_Cell.m; sourceTree = "<group>"; };
 		37ADB17022B39B0C003E941B /* Mine_MyOrder_AllEvaluate_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_AllEvaluate_Cell.xib; sourceTree = "<group>"; };
+		37AE225C22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_Wallet_CashOut_VC_WX.h; sourceTree = "<group>"; };
+		37AE225D22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_Wallet_CashOut_VC_WX.m; sourceTree = "<group>"; };
+		37AE225E22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_Wallet_CashOut_VC_WX.xib; sourceTree = "<group>"; };
 		37AE45D22293911F00E4A6DC /* YMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTextView.h; sourceTree = "<group>"; };
 		37AE45D32293912000E4A6DC /* YMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTextView.m; sourceTree = "<group>"; };
 		37AE45D82293C4EB00E4A6DC /* Publish_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Publish_Model.m; sourceTree = "<group>"; };
@@ -2932,6 +2937,9 @@
 				37C458872271935C004CDE32 /* Mine_Wallet_CashOut_ViewController.h */,
 				37C458912271935C004CDE32 /* Mine_Wallet_CashOut_ViewController.m */,
 				37C4588D2271935C004CDE32 /* Mine_Wallet_CashOut_ViewController.xib */,
+				37AE225C22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.h */,
+				37AE225D22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.m */,
+				37AE225E22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.xib */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -3319,6 +3327,7 @@
 				37F5FFFC2265B9800012245D /* Message_RunErrands_Tableview_Cell.xib in Resources */,
 				37632D4C2275AE3A00EB09B7 /* Mine_Goods_Supervise_ViewController.xib in Resources */,
 				37B8B6D0226F358800434D61 /* Mine_SetUP_About_Me_VC.xib in Resources */,
+				37AE226022C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.xib in Resources */,
 				37C9E70522BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.xib in Resources */,
 				37B8B6DA226F358800434D61 /* Mine_SetUP_ViewController.xib in Resources */,
 				37C9E6FC22BC6B6B00443BC2 /* CityData.plist in Resources */,
@@ -3576,6 +3585,7 @@
 				37ACB93B22B1F31E00C84669 /* EaseConversationListViewController.m in Sources */,
 				37F2C22122B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m in Sources */,
 				37B8B6FB226F381900434D61 /* Mine_MyOrder_ButtonAndTableView_View.m in Sources */,
+				37AE225F22C9E92A00702136 /* Mine_Wallet_CashOut_VC_WX.m in Sources */,
 				37C3ECD42275482B006EB3C3 /* Home_HouseKeeping_ViewController.m in Sources */,
 				3783A404226EB76700A88C32 /* Home_ShoppingCart_ViewController.m in Sources */,
 				37B8B694226EFBC200434D61 /* Home_ShoppingCatr_Settlement_ViewController.m in Sources */,

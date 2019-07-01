@@ -113,6 +113,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     }else{
         //从通知设置界面进入应用
     }
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 // iOS 10 Support
@@ -247,6 +248,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    //在这个方法里输入如下清除方法
+    [application setApplicationIconBadgeNumber:0]; //清除角标
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];//清除APP所有通知消息
     [[NSNotificationCenter defaultCenter] postNotificationName:@"VersionAPP" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"setUPUIMapView" object:nil];
     [[EMClient sharedClient] applicationWillEnterForeground:application];

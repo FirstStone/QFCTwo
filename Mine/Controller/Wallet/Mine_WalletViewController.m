@@ -69,7 +69,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {//提现
-        Mine_Wallet_CashOut_ViewController *cashOutVC = [[Mine_Wallet_CashOut_ViewController alloc] init];
+//        Mine_Wallet_CashOut_ViewController *cashOutVC = [[Mine_Wallet_CashOut_ViewController alloc] init];
+        Mine_Wallet_CashOut_VC_WX *cashOutVC = [[Mine_Wallet_CashOut_VC_WX alloc] init];
+        cashOutVC.Balance = self.My_model.balance;
         [cashOutVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:cashOutVC animated:YES];
     }else if (indexPath.row == 1) {//充值

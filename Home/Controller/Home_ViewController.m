@@ -63,8 +63,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateApp) name:@"VersionAPP" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUPUIMapView) name:@"setUPUIMapView" object:nil];
     [self updateApp];
-    self.Icon_Array = @[@"icon_zhekou", @"icon_paotui", @"icon_jiazheng", @"icon_ershou", @"icon_zhaofang"];//@"icon_weixiu"
-    self.Title_Array = @[@"优享生鲜", @"快友跑腿", @"便民家政", @"跳蚤市场", @"友友找房"];
+    self.Icon_Array = @[@"icon_zhekou", @"icon_paotui", @"icon_jiazheng"];//@"icon_weixiu" , @"icon_ershou", @"icon_zhaofang"
+    self.Title_Array = @[@"优享生鲜", @"快友跑腿", @"便民家政"];//, @"跳蚤市场", @"友友找房"
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_CommunityActivities_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_CommunityActivities];
