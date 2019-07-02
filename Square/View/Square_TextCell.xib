@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="KGk-i7-Jjw" customClass="Square_TextCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="148" id="KGk-i7-Jjw" customClass="Square_TextCell">
             <rect key="frame" x="0.0" y="0.0" width="406" height="148"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -51,28 +51,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="近期工作需要急求1号线红坡南路站的房源，精装修 次卧也想，能做饭 独立厨卫，有房源的可以直接微信私信我，谢谢！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Db4-Il-WVP">
-                                <rect key="frame" x="10" y="54" width="366" height="48.5"/>
+                                <rect key="frame" x="10" y="54" width="366" height="42.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ig-W5-6VC">
-                                <rect key="frame" x="181" y="106.5" width="41" height="12"/>
+                                <rect key="frame" x="124" y="106.5" width="41" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="CjJ-Wb-NJQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="999  " image="icon_Fenxiang">
-                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGE-bn-mpX">
-                                <rect key="frame" x="124" y="106.5" width="43" height="12"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="TOb-9D-CBj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="999  " image="icon_Xihuan_hui">
                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
@@ -128,8 +118,8 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="7Ig-W5-6VC" secondAttribute="bottom" constant="14" id="1iO-hY-26E"/>
                             <constraint firstItem="CGu-EJ-Mxa" firstAttribute="leading" secondItem="xmZ-nG-QVj" secondAttribute="trailing" constant="6" id="3LP-bB-tBg"/>
-                            <constraint firstItem="7Ig-W5-6VC" firstAttribute="leading" secondItem="DGE-bn-mpX" secondAttribute="trailing" constant="14" id="473-sG-fTA"/>
                             <constraint firstItem="Db4-Il-WVP" firstAttribute="leading" secondItem="FFd-u1-dkZ" secondAttribute="leading" constant="10" id="52w-RO-CLX"/>
+                            <constraint firstItem="7Ig-W5-6VC" firstAttribute="leading" secondItem="AT4-NW-ALj" secondAttribute="trailing" constant="14" id="5mK-03-Ygx"/>
                             <constraint firstItem="CaR-dx-Zxn" firstAttribute="leading" secondItem="FFd-u1-dkZ" secondAttribute="leading" constant="10" id="6kZ-Sm-ewt"/>
                             <constraint firstItem="AT4-NW-ALj" firstAttribute="leading" secondItem="CaR-dx-Zxn" secondAttribute="trailing" constant="14" id="6zw-4i-UCu"/>
                             <constraint firstAttribute="trailing" secondItem="Db4-Il-WVP" secondAttribute="trailing" constant="10" id="7Hb-lQ-eML"/>
@@ -143,9 +133,7 @@
                             <constraint firstItem="2md-c2-Zph" firstAttribute="centerY" secondItem="CGu-EJ-Mxa" secondAttribute="centerY" id="Xfv-0D-VWk"/>
                             <constraint firstItem="p08-kb-zri" firstAttribute="centerY" secondItem="7Ig-W5-6VC" secondAttribute="centerY" id="aVf-3E-8Av"/>
                             <constraint firstItem="Db4-Il-WVP" firstAttribute="top" secondItem="xmZ-nG-QVj" secondAttribute="bottom" constant="12" id="kIP-Od-ybI"/>
-                            <constraint firstItem="DGE-bn-mpX" firstAttribute="centerY" secondItem="AT4-NW-ALj" secondAttribute="centerY" id="lfR-CS-hb9"/>
-                            <constraint firstItem="DGE-bn-mpX" firstAttribute="leading" secondItem="AT4-NW-ALj" secondAttribute="trailing" constant="14" id="ogt-Oc-U3u"/>
-                            <constraint firstItem="7Ig-W5-6VC" firstAttribute="top" secondItem="Db4-Il-WVP" secondAttribute="bottom" constant="4" id="wlV-sT-p7v"/>
+                            <constraint firstItem="7Ig-W5-6VC" firstAttribute="top" secondItem="Db4-Il-WVP" secondAttribute="bottom" constant="10" id="wlV-sT-p7v"/>
                             <constraint firstItem="xmZ-nG-QVj" firstAttribute="leading" secondItem="FFd-u1-dkZ" secondAttribute="leading" constant="10" id="zeN-9z-HtO"/>
                             <constraint firstItem="xmZ-nG-QVj" firstAttribute="top" secondItem="FFd-u1-dkZ" secondAttribute="top" constant="12" id="zsd-Fr-OAi"/>
                         </constraints>
@@ -174,7 +162,6 @@
                 <outlet property="fenxiang_BT" destination="7Ig-W5-6VC" id="o7X-ur-NVx"/>
                 <outlet property="pinglin_BT" destination="AT4-NW-ALj" id="iF6-iO-Yg7"/>
                 <outlet property="text_Label" destination="Db4-Il-WVP" id="qpl-cg-aeJ"/>
-                <outlet property="xihuang_BT" destination="DGE-bn-mpX" id="gwK-VY-RSe"/>
             </connections>
             <point key="canvasLocation" x="200.00000000000003" y="187.5"/>
         </tableViewCell>
@@ -184,7 +171,6 @@
         <image name="icon_Ding_Lv" width="13" height="17"/>
         <image name="icon_Fenxiang" width="13" height="12"/>
         <image name="icon_Pinglun" width="17" height="13.5"/>
-        <image name="icon_Xihuan_hui" width="15" height="13"/>
         <image name="icon_touxiang" width="30" height="30"/>
     </resources>
 </document>

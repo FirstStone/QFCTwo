@@ -66,12 +66,12 @@ static BOOL isProduction = FALSE;
     
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         NSString *Str = [[NSUserDefaults standardUserDefaults] objectForKey:User_Mid];
-        [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@", Str] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+        [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@Ky", Str] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
             if (aError==nil) {
                 NSLog(@"注册成功");
             }
         }];
-        [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@", Str] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+        [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@Ky", Str] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
             if (!aError) {
                 NSLog(@"-----------------------------------登录成功");
                 [[EMClient sharedClient] updatePushNotifiationDisplayName:[[NSUserDefaults standardUserDefaults] objectForKey:User_Nickname] completion:^(NSString *aDisplayName, EMError *aError) {

@@ -19,6 +19,8 @@
                 <outlet property="Sure_BT" destination="UWI-yJ-DQc" id="psO-ph-lSn"/>
                 <outlet property="WXPay_BT" destination="iB9-Hm-yuy" id="IpG-jt-MxY"/>
                 <outlet property="WXPay_View" destination="ZWd-81-dLJ" id="ETM-Nk-vwm"/>
+                <outlet property="YuE_View" destination="PBU-9B-vJQ" id="ql5-2V-am8"/>
+                <outlet property="YueE_BT" destination="Z1x-r6-Sk1" id="yeU-mg-MDm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -80,6 +82,9 @@
                                     </constraints>
                                     <state key="normal" title="Button" image="icon_Mine_SetUP_duigou_kong"/>
                                     <state key="selected" image="icon_Mine_SetUP_duigou"/>
+                                    <connections>
+                                        <action selector="ApliayButtonClick:" destination="-1" eventType="touchUpInside" id="olc-EQ-biY"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,6 +139,9 @@
                                     </constraints>
                                     <state key="normal" title="Button" image="icon_Mine_SetUP_duigou_kong"/>
                                     <state key="selected" image="icon_Mine_SetUP_duigou"/>
+                                    <connections>
+                                        <action selector="WXbuttonClick:" destination="-1" eventType="touchUpInside" id="JB2-LP-ND2"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,8 +163,66 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择付款方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJk-WE-rJG">
+                            <rect key="frame" x="10" y="162" width="92" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="qxr-cc-APc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBU-9B-vJQ">
+                            <rect key="frame" x="0.0" y="308" width="414" height="62"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_WDZH_yue" translatesAutoresizingMaskIntoConstraints="NO" id="qLe-ji-qIB">
+                                    <rect key="frame" x="10" y="13" width="36" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="36" id="APJ-K4-jF8"/>
+                                        <constraint firstAttribute="height" constant="36" id="Qvp-5z-nWx"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="余额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nS4-lu-f7a">
+                                    <rect key="frame" x="52" y="22.5" width="29" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1x-r6-Sk1">
+                                    <rect key="frame" x="389" y="23.5" width="15" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="15" id="74u-ee-0ez"/>
+                                        <constraint firstAttribute="height" constant="15" id="HUx-Oq-o0k"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="icon_Mine_SetUP_duigou_kong"/>
+                                    <state key="selected" image="icon_Mine_SetUP_duigou"/>
+                                    <connections>
+                                        <action selector="WXbuttonClick:" destination="-1" eventType="touchUpInside" id="6PC-Hd-89V"/>
+                                        <action selector="YuEButtonClick:" destination="-1" eventType="touchUpInside" id="4rA-I9-UoF"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="qLe-ji-qIB" firstAttribute="top" secondItem="PBU-9B-vJQ" secondAttribute="top" constant="13" id="EGV-BT-IPr"/>
+                                <constraint firstAttribute="trailing" secondItem="Z1x-r6-Sk1" secondAttribute="trailing" constant="10" id="ELl-Le-HgM"/>
+                                <constraint firstItem="nS4-lu-f7a" firstAttribute="centerY" secondItem="qLe-ji-qIB" secondAttribute="centerY" id="GvA-cI-Li2"/>
+                                <constraint firstAttribute="bottom" secondItem="qLe-ji-qIB" secondAttribute="bottom" constant="13" id="MO6-7I-Pk7"/>
+                                <constraint firstItem="nS4-lu-f7a" firstAttribute="leading" secondItem="qLe-ji-qIB" secondAttribute="trailing" constant="6" id="YUV-hB-5tm"/>
+                                <constraint firstItem="qLe-ji-qIB" firstAttribute="leading" secondItem="PBU-9B-vJQ" secondAttribute="leading" constant="10" id="dEa-Mh-fvx"/>
+                                <constraint firstItem="Z1x-r6-Sk1" firstAttribute="centerY" secondItem="qLe-ji-qIB" secondAttribute="centerY" id="qft-Dv-XF3"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorWithUIColor">
+                                    <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-yJ-DQc">
-                            <rect key="frame" x="10" y="377" width="394" height="33"/>
+                            <rect key="frame" x="10" y="440" width="394" height="33"/>
                             <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="1dH-Ak-SsX"/>
@@ -174,21 +240,13 @@
                                 <action selector="ButtonClick:" destination="-1" eventType="touchUpInside" id="jOe-g7-KoK"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择付款方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJk-WE-rJG">
-                            <rect key="frame" x="10" y="162" width="92" height="15"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="15" id="qxr-cc-APc"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="MDB-tb-peC" firstAttribute="centerX" secondItem="AnE-J8-BZ3" secondAttribute="centerX" id="1rH-H5-Evn"/>
                         <constraint firstItem="l8X-h3-Xio" firstAttribute="top" secondItem="MDB-tb-peC" secondAttribute="bottom" constant="15" id="BgC-Wc-5ml"/>
-                        <constraint firstItem="UWI-yJ-DQc" firstAttribute="top" secondItem="ZWd-81-dLJ" secondAttribute="bottom" constant="70" id="EWy-VH-UG1"/>
+                        <constraint firstItem="PBU-9B-vJQ" firstAttribute="top" secondItem="ZWd-81-dLJ" secondAttribute="bottom" constant="1" id="EJs-4L-lWR"/>
+                        <constraint firstAttribute="trailing" secondItem="PBU-9B-vJQ" secondAttribute="trailing" id="Fgl-hQ-8Uv"/>
                         <constraint firstItem="GJk-WE-rJG" firstAttribute="leading" secondItem="AnE-J8-BZ3" secondAttribute="leading" constant="10" id="GfN-Bh-75H"/>
                         <constraint firstItem="MDB-tb-peC" firstAttribute="top" secondItem="AnE-J8-BZ3" secondAttribute="top" constant="50" id="MZb-wy-Mub"/>
                         <constraint firstItem="ZWd-81-dLJ" firstAttribute="leading" secondItem="AnE-J8-BZ3" secondAttribute="leading" id="Mdf-BW-9xX"/>
@@ -197,6 +255,8 @@
                         <constraint firstItem="GJk-WE-rJG" firstAttribute="top" secondItem="l8X-h3-Xio" secondAttribute="bottom" constant="45" id="b9h-SK-zyc"/>
                         <constraint firstItem="ZWd-81-dLJ" firstAttribute="top" secondItem="Y8N-wR-Fb8" secondAttribute="bottom" constant="1" id="j1b-AV-anJ"/>
                         <constraint firstAttribute="trailing" secondItem="ZWd-81-dLJ" secondAttribute="trailing" id="kIu-aw-3KS"/>
+                        <constraint firstItem="UWI-yJ-DQc" firstAttribute="top" secondItem="PBU-9B-vJQ" secondAttribute="bottom" constant="70" id="kiy-bh-uF4"/>
+                        <constraint firstItem="PBU-9B-vJQ" firstAttribute="leading" secondItem="AnE-J8-BZ3" secondAttribute="leading" id="nCa-M3-yHa"/>
                         <constraint firstItem="UWI-yJ-DQc" firstAttribute="leading" secondItem="AnE-J8-BZ3" secondAttribute="leading" constant="10" id="pLf-Y3-fFP"/>
                         <constraint firstItem="Y8N-wR-Fb8" firstAttribute="top" secondItem="GJk-WE-rJG" secondAttribute="bottom" constant="5" id="srQ-LO-DXz"/>
                         <constraint firstItem="Y8N-wR-Fb8" firstAttribute="leading" secondItem="AnE-J8-BZ3" secondAttribute="leading" id="xJp-1E-iGx"/>
@@ -221,6 +281,7 @@
         <image name="icon_Mine_SetUP_duigou" width="13.333333015441895" height="13.333333015441895"/>
         <image name="icon_Mine_SetUP_duigou_kong" width="14" height="14"/>
         <image name="icon_WDZH_weixin" width="35.5" height="35.5"/>
+        <image name="icon_WDZH_yue" width="42" height="42"/>
         <image name="icon_WDZH_zhifubao" width="36" height="36"/>
     </resources>
 </document>

@@ -606,8 +606,10 @@
 - (void)setImageToBacker {
     NSMutableArray *imageArray = [[NSMutableArray alloc] init];
     for (UIImage *photo in self.photoView.images) {
+//        UIImage *resultImage = [UIImage decodedAndScaledDownImageWithImage:photo];
+        UIImage *resultImage = [self compressImageQuality:photo toByte:100];
         UploadParam *image = [[UploadParam alloc] init];
-        image.data = UIImagePNGRepresentation(photo);
+        image.data = UIImagePNGRepresentation(resultImage);
         image.name = @"file[]";
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
@@ -616,9 +618,9 @@
         image.mimeType = @".jpg";
         [imageArray addObject:image];
     }
-    [MBProgressHUD py_showLoading:@"发布中。。。" toView:nil];
+    [SVProgressHUD showWithStatus:@"发布中..."];
     [[HttpRequest sharedInstance] uploadWithURLString:URL_commom_moreFiles parameters:nil uploadParam:imageArray success:^(NSDictionary * _Nonnull success) {
-        [MBProgressHUD setAnimationDelay:0.7f];
+        [SVProgressHUD dismissWithDelay:0.7f];
         NSLog(@"%@", success);
         if ([[success objectForKey:@"status"] intValue]) {
             [self.Sure_parm setObject:[success objectForKey:@"list"] forKey:@"imgurl"];
@@ -628,10 +630,31 @@
             [MBProgressHUD setAnimationDelay:0.7f];
         }
     } failure:^(NSError * _Nonnull error) {
-        [MBProgressHUD setAnimationDelay:0.7f];
+        [SVProgressHUD dismissWithDelay:0.7f];
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
+}
+
+- (UIImage *)compressImageQuality:(UIImage *)image toByte:(NSInteger)maxLength {
+    CGFloat compression = 0.1;
+    NSData *data = UIImageJPEGRepresentation(image, compression);
+    if (data.length < maxLength) return image;
+    CGFloat max = 1;
+    CGFloat min = 0;
+    for (int i = 0; i < 6; ++i) {
+        compression = (max + min) / 2;
+        data = UIImageJPEGRepresentation(image, compression);
+        if (data.length < maxLength * 0.9) {
+            min = compression;
+        } else if (data.length > maxLength) {
+            max = compression;
+        } else {
+            break;
+        }
+    }
+    UIImage *resultImage = [UIImage imageWithData:data];
+    return resultImage;
 }
 
 #pragma mark----UPdata
@@ -679,7 +702,7 @@
     [self.Sure_parm setObject:self.type_id forKey:@"type_id"];
     [self.Sure_parm setObject:self.setting_type forKey:@"setting"];
     [[HttpRequest sharedInstance] postWithURLString:URL_Plazas_plazaadd parameters:self.Sure_parm success:^(NSDictionary * _Nonnull responseObject) {
-        [MBProgressHUD setAnimationDelay:0.7f];
+        [SVProgressHUD dismissWithDelay:0.7f];
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             [MBProgressHUD py_showError:@"发布成功" toView:nil];
@@ -687,7 +710,7 @@
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     } failure:^(NSError * _Nonnull error) {
-        [MBProgressHUD setAnimationDelay:0.7f];
+        [SVProgressHUD dismissWithDelay:0.7f];
         [MBProgressHUD py_showError:@"发布失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];

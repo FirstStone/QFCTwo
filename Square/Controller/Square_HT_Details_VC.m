@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *Text_Field;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *inputViewConstrains;
 
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -31,6 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardFramChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     self.AddButtonState = YES;
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.delegate = self;
@@ -165,6 +167,13 @@
     }
     return _dataArray;
 }
+
+/*- (void)keyBoardFramChange:(NSNotification *)noti {
+    CGFloat windowHeight = [UIScreen mainScreen].bounds.size.height;
+    CGRect keyboardEndFrm = [noti.userInfo [UIKeyboardFrameEndUserInfoKey]CGRectValue];
+    CGFloat keyboardEndFrmY = keyboardEndFrm.origin.y;
+    self.inputViewConstrains.constant = windowHeight - keyboardEndFrmY;
+}*/
 
 #pragma mark----UPData
 

@@ -128,9 +128,15 @@
 
 
 - (void)balanceLabelClick:(UITapGestureRecognizer *)Zer {
-    Mine_WalletViewController *walletVC = [[Mine_WalletViewController alloc] init];
-    [walletVC setHidesBottomBarWhenPushed:YES];
-    [self.My_NVC pushViewController:walletVC animated:YES];
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        Mine_WalletViewController *walletVC = [[Mine_WalletViewController alloc] init];
+        [walletVC setHidesBottomBarWhenPushed:YES];
+        [self.My_NVC pushViewController:walletVC animated:YES];
+    } else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.My_NVC presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 

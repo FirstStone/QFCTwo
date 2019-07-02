@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *parent;
 /**评论*/
 @property (nonatomic, strong) NSString *discuss_sum;
-/**喜欢*/
+/**顶数量*/
 @property (nonatomic, strong) NSString *like_sum;
 /**分享*/
 @property (nonatomic, strong) NSString *share_sum;
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *attention;
 /**收藏*/
 @property (nonatomic, strong) NSString *collect;
-/**喜欢*/
+/**喜欢状态*/
 @property (nonatomic, strong) NSString *like;
 
 

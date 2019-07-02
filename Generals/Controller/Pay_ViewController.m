@@ -18,14 +18,20 @@
 
 @property (strong, nonatomic) IBOutlet UIView *WXPay_View;
 
+@property (strong, nonatomic) IBOutlet UIView *YuE_View;
+
 @property (strong, nonatomic) IBOutlet UIButton *Sure_BT;
 
 @property (strong, nonatomic) IBOutlet UIButton *Apliay_BT;
 
 @property (strong, nonatomic) IBOutlet UIButton *WXPay_BT;
 
+@property (strong, nonatomic) IBOutlet UIButton *YueE_BT;
+
+
 @property (nonatomic, strong) NSDictionary *DataSoure;
 
+@property (nonatomic, strong) NSString *Price;
 
 @end
 
@@ -39,8 +45,29 @@
     
     UITapGestureRecognizer *WXpayZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(WXpayZer:)];
     [self.WXPay_View addGestureRecognizer:WXpayZer];
+    
+    UITapGestureRecognizer *YuEZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(YuEZer:)];
+    [self.YuE_View addGestureRecognizer:YuEZer];
+    
     [self setDataSoureToBacker:self.OrderID];
 }
+- (IBAction)ApliayButtonClick:(id)sender {
+    self.Apliay_BT.selected = YES;
+    self.WXPay_BT.selected = NO;
+    self.YueE_BT.selected = NO;
+}
+- (IBAction)WXbuttonClick:(id)sender {
+    self.Apliay_BT.selected = NO;
+    self.WXPay_BT.selected = YES;
+    self.YueE_BT.selected = NO;
+}
+
+- (IBAction)YuEButtonClick:(id)sender {
+    self.YueE_BT.selected = YES;
+    self.WXPay_BT.selected = NO;
+    self.Apliay_BT.selected = NO;
+}
+
 
 - (IBAction)LiftButtonPOP:(id)sender {
     NSArray * viewControllers  = self.navigationController.viewControllers;
@@ -60,22 +87,32 @@
 - (void)ApliayZer:(UIGestureRecognizer *)zer {
     self.Apliay_BT.selected = YES;;
     self.WXPay_BT.selected = NO;
+    self.YueE_BT.selected = NO;
 }
 
 - (void)WXpayZer:(UIGestureRecognizer *)zer {
     self.Apliay_BT.selected = NO;;
     self.WXPay_BT.selected = YES;
+    self.YueE_BT.selected = NO;
 }
+- (void)YuEZer:(UIGestureRecognizer *)zer {
+    self.Apliay_BT.selected = NO;;
+    self.WXPay_BT.selected = NO;
+    self.YueE_BT.selected = YES;
+}
+
 
 - (IBAction)ButtonClick:(id)sender {
     if (self.Apliay_BT.selected) {//支付宝支付
         [self LoadingApliayDataSoure];
-    }else {//微信支付
+    }else if (self.WXPay_BT.selected){//微信支付
         if (self.Number == 1) {//二次付款
             [self PostIndexWxpayTwoParameter];
         }else {
              [self LoadingDataSoure];
         }
+    }else {//余额支付
+        [self PostIndexBalancepayYePay];
     }
 }
 
@@ -264,6 +301,38 @@
                 payResoult = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
                 break;
         }
+    }
+}
+
+- (void)PostIndexBalancepayYePay {
+    if ([[Singleton sharedSingleton].balance doubleValue] >= [[self.DataSoure objectForKey:@"price"] doubleValue]) {
+        /**
+         余额支付
+         URL : https://www.txkuaiyou.com/index/Balancepay/yePay
+         参数 :
+         uid
+         用户ID
+         orderid
+         订单ID
+         */
+        NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+        [parm setObject:[self.DataSoure objectForKey:@"id"] forKey:@"orderid"];
+        [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+        [[HttpRequest sharedInstance] postWithURLString:URL_Balancepay_yePay parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+            NSLog(@"%@", responseObject);
+            if ([[responseObject objectForKey:@"status"] intValue]) {
+                [self AlipalyPaySuccess];
+            }else {
+                [MBProgressHUD py_showError:@"支付失败" toView:nil];
+                [MBProgressHUD setAnimationDelay:0.7f];
+            }
+        } failure:^(NSError * _Nonnull error) {
+            [MBProgressHUD py_showError:@"操作失败" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }];
+    }else {
+        [MBProgressHUD py_showError:@"余额不足，请充值" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
     }
 }
 @end

@@ -72,6 +72,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.tableView beginFresh];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

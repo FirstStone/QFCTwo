@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *text_Label;
 @property (strong, nonatomic) IBOutlet UIButton *ding_BT;
 @property (strong, nonatomic) IBOutlet UIButton *pinglin_BT;
-@property (strong, nonatomic) IBOutlet UIButton *xihuang_BT;
 @property (strong, nonatomic) IBOutlet UIButton *fenxiang_BT;
 @property (strong, nonatomic) IBOutlet UIImageView *Lift_image;
 @property (strong, nonatomic) IBOutlet UIImageView *Middle_image;
@@ -80,14 +79,17 @@
     self.Lift_image.hidden = YES;
     self.Middle_image.hidden = YES;
     self.Right_image.hidden = YES;
-    self.ding_BT.selected = [model.likestatus intValue];
+    if ([model.likestatus intValue]) {
+        self.ding_BT.selected = YES;
+    }else {
+        self.ding_BT.selected = NO;
+    }
     [self.Photo_imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
     self.Name_Lable.text = model.nickname;
     self.Time_Label.text = model.createtime;
-    [self.ding_BT setTitle:model.like_sum forState:UIControlStateNormal];
-    [self.pinglin_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
-    [self.xihuang_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
-    [self.fenxiang_BT setTitle:model.share_sum forState:UIControlStateNormal];
+    [self.ding_BT setTitle:[NSString stringWithFormat:@"%@ ",model.like_sum] forState:UIControlStateNormal];
+    [self.pinglin_BT setTitle:[NSString stringWithFormat:@"%@ ",model.discuss_sum] forState:UIControlStateNormal];
+    [self.fenxiang_BT setTitle:[NSString stringWithFormat:@"%@ ",model.share_sum] forState:UIControlStateNormal];
     [self.Style_BT setTitle:[NSString stringWithFormat:@"  #%@  ",model.Type_name] forState:UIControlStateNormal];
     if (!model.Type_name.length) {
         self.Style_BT.hidden = YES;
@@ -137,14 +139,17 @@
     self.Lift_image.hidden = YES;
     self.Middle_image.hidden = YES;
     self.Right_image.hidden = YES;
-    self.ding_BT.selected = [model.likestatus intValue];
+    if ([model.likestatus intValue]) {
+        self.ding_BT.selected = YES;
+    }else {
+        self.ding_BT.selected = NO;
+    }
     [self.Photo_imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
     self.Name_Lable.text = model.nickname;
     self.Time_Label.text = model.createtime;
-    [self.ding_BT setTitle:model.like_sum forState:UIControlStateNormal];
-    [self.pinglin_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
-    [self.xihuang_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
-    [self.fenxiang_BT setTitle:model.share_sum forState:UIControlStateNormal];
+    [self.ding_BT setTitle:[NSString stringWithFormat:@"%@ ",model.like_sum] forState:UIControlStateNormal];
+    [self.pinglin_BT setTitle:[NSString stringWithFormat:@"%@ ",model.discuss_sum] forState:UIControlStateNormal];
+    [self.fenxiang_BT setTitle:[NSString stringWithFormat:@"%@ ",model.share_sum] forState:UIControlStateNormal];
     self.Style_BT.hidden = YES;
     self.text_Label.text = model.content;
 //    [self.Style_BT setTitle:[NSString stringWithFormat:@"  #%@  ",model.Type_name] forState:UIControlStateNormal];

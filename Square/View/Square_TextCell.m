@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *text_Label;
 @property (strong, nonatomic) IBOutlet UIButton *ding_BT;
 @property (strong, nonatomic) IBOutlet UIButton *pinglin_BT;
-@property (strong, nonatomic) IBOutlet UIButton *xihuang_BT;
 @property (strong, nonatomic) IBOutlet UIButton *fenxiang_BT;
 
 @property (nonatomic, strong) SquareRecommend_Model *My_Model;
@@ -65,27 +64,35 @@
 
 - (void)setDataSoureToCell:(SquareRecommend_Model *)model {
     self.My_Model = model;
+    if ([model.likestatus intValue]) {
+        self.ding_BT.selected = YES;
+    }else {
+        self.ding_BT.selected = NO;
+    }
     [self.Photo_imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
     self.Name_Lable.text = model.nickname;
     self.Time_Label.text = model.createtime;
     self.text_Label.text = model.content;
-    [self.ding_BT setTitle:model.like_sum forState:UIControlStateNormal];
-    [self.pinglin_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
-     [self.xihuang_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
-     [self.fenxiang_BT setTitle:model.share_sum forState:UIControlStateNormal];
+    [self.ding_BT setTitle:[NSString stringWithFormat:@"%@ ",model.like_sum] forState:UIControlStateNormal];
+    [self.pinglin_BT setTitle:[NSString stringWithFormat:@"%@ ",model.discuss_sum] forState:UIControlStateNormal];
+     [self.fenxiang_BT setTitle:[NSString stringWithFormat:@"%@ ",model.share_sum] forState:UIControlStateNormal];
 }
 
 - (void)setSquareQuestionsAndAnswersListModelToCell:(Square_QuestionsAndAnswers_List_Model *)model {
     self.My_ListModel = model;
+    if ([model.likestatus intValue]) {
+        self.ding_BT.selected = YES;
+    }else {
+        self.ding_BT.selected = NO;
+    }
     self.Praise_BT.hidden = YES;
     [self.Photo_imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]];
     self.Name_Lable.text = model.nickname;
     self.Time_Label.text = model.createtime;
     self.text_Label.text = model.content;
-    [self.ding_BT setTitle:model.like_sum forState:UIControlStateNormal];
-    [self.pinglin_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
-    [self.xihuang_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
-    [self.fenxiang_BT setTitle:model.share_sum forState:UIControlStateNormal];
+    [self.ding_BT setTitle:[NSString stringWithFormat:@"%@ ",model.like_sum] forState:UIControlStateNormal];
+    [self.pinglin_BT setTitle:[NSString stringWithFormat:@"%@ ",model.discuss_sum] forState:UIControlStateNormal];
+    [self.fenxiang_BT setTitle:[NSString stringWithFormat:@"%@ ",model.share_sum] forState:UIControlStateNormal];
 }
 
 @end

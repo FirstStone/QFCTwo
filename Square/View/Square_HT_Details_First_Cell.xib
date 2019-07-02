@@ -64,18 +64,8 @@
                             <action selector="ShareButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0V5-TH-h9N"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBr-dQ-ZNS">
-                        <rect key="frame" x="337" y="275.5" width="43" height="12"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="12" id="x3d-Nu-3Jd"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <state key="normal" title="999  " image="icon_Xihuan_hui">
-                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </state>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSw-ah-ngn">
-                        <rect key="frame" x="278" y="275.5" width="45" height="12"/>
+                        <rect key="frame" x="335" y="275.5" width="45" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="FKp-Ty-bJv"/>
                         </constraints>
@@ -85,7 +75,7 @@
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfo-qo-4NI">
-                        <rect key="frame" x="223" y="275.5" width="41" height="12"/>
+                        <rect key="frame" x="280" y="275.5" width="41" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="XDo-Xo-NXX"/>
                         </constraints>
@@ -161,19 +151,17 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="tSw-ah-ngn" firstAttribute="centerY" secondItem="Sfo-qo-4NI" secondAttribute="centerY" id="1RE-0Y-2cE"/>
-                    <constraint firstItem="KGG-5K-aca" firstAttribute="leading" secondItem="oBr-dQ-ZNS" secondAttribute="trailing" constant="14" id="3c0-9v-xQe"/>
                     <constraint firstAttribute="bottom" secondItem="KGG-5K-aca" secondAttribute="bottom" constant="14" id="5Xz-og-cls"/>
                     <constraint firstItem="tSw-ah-ngn" firstAttribute="leading" secondItem="Sfo-qo-4NI" secondAttribute="trailing" constant="14" id="6DU-6S-ull"/>
                     <constraint firstItem="HPX-zD-ind" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9ff-Bp-1S6"/>
                     <constraint firstAttribute="trailing" secondItem="KGG-5K-aca" secondAttribute="trailing" constant="10" id="CaO-vT-tc5"/>
-                    <constraint firstItem="oBr-dQ-ZNS" firstAttribute="centerY" secondItem="tSw-ah-ngn" secondAttribute="centerY" id="DLU-Op-8UC"/>
                     <constraint firstAttribute="trailing" secondItem="yP1-40-fqj" secondAttribute="trailing" constant="10" id="GWt-rJ-Loq"/>
-                    <constraint firstItem="oBr-dQ-ZNS" firstAttribute="leading" secondItem="tSw-ah-ngn" secondAttribute="trailing" constant="14" id="GmK-Sn-pV4"/>
                     <constraint firstAttribute="trailing" secondItem="JAl-nH-4ks" secondAttribute="trailing" constant="10" id="Ivb-jh-dBJ"/>
                     <constraint firstItem="JAl-nH-4ks" firstAttribute="centerY" secondItem="wZW-yh-De4" secondAttribute="centerY" id="JHx-ZB-kyO"/>
                     <constraint firstItem="Mck-a0-OPM" firstAttribute="leading" secondItem="HPX-zD-ind" secondAttribute="trailing" constant="10" id="JXt-KH-ns6"/>
                     <constraint firstItem="yP1-40-fqj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Quc-L2-Ttc"/>
                     <constraint firstItem="KGG-5K-aca" firstAttribute="centerY" secondItem="tSw-ah-ngn" secondAttribute="centerY" id="Rdy-bL-Wkm"/>
+                    <constraint firstItem="KGG-5K-aca" firstAttribute="leading" secondItem="tSw-ah-ngn" secondAttribute="trailing" constant="14" id="Ric-LZ-cRD"/>
                     <constraint firstItem="HPX-zD-ind" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SlP-hx-izf"/>
                     <constraint firstItem="qMi-9U-giE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="W11-eW-8wE"/>
                     <constraint firstItem="Mck-a0-OPM" firstAttribute="centerY" secondItem="HPX-zD-ind" secondAttribute="centerY" constant="-7" id="Yod-JG-xn2"/>
@@ -202,7 +190,6 @@
                 <outlet property="fenxiang_BT" destination="KGG-5K-aca" id="Gkb-ZX-L1C"/>
                 <outlet property="icon_imageView" destination="HPX-zD-ind" id="osO-wS-tzL"/>
                 <outlet property="pinglin_BT" destination="tSw-ah-ngn" id="RXL-ME-djf"/>
-                <outlet property="xihuang_BT" destination="oBr-dQ-ZNS" id="VaD-Lx-35z"/>
             </connections>
             <point key="canvasLocation" x="128.2608695652174" y="197.54464285714286"/>
         </tableViewCell>
@@ -212,7 +199,6 @@
         <image name="icon_Ding_Lv" width="13" height="17"/>
         <image name="icon_Fenxiang" width="13" height="12"/>
         <image name="icon_Pinglun" width="17" height="13.5"/>
-        <image name="icon_Xihuan_hui" width="15" height="13"/>
         <image name="icon_Xing_hui" width="15" height="15"/>
         <image name="icon_touxiang" width="30" height="30"/>
         <image name="icon_xing_lv" width="15" height="15"/>

@@ -24,7 +24,6 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *ding_BT;
 @property (strong, nonatomic) IBOutlet UIButton *pinglin_BT;
-@property (strong, nonatomic) IBOutlet UIButton *xihuang_BT;
 @property (strong, nonatomic) IBOutlet UIButton *fenxiang_BT;
 
 @property (nonatomic, strong) Square_Details_Model *My_Model;
@@ -66,7 +65,6 @@
     self.Name_Label.text = model.nickname;
     self.Time_Label.text = model.createtime;
     self.Collection_BT.selected = [model.collect intValue];
-    self.xihuang_BT.selected = [model.like intValue];
     self.Image_View.thumbnailUrls = model.imgurl;
     self.Image_View.originalUrls = model.imgurl;
     __weak typeof(self)weakSelf = self;
@@ -77,10 +75,9 @@
             make.height.offset(0.0f);
         }
     }];
-    [self.fenxiang_BT setTitle:model.share_sum forState:UIControlStateNormal];
-    [self.xihuang_BT setTitle:model.like_sum forState:UIControlStateNormal];
-    [self.pinglin_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
-    [self.ding_BT setTitle:model.parent forState:UIControlStateNormal];
+    [self.fenxiang_BT setTitle:[NSString stringWithFormat:@"%@ ",model.share_sum] forState:UIControlStateNormal];
+    [self.pinglin_BT setTitle:[NSString stringWithFormat:@"%@ ", model.discuss_sum] forState:UIControlStateNormal];
+    [self.ding_BT setTitle:[NSString stringWithFormat:@"%@ ", model.like_sum] forState:UIControlStateNormal];
     NSString *Bstr = @"";
     for (NSString *str in model.label) {
         Bstr = [NSString stringWithFormat:@"%@#%@",Bstr, str];

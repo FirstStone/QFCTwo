@@ -298,6 +298,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <PYSearch.h>
+#import <UIImage+ForceDecode.h>
 #endif
 
 #define QFC_PublishView_NSNotification @"QFCPublishViewNSNotification"
@@ -512,6 +513,17 @@
 
 
 #pragma mark----支付
+
+/**
+ 余额支付
+ URL : https://www.txkuaiyou.com/index/Balancepay/yePay
+ 参数 :
+ uid
+ 用户ID
+ orderid
+ 订单ID
+ */
+#define URL_Balancepay_yePay HTTPHeader@"index/Balancepay/yePay"
 
 /**
  微信余额提现
