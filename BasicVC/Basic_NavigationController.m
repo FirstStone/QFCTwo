@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PustViewToSelfView) name:WANG_LUO_STATE object:nil];
 //    self.delegate = self;
 //    //设置全屏滚动
 //    id target = self.interactivePopGestureRecognizer.delegate;
@@ -40,5 +41,11 @@
 - (void)handleNavigationTransition:(UIPanGestureRecognizer *)zer {
     
 }*/
+
+- (void)PustViewToSelfView {
+    NotDataSoureVC *vc = [[NotDataSoureVC alloc] init];
+//    UINavigationController *NAv = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 @end

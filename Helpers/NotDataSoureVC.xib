@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotDataSoureVC">
+            <connections>
+                <outlet property="tableView" destination="yW3-UE-7fC" id="7JR-RJ-RUX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh1-5G-lEH">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="c3f-K9-tOM"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="网络错误" id="Jws-tf-Gpk"/>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcI-uG-XJw">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yW3-UE-7fC">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="yW3-UE-7fC" secondAttribute="trailing" id="0V4-31-zvx"/>
+                        <constraint firstItem="yW3-UE-7fC" firstAttribute="top" secondItem="WcI-uG-XJw" secondAttribute="top" id="jyX-Na-k0D"/>
+                        <constraint firstItem="yW3-UE-7fC" firstAttribute="leading" secondItem="WcI-uG-XJw" secondAttribute="leading" id="nzu-Ew-ANT"/>
+                        <constraint firstAttribute="bottom" secondItem="yW3-UE-7fC" secondAttribute="bottom" id="tHP-j0-dp6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="WcI-uG-XJw" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="4gS-Se-C6U"/>
+                <constraint firstAttribute="bottom" secondItem="WcI-uG-XJw" secondAttribute="bottom" id="NHk-qD-F25"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Jh1-5G-lEH" secondAttribute="trailing" id="Pt3-qc-Uym"/>
+                <constraint firstItem="Jh1-5G-lEH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RnT-0O-GSI"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="WcI-uG-XJw" secondAttribute="trailing" id="aLe-dh-1ft"/>
+                <constraint firstItem="WcI-uG-XJw" firstAttribute="top" secondItem="Jh1-5G-lEH" secondAttribute="bottom" id="mWy-FN-wet"/>
+                <constraint firstItem="Jh1-5G-lEH" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="y6y-c5-R7G"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

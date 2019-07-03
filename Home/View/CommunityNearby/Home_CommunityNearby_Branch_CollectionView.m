@@ -134,6 +134,8 @@
             }];
         }
     } failure:^(NSError * _Nonnull error) {
+        [self.mj_header endRefreshing];
+        [self.mj_footer endRefreshing];
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];

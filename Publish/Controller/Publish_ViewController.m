@@ -45,14 +45,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (![Singleton sharedSingleton].formattedAddress.length) {
-        [self.Sure_parm setObject:@"" forKey:@"address"];
+    if ([Singleton sharedSingleton].formattedAddress.length) {
+           [self.Sure_parm setObject:[Singleton sharedSingleton].formattedAddress forKey:@"address"];
     }
-    if (![Singleton sharedSingleton].longitude.length || ![Singleton sharedSingleton].latitude.length){
-        [self.Sure_parm setObject:@"" forKey:@"longitude"];
-        [self.Sure_parm setObject:@"" forKey:@"latitude"];
-    }else {
-        [self.Sure_parm setObject:[Singleton sharedSingleton].formattedAddress forKey:@"address"];
+    if ([[Singleton sharedSingleton].longitude doubleValue] > 0 || [[Singleton sharedSingleton].latitude doubleValue] > 0){
         [self.Sure_parm setObject:[Singleton sharedSingleton].longitude forKey:@"longitude"];
         [self.Sure_parm setObject:[Singleton sharedSingleton].latitude forKey:@"latitude"];
     }
@@ -607,9 +603,9 @@
     NSMutableArray *imageArray = [[NSMutableArray alloc] init];
     for (UIImage *photo in self.photoView.images) {
 //        UIImage *resultImage = [UIImage decodedAndScaledDownImageWithImage:photo];
-        UIImage *resultImage = [self compressImageQuality:photo toByte:100];
+//        UIImage *resultImage = [self compressImageQuality:photo toByte:100];
         UploadParam *image = [[UploadParam alloc] init];
-        image.data = UIImagePNGRepresentation(resultImage);
+        image.data = UIImagePNGRepresentation(photo);//UIImageJPEGRepresentation([self f_resizeImage:photo capacityKB:100], [self getImage_Width_Hight_Ratio:photo]);
         image.name = @"file[]";
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
@@ -635,26 +631,43 @@
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
 }
+-(CGFloat)getImage_Width_Hight_Ratio:(UIImage *)img
+{
+    CGFloat _flt_ratioWH;
+    
+    _flt_ratioWH = img.size.width/img.size.height;
+    
+    return _flt_ratioWH;
+}
+-(NSData *)f_getJPEGDataFromUIImage:(UIImage *)image qualityRate:(CGFloat)qualityRate
+{
+    NSData *_data_img = UIImageJPEGRepresentation(image,qualityRate);
+    return _data_img;
+}
 
-- (UIImage *)compressImageQuality:(UIImage *)image toByte:(NSInteger)maxLength {
-    CGFloat compression = 0.1;
-    NSData *data = UIImageJPEGRepresentation(image, compression);
-    if (data.length < maxLength) return image;
-    CGFloat max = 1;
-    CGFloat min = 0;
-    for (int i = 0; i < 6; ++i) {
-        compression = (max + min) / 2;
-        data = UIImageJPEGRepresentation(image, compression);
-        if (data.length < maxLength * 0.9) {
-            min = compression;
-        } else if (data.length > maxLength) {
-            max = compression;
-        } else {
-            break;
-        }
+-(UIImage *)f_resizeImage:(UIImage *)img capacityKB:(NSInteger)capacityKB
+{
+    NSData *data_img = UIImagePNGRepresentation(img);
+    CGFloat flt_scale = 1.0;
+    UIImage *_img_scale = [UIImage imageWithData:data_img];
+    
+    while (data_img.length >= capacityKB*1024 && flt_scale-0.1>0)
+    {
+        flt_scale -=0.1;
     }
-    UIImage *resultImage = [UIImage imageWithData:data];
-    return resultImage;
+    // 不能循环压缩
+    _img_scale = [self f_resizeImage:_img_scale size:CGSizeMake(_img_scale.size.width*flt_scale, _img_scale.size.height*flt_scale)];
+    //data_img = UIImagePNGRepresentation(_img_scale);
+    
+    return _img_scale;
+}
+-(UIImage*)f_resizeImage:(UIImage*)oriImage size:(CGSize)size
+{
+    UIGraphicsBeginImageContext(CGSizeMake(size.width, size.height));
+    [oriImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *_img_resized = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return _img_resized;
 }
 
 #pragma mark----UPdata

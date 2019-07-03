@@ -217,7 +217,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return CGSizeMake(SCREEN_WIDTH, 300.0f);//200.0f
+        return CGSizeMake(SCREEN_WIDTH, 200.0f);// 300.0f
     }else {
         return CGSizeMake(SCREEN_WIDTH, 40.0f);
     }
@@ -252,7 +252,7 @@
                                 [houseKeepingVC setHidesBottomBarWhenPushed:YES];
                                 [self.navigationController pushViewController:houseKeepingVC animated:YES];
                                 
-                            }else {//商家
+                            }else if ([[Singleton sharedSingleton].type_id intValue] == 3){//商家
                                 Mine_MyOrder_Shop_ViewController *shopVC = [[Mine_MyOrder_Shop_ViewController alloc] init];
                                 shopVC.Number = 1;
                                 [shopVC setHidesBottomBarWhenPushed:YES];
@@ -279,7 +279,7 @@
                                 [houseKeepingVC setHidesBottomBarWhenPushed:YES];
                                 [self.navigationController pushViewController:houseKeepingVC animated:YES];
                                 
-                            }else {//商家
+                            }else if ([[Singleton sharedSingleton].type_id intValue] == 3){//商家
                                 Mine_MyOrder_Shop_ViewController *shopVC = [[Mine_MyOrder_Shop_ViewController alloc] init];
                                 shopVC.Number = 2;
                                 [shopVC setHidesBottomBarWhenPushed:YES];
@@ -306,7 +306,7 @@
                                 [houseKeepingVC setHidesBottomBarWhenPushed:YES];
                                 [self.navigationController pushViewController:houseKeepingVC animated:YES];
                                 
-                            }else {//商家
+                            }else if ([[Singleton sharedSingleton].type_id intValue] == 3){//商家
                                 Mine_MyOrder_Shop_ViewController *shopVC = [[Mine_MyOrder_Shop_ViewController alloc] init];
                                 shopVC.Number = 3;
                                 [shopVC setHidesBottomBarWhenPushed:YES];
@@ -407,7 +407,7 @@
                         [houseKeepingVC setHidesBottomBarWhenPushed:YES];
                         [self.navigationController pushViewController:houseKeepingVC animated:YES];
                         
-                    }else {//商家
+                    }else if ([[Singleton sharedSingleton].type_id intValue] == 3){//商家
                         Mine_MyOrder_Shop_ViewController *shopVC = [[Mine_MyOrder_Shop_ViewController alloc] init];
                         shopVC.Number = 1;
                         [shopVC setHidesBottomBarWhenPushed:YES];
@@ -435,7 +435,7 @@
                         [houseKeepingVC setHidesBottomBarWhenPushed:YES];
                         [self.navigationController pushViewController:houseKeepingVC animated:YES];
                         
-                    }else {//商家
+                    }else if ([[Singleton sharedSingleton].type_id intValue] == 3){//商家
                         Mine_MyOrder_Shop_ViewController *shopVC = [[Mine_MyOrder_Shop_ViewController alloc] init];
                         shopVC.Number = 2;
                         [shopVC setHidesBottomBarWhenPushed:YES];
@@ -462,7 +462,7 @@
                         [houseKeepingVC setHidesBottomBarWhenPushed:YES];
                         [self.navigationController pushViewController:houseKeepingVC animated:YES];
                         
-                    }else {//商家
+                    }else if ([[Singleton sharedSingleton].type_id intValue] == 3){//商家
                         Mine_MyOrder_Shop_ViewController *shopVC = [[Mine_MyOrder_Shop_ViewController alloc] init];
                         shopVC.Number = 3;
                         [shopVC setHidesBottomBarWhenPushed:YES];

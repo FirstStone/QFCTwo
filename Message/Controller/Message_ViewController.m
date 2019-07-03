@@ -34,18 +34,18 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.tableView.Page = 1;
         [weakSelf.dataArray removeAllObjects];
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 0) {//普通
-            weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心"]];
-            weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi"]];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 3) {//商家
+            weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心", @"商家接单中心"]];
+            weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi", @"icon_XX_shangjia"]];
         }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 1) {//跑腿
             weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心", @"跑腿抢单中心"]];
             weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi", @"icon_XX_paotui"]];
         } else if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 2) {//家政
             weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心", @"家政接单中心"]];
             weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi", @"icon_XX_jiazheng"]];
-        }else {//商家
-            weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心", @"商家接单中心"]];
-            weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi", @"icon_XX_shangjia"]];
+        }else {//普通
+            weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心"]];
+            weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi"]];
         }
         [weakSelf LoadingDataSoure];
     }];
@@ -234,6 +234,7 @@
         }
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
+        [self.tableView endRefresh];
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];

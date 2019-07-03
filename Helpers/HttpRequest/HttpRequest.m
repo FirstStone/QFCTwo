@@ -104,6 +104,9 @@ static id _instance = nil;
             success(dic);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error.code == -1009) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:WANG_LUO_STATE object:nil];
+        }
         if (failure) {
             failure(error);
         }

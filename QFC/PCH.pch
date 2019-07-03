@@ -246,6 +246,8 @@
 #import "Mine_Agreement_VC.h"
 #import "Square_Complaint_ViewController.h"
 #import "Mine_Wallet_CashOut_VC_WX.h"
+#import "NotDataSoureVC.h"
+
 
 //数据模型
 #import "Message_FansList_Model.h"
@@ -300,6 +302,8 @@
 #import <PYSearch.h>
 #import <UIImage+ForceDecode.h>
 #endif
+
+#define WANG_LUO_STATE @"QFCWLZT"
 
 #define QFC_PublishView_NSNotification @"QFCPublishViewNSNotification"
 /**用户界面刷新*/

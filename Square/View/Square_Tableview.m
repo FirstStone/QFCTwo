@@ -627,6 +627,7 @@
             [self reloadData];
         }
     } failure:^(NSError * _Nonnull error) {
+        [self endRefresh];
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
@@ -678,6 +679,7 @@
             [self reloadData];
         }
     } failure:^(NSError * _Nonnull error) {
+        [self endRefresh];
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
@@ -709,6 +711,7 @@
             [self reloadData];
         }
     } failure:^(NSError * _Nonnull error) {
+        [self endRefresh];
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];

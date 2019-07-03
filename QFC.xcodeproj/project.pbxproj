@@ -192,6 +192,8 @@
 		379A46FB228993A4003CAA46 /* Home_CommunityNearby_Branch_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379A46FA228993A4003CAA46 /* Home_CommunityNearby_Branch_CollectionView.m */; };
 		379A46FF228994C5003CAA46 /* Home_CommunityNearby_Branch_CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 379A46FD228994C5003CAA46 /* Home_CommunityNearby_Branch_CollectionViewCell.m */; };
 		379A4700228994C5003CAA46 /* Home_CommunityNearby_Branch_CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379A46FE228994C5003CAA46 /* Home_CommunityNearby_Branch_CollectionViewCell.xib */; };
+		37A0372322CCACD800672618 /* NotDataSoureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A0372122CCACD600672618 /* NotDataSoureVC.m */; };
+		37A0372422CCACD800672618 /* NotDataSoureVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A0372222CCACD600672618 /* NotDataSoureVC.xib */; };
 		37A29BD522534D4B00495D1B /* Home_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A29BD322534D4B00495D1B /* Home_ViewController.m */; };
 		37A29BD622534D4B00495D1B /* Home_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A29BD422534D4B00495D1B /* Home_ViewController.xib */; };
 		37A29BDC22534E7100495D1B /* Basic_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A29BDB22534E7100495D1B /* Basic_TableView.m */; };
@@ -874,6 +876,9 @@
 		379A46FC228994C5003CAA46 /* Home_CommunityNearby_Branch_CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_CommunityNearby_Branch_CollectionViewCell.h; sourceTree = "<group>"; };
 		379A46FD228994C5003CAA46 /* Home_CommunityNearby_Branch_CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_CommunityNearby_Branch_CollectionViewCell.m; sourceTree = "<group>"; };
 		379A46FE228994C5003CAA46 /* Home_CommunityNearby_Branch_CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_CommunityNearby_Branch_CollectionViewCell.xib; sourceTree = "<group>"; };
+		37A0372022CCACD600672618 /* NotDataSoureVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotDataSoureVC.h; sourceTree = "<group>"; };
+		37A0372122CCACD600672618 /* NotDataSoureVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotDataSoureVC.m; sourceTree = "<group>"; };
+		37A0372222CCACD600672618 /* NotDataSoureVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotDataSoureVC.xib; sourceTree = "<group>"; };
 		37A29BD222534D4B00495D1B /* Home_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_ViewController.h; sourceTree = "<group>"; };
 		37A29BD322534D4B00495D1B /* Home_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_ViewController.m; sourceTree = "<group>"; };
 		37A29BD422534D4B00495D1B /* Home_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_ViewController.xib; sourceTree = "<group>"; };
@@ -1893,6 +1898,9 @@
 				3734066922854BAE00FC38F9 /* ButtonAndLabel.m */,
 				37AE45DB2293D1C800E4A6DC /* PublishBT.h */,
 				37AE45DC2293D1C800E4A6DC /* PublishBT.m */,
+				37A0372022CCACD600672618 /* NotDataSoureVC.h */,
+				37A0372122CCACD600672618 /* NotDataSoureVC.m */,
+				37A0372222CCACD600672618 /* NotDataSoureVC.xib */,
 			);
 			path = Helpers;
 			sourceTree = SOURCE_ROOT;
@@ -3157,7 +3165,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -3208,6 +3216,7 @@
 				37F5FFDA2265A8DA0012245D /* Message_NotificationCenter_VC.xib in Resources */,
 				37B8B6F7226F381900434D61 /* Mine_MyOrder_HouseKeeping_Cell.xib in Resources */,
 				37C458A12271935F004CDE32 /* Mine_WalletViewController.xib in Resources */,
+				37A0372422CCACD800672618 /* NotDataSoureVC.xib in Resources */,
 				373406592285291E00FC38F9 /* Home_CommunityNearby_FirstEnjoy_ThreeCell.xib in Resources */,
 				37A29BE622534F9000495D1B /* Message_ViewController.xib in Resources */,
 				376D29FA22646389009EA443 /* Square_QuestionsAndAnswersVC.xib in Resources */,
@@ -3620,6 +3629,7 @@
 				37B8B72D226F38A400434D61 /* Mine_MyOrder_ViewController.m in Sources */,
 				37632D4B2275AE3A00EB09B7 /* Mine_Goods_Supervise_ViewController.m in Sources */,
 				1848501D2251DCAD002B7AA9 /* Basic_ViewController.m in Sources */,
+				37A0372322CCACD800672618 /* NotDataSoureVC.m in Sources */,
 				37DD14942260AFEB007FD9CB /* Publish_Lable_VC.m in Sources */,
 				37E04B6522C0999400693DB5 /* Mine_HouseKeep_Service_Cell.m in Sources */,
 				3749A864225AE485006940A3 /* Home_RecommendCell.m in Sources */,

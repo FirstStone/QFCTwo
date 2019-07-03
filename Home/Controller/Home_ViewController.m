@@ -54,12 +54,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self location];
-    [self initCompleteBlock];
+//    [self initCompleteBlock];
     [self configLocationManager];
     [self setUPUIMapView];
 //    self.view.backgroundColor = QFC_Color_Green;
 //    self.navigationController.delegate = self;
+    //定位
+//    self.locationManager = [[AMapLocationManager alloc] init];
+//    self.locationManager.delegate = self;
+////    self.locationManager.distanceFilter;
+//    [self.locationManager setLocatingWithReGeocode:YES];
+//    [self.locationManager startUpdatingLocation];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateApp) name:@"VersionAPP" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUPUIMapView) name:@"setUPUIMapView" object:nil];
     [self updateApp];
@@ -115,6 +121,11 @@
 //    self.navigationController.navigationBar.tintColor = QFC_Color_Green;
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self loadingHotTopDataSoure];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (IBAction)AddressButtonClick:(id)sender {
@@ -636,7 +647,8 @@
     if ([CLLocationManager locationServicesEnabled] && ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways)) {
         //定位功能可用
         //进行单次带逆地理定位请求
-        [self.locationManager requestLocationWithReGeocode:YES completionBlock:self.completionBlock];
+//        [self.locationManager requestLocationWithReGeocode:YES completionBlock:self.completionBlock];
+        [self.locationManager startUpdatingLocation];
         
     }else if ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusDenied) {
         //定位不能用
@@ -661,16 +673,17 @@
     [self.locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     
     //设置不允许系统暂停定位
-    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
+//    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
     
     //设置允许在后台定位
-    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+//    [self.locationManager setAllowsBackgroundLocationUpdates:NO];
     
     //设置定位超时时间
     [self.locationManager setLocationTimeout:DefaultLocationTimeout];
     
     //设置逆地理超时时间
     [self.locationManager setReGeocodeTimeout:DefaultReGeocodeTimeout];
+    [self.locationManager setLocatingWithReGeocode:YES];
 }
 
 - (void)initCompleteBlock
@@ -718,6 +731,28 @@
     };
 }
 #pragma mark - AMapLocationManager Delegate
+//- (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location
+//{
+//    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
+//}
+
+- (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode
+{
+    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
+//    if (reGeocode)
+//    {
+//        NSLog(@"reGeocode:%@", reGeocode);
+//    }
+    if (reGeocode) {
+        [Singleton sharedSingleton].formattedAddress = reGeocode.formattedAddress;
+        [Singleton sharedSingleton].City = reGeocode.city;
+        [self.Address_BT setTitle:reGeocode.city forState:UIControlStateNormal];
+    }
+    if (location) {
+        [Singleton sharedSingleton].latitude = [NSString stringWithFormat:@"%lf",location.coordinate.latitude];
+        [Singleton sharedSingleton].longitude = [NSString stringWithFormat:@"%lf",location.coordinate.longitude];
+    }
+}
 
 - (void)amapLocationManager:(AMapLocationManager *)manager doRequireLocationAuth:(CLLocationManager *)locationManager
 {
@@ -751,8 +786,11 @@
         if (!self.dataArray.count && self.tableView.Page == 1) {
             [self.tableView hidenFooterView:YES];
         }
-        [self.tableView reloadData];
+        if (self.dataArray.count) {
+            [self.tableView reloadData];
+        }
     } failure:^(NSError * _Nonnull error) {
+        [self.tableView endRefresh];
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
