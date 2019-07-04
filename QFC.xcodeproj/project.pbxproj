@@ -499,6 +499,8 @@
 		37EDA23D2282813300E7B0E5 /* PickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EDA23A2282813200E7B0E5 /* PickerView.m */; };
 		37EDA23E2282813300E7B0E5 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37EDA23B2282813200E7B0E5 /* City.plist */; };
 		37EDA2442283026E00E7B0E5 /* Mine_SetUP_MyAddress_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EDA2432283026E00E7B0E5 /* Mine_SetUP_MyAddress_Model.m */; };
+		37EFB1F022CDAB97000C958A /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EFB1EF22CDAB97000C958A /* TencentOpenAPI.framework */; };
+		37EFB1F122CDC2F8000C958A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37239F4F228A7B38002D2ADC /* SystemConfiguration.framework */; };
 		37F2C22122B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2C21F22B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m */; };
 		37F2C22222B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F2C22022B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.xib */; };
 		37F500002265CC760012245D /* Message_RunErrands_TableView_NoOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F5FFFE2265CC760012245D /* Message_RunErrands_TableView_NoOrderCell.m */; };
@@ -1407,6 +1409,7 @@
 		37EDA23B2282813200E7B0E5 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
 		37EDA2422283026E00E7B0E5 /* Mine_SetUP_MyAddress_Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_SetUP_MyAddress_Model.h; sourceTree = "<group>"; };
 		37EDA2432283026E00E7B0E5 /* Mine_SetUP_MyAddress_Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_SetUP_MyAddress_Model.m; sourceTree = "<group>"; };
+		37EFB1EF22CDAB97000C958A /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = Helpers/QQ/TencentOpenAPI.framework; sourceTree = "<group>"; };
 		37F2C21E22B2A05500F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_UserTuikuan_ViewController.h; sourceTree = "<group>"; };
 		37F2C21F22B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_UserTuikuan_ViewController.m; sourceTree = "<group>"; };
 		37F2C22022B2A05600F4FD5A /* Mine_MyOrder_UserTuikuan_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_UserTuikuan_ViewController.xib; sourceTree = "<group>"; };
@@ -1466,11 +1469,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37EFB1F122CDC2F8000C958A /* SystemConfiguration.framework in Frameworks */,
 				37AA7FBB22C2168E00101551 /* AudioToolbox.framework in Frameworks */,
 				37ACB91722B1F31E00C84669 /* libopencore-amrnb.a in Frameworks */,
 				37ACB91622B1F31E00C84669 /* libopencore-amrwb.a in Frameworks */,
 				37239F4E228A712C002D2ADC /* Foundation.framework in Frameworks */,
 				FFF0E536495254CE2740CDC6 /* libPods-QFC.a in Frameworks */,
+				37EFB1F022CDAB97000C958A /* TencentOpenAPI.framework in Frameworks */,
 				37ACB95A22B1F31E00C84669 /* HyphenateLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1872,6 +1877,7 @@
 		184850122251DC76002B7AA9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				37EFB1EE22CDAB97000C958A /* QQ */,
 				37C9E6ED22BC6B6A00443BC2 /* TLCityPicker */,
 				37ACB82A22B1F31D00C84669 /* 即时通信 */,
 				37EDA2362282813200E7B0E5 /* PickerView */,
@@ -3073,9 +3079,17 @@
 			path = PickerView;
 			sourceTree = "<group>";
 		};
+		37EFB1EE22CDAB97000C958A /* QQ */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QQ;
+			sourceTree = "<group>";
+		};
 		A78528FF9CF9687DECA729DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37EFB1EF22CDAB97000C958A /* TencentOpenAPI.framework */,
 				37AA7FBA22C2168D00101551 /* AudioToolbox.framework */,
 				37239F4F228A7B38002D2ADC /* SystemConfiguration.framework */,
 				37239F4D228A712C002D2ADC /* Foundation.framework */,
@@ -3991,6 +4005,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Helpers/即时通信/bak",
 					"$(PROJECT_DIR)/Helpers/即时通信",
+					"$(PROJECT_DIR)/Helpers/QQ",
 				);
 				GCC_PREFIX_HEADER = $SRCROOT/QFC/PCH.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -4089,6 +4104,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Helpers/即时通信/bak",
 					"$(PROJECT_DIR)/Helpers/即时通信",
+					"$(PROJECT_DIR)/Helpers/QQ",
 				);
 				GCC_PREFIX_HEADER = $SRCROOT/QFC/PCH.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (

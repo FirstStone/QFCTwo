@@ -266,6 +266,9 @@
 #import "Singleton.h"
 
 //第三方类库倒入
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+
 //激光推送
 // 引入 JPush 功能所需头文件
 #import "JPUSHService.h"
@@ -1491,6 +1494,14 @@ public static final String GET_ORDER_LIST = BASE_Client_URL+"index/Informations/
  验证码
  */
 #define URL_Login_noteLogin HTTPHeader@"index/Login/noteLogin"
+
+/**
+ QQ登录
+ index/login/Qqialogue
+ code
+ openid
+ */
+#define URL_Login_Qqialogue HTTPHeader@"index/login/Qqialogue"
 
 /**
  商品管理

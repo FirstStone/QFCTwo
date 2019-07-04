@@ -538,10 +538,11 @@
 }
 // 返回Cell内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Home_ShopStore_Model *model = self.dataArray[indexPath.row];
-    Home_ShopStore_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeShopStoreCell];
-    [cell SetDataSoureToCell:model];
-    return cell;
+        Home_ShopStore_Model *model = self.dataArray[indexPath.row];
+        Home_ShopStore_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeShopStoreCell];
+        [cell SetDataSoureToCell:model];
+        return cell;
+    
 /*    if (indexPath.row == 0) {
         Home_CommunityActivities_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_CommunityActivities];
         if (!cell) {

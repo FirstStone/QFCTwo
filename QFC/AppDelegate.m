@@ -308,11 +308,14 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
             [SVProgressHUD showSuccessWithStatus:subTitle];
             [SVProgressHUD dismissWithDelay:0.7f];
         }];
-    }else {//微信登录if ([url.host isEqualToString:@"oauth"])
+    }else if ([url.host isEqualToString:@"oauth"]) {//微信登录
         return [WXApi handleOpenURL:url delegate:self];
+    }else { //[url.host isEqualToString:@"qzapp"]//QQ 登录
+        return [TencentOAuth HandleOpenURL:url];
     }
     return YES;
 }
+
 
 /*- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {

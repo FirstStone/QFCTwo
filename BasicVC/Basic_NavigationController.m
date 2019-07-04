@@ -48,4 +48,8 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:WANG_LUO_STATE object:nil];
+}
+
 @end

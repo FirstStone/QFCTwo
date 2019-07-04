@@ -228,6 +228,9 @@
                                     <integer key="value" value="8"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="QQbuttonClick:" destination="-1" eventType="touchUpInside" id="0KG-On-OER"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
