@@ -605,7 +605,8 @@
 //        UIImage *resultImage = [UIImage decodedAndScaledDownImageWithImage:photo];
 //        UIImage *resultImage = [self compressImageQuality:photo toByte:100];
         UploadParam *image = [[UploadParam alloc] init];
-        image.data = UIImagePNGRepresentation(photo);//UIImageJPEGRepresentation([self f_resizeImage:photo capacityKB:100], [self getImage_Width_Hight_Ratio:photo]);
+        
+        image.data = UIImageJPEGRepresentation(photo, 0.1);//UIImagePNGRepresentation(photo);//UIImageJPEGRepresentation([self f_resizeImage:photo capacityKB:100], [self getImage_Width_Hight_Ratio:photo]);
         image.name = @"file[]";
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
