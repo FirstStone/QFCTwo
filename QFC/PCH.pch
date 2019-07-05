@@ -1520,7 +1520,7 @@ public static final String GET_ORDER_LIST = BASE_Client_URL+"index/Informations/
  URL : https://www.txkuaiyou.com/index/goodss/myGoodsDown
  参数 :
  goodsid    字符串 1,2,3
- type    1上架0下架
+ type    1上架0下
  */
 #define URL_goodss_myGoodsDown HTTPHeader@"index/goodss/myGoodsDown"
 
@@ -1532,6 +1532,15 @@ public static final String GET_ORDER_LIST = BASE_Client_URL+"index/Informations/
  字符串 1,2,3
  */
 #define URL_goodss_mygoodsDel HTTPHeader@"index/goodss/mygoodsDel"
+
+/**
+ 我的发布删除
+ index/plazas/delFindPlaza
+ uid
+ id
+ */
+#define URL_Index_Plazas_delFindPlaza HTTPHeader@"index/plazas/delFindPlaza"
+
 
 #pragma mark--活动管理
 /**

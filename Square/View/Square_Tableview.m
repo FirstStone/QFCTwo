@@ -50,6 +50,9 @@
         self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             weakSelf.Page = 1;
             [weakSelf.SquareRecommend_Array removeAllObjects];
+            if(weakSelf.index == 2 || weakSelf.index == 3) {
+                [weakSelf.SquareRecommend_Array addObject:[[SquareRecommend_Model alloc] init]];
+            }
             [weakSelf LoadingDataSoure];
         }];
         self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -279,6 +282,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ((self.index == 2 && indexPath.row == 0) || (self.index == 3 && indexPath.row == 0) ) {
+        return;
+    }
     if ([self.SquareRecommend_Array[indexPath.row] isMemberOfClass:[SquareRecommend_Model class]]) {
         SquareRecommend_Model *model = self.SquareRecommend_Array[indexPath.row];
         if ([model.status intValue] == 3) {//问答

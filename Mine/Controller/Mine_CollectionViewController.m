@@ -12,7 +12,7 @@
 #define CellID_SquareWDTextCell @"SquareWDTextCell"
 #define CellID_SquareWDImageAndTextCell @"SquareWDImageAndTextCell"
 #define CellID_SquareWDTextCell @"SquareWDTextCell"
-@interface Mine_CollectionViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface Mine_CollectionViewController ()<UITableViewDataSource, UITableViewDelegate, SquareTextCellDelegate, SquareHTImageCellDelegate, SquareWDTextCellDelegate, SquareWDImageAndTextCellDelegate>
 
 @property (strong, nonatomic) IBOutlet Basic_TableView *tableView;
 
@@ -30,7 +30,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Square_HT_ImageCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_SquareHTImageCell];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Square_WD_Text_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_SquareWDTextCell];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Square_WD_ImageAndText_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_SquareWDImageAndTextCell];
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Square_WD_Text_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_SquareWDTextCell];
     MJWeakSelf;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.tableView.Page = 1;
@@ -71,27 +70,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     SquareRecommend_Model *model = self.dataArray[indexPath.row];
-    
+
     if ([model.type intValue] == 1) {//1普通动态文字
         Square_TextCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_SquareTextCell];
+        cell.delegate = self;
         [cell setDataSoureToCell:model];
         return cell;
     }else if ([model.type intValue] == 2 ) {//2普通动态图文
         Square_HT_ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_SquareHTImageCell];
-        //        cell.delegate = self;
+        cell.delegate = self;
         [cell setDataSoureToCell:model];
         return cell;
         
     }else if ([model.type intValue] == 3 ) {//3回答文字
         Square_WD_Text_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_SquareWDTextCell];
+        cell.delegate = self;
         [cell setDataSoureToCell:model];
         return cell;
     }else if ([model.type intValue] == 4 ) {//4回答图文
         Square_WD_ImageAndText_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_SquareWDImageAndTextCell];
+        cell.delegate = self;
         [cell setDataSoureToCell:model];
         return cell;
     }else {// 5问题
         Square_WD_Text_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_SquareWDTextCell];
+        cell.delegate = self;
         [cell setDataSoureToCell:model];
         return cell;
     }
@@ -143,7 +146,103 @@
 }
 
 
+#pragma mark----SquareTextCellDelegate
+- (void)SquareTextCellMoreButtonClick:(SquareRecommend_Model *)model QuestionsAndAnswersModel:(Square_QuestionsAndAnswers_List_Model *)ListModel Style:(NSInteger)index {
+    UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"取消收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+        if (model.SquareRecommend_ID) {
+            [self setplazaCollectDataSoure:model.SquareRecommend_ID];
+        }else {
+            [self setplazaCollectDataSoure:ListModel.item_id];
+        }
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertV addAction:okAction];
+    [alertV addAction:cancelAction];
+    
+    [self presentViewController:alertV animated:YES completion:nil];
+}
+
+#pragma mark----SquareHTImageCellDelegate
+- (void)SquareHTImageCellMoreButtonClick:(SquareRecommend_Model *)model QuestionsAndAnswersModel:(Square_QuestionsAndAnswers_List_Model *)ListModel Style:(NSInteger)index {
+    UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"取消收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+        if (model.SquareRecommend_ID) {
+            [self setplazaCollectDataSoure:model.SquareRecommend_ID];
+        }else {
+            [self setplazaCollectDataSoure:ListModel.item_id];
+        }
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertV addAction:okAction];
+    [alertV addAction:cancelAction];
+    
+    [self presentViewController:alertV animated:YES completion:nil];
+}
 
 
+#pragma mark----SquareWDTextCellDelegate
+- (void)SquareWDTextCellMoreButtonClick:(SquareRecommend_Model *)model QuestionsAndAnswersModel:(Square_WD_Model *)WDModel Style:(NSInteger)index {
+    UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"取消收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+        if (model.SquareRecommend_ID) {
+            [self setplazaCollectDataSoure:model.SquareRecommend_ID];
+        }else {
+            [self setplazaCollectDataSoure:WDModel.WD_id];
+        }
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertV addAction:okAction];
+    [alertV addAction:cancelAction];
+    
+    [self presentViewController:alertV animated:YES completion:nil];
+}
+
+
+#pragma mark----SquareWDImageAndTextCellDelegate
+- (void)SquareWDImageAndTextCellMoreButtonClick:(SquareRecommend_Model *)model SquareWDModel:(Square_WD_Model *)ListModel Style:(NSInteger)index {
+    UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"取消收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+        if (model.SquareRecommend_ID) {
+            [self setplazaCollectDataSoure:model.SquareRecommend_ID];
+        }else {
+            [self setplazaCollectDataSoure:ListModel.WD_id];
+        }
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertV addAction:okAction];
+    [alertV addAction:cancelAction];
+    
+    [self presentViewController:alertV animated:YES completion:nil];
+}
+
+- (void)setplazaCollectDataSoure:(NSString *)modelID {
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:modelID forKey:@"id"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_Plazas_plazaCollect parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [MBProgressHUD py_showError:@"操作成功" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+            [self.tableView beginFresh];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:[NSString stringWithFormat:@"操作失败(d%)", error.code] toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
 
 @end
