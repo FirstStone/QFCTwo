@@ -51,6 +51,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *Chat_BT;
 
+@property (strong, nonatomic) IBOutlet UIButton *Store_BT;
+
 
 @end
 
@@ -184,6 +186,9 @@
                 self.Sex_LAbel.text = @" ♀ ";
             }else {
                 self.Sex_LAbel.text = @" ♂ ";
+            }
+            if ([self.Mymodel.type_id intValue] == 3) {
+                self.Store_BT.enabled = YES;
             }
             self.Address_Label.text = [NSString stringWithFormat:@"  %@-%@  ", self.Mymodel.country, self.Mymodel.province];
             self.Age_Label.text = [NSString stringWithFormat:@"  %@后  ", self.Mymodel.year];

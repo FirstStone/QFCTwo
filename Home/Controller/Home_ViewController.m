@@ -69,8 +69,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateApp) name:@"VersionAPP" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUPUIMapView) name:@"setUPUIMapView" object:nil];
     [self updateApp];
-    self.Icon_Array = @[@"icon_zhekou", @"icon_paotui", @"icon_jiazheng"];//@"icon_weixiu" , @"icon_ershou", @"icon_zhaofang"
-    self.Title_Array = @[@"优享生鲜", @"快友跑腿", @"便民家政"];//, @"跳蚤市场", @"友友找房"
+    self.Icon_Array = @[@"icon_zhekou", @"icon_paotui", @"icon_jiazheng", @"icon_weixiu"];// , @"icon_ershou", @"icon_zhaofang"
+    self.Title_Array = @[@"优享生鲜", @"快友跑腿", @"便民家政", @"快代扔"];//, @"跳蚤市场", @"友友找房"
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_CommunityActivities_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_CommunityActivities];
@@ -121,6 +121,7 @@
 //    self.navigationController.navigationBar.tintColor = QFC_Color_Green;
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self loadingHotTopDataSoure];
+    [self.tableView beginFresh];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -423,7 +424,11 @@
             Home_HouseKeeping_ViewController *houseVC = [[Home_HouseKeeping_ViewController alloc] init];
             [houseVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:houseVC animated:YES];
-        }else {
+        }else if (index == 3) {
+            Home_KDR_ViewController *KDRVC = [[Home_KDR_ViewController alloc] init];
+            [KDRVC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:KDRVC animated:YES];
+        } else {
             [MBProgressHUD py_showError:@"功能暂未开通" toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
         }
@@ -792,6 +797,7 @@
         }
     } failure:^(NSError * _Nonnull error) {
         [self.tableView endRefresh];
+        [self.tableView reloadData];
         [MBProgressHUD py_showError:@"加载失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];

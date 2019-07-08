@@ -379,6 +379,8 @@
 		37B8B730226F38A400434D61 /* Mine_MyOrder_Shop_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37B8B724226F38A400434D61 /* Mine_MyOrder_Shop_ViewController.xib */; };
 		37B8B731226F38A400434D61 /* Mine_MyOrder_Shop_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B725226F38A400434D61 /* Mine_MyOrder_Shop_ViewController.m */; };
 		37B8B732226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B727226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.m */; };
+		37BF7A9E22D323C700BEBF7F /* Home_KDR_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF7A9C22D323C700BEBF7F /* Home_KDR_ViewController.m */; };
+		37BF7A9F22D323C700BEBF7F /* Home_KDR_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37BF7A9D22D323C700BEBF7F /* Home_KDR_ViewController.xib */; };
 		37C24F2B22A756570062B4B2 /* Square_Answer_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C24F2922A756560062B4B2 /* Square_Answer_VC.m */; };
 		37C24F2C22A756570062B4B2 /* Square_Answer_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C24F2A22A756560062B4B2 /* Square_Answer_VC.xib */; };
 		37C3ECD42275482B006EB3C3 /* Home_HouseKeeping_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C3ECD22275482B006EB3C3 /* Home_HouseKeeping_ViewController.m */; };
@@ -1220,6 +1222,9 @@
 		37B8B726226F38A400434D61 /* Mine_MyOrder_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_ViewController.h; sourceTree = "<group>"; };
 		37B8B727226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_User_Service_ViewController.m; sourceTree = "<group>"; };
 		37B8B728226F38A400434D61 /* Mine_MyOrder_RunErrands_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_RunErrands_ViewController.h; sourceTree = "<group>"; };
+		37BF7A9B22D323C700BEBF7F /* Home_KDR_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_ViewController.h; sourceTree = "<group>"; };
+		37BF7A9C22D323C700BEBF7F /* Home_KDR_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_ViewController.m; sourceTree = "<group>"; };
+		37BF7A9D22D323C700BEBF7F /* Home_KDR_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_ViewController.xib; sourceTree = "<group>"; };
 		37C24F2822A756560062B4B2 /* Square_Answer_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_Answer_VC.h; sourceTree = "<group>"; };
 		37C24F2922A756560062B4B2 /* Square_Answer_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_Answer_VC.m; sourceTree = "<group>"; };
 		37C24F2A22A756560062B4B2 /* Square_Answer_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_Answer_VC.xib; sourceTree = "<group>"; };
@@ -1729,6 +1734,7 @@
 		1848500F2251DC76002B7AA9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				37BF7A9122D3238E00BEBF7F /* DKR */,
 				37A29BD222534D4B00495D1B /* Home_ViewController.h */,
 				37A29BD322534D4B00495D1B /* Home_ViewController.m */,
 				37A29BD422534D4B00495D1B /* Home_ViewController.xib */,
@@ -2933,6 +2939,40 @@
 			path = MyOrder;
 			sourceTree = "<group>";
 		};
+		37BF7A9122D3238E00BEBF7F /* DKR */ = {
+			isa = PBXGroup;
+			children = (
+				37BF7A9222D3238E00BEBF7F /* Controller */,
+				37BF7A9422D3238E00BEBF7F /* Model */,
+				37BF7A9622D3238E00BEBF7F /* View */,
+			);
+			path = DKR;
+			sourceTree = "<group>";
+		};
+		37BF7A9222D3238E00BEBF7F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				37BF7A9B22D323C700BEBF7F /* Home_KDR_ViewController.h */,
+				37BF7A9C22D323C700BEBF7F /* Home_KDR_ViewController.m */,
+				37BF7A9D22D323C700BEBF7F /* Home_KDR_ViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		37BF7A9422D3238E00BEBF7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		37BF7A9622D3238E00BEBF7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		37C458822271935C004CDE32 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
@@ -3358,6 +3398,7 @@
 				37E7D42F2267462400905BD5 /* Mine_FollowView_TableView_Cell.xib in Resources */,
 				37A29BD622534D4B00495D1B /* Home_ViewController.xib in Resources */,
 				3734067A2285641C00FC38F9 /* Home_HouseKeeping_PlaceOrder_Depth_ViewController.xib in Resources */,
+				37BF7A9F22D323C700BEBF7F /* Home_KDR_ViewController.xib in Resources */,
 				3749A881225B2E62006940A3 /* Square_Default_Cell.xib in Resources */,
 				37F5FFE72265A9F10012245D /* Messag_Shoping_VC.xib in Resources */,
 				37CA64A1225DCF600040387F /* Square_WD_SD_Cell.xib in Resources */,
@@ -3571,6 +3612,7 @@
 				37B8B731226F38A400434D61 /* Mine_MyOrder_Shop_ViewController.m in Sources */,
 				37E7D43222674C7500905BD5 /* Mine_Follow_Publish_Collection_Tableview.m in Sources */,
 				37ACB92422B1F31E00C84669 /* MWZoomingScrollView.m in Sources */,
+				37BF7A9E22D323C700BEBF7F /* Home_KDR_ViewController.m in Sources */,
 				37ACB94A22B1F31E00C84669 /* EaseTextView.m in Sources */,
 				3734066E2285515400FC38F9 /* Home_HouseKeeping_StyleCell.m in Sources */,
 				3749A890225B67A1006940A3 /* Square_TextCell.m in Sources */,
