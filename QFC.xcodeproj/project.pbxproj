@@ -20,6 +20,10 @@
 		1889D383225A4931008ED787 /* Home_PreferentialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1889D381225A4931008ED787 /* Home_PreferentialCell.xib */; };
 		18F143052263982A0043F365 /* Mine_FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F143032263982A0043F365 /* Mine_FollowViewController.m */; };
 		18F143062263982A0043F365 /* Mine_FollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F143042263982A0043F365 /* Mine_FollowViewController.xib */; };
+		370032AF22D4347E00109C2B /* Home_KDR_Personal_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 370032AD22D4347E00109C2B /* Home_KDR_Personal_ViewController.m */; };
+		370032B022D4347E00109C2B /* Home_KDR_Personal_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370032AE22D4347E00109C2B /* Home_KDR_Personal_ViewController.xib */; };
+		370032B422D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 370032B222D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.m */; };
+		370032B522D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370032B322D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.xib */; };
 		3704976E227145DC00851623 /* LabelAndTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3704976C227145DC00851623 /* LabelAndTextField.m */; };
 		37053A3C2272A62F003D94DB /* Mine_Myorder_Shoping_AllEvaluate_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37053A3A2272A62F003D94DB /* Mine_Myorder_Shoping_AllEvaluate_Cell.m */; };
 		37053A3D2272A62F003D94DB /* Mine_Myorder_Shoping_AllEvaluate_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37053A3B2272A62F003D94DB /* Mine_Myorder_Shoping_AllEvaluate_Cell.xib */; };
@@ -598,6 +602,12 @@
 		18F143032263982A0043F365 /* Mine_FollowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_FollowViewController.m; sourceTree = "<group>"; };
 		18F143042263982A0043F365 /* Mine_FollowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_FollowViewController.xib; sourceTree = "<group>"; };
 		2971328F65403F65EA5D1288 /* Pods-QFC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFC.release.xcconfig"; path = "Target Support Files/Pods-QFC/Pods-QFC.release.xcconfig"; sourceTree = "<group>"; };
+		370032AC22D4347E00109C2B /* Home_KDR_Personal_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_Personal_ViewController.h; sourceTree = "<group>"; };
+		370032AD22D4347E00109C2B /* Home_KDR_Personal_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_Personal_ViewController.m; sourceTree = "<group>"; };
+		370032AE22D4347E00109C2B /* Home_KDR_Personal_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_Personal_ViewController.xib; sourceTree = "<group>"; };
+		370032B122D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_PlaceOrder_ViewController.h; sourceTree = "<group>"; };
+		370032B222D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_PlaceOrder_ViewController.m; sourceTree = "<group>"; };
+		370032B322D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_PlaceOrder_ViewController.xib; sourceTree = "<group>"; };
 		3704976C227145DC00851623 /* LabelAndTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelAndTextField.m; sourceTree = "<group>"; };
 		3704976D227145DC00851623 /* LabelAndTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelAndTextField.h; sourceTree = "<group>"; };
 		37053A392272A62F003D94DB /* Mine_Myorder_Shoping_AllEvaluate_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_Myorder_Shoping_AllEvaluate_Cell.h; sourceTree = "<group>"; };
@@ -2955,6 +2965,12 @@
 				37BF7A9B22D323C700BEBF7F /* Home_KDR_ViewController.h */,
 				37BF7A9C22D323C700BEBF7F /* Home_KDR_ViewController.m */,
 				37BF7A9D22D323C700BEBF7F /* Home_KDR_ViewController.xib */,
+				370032AC22D4347E00109C2B /* Home_KDR_Personal_ViewController.h */,
+				370032AD22D4347E00109C2B /* Home_KDR_Personal_ViewController.m */,
+				370032AE22D4347E00109C2B /* Home_KDR_Personal_ViewController.xib */,
+				370032B122D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.h */,
+				370032B222D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.m */,
+				370032B322D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3332,6 +3348,7 @@
 				37F5FFB7226570C00012245D /* Message_FansViewController.xib in Resources */,
 				370B41F2225F2074009489BA /* Mine_CV_HeaderViewCRV.xib in Resources */,
 				37C3ECD52275482B006EB3C3 /* Home_HouseKeeping_ViewController.xib in Resources */,
+				370032B522D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.xib in Resources */,
 				379753742271C0B8000F6A8D /* Mine_Myorder_RunErrands_AllEvaluate_Cell.xib in Resources */,
 				3734066F2285515400FC38F9 /* Home_HouseKeeping_StyleCell.xib in Resources */,
 				37B8B695226EFBC200434D61 /* Home_ShoppingCatr_Settlement_ViewController.xib in Resources */,
@@ -3378,6 +3395,7 @@
 				37F5FFCB226574840012245D /* Message_Fans_Cell.xib in Resources */,
 				37CA64B0225E06920040387F /* Square_HT_Details_VC.xib in Resources */,
 				37AF758022AF56BE00328F0A /* Mine_SetUP_PassWord_VC.xib in Resources */,
+				370032B022D4347E00109C2B /* Home_KDR_Personal_ViewController.xib in Resources */,
 				3783A405226EB76700A88C32 /* Home_ShoppingCart_ViewController.xib in Resources */,
 				37C458A42271935F004CDE32 /* Mine_Wallet_BillDetails_ViewController.xib in Resources */,
 				37B8B72E226F38A400434D61 /* Mine_MyOrder_RunErrands_ViewController.xib in Resources */,
@@ -3536,6 +3554,7 @@
 				3762201522B5FF6E00F20613 /* Home_ShopStore_Cell.m in Sources */,
 				3749A876225B1A99006940A3 /* ZXCategoryItemView.m in Sources */,
 				37B4E16422A8F7EF0017A5BA /* Mine_MyCardView_Cell.m in Sources */,
+				370032B422D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.m in Sources */,
 				373406562285291E00FC38F9 /* Home_CommunityNearby_FreshFruitSink_Three_Cell.m in Sources */,
 				37ACB94D22B1F31E00C84669 /* EaseChatToolbarItem.m in Sources */,
 				37C458AF2271935F004CDE32 /* Mine_SettledIn_RunErrands_ViewController.m in Sources */,
@@ -3572,6 +3591,7 @@
 				372E4E70225603AA006CEB0A /* Home_CommunityActivities_Cell.m in Sources */,
 				37A3D21D22B5DC170037F12E /* QRCodeViewController.m in Sources */,
 				37B8B713226F382300434D61 /* Mine_SetUP_Cell.m in Sources */,
+				370032AF22D4347E00109C2B /* Home_KDR_Personal_ViewController.m in Sources */,
 				3749A88B225B62D7006940A3 /* Square_Shop_Cell.m in Sources */,
 				37E7D42622673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.m in Sources */,
 				37C458A92271935F004CDE32 /* Mine_SettledIn_Housekeeping_ViewController.m in Sources */,
