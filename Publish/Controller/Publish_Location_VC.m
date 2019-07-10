@@ -45,7 +45,9 @@
     AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
     
     request.location            = [AMapGeoPoint locationWithLatitude:[[Singleton sharedSingleton].latitude floatValue] longitude:[[Singleton sharedSingleton].longitude floatValue]];
-//    request.keywords            = @"地名地址信息";
+    if (self.Number == 1) {
+        request.keywords = @"住宅区";
+    }
     /* 按照距离排序. */
     request.sortrule            = 0;
     request.requireExtension    = YES;
@@ -170,7 +172,9 @@
         AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
         
         request.location            = [AMapGeoPoint locationWithLatitude:121.385373 longitude:31.111152];
-        //    request.keywords            = @"地名地址信息";
+        if (self.Number == 1) {
+            request.keywords = @"住宅区";
+        }
         /* 按照距离排序. */
         request.sortrule            = 0;
         request.requireExtension    = YES;
@@ -215,7 +219,9 @@
         AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
         
         request.location            = [AMapGeoPoint locationWithLatitude:121.385373 longitude:31.111152];
-        //    request.keywords            = @"地名地址信息";
+        if (self.Number == 1) {
+            request.keywords = @"住宅区";
+        }
         /* 按照距离排序. */
         request.sortrule            = 0;
         request.requireExtension    = YES;

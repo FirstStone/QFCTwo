@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Home_KDR_Address_ViewController">
+            <connections>
+                <outlet property="tableView" destination="SvX-Fd-StI" id="UQo-vV-dQq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrz-Gz-1BN">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="ea0-bj-jek"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem title="我的地址" id="kbA-AK-Tgg">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="b7e-ud-eoe">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftBtuuonPOP:" destination="-1" id="kaw-vs-3Lb"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WC-QA-H51">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SvX-Fd-StI" customClass="Basic_TableView">
+                    <rect key="frame" x="0.0" y="88" width="414" height="724"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLk-ul-PVB">
+                    <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCZ-gR-exF">
+                            <rect key="frame" x="20" y="5" width="374" height="40"/>
+                            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="添加新地址">
+                                <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7O-ys-M9g">
+                            <rect key="frame" x="20" y="5" width="374" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="添加新地址">
+                                <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="AddressButtonClick:" destination="-1" eventType="touchUpInside" id="Qph-OW-xBD"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="bCZ-gR-exF" secondAttribute="trailing" constant="20" id="2gV-Ni-bK9"/>
+                        <constraint firstItem="bCZ-gR-exF" firstAttribute="leading" secondItem="SLk-ul-PVB" secondAttribute="leading" constant="20" id="FHU-k1-2rj"/>
+                        <constraint firstItem="bCZ-gR-exF" firstAttribute="centerX" secondItem="SLk-ul-PVB" secondAttribute="centerX" id="MFj-Sq-Nhv"/>
+                        <constraint firstItem="bCZ-gR-exF" firstAttribute="top" secondItem="SLk-ul-PVB" secondAttribute="top" constant="5" id="emx-fP-HXl"/>
+                        <constraint firstAttribute="height" constant="50" id="w5r-cZ-l5O"/>
+                        <constraint firstAttribute="bottom" secondItem="bCZ-gR-exF" secondAttribute="bottom" constant="5" id="zY3-Rm-btW"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Rrz-Gz-1BN" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="0JM-AN-Qo2"/>
+                <constraint firstItem="1WC-QA-H51" firstAttribute="top" secondItem="Rrz-Gz-1BN" secondAttribute="bottom" id="3jR-bb-Oen"/>
+                <constraint firstItem="Rrz-Gz-1BN" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="GBE-wj-P9b"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="SLk-ul-PVB" secondAttribute="bottom" id="JFo-pL-TFb"/>
+                <constraint firstItem="SvX-Fd-StI" firstAttribute="top" secondItem="Rrz-Gz-1BN" secondAttribute="bottom" id="LWI-DY-BBg"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="SLk-ul-PVB" secondAttribute="trailing" id="LvW-II-C0b"/>
+                <constraint firstItem="Rrz-Gz-1BN" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="VxQ-E6-MkI"/>
+                <constraint firstAttribute="bottom" secondItem="1WC-QA-H51" secondAttribute="bottom" id="jgt-QZ-7VG"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="1WC-QA-H51" secondAttribute="trailing" id="kVI-u1-Bmz"/>
+                <constraint firstItem="1WC-QA-H51" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="lK9-RO-4MK"/>
+                <constraint firstItem="SLk-ul-PVB" firstAttribute="top" secondItem="SvX-Fd-StI" secondAttribute="bottom" id="ntN-kD-xPg"/>
+                <constraint firstItem="SvX-Fd-StI" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="s5K-a4-FRC"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="SvX-Fd-StI" secondAttribute="trailing" id="ttU-qz-i7Y"/>
+                <constraint firstItem="SLk-ul-PVB" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="x57-Bz-ewo"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

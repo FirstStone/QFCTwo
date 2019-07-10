@@ -17,6 +17,8 @@ typedef void(^PublishLocationVCSelect)(NSString *Address, NSString *lat, NSStrin
 
 @property (nonatomic, copy) PublishLocationVCSelect PublishLocationVCBlock;
 
+@property (nonatomic, assign) NSInteger Number;
+
 @end
 
 NS_ASSUME_NONNULL_END

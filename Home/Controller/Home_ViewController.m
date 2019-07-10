@@ -69,7 +69,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateApp) name:@"VersionAPP" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUPUIMapView) name:@"setUPUIMapView" object:nil];
     [self updateApp];
-    self.Icon_Array = @[@"icon_zhekou", @"icon_paotui", @"icon_jiazheng", @"icon_weixiu"];// , @"icon_ershou", @"icon_zhaofang"
+    self.Icon_Array = @[@"icon_zhekou", @"icon_paotui", @"icon_jiazheng", @"icon_Daireng"];// , @"icon_ershou", @"icon_zhaofang"
     self.Title_Array = @[@"优享生鲜", @"快友跑腿", @"便民家政", @"快代扔"];//, @"跳蚤市场", @"友友找房"
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

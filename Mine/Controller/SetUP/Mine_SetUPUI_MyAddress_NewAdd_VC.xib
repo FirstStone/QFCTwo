@@ -269,7 +269,7 @@
         </view>
     </objects>
     <resources>
-        <image name="icon_Mine_SetUP_duigou" width="20" height="20"/>
+        <image name="icon_Mine_SetUP_duigou" width="13.333333015441895" height="13.333333015441895"/>
         <image name="icon_Mine_SetUP_duigou_kong" width="14" height="14"/>
     </resources>
 </document>
