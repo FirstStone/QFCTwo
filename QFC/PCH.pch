@@ -254,7 +254,8 @@
 #import "Home_KDROrder_Cell.h"
 #import "Home_KDR_Address_ViewController.h"
 #import "Home_KDR_Address_New_ViewController.h"
-
+#import "Home_KDR_OrderState_ViewController.h"
+#import "Home_KDRState_View.h"
 
 //数据模型
 #import "Message_FansList_Model.h"
@@ -311,6 +312,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <PYSearch.h>
 #import <UIImage+ForceDecode.h>
+#import <CoreGraphics/CoreGraphics.h>
 #endif
 
 #define WANG_LUO_STATE @"QFCWLZT"
@@ -337,6 +339,8 @@
 #define QFC_Color_55CC88 QFC_Color(85,204,136)
 /**97CFA9*/
 #define QFC_Color_97CFA9 QFC_Color(134,209,166)
+/**09D15A*/
+#define QFC_Color_09D15A QFC_Color(9,209,90)
 
 /**D8D8D8颜色*/
 #define QFC_Color_D8D8D8 QFC_Color(216,216,216)

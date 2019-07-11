@@ -27,7 +27,9 @@
 }
 
 - (IBAction)LiftButtonClick:(id)sender {
-    
+    Home_KDR_OrderState_ViewController *KDRVC = [[Home_KDR_OrderState_ViewController alloc] init];
+    [KDRVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:KDRVC animated:YES];
 }
 
 - (IBAction)MiddleButtonClick:(id)sender {
