@@ -256,6 +256,9 @@
 #import "Home_KDR_Address_New_ViewController.h"
 #import "Home_KDR_OrderState_ViewController.h"
 #import "Home_KDRState_View.h"
+#import "Message_KDRViewController.h"
+#import "Message_KDR_TableView.h"
+#import "Home_KDR_SettledIn_ViewController.h"
 
 //数据模型
 #import "Message_FansList_Model.h"

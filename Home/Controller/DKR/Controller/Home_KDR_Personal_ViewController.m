@@ -81,6 +81,10 @@
         Home_KDR_Address_ViewController *KDRVC = [[Home_KDR_Address_ViewController alloc] init];
         [KDRVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:KDRVC animated:YES];
+    }else if (indexPath.row == 2) {
+        Message_KDRViewController *KDRVC = [[Message_KDRViewController alloc] init];
+        [KDRVC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:KDRVC animated:YES];
     }
 }
 

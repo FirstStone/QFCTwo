@@ -216,6 +216,11 @@
 		37A61BE022B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A61BDE22B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.xib */; };
 		37A61BE422B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A61BE222B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.m */; };
 		37A61BE522B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A61BE322B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.xib */; };
+		37A6526722D85C8A000A5B13 /* Message_KDRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A6526522D85C8A000A5B13 /* Message_KDRViewController.m */; };
+		37A6526822D85C8A000A5B13 /* Message_KDRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A6526622D85C8A000A5B13 /* Message_KDRViewController.xib */; };
+		37A6526B22D85E93000A5B13 /* Message_KDR_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A6526A22D85E93000A5B13 /* Message_KDR_TableView.m */; };
+		37A6526F22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A6526D22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.m */; };
+		37A6527022D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A6526E22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.xib */; };
 		37A91BD922B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A91BD722B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m */; };
 		37A91BDA22B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A91BD822B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib */; };
 		37A91BE222B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A91BE122B4ECB2006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_TableView.m */; };
@@ -933,6 +938,14 @@
 		37A61BE122B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_ShopStore_Right_TableViewCell.h; sourceTree = "<group>"; };
 		37A61BE222B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_ShopStore_Right_TableViewCell.m; sourceTree = "<group>"; };
 		37A61BE322B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_ShopStore_Right_TableViewCell.xib; sourceTree = "<group>"; };
+		37A6526422D85C8A000A5B13 /* Message_KDRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message_KDRViewController.h; sourceTree = "<group>"; };
+		37A6526522D85C8A000A5B13 /* Message_KDRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message_KDRViewController.m; sourceTree = "<group>"; };
+		37A6526622D85C8A000A5B13 /* Message_KDRViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Message_KDRViewController.xib; sourceTree = "<group>"; };
+		37A6526922D85E93000A5B13 /* Message_KDR_TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message_KDR_TableView.h; sourceTree = "<group>"; };
+		37A6526A22D85E93000A5B13 /* Message_KDR_TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message_KDR_TableView.m; sourceTree = "<group>"; };
+		37A6526C22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_SettledIn_ViewController.h; sourceTree = "<group>"; };
+		37A6526D22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_SettledIn_ViewController.m; sourceTree = "<group>"; };
+		37A6526E22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_SettledIn_ViewController.xib; sourceTree = "<group>"; };
 		37A91BD622B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.h; sourceTree = "<group>"; };
 		37A91BD722B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.m; sourceTree = "<group>"; };
 		37A91BD822B4E969006A5E8F /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllService_VC.xib; sourceTree = "<group>"; };
@@ -1652,6 +1665,9 @@
 				37F5FFE82265AA1C0012245D /* Message_Housekeeping_VC.h */,
 				37F5FFE92265AA1C0012245D /* Message_Housekeeping_VC.m */,
 				37F5FFEA2265AA1C0012245D /* Message_Housekeeping_VC.xib */,
+				37A6526422D85C8A000A5B13 /* Message_KDRViewController.h */,
+				37A6526522D85C8A000A5B13 /* Message_KDRViewController.m */,
+				37A6526622D85C8A000A5B13 /* Message_KDRViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1707,6 +1723,8 @@
 				37E7D42522673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.xib */,
 				378CA7A9229931480087B29C /* Message_ApexView_TabelView.h */,
 				378CA7AA229931480087B29C /* Message_ApexView_TabelView.m */,
+				37A6526922D85E93000A5B13 /* Message_KDR_TableView.h */,
+				37A6526A22D85E93000A5B13 /* Message_KDR_TableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3011,6 +3029,9 @@
 				376D3AD722D5C54500C02E9E /* Home_KDR_Address_New_ViewController.h */,
 				376D3AD822D5C54500C02E9E /* Home_KDR_Address_New_ViewController.m */,
 				376D3AD922D5C54500C02E9E /* Home_KDR_Address_New_ViewController.xib */,
+				37A6526C22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.h */,
+				37A6526D22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.m */,
+				37A6526E22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3325,6 +3346,7 @@
 			files = (
 				37ACB93822B1F31E00C84669 /* MWPhotoBrowser.bundle in Resources */,
 				379A46F822898FB5003CAA46 /* Home_CommunityNearby_Branch_ViewController.xib in Resources */,
+				37A6526822D85C8A000A5B13 /* Message_KDRViewController.xib in Resources */,
 				37E6D8BE22C33A770042E96F /* Square_Complaint_ViewController.xib in Resources */,
 				37CD027D22AE3DA900ED09E8 /* Mine_SetUP_PersonalData_Nickname_VC.xib in Resources */,
 				37239F46228A6728002D2ADC /* Pay_ViewController.xib in Resources */,
@@ -3507,6 +3529,7 @@
 				37E7D42722673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.xib in Resources */,
 				37D999482295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.xib in Resources */,
 				37C458AE2271935F004CDE32 /* Mine_SettledIn_Shoping_ViewController.xib in Resources */,
+				37A6527022D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.xib in Resources */,
 				3748C7A622544A07006D7514 /* Login_USer_ViewController.xib in Resources */,
 				37A61BE522B6521F007F6BA8 /* Home_ShopStore_Right_TableViewCell.xib in Resources */,
 				370B41FC225F48CA009489BA /* Mine_CV_Public_HeaderViewCRV.xib in Resources */,
@@ -3687,6 +3710,7 @@
 				37ACB92422B1F31E00C84669 /* MWZoomingScrollView.m in Sources */,
 				37BF7A9E22D323C700BEBF7F /* Home_KDR_ViewController.m in Sources */,
 				37ACB94A22B1F31E00C84669 /* EaseTextView.m in Sources */,
+				37A6526722D85C8A000A5B13 /* Message_KDRViewController.m in Sources */,
 				3734066E2285515400FC38F9 /* Home_HouseKeeping_StyleCell.m in Sources */,
 				3749A890225B67A1006940A3 /* Square_TextCell.m in Sources */,
 				37B8B6CC226F358800434D61 /* Mine_SetUPUI_MyAddress_NewAdd_VC.m in Sources */,
@@ -3718,6 +3742,7 @@
 				37ACB94922B1F31E00C84669 /* EaseFaceView.m in Sources */,
 				37ACB91822B1F31E00C84669 /* wav.mm in Sources */,
 				371830DD225DB1B2006B97E5 /* Square_WD_ImageCell.m in Sources */,
+				37A6526B22D85E93000A5B13 /* Message_KDR_TableView.m in Sources */,
 				3762201922B60F0000F20613 /* Home_ShopStore_Model.m in Sources */,
 				37053A3C2272A62F003D94DB /* Mine_Myorder_Shoping_AllEvaluate_Cell.m in Sources */,
 				37ACB93B22B1F31E00C84669 /* EaseConversationListViewController.m in Sources */,
@@ -3773,6 +3798,7 @@
 				37410F4F22BB81E9001B884E /* Home_Seach_Goods_Cell.m in Sources */,
 				37F500002265CC760012245D /* Message_RunErrands_TableView_NoOrderCell.m in Sources */,
 				37ACB95022B1F31E00C84669 /* EaseBubbleView+File.m in Sources */,
+				37A6526F22D86CE8000A5B13 /* Home_KDR_SettledIn_ViewController.m in Sources */,
 				37F5FFCF226582510012245D /* Message_ApexCell.m in Sources */,
 				379A46F722898FB5003CAA46 /* Home_CommunityNearby_Branch_ViewController.m in Sources */,
 				379753732271C0B8000F6A8D /* Mine_Myorder_RunErrands_AllEvaluate_Cell.m in Sources */,

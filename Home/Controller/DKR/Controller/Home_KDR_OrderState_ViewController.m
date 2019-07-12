@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.contView addSubview:self.BackView];
-    
     //第一步，通过UIBezierPath设置圆形的矢量路径
     UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.contView.centerX - 75.0f, self.contView.centerY-350, 150, 150)];
     
@@ -31,7 +30,7 @@
     CAShapeLayer *bgLayer = [CAShapeLayer layer];
     bgLayer.frame = CGRectMake(0, 0, 150, 150);//设置Frame
 //    bgLayer.position = self.contView.center;//居中显示
-    bgLayer.fillColor = [UIColor clearColor].CGColor;//填充颜色=透明色
+    bgLayer.fillColor = [UIColor whiteColor].CGColor;//填充颜色=透明色
     bgLayer.lineWidth = 10.f;//线条大小
     bgLayer.strokeColor = QFC_Color_09D15A.CGColor;//线条颜色
     bgLayer.strokeStart = 0.f;//路径开始位置
@@ -61,9 +60,11 @@
     // 将动画对象添加到视图的layer上
     [self.icon_View.layer addAnimation:animation forKey:nil];
     [self.BackView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_offset(self.contView.centerX - 75.0f);
-        make.centerY.mas_offset(self.contView.centerY-350);
-        make.size.mas_offset(CGSizeMake(200.0f, 200.0f));
+//        make.centerX.mas_offset(self.contView.centerX - 75.0f);
+//        make.centerY.mas_offset(self.contView.centerY-350);
+        make.left.offset(self.contView.centerX - 75.0f);
+        make.top.offset(self.contView.centerY-350);
+        make.size.mas_offset(CGSizeMake(150.0f, 150.0f));
     }];
 }
 
@@ -87,7 +88,7 @@
 - (Home_KDRState_View *)BackView {
     if (!_BackView) {
         _BackView = [[Home_KDRState_View alloc] init];
-        _BackView.backgroundColor = [UIColor orangeColor];
+//        _BackView.backgroundColor = [UIColor orangeColor];
     }
     return _BackView;
 }
