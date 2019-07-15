@@ -14,9 +14,12 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *icon_View;
 
-@property (strong, nonatomic) IBOutlet UIView *Tap_View;
+@property (strong, nonatomic) IBOutlet UIImageView *Tap_View;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) IBOutlet UIButton *Sure_Bt;
+
 
 @property (nonatomic, strong) NSMutableArray *titleArray;
 @property (nonatomic, strong) NSMutableArray *icon_Array;
@@ -28,25 +31,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.Name_Label.text = [[NSUserDefaults standardUserDefaults] objectForKey:User_Nickname];
+    [self.icon_View sd_setImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:User_Avatar]]];
     self.titleArray = [NSMutableArray arrayWithArray:@[@"我的订单", @"我的地址", @"邀请有礼", @"意见反馈", @"联系客服"]];
-    self.icon_Array = [NSMutableArray arrayWithArray:@[@"icon_WD_daijiedan", @"icon_WD_daijiedan", @"icon_WD_daijiedan", @"icon_WD_daijiedan", @"icon_WD_daijiedan"]];
+    self.icon_Array = [NSMutableArray arrayWithArray:@[@"icon_KDR_wodedingdan", @"icon_KDR_Wodedizhi", @"icon_KDR_Yaoqingyouli", @"icon_KDR_Yijianfankui", @"icon_KDR_Lianxikefu"]];
     /// 添加四边阴影效果
         // 阴影颜色
-    self.Tap_View.layer.shadowColor = QFC_Color_Six.CGColor;
+//    self.Tap_View.layer.shadowColor = QFC_Color_Six.CGColor;
     // 阴影偏移，默认(0, -3)
-    self.Tap_View.layer.shadowOffset = CGSizeMake(0,0);
+//    self.Tap_View.layer.shadowOffset = CGSizeMake(0,0);
     // 阴影透明度，默认0
-    self.Tap_View.layer.shadowOpacity = 0.5;
+//    self.Tap_View.layer.shadowOpacity = 0.5;
     // 阴影半径，默认3
-    self.Tap_View.layer.shadowRadius = 5;
+//    self.Tap_View.layer.shadowRadius = 5;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
 }
 
 - (IBAction)LiftBtuuonPOP:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)SureButtonClick:(id)sender {
+    NSLog(@"1111111111");
+}
+
 
 #pragma mark - UITableViewDelegate
 //返回多少个分区

@@ -334,6 +334,7 @@
 }
 
 - (void)beginTimeLAbelClick:(UIGestureRecognizer *)Zer {
+    [self textFieldEditState];
     PickerView *pick = [[PickerView alloc] init];
     pick.delegate = self;
     pick.type = PickerViewTypeTime;
@@ -355,6 +356,7 @@
 }
 
 - (void)EndTimeLAbelClick:(UIGestureRecognizer *)Zer {
+    [self textFieldEditState];
     PickerView *pick = [[PickerView alloc] init];
     pick.delegate = self;
     pick.type = PickerViewTypeTime;
@@ -403,7 +405,7 @@
     if (!_Shop_Address_View) {
         _Shop_Address_View = [[LabelAndTextField alloc] init];
         _Shop_Address_View.Title_Label.text = @"联系地址：";
-        _Shop_Address_View.Text_Field.placeholder = @"请输入联系地址";
+        _Shop_Address_View.Text_Field.placeholder = @"请选择联系地址";
         _Shop_Address_View.Text_Field.delegate = self;
     }
     return _Shop_Address_View;
@@ -527,9 +529,10 @@
 #pragma mark----UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    [self textFieldEditState];
     Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
     //    MJWeakSelf;
-    LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
+    LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr, NSString * _Nonnull name, NSString * _Nonnull province, NSString * _Nonnull city, NSString * _Nonnull district) {
         //        [weakSelf.Sure_parm setObject:Address forKey:@"address"];
         textField.text = Address;
     };
@@ -537,11 +540,17 @@
     return NO;
 }
 
+- (void)textFieldEditState {
+    [self.Shop_Name_View.Text_Field resignFirstResponder];
+    [self.Shop_Range_View.Text_Field resignFirstResponder];
+    [self.Shop_Liaison_View.Text_Field resignFirstResponder];
+    [self.Shop_PhoneNumber_View.Text_Field resignFirstResponder];
+}
 
 #pragma mark----PYPhotosViewDelegate
 
 - (void)photosView:(PYPhotosView *)photosView didAddImageClickedWithImages:(NSMutableArray *)images {
-    
+    [self textFieldEditState];
     if ([photosView isEqual:self.IDCard_Positive_View]) {
         self.Style_Photo = 2;
     }else if ([photosView isEqual:self.IDCard_Back_View]) {
@@ -576,6 +585,7 @@
 
 #pragma mark---Click
 - (void)photoViewZerChange:(UIGestureRecognizer *)Zer {
+    [self textFieldEditState];
     self.Style_Photo = 1;
     UIAlertController *alertCtl =[[UIAlertController alloc]init];
     
@@ -755,7 +765,7 @@
         [MBProgressHUD py_showSuccess:@"请输入联系电话" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.Shop_Address_View.Text_Field.text.length) {
-        [MBProgressHUD py_showSuccess:@"请输入联系地址" toView:nil];
+        [MBProgressHUD py_showSuccess:@"请输入选择地址" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.IDCard_Positive_View.images) {
         [MBProgressHUD py_showSuccess:@"请上传身份证正面" toView:nil];

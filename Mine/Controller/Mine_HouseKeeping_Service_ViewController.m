@@ -192,7 +192,7 @@
         {
             Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
             MJWeakSelf;
-            LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
+            LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr, NSString * _Nonnull name, NSString * _Nonnull province, NSString * _Nonnull city, NSString * _Nonnull district) {
                 weakSelf.My_Model.address = Address;
                 weakSelf.My_Model.longitude = longStr;
                 weakSelf.My_Model.latitude = lat;

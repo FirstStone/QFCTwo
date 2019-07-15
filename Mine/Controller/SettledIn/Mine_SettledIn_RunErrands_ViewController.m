@@ -278,7 +278,7 @@
     if (!_RunErrands_Sex_View) {
         _RunErrands_Sex_View = [[LabelAndTextField alloc] init];
         _RunErrands_Sex_View.Title_Label.text = @"性    别：";
-        _RunErrands_Sex_View.Text_Field.placeholder = @"请输入性别";
+        _RunErrands_Sex_View.Text_Field.placeholder = @"请选择性别";
         _RunErrands_Sex_View.Text_Field.delegate = self;
         _RunErrands_Sex_View.Text_Field.tag = 7947477;
     }
@@ -309,7 +309,7 @@
     if (!_RunErrands_Address_View) {
         _RunErrands_Address_View = [[LabelAndTextField alloc] init];
         _RunErrands_Address_View.Title_Label.text = @"服务地址：";
-        _RunErrands_Address_View.Text_Field.placeholder = @"请输入服务地址";
+        _RunErrands_Address_View.Text_Field.placeholder = @"请选择服务地址";
         _RunErrands_Address_View.Text_Field.tag = 7947476;
         _RunErrands_Address_View.Text_Field.delegate = self;
     }
@@ -382,7 +382,7 @@
 #pragma mark----PYPhotosViewDelegate
 
 - (void)photosView:(PYPhotosView *)photosView didAddImageClickedWithImages:(NSMutableArray *)images {
-    
+    [self textFieldEditState];
     if ([photosView isEqual:self.IDCard_Positive_View]) {
         self.Style_Photo = 2;
     }else if ([photosView isEqual:self.IDCard_Back_View]) {
@@ -415,6 +415,7 @@
 
 #pragma mark---Click
 - (void)photoViewZerChange:(UIGestureRecognizer *)Zer {
+    [self textFieldEditState];
     self.Style_Photo = 1;
     UIAlertController *alertCtl =[[UIAlertController alloc]init];
     
@@ -602,7 +603,7 @@
         [MBProgressHUD py_showSuccess:@"请输入姓名" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.RunErrands_Sex_View.Text_Field.text.length) {
-        [MBProgressHUD py_showSuccess:@"请输入性别" toView:nil];
+        [MBProgressHUD py_showSuccess:@"请选择性别" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.RunErrands_Order_View.Text_Field.text.length) {
         [MBProgressHUD py_showSuccess:@"请输入年龄" toView:nil];
@@ -611,7 +612,7 @@
         [MBProgressHUD py_showSuccess:@"请输入手机号" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.RunErrands_Address_View.Text_Field.text.length) {
-        [MBProgressHUD py_showSuccess:@"请输入服务地址" toView:nil];
+        [MBProgressHUD py_showSuccess:@"请选择服务地址" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.IDCard_Positive_View.images) {
         [MBProgressHUD py_showSuccess:@"请输上传身份证正面" toView:nil];
@@ -808,27 +809,41 @@
 //
 //    return YES;
 //}
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+/*- (void)textFieldDidBeginEditing:(UITextField *)textField {
     if (textField.tag == 7947477) {//性别
         PickerView *pick = [[PickerView alloc] init];
         pick.delegate = self;
         pick.type = PickerViewTypeSex;
         [self.view addSubview:pick];
     }
-}
+}*/
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     if (textField.tag ==  7947476) {//地址
+        [self textFieldEditState];
         Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
         //    MJWeakSelf;
-        LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
+        LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr, NSString * _Nonnull name, NSString * _Nonnull province, NSString * _Nonnull city, NSString * _Nonnull district) {
             //        [weakSelf.Sure_parm setObject:Address forKey:@"address"];
             textField.text = Address;
         };
         [self.navigationController pushViewController:LocationVC animated:YES];
         return NO;
+    }else if (textField.tag == 7947477) {
+        [self textFieldEditState];
+        PickerView *pick = [[PickerView alloc] init];
+        pick.delegate = self;
+        pick.type = PickerViewTypeSex;
+        [self.view addSubview:pick];
+        return NO;
     }else {
         return YES;
     }
+}
+
+- (void)textFieldEditState {
+    [self.RunErrands_Name_View.Text_Field resignFirstResponder];
+    [self.RunErrands_Order_View.Text_Field resignFirstResponder];
+    [self.RunErrands_PhoneNumber_View.Text_Field resignFirstResponder];
 }
 @end

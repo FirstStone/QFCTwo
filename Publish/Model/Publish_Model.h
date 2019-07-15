@@ -23,10 +23,18 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface Publish_Location_Model : NSObject
+/**name*/
 @property (nonatomic, strong) NSString *Name;
+/**address*/
 @property (nonatomic, strong) NSString *SubName;
 @property (nonatomic, strong) NSString *latStr;
 @property (nonatomic, strong) NSString *longStr;
+/**省*/
+@property (nonatomic, strong) NSString *Province;
+/**市*/
+@property (nonatomic, strong) NSString *City;
+/**区*/
+@property (nonatomic, strong) NSString *District;
 @property (nonatomic, assign) BOOL State;
 
 @end

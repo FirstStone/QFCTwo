@@ -63,7 +63,7 @@
         NSLog(@"%@",model.Name);
         if (model.State) {
             if (self.PublishLocationVCBlock) {
-                self.PublishLocationVCBlock(model.Name, model.latStr, model.longStr);
+                self.PublishLocationVCBlock(model.SubName, model.latStr, model.longStr, model.Name, model.Province, model.City, model.District);
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }
@@ -74,10 +74,12 @@
     if (!_dataArray) {
         _dataArray = [[NSMutableArray alloc] init];
         Publish_Location_Model *model = [[Publish_Location_Model alloc] init];
-        model.Name = [Singleton sharedSingleton].formattedAddress;
-        model.latStr = [Singleton sharedSingleton].latitude;
-        model.longStr = [Singleton sharedSingleton].longitude;
-        model.SubName = @"";
+        if (!self.Number) {
+            model.Name = [Singleton sharedSingleton].formattedAddress;
+            model.latStr = [Singleton sharedSingleton].latitude;
+            model.longStr = [Singleton sharedSingleton].longitude;
+            model.SubName = @"";
+        }
         [_dataArray addObject:model];
     }
     return _dataArray;
@@ -144,17 +146,22 @@
     }else {
         [self.dataArray removeAllObjects];
         Publish_Location_Model *model = [[Publish_Location_Model alloc] init];
-        model.Name = [Singleton sharedSingleton].formattedAddress;
-        model.latStr = [Singleton sharedSingleton].latitude;
-        model.longStr = [Singleton sharedSingleton].longitude;
-        model.SubName = @"";
-        [self.dataArray addObject:model];
+        if (!self.Number) {
+            model.Name = [Singleton sharedSingleton].formattedAddress;
+            model.latStr = [Singleton sharedSingleton].latitude;
+            model.longStr = [Singleton sharedSingleton].longitude;
+            model.SubName = @"";
+            [self.dataArray addObject:model];
+        }
         for (AMapPOI *model in response.pois) {
             Publish_Location_Model *locModel = [[Publish_Location_Model alloc] init];
             locModel.Name = model.name;
             locModel.SubName = model.address;
             locModel.latStr = [NSString stringWithFormat:@"%lf", model.location.latitude];
             locModel.longStr = [NSString stringWithFormat:@"%lf", model.location.longitude];
+            locModel.Province = model.province;
+            locModel.City = model.city;
+            locModel.District = model.district;
             locModel.State = NO;
             [self.dataArray addObject:locModel];
         }
@@ -163,15 +170,23 @@
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     if (searchBar.text.length) {
-        AMapInputTipsSearchRequest *tips = [[AMapInputTipsSearchRequest alloc] init];
+        AMapPOIKeywordsSearchRequest *request = [[AMapPOIKeywordsSearchRequest alloc] init];
+        request.keywords = searchBar.text;
+        request.city = [Singleton sharedSingleton].City;
+        request.types = @"住宅区";
+        request.requireExtension = YES;
+        request.cityLimit = YES;
+        request.requireSubPOIs = YES;
+        [self.search AMapPOIKeywordsSearch:request];
+        /*AMapInputTipsSearchRequest *tips = [[AMapInputTipsSearchRequest alloc] init];
         tips.keywords = searchBar.text;
         tips.city     = [Singleton sharedSingleton].City;
         //   tips.cityLimit = YES; 是否限制城市
-        [self.search AMapInputTipsSearch:tips];
+        [self.search AMapInputTipsSearch:tips];*/
     } else {
         AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
         
-        request.location            = [AMapGeoPoint locationWithLatitude:121.385373 longitude:31.111152];
+        request.location            = [AMapGeoPoint locationWithLatitude:[[Singleton sharedSingleton].latitude doubleValue] longitude:[[Singleton sharedSingleton].longitude doubleValue]];
         if (self.Number == 1) {
             request.keywords = @"住宅区";
         }
@@ -182,7 +197,7 @@
     }
 }
 /* 输入提示回调. */
-- (void)onInputTipsSearchDone:(AMapInputTipsSearchRequest *)request response:(AMapInputTipsSearchResponse *)response
+/*- (void)onInputTipsSearchDone:(AMapInputTipsSearchRequest *)request response:(AMapInputTipsSearchResponse *)response
 {
     //解析response获取提示词，具体解析见 Demo
     if (response.tips.count == 0)
@@ -191,34 +206,48 @@
     }else {
         [self.dataArray removeAllObjects];
         Publish_Location_Model *model = [[Publish_Location_Model alloc] init];
-        model.Name = [Singleton sharedSingleton].formattedAddress;
-        model.latStr = [Singleton sharedSingleton].latitude;
-        model.longStr = [Singleton sharedSingleton].longitude;
-        model.SubName = @"";
-        [self.dataArray addObject:model];
+        if (!self.Number) {
+            model.Name = [Singleton sharedSingleton].formattedAddress;
+            model.latStr = [Singleton sharedSingleton].latitude;
+            model.longStr = [Singleton sharedSingleton].longitude;
+            model.SubName = @"";
+            [self.dataArray addObject:model];
+        }
         for (AMapTip *model in response.tips) {
             Publish_Location_Model *locModel = [[Publish_Location_Model alloc] init];
             locModel.Name = model.name;
             locModel.SubName = model.address;
             locModel.latStr = [NSString stringWithFormat:@"%lf", model.location.latitude];
             locModel.longStr = [NSString stringWithFormat:@"%lf", model.location.longitude];
+//            locModel.Province = [Singleton sharedSingleton].City;
+//            locModel.City = [Singleton sharedSingleton].City;
+            locModel.District = model.district;
             locModel.State = NO;
             [self.dataArray addObject:locModel];
         }
         [self.tableView reloadData];
     }
-}
+}*/
+
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
     if (searchBar.text.length) {
-        AMapInputTipsSearchRequest *tips = [[AMapInputTipsSearchRequest alloc] init];
+        AMapPOIKeywordsSearchRequest *request = [[AMapPOIKeywordsSearchRequest alloc] init];
+        request.keywords = searchBar.text;
+        request.city = [Singleton sharedSingleton].City;
+        request.types = @"住宅区";
+        request.requireExtension = YES;
+        request.cityLimit = YES;
+        request.requireSubPOIs = YES;
+        [self.search AMapPOIKeywordsSearch:request];
+        /*AMapInputTipsSearchRequest *tips = [[AMapInputTipsSearchRequest alloc] init];
         tips.keywords = searchBar.text;
         tips.city     = [Singleton sharedSingleton].City;
-        //   tips.cityLimit = YES; 是否限制城市
-        [self.search AMapInputTipsSearch:tips];
+//           tips.cityLimit = YES; 是否限制城市
+        [self.search AMapInputTipsSearch:tips];*/
     }else {
         AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
         
-        request.location            = [AMapGeoPoint locationWithLatitude:121.385373 longitude:31.111152];
+        request.location            = [AMapGeoPoint locationWithLatitude:[[Singleton sharedSingleton].latitude doubleValue] longitude:[[Singleton sharedSingleton].longitude doubleValue]];
         if (self.Number == 1) {
             request.keywords = @"住宅区";
         }

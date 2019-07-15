@@ -304,7 +304,7 @@
     if (!_Housekeeping_Sex_View) {
         _Housekeeping_Sex_View = [[LabelAndTextField alloc] init];
         _Housekeeping_Sex_View.Title_Label.text = @"性    别：";
-        _Housekeeping_Sex_View.Text_Field.placeholder = @"请输入性别";
+        _Housekeeping_Sex_View.Text_Field.placeholder = @"请选择性别";
         _Housekeeping_Sex_View.Text_Field.delegate = self;
         _Housekeeping_Sex_View.Text_Field.tag = 848484;
     }
@@ -335,7 +335,7 @@
     if (!_Housekeeping_Address_View) {
         _Housekeeping_Address_View = [[LabelAndTextField alloc] init];
         _Housekeeping_Address_View.Title_Label.text = @"服务地址：";
-        _Housekeeping_Address_View.Text_Field.placeholder = @"请输入服务地址";
+        _Housekeeping_Address_View.Text_Field.placeholder = @"请选择服务地址";
         _Housekeeping_Address_View.Text_Field.delegate = self;
         _Housekeeping_Address_View.Text_Field.tag = 848483;
     }
@@ -473,6 +473,7 @@
     return contView;
 }
 - (void)buttonClick:(UIButton *)button {
+    [self textFieldEditState];
     if ((self.Housekeeping_Thorough_BT.selected == NO && [button isEqual:self.Housekeeping_Daily_BT]) || (self.Housekeeping_Daily_BT.selected == NO && [button isEqual:self.Housekeeping_Thorough_BT])) {
         [MBProgressHUD py_showError:@"至少选择一种服务类型" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
@@ -490,24 +491,37 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     if (textField.tag ==  848483) {
+        [self textFieldEditState];
         Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
         //    MJWeakSelf;
-        LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
+        LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr, NSString * _Nonnull name, NSString * _Nonnull province, NSString * _Nonnull city, NSString * _Nonnull district) {
             //        [weakSelf.Sure_parm setObject:Address forKey:@"address"];
             textField.text = Address;
         };
         [self.navigationController pushViewController:LocationVC animated:YES];
+        return NO;
+    }else if (textField.tag == 848484) {
+        [self textFieldEditState];
+        PickerView *pick = [[PickerView alloc] init];
+        pick.delegate = self;
+        pick.type = PickerViewTypeSex;
+        [self.view addSubview:pick];
         return NO;
     }else {
         return YES;
     }
 }
 
+- (void)textFieldEditState {
+    [self.Housekeeping_Name_View.Text_Field resignFirstResponder];
+    [self.Housekeeping_Order_View.Text_Field resignFirstResponder];
+    [self.Housekeeping_PhoneNumber_View.Text_Field resignFirstResponder];
+}
 
 #pragma mark----PYPhotosViewDelegate
 
 - (void)photosView:(PYPhotosView *)photosView didAddImageClickedWithImages:(NSMutableArray *)images {
-    
+    [self textFieldEditState];
     if ([photosView isEqual:self.IDCard_Positive_View]) {
         self.Style_Photo = 2;
     }else if ([photosView isEqual:self.IDCard_Back_View]) {
@@ -540,6 +554,7 @@
 
 #pragma mark---Click
 - (void)photoViewZerChange:(UIGestureRecognizer *)Zer {
+    [self textFieldEditState];
     self.Style_Photo = 1;
     UIAlertController *alertCtl =[[UIAlertController alloc]init];
     
@@ -706,7 +721,7 @@
         [MBProgressHUD py_showSuccess:@"请输入姓名" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.Housekeeping_Sex_View.Text_Field.text.length) {
-        [MBProgressHUD py_showSuccess:@"请输入性别" toView:nil];
+        [MBProgressHUD py_showSuccess:@"请选择性别" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.Housekeeping_Order_View.Text_Field.text.length) {
         [MBProgressHUD py_showSuccess:@"请输入年龄" toView:nil];
@@ -715,7 +730,7 @@
         [MBProgressHUD py_showSuccess:@"请输入手机号" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.Housekeeping_Address_View.Text_Field.text.length) {
-        [MBProgressHUD py_showSuccess:@"请输入服务地址" toView:nil];
+        [MBProgressHUD py_showSuccess:@"请选择服务地址" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.IDCard_Positive_View.images) {
         [MBProgressHUD py_showSuccess:@"请输上传身份证正面" toView:nil];
@@ -913,17 +928,4 @@
     self.Housekeeping_Sex_View.Text_Field.text = string;
     [self.parm setObject:[self.Housekeeping_Sex_View.Text_Field.text isEqualToString:@"男"] ? @"1" : @"2" forKey:@"sex"];
 }
-
-#pragma mark----UITextFieldDelegate
-//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-//
-//    return YES;
-//}
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    PickerView *pick = [[PickerView alloc] init];
-    pick.delegate = self;
-    pick.type = PickerViewTypeSex;
-    [self.view addSubview:pick];
-}
-
 @end

@@ -13,7 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Home_KDR_Personal_ViewController">
             <connections>
                 <outlet property="Name_Label" destination="aQn-yi-6Il" id="cFJ-7T-YlK"/>
-                <outlet property="Tap_View" destination="dWH-2J-Wt5" id="SwJ-IH-IrP"/>
+                <outlet property="Sure_Bt" destination="mm4-x6-46o" id="DdP-hg-Zcc"/>
+                <outlet property="Tap_View" destination="pCf-Mt-UvR" id="jab-DD-kla"/>
                 <outlet property="icon_View" destination="icD-fX-p9Z" id="1rU-LM-bAW"/>
                 <outlet property="tableView" destination="GDD-Hp-Lbt" id="vhY-82-C45"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -63,28 +64,64 @@
                                             <constraint firstAttribute="height" constant="70" id="BW4-99-exv"/>
                                             <constraint firstAttribute="width" constant="70" id="U8y-xH-Z07"/>
                                         </constraints>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWH-2J-Wt5">
-                                        <rect key="frame" x="30" y="120" width="354" height="150"/>
-                                        <color key="backgroundColor" red="0.33333333329999998" green="0.80000000000000004" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="cHJ-D4-976"/>
-                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_KDR_home_Back" translatesAutoresizingMaskIntoConstraints="NO" id="pCf-Mt-UvR">
+                                        <rect key="frame" x="30" y="120" width="354" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="4XD-yu-hHz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="代扔垃圾卡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqs-7c-1pH">
+                                        <rect key="frame" x="50" y="165" width="122" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="STd-8V-rzR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购卡服务更省钱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vH-qg-JHS">
+                                        <rect key="frame" x="50" y="200" width="100" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm4-x6-46o">
+                                        <rect key="frame" x="286" y="180" width="78" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="  立即购买  ">
+                                            <color key="titleColor" red="0.035294117649999998" green="0.81960784310000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                    </view>
+                                        <connections>
+                                            <action selector="SureButtonClick:" destination="-1" eventType="touchUpInside" id="kwn-aY-MRn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="8vH-qg-JHS" firstAttribute="leading" secondItem="Lqs-7c-1pH" secondAttribute="leading" id="1P1-f8-UMx"/>
+                                    <constraint firstItem="Lqs-7c-1pH" firstAttribute="centerY" secondItem="pCf-Mt-UvR" secondAttribute="centerY" constant="-15" id="2DV-zM-02J"/>
                                     <constraint firstItem="icD-fX-p9Z" firstAttribute="centerY" secondItem="aQn-yi-6Il" secondAttribute="centerY" id="3Ht-rL-ERt"/>
-                                    <constraint firstItem="dWH-2J-Wt5" firstAttribute="top" secondItem="icD-fX-p9Z" secondAttribute="bottom" constant="20" id="Gec-0o-LjH"/>
+                                    <constraint firstItem="pCf-Mt-UvR" firstAttribute="top" secondItem="icD-fX-p9Z" secondAttribute="bottom" constant="20" id="5do-uf-Ri2"/>
+                                    <constraint firstItem="mm4-x6-46o" firstAttribute="trailing" secondItem="pCf-Mt-UvR" secondAttribute="trailing" constant="-20" id="9yl-iR-S6Q"/>
                                     <constraint firstItem="aQn-yi-6Il" firstAttribute="leading" secondItem="NGh-1S-TLo" secondAttribute="leading" constant="30" id="Lqb-Bx-O2z"/>
-                                    <constraint firstAttribute="trailing" secondItem="dWH-2J-Wt5" secondAttribute="trailing" constant="30" id="Z8l-fN-3Hf"/>
+                                    <constraint firstItem="8vH-qg-JHS" firstAttribute="top" secondItem="Lqs-7c-1pH" secondAttribute="bottom" constant="5" id="P8E-lG-Pae"/>
+                                    <constraint firstItem="pCf-Mt-UvR" firstAttribute="leading" secondItem="zae-nc-bnQ" secondAttribute="leading" constant="30" id="XYq-Rg-JF5"/>
+                                    <constraint firstItem="mm4-x6-46o" firstAttribute="centerY" secondItem="pCf-Mt-UvR" secondAttribute="centerY" id="Z0Z-tF-9An"/>
+                                    <constraint firstItem="Lqs-7c-1pH" firstAttribute="leading" secondItem="pCf-Mt-UvR" secondAttribute="leading" constant="20" id="ZvW-ZC-zWw"/>
                                     <constraint firstAttribute="trailing" secondItem="icD-fX-p9Z" secondAttribute="trailing" constant="30" id="hTV-YM-bYX"/>
-                                    <constraint firstItem="dWH-2J-Wt5" firstAttribute="leading" secondItem="NGh-1S-TLo" secondAttribute="leading" constant="30" id="mvj-4A-LYL"/>
+                                    <constraint firstItem="zae-nc-bnQ" firstAttribute="trailing" secondItem="pCf-Mt-UvR" secondAttribute="trailing" constant="30" id="jrN-fH-4a4"/>
                                     <constraint firstItem="icD-fX-p9Z" firstAttribute="top" secondItem="NGh-1S-TLo" secondAttribute="top" constant="30" id="u7O-6U-INe"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="zae-nc-bnQ"/>
@@ -114,4 +151,7 @@
             <point key="canvasLocation" x="155.07246376811597" y="35.491071428571423"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_KDR_home_Back" width="355" height="131"/>
+    </resources>
 </document>

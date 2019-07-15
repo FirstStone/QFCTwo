@@ -396,7 +396,7 @@
         {
             Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
             MJWeakSelf;
-            LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
+            LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr, NSString * _Nonnull name, NSString * _Nonnull province, NSString * _Nonnull city, NSString * _Nonnull district) {
                 [weakSelf.Address_BT setTitle:Address forState:UIControlStateNormal];
                 [weakSelf.Sure_parm setObject:Address forKey:@"address"];
                 [weakSelf.Sure_parm setObject:longStr forKey:@"longitude"];

@@ -305,7 +305,7 @@
     if (!_KDR_Sex_View) {
         _KDR_Sex_View = [[LabelAndTextField alloc] init];
         _KDR_Sex_View.Title_Label.text = @"性    别：";
-        _KDR_Sex_View.Text_Field.placeholder = @"请输入性别";
+        _KDR_Sex_View.Text_Field.placeholder = @"请选择性别";
         _KDR_Sex_View.Text_Field.delegate = self;
         _KDR_Sex_View.Text_Field.tag = 848484;
         _KDR_Sex_View.Text_Field.inputView = [[UIView alloc] init];
@@ -355,8 +355,23 @@
     return _KDR_PhotoView;
 }
 
+- (NSMutableArray *)imageArray{
+    if (!_imageArray) {
+        _imageArray = [[NSMutableArray alloc] init];
+    }
+    return _imageArray;
+}
+
+- (NSMutableDictionary *)parm {
+    if (!_parm) {
+        _parm = [[NSMutableDictionary alloc] init];
+    }
+    return _parm;
+}
+
 #pragma mark---Click
 - (void)photoViewZerChange:(UIGestureRecognizer *)Zer {
+    [self textFieldEditState];
     self.Style_Photo = 1;
     UIAlertController *alertCtl =[[UIAlertController alloc]init];
     
@@ -520,7 +535,7 @@
 #pragma mark----PYPhotosViewDelegate
 
 - (void)photosView:(PYPhotosView *)photosView didAddImageClickedWithImages:(NSMutableArray *)images {
-    
+    [self textFieldEditState];
     if ([photosView isEqual:self.IDCard_Positive_View]) {
         self.Style_Photo = 2;
     }else if ([photosView isEqual:self.IDCard_Back_View]) {
@@ -556,7 +571,7 @@
         [MBProgressHUD py_showSuccess:@"请输入姓名" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.KDR_Sex_View.Text_Field.text.length) {
-        [MBProgressHUD py_showSuccess:@"请输入性别" toView:nil];
+        [MBProgressHUD py_showSuccess:@"请选择性别" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.KDR_Order_View.Text_Field.text.length) {
         [MBProgressHUD py_showSuccess:@"请输入年龄" toView:nil];
@@ -565,7 +580,7 @@
         [MBProgressHUD py_showSuccess:@"请输入手机号" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.KDR_Address_View.Text_Field.text.length) {
-        [MBProgressHUD py_showSuccess:@"请输入服务地址" toView:nil];
+        [MBProgressHUD py_showSuccess:@"请选择服务小区" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }else if (!self.IDCard_Positive_View.images) {
         [MBProgressHUD py_showSuccess:@"请输上传身份证正面" toView:nil];
@@ -581,24 +596,6 @@
     }
 }
 
-#pragma mark----UITextFieldDelegate
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    if (textField.tag ==  848483) {
-        Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
-        //    MJWeakSelf;
-        LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
-            //        [weakSelf.Sure_parm setObject:Address forKey:@"address"];
-            textField.text = Address;
-        };
-        [self.navigationController pushViewController:LocationVC animated:YES];
-        return NO;
-    }else {
-        return YES;
-    }
-}
-
-
 - (void)UploadingImage {
     UIImage *Photo = self.KDR_PhotoView.image;
     
@@ -610,7 +607,7 @@
     dispatch_group_async(group, queue, ^{
         dispatch_group_enter(group);
         UploadParam *image = [[UploadParam alloc] init];
-        image.data = UIImagePNGRepresentation(Photo);
+        image.data = UIImageJPEGRepresentation(Photo, 0.1);
         image.name = @"file";
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
@@ -623,7 +620,7 @@
                 [self.parm setObject:[success objectForKey:@"url"] forKey:@"avatar"];
             }
             dispatch_group_leave(group);
-            NSLog(@"%@",success);
+            NSLog(@"==================1%@",success);
         } failure:^(NSError * _Nonnull error) {
             NSLog(@"%@",error);
             [MBProgressHUD py_showError:@"上传失败" toView:nil];
@@ -634,7 +631,7 @@
     dispatch_group_async(group, queue, ^{
         dispatch_group_enter(group);
         UploadParam *image = [[UploadParam alloc] init];
-        image.data = UIImagePNGRepresentation(self.IDCard_Positive_View.images[0]);
+        image.data = UIImageJPEGRepresentation(self.IDCard_Positive_View.images[0], 0.1);
         image.name = @"file";
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
@@ -647,7 +644,7 @@
                 [self.parm setObject:[success objectForKey:@"url"] forKey:@"just"];
             }
             dispatch_group_leave(group);
-            NSLog(@"%@",success);
+            NSLog(@"==================2%@",success);
         } failure:^(NSError * _Nonnull error) {
             NSLog(@"%@",error);
             [MBProgressHUD py_showError:@"上传失败" toView:nil];
@@ -658,7 +655,8 @@
     dispatch_group_async(group, queue, ^{
         dispatch_group_enter(group);
         UploadParam *image = [[UploadParam alloc] init];
-        image.data = UIImagePNGRepresentation(self.IDCard_Back_View.images[0]);
+        image.data = UIImageJPEGRepresentation(self.IDCard_Back_View.images[0], 0.1);
+//        image.data = UIImagePNGRepresentation(self.IDCard_Back_View.images[0]);
         image.name = @"file";
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
@@ -671,7 +669,7 @@
                 [self.parm setObject:[success objectForKey:@"url"] forKey:@"against"];
             }
             dispatch_group_leave(group);
-            NSLog(@"%@",success);
+            NSLog(@"==================3%@",success);
         } failure:^(NSError * _Nonnull error) {
             NSLog(@"%@",error);
             [MBProgressHUD py_showError:@"上传失败" toView:nil];
@@ -682,7 +680,8 @@
     dispatch_group_async(group, queue, ^{
         dispatch_group_enter(group);
         UploadParam *image = [[UploadParam alloc] init];
-        image.data = UIImagePNGRepresentation(self.IDCard_Hand_View.images[0]);
+        image.data = UIImageJPEGRepresentation(self.IDCard_Hand_View.images[0], 0.1);
+//        image.data = UIImagePNGRepresentation(self.IDCard_Hand_View.images[0]);
         image.name = @"file";
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
@@ -695,7 +694,7 @@
                 [self.parm setObject:[success objectForKey:@"url"] forKey:@"hand"];
             }
             dispatch_group_leave(group);
-            NSLog(@"%@",success);
+            NSLog(@"==================4%@",success);
         } failure:^(NSError * _Nonnull error) {
             NSLog(@"%@",error);
             [MBProgressHUD py_showError:@"上传失败" toView:nil];
@@ -705,8 +704,9 @@
     });
     //添加分组内的最后一个任务
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"%lu",(unsigned long)self.imageArray.count);
         if (self.imageArray.count == 4) {
-//            [self setDataSoureToBacker];
+            [self setDataSoureToBacker];
         }else {
             [SVProgressHUD dismiss];
             UIAlertController *alertV = [UIAlertController alertControllerWithTitle:@"提示" message:@"图片上传失败请重新上传" preferredStyle:UIAlertControllerStyleAlert];
@@ -721,6 +721,60 @@
     });
 }
 
+- (void)setDataSoureToBacker {
+    /**
+     快代扔入驻
+     waste/users/AppserviceAdds
+     
+     $data['uid'] = input('uid');
+     $data['avatar'] = input('avatar');
+     $data['realname'] = input('realname');
+     $data['phone'] = input('phone');
+     $data['sex'] = input('sex');
+     $data['age'] = input('age');
+     $data['just'] = input('just');
+     $data['against'] = input('against');
+     $data['hand'] = input('hand');
+     
+     $data['invite'] = input('invite');
+     $data['village'] = input('village');
+     $data['address'] = input('address');
+     $data['city'] = input('city');
+     $data['latitude'] = input('latitude');
+     $data['longitude'] = input('longitude');
+     */
+    [self.parm setObject:@"0" forKey:@"invite"];
+    [self.parm setObject:self.KDR_Name_View.Text_Field.text forKey:@"realname"];
+    [self.parm setObject:self.KDR_Order_View.Text_Field.text forKey:@"age"];
+    [self.parm setObject:self.KDR_PhoneNumber_View.Text_Field.text forKey:@"phone"];
+//    [self.parm setObject:self.KDR_Address_View.Text_Field.text forKey:@"address"];
+    [self.parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    
+    [[HttpRequest sharedInstance] postWithURLString:URL_WasteUsersAppserviceAdds parameters:self.parm success:^(NSDictionary * _Nonnull responseObject) {
+        [SVProgressHUD dismiss];
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:QFC_UpDataSoureToSelfView_NSNotification object:nil];
+            [MBProgressHUD py_showSuccess:@"信息已提交，请等待审核" toView:nil];
+            [SVProgressHUD setAnimationDelay:0.7f];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }else {
+            [MBProgressHUD py_showError:@"注册失败" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+            [self.imageArray removeAllObjects];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [SVProgressHUD dismiss];
+        [MBProgressHUD py_showError:@"信息提交失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+        [self.imageArray removeAllObjects];
+    }];
+    
+    
+    
+}
+
+
 #pragma mark----PickerViewResultDelegate
 
 - (void)pickerView:(UIView *)pickerView result:(NSString *)string {
@@ -728,15 +782,48 @@
     [self.parm setObject:[self.KDR_Sex_View.Text_Field.text isEqualToString:@"男"] ? @"1" : @"2" forKey:@"sex"];
 }
 #pragma mark----UITextFieldDelegate
-//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-//
-//    return YES;
-//}
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+/*- (void)textFieldDidBeginEditing:(UITextField *)textField {
     PickerView *pick = [[PickerView alloc] init];
     pick.delegate = self;
     pick.type = PickerViewTypeSex;
     [self.view addSubview:pick];
+}*/
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (textField.tag ==  848483) {
+        [self textFieldEditState];
+        Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
+        LocationVC.Number = 1;
+        MJWeakSelf;
+        LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr, NSString * _Nonnull name, NSString * _Nonnull province, NSString * _Nonnull city, NSString * _Nonnull district) {
+            [weakSelf.parm setObject:Address forKey:@"address"];
+            [weakSelf.parm setObject:lat forKey:@"latitude"];
+            [weakSelf.parm setObject:longStr forKey:@"longitude"];
+            [weakSelf.parm setObject:province forKey:@"province"];
+            [weakSelf.parm setObject:city forKey:@"city"];
+            [weakSelf.parm setObject:district forKey:@"county"];
+            [weakSelf.parm setObject:name forKey:@"village"];
+            textField.text = name;
+        };
+        [self.navigationController pushViewController:LocationVC animated:YES];
+        return NO;
+    }else if (textField.tag == 848484) {
+        [self textFieldEditState];
+        PickerView *pick = [[PickerView alloc] init];
+        pick.delegate = self;
+        pick.type = PickerViewTypeSex;
+        [self.view addSubview:pick];
+        return NO;
+    }else {
+        return YES;
+    }
+}
+
+- (void)textFieldEditState {
+    [self.KDR_Name_View.Text_Field resignFirstResponder];
+    [self.KDR_Sex_View.Text_Field resignFirstResponder];
+    [self.KDR_PhoneNumber_View.Text_Field resignFirstResponder];
+    [self.KDR_Order_View.Text_Field resignFirstResponder];
 }
 
 @end

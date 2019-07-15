@@ -373,6 +373,7 @@
 //登录Mid
 #define User_Mid @"UserMid"
 //用户角色
+#define User_Avatar @"useravatar"
 /**
  type_id  0普通 1 跑腿 2家政 3商家
  Audit 0  1审核通过 2待审核 3审核未通过
@@ -514,6 +515,30 @@
  Route::rule('depthorderadd/:uid/:pid/:endid/:times/:weight/:remark','index/Husbandry/depthOrderAdd');
  */
 #define URL_depthOrderAdd HTTPHeader@"index/Husbandry/depthOrderAdd"
+
+#pragma mark----快代扔
+
+/**
+快代扔入驻
+ waste/users/AppserviceAdds
+ $data['uid'] = input('uid');
+ $data['avatar'] = input('avatar');
+ $data['realname'] = input('realname');
+ $data['phone'] = input('phone');
+ $data['sex'] = input('sex');
+ $data['age'] = input('age');
+ $data['just'] = input('just');
+ $data['against'] = input('against');
+ $data['hand'] = input('hand');
+ $data['invite'] = input('invite');
+ $data['village'] = input('village');
+ $data['address'] = input('address');
+ $data['city'] = input('city');
+ $data['latitude'] = input('latitude');
+ $data['longitude'] = input('longitude');
+ */
+#define URL_WasteUsersAppserviceAdds HTTPHeader@"waste/users/AppserviceAdds"
+
 
 #pragma mark----社区周边
 /**

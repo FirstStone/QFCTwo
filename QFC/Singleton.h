@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *nickname;
 /**用户头像*/
 @property (nonatomic, strong) NSString *avatar;
-/**用户类型  0普通 1 跑腿 2家政 3商家 */
+/**用户类型  0普通 1 跑腿 2家政 3商家 4快代扔*/
 @property (nonatomic, strong) NSString *type_id;
 /**用户地址*/
 @property (nonatomic, strong) NSString *address;

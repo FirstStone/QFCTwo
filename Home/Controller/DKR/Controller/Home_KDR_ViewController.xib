@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Home_KDR_ViewController">
             <connections>
                 <outlet property="Lift_BT" destination="S34-RV-cmH" id="uVa-i5-hmS"/>
+                <outlet property="Lift_LAbel" destination="V0f-9a-lP8" id="ezx-Lp-ZF1"/>
                 <outlet property="Middle_BT" destination="0oy-LH-wob" id="Eo3-Ei-yCZ"/>
                 <outlet property="Right_BT" destination="HmB-9s-xOm" id="kEm-3W-1BW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -43,7 +44,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpU-FZ-49a">
                     <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ch-cn-A9P">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_KDR_Homeimage" translatesAutoresizingMaskIntoConstraints="NO" id="9ch-cn-A9P">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="558"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awF-k6-fc2">
@@ -84,14 +85,13 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4L-Ds-LcB">
                             <rect key="frame" x="0.0" y="558" width="414" height="250"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oy-LH-wob">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oy-LH-wob">
                                     <rect key="frame" x="157" y="75" width="100" height="100"/>
-                                    <color key="backgroundColor" red="0.035294117649999998" green="0.81960784310000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="ieG-Wa-Vye"/>
                                         <constraint firstAttribute="height" constant="100" id="rGP-3j-kyA"/>
                                     </constraints>
-                                    <state key="normal" title="立即预约"/>
+                                    <state key="normal" image="icon_KDR_Settledin"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="50"/>
@@ -101,14 +101,13 @@
                                         <action selector="MiddleButtonClick:" destination="-1" eventType="touchUpInside" id="SaP-Sb-cCD"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S34-RV-cmH">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S34-RV-cmH">
                                     <rect key="frame" x="30" y="90" width="70" height="70"/>
-                                    <color key="backgroundColor" red="0.035294117649999998" green="0.81960784310000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="70" id="O6U-7u-8EI"/>
                                         <constraint firstAttribute="width" constant="70" id="QxQ-xc-Rgb"/>
                                     </constraints>
-                                    <state key="normal" title="新手引导"/>
+                                    <state key="normal" image="icon_KDR_In"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="35"/>
@@ -118,14 +117,13 @@
                                         <action selector="LiftButtonClick:" destination="-1" eventType="touchUpInside" id="NCW-Mo-v9b"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmB-9s-xOm">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmB-9s-xOm">
                                     <rect key="frame" x="314" y="90" width="70" height="70"/>
-                                    <color key="backgroundColor" red="0.035294117649999998" green="0.81960784310000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="70" id="3ZS-K3-bAF"/>
                                         <constraint firstAttribute="height" constant="70" id="vGF-7f-4og"/>
                                     </constraints>
-                                    <state key="normal" title="个人中心"/>
+                                    <state key="normal" image="icon_KDR_Self"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="35"/>
@@ -135,18 +133,43 @@
                                         <action selector="RightButtonClick:" destination="-1" eventType="touchUpInside" id="RG5-kH-veq"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快速入驻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0f-9a-lP8">
+                                    <rect key="frame" x="30" y="165" width="70" height="18"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <color key="textColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人中心" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgk-oY-zuT">
+                                    <rect key="frame" x="314" y="165" width="70" height="18"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <color key="textColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="S34-RV-cmH" firstAttribute="leading" secondItem="T4L-Ds-LcB" secondAttribute="leading" constant="30" id="2LS-Qr-Frl"/>
+                                <constraint firstItem="V0f-9a-lP8" firstAttribute="top" secondItem="S34-RV-cmH" secondAttribute="bottom" constant="5" id="3ba-3Q-90K"/>
+                                <constraint firstItem="Jgk-oY-zuT" firstAttribute="top" secondItem="HmB-9s-xOm" secondAttribute="bottom" constant="5" id="4dM-8m-5Sg"/>
+                                <constraint firstItem="Jgk-oY-zuT" firstAttribute="leading" secondItem="HmB-9s-xOm" secondAttribute="leading" id="83W-Mk-Amf"/>
                                 <constraint firstItem="0oy-LH-wob" firstAttribute="centerY" secondItem="T4L-Ds-LcB" secondAttribute="centerY" id="PPU-jd-6iL"/>
                                 <constraint firstItem="0oy-LH-wob" firstAttribute="centerY" secondItem="S34-RV-cmH" secondAttribute="centerY" id="RFI-cp-ka7"/>
+                                <constraint firstItem="V0f-9a-lP8" firstAttribute="trailing" secondItem="S34-RV-cmH" secondAttribute="trailing" id="dNn-2t-keR"/>
                                 <constraint firstItem="HmB-9s-xOm" firstAttribute="centerY" secondItem="S34-RV-cmH" secondAttribute="centerY" id="han-vl-dUg"/>
                                 <constraint firstItem="0oy-LH-wob" firstAttribute="centerX" secondItem="T4L-Ds-LcB" secondAttribute="centerX" id="jeu-jj-BRI"/>
+                                <constraint firstItem="Jgk-oY-zuT" firstAttribute="trailing" secondItem="HmB-9s-xOm" secondAttribute="trailing" id="m17-qi-zzA"/>
+                                <constraint firstItem="V0f-9a-lP8" firstAttribute="leading" secondItem="S34-RV-cmH" secondAttribute="leading" id="nWD-LM-CAD"/>
                                 <constraint firstAttribute="height" constant="250" id="vlX-aw-G9o"/>
                                 <constraint firstAttribute="trailing" secondItem="HmB-9s-xOm" secondAttribute="trailing" constant="30" id="yrd-7y-vgh"/>
                             </constraints>
                         </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_KDR_Home_Laba" translatesAutoresizingMaskIntoConstraints="NO" id="KWL-i9-lHj">
+                            <rect key="frame" x="376" y="35.5" width="23" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="29" id="nH7-3V-D4u"/>
+                                <constraint firstAttribute="width" constant="23" id="yGm-dA-9XW"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
@@ -159,6 +182,8 @@
                         <constraint firstItem="9ch-cn-A9P" firstAttribute="top" secondItem="kpU-FZ-49a" secondAttribute="top" id="ZnI-gu-4Tf"/>
                         <constraint firstAttribute="trailing" secondItem="T4L-Ds-LcB" secondAttribute="trailing" id="b1n-GC-H1i"/>
                         <constraint firstItem="T4L-Ds-LcB" firstAttribute="leading" secondItem="kpU-FZ-49a" secondAttribute="leading" id="d3M-Mh-piV"/>
+                        <constraint firstItem="KWL-i9-lHj" firstAttribute="trailing" secondItem="awF-k6-fc2" secondAttribute="trailing" constant="-5" id="eSW-0R-mh5"/>
+                        <constraint firstItem="KWL-i9-lHj" firstAttribute="centerY" secondItem="awF-k6-fc2" secondAttribute="centerY" id="kBM-sg-EnM"/>
                         <constraint firstAttribute="bottom" secondItem="T4L-Ds-LcB" secondAttribute="bottom" id="q3N-T3-H6i"/>
                     </constraints>
                 </view>
@@ -177,4 +202,11 @@
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_KDR_Home_Laba" width="23" height="19"/>
+        <image name="icon_KDR_Homeimage" width="375" height="666"/>
+        <image name="icon_KDR_In" width="50" height="50"/>
+        <image name="icon_KDR_Self" width="50" height="50"/>
+        <image name="icon_KDR_Settledin" width="100" height="100"/>
+    </resources>
 </document>

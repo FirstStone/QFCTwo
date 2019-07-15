@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-typedef void(^PublishLocationVCSelect)(NSString *Address, NSString *lat, NSString *longStr);
+typedef void(^PublishLocationVCSelect)(NSString *Address, NSString *lat, NSString *longStr, NSString *name, NSString *province, NSString *city, NSString *district);
 
 @interface Publish_Location_VC : UIViewController
 

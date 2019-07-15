@@ -189,6 +189,7 @@
             [defaults setObject:[DataSoure objectForKey:@"id"] forKey:User_Mid];
             [defaults setObject:[DataSoure objectForKey:@"type_id"] forKey:User_Type];
             [defaults setObject:[DataSoure objectForKey:@"nickname"] forKey:User_Nickname];
+            [defaults setObject:[DataSoure objectForKey:@"avatar"] forKey:User_Avatar];
             [Singleton sharedSingleton].nickname = [DataSoure objectForKey:@"nickname"];
             [Singleton sharedSingleton].soleid = [DataSoure objectForKey:@"soleid"];
             [Singleton sharedSingleton].avatar = [DataSoure objectForKey:@"avatar"];
@@ -362,6 +363,7 @@
             [defaults setObject:[DataSoure objectForKey:@"id"] forKey:User_Mid];
             [defaults setObject:[DataSoure objectForKey:@"type_id"] forKey:User_Type];
             [defaults setObject:[DataSoure objectForKey:@"nickname"] forKey:User_Nickname];
+            [defaults setObject:[DataSoure objectForKey:@"avatar"] forKey:User_Avatar];
             [Singleton sharedSingleton].nickname = [DataSoure objectForKey:@"nickname"];
             [Singleton sharedSingleton].soleid = [DataSoure objectForKey:@"soleid"];
             [Singleton sharedSingleton].avatar = [DataSoure objectForKey:@"avatar"];
@@ -422,6 +424,7 @@
             [defaults setObject:[DataSoure objectForKey:@"id"] forKey:User_Mid];
             [defaults setObject:[DataSoure objectForKey:@"type_id"] forKey:User_Type];
             [defaults setObject:[DataSoure objectForKey:@"nickname"] forKey:User_Nickname];
+            [defaults setObject:[DataSoure objectForKey:@"avatar"] forKey:User_Avatar];
             [Singleton sharedSingleton].nickname = [DataSoure objectForKey:@"nickname"];
             [Singleton sharedSingleton].soleid = [DataSoure objectForKey:@"soleid"];
             [Singleton sharedSingleton].avatar = [DataSoure objectForKey:@"avatar"];

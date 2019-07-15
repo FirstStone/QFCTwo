@@ -40,10 +40,10 @@
     Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
     LocationVC.Number = 1;
     MJWeakSelf;
-    LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr) {
-//        [weakSelf.Sure_parm setObject:Address forKey:@"address"];
-//        [weakSelf.Sure_parm setObject:longStr forKey:@"longitude"];
-//        [weakSelf.Sure_parm setObject:lat forKey:@"latitude"];
+    LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr, NSString * _Nonnull name, NSString * _Nonnull province, NSString * _Nonnull city, NSString * _Nonnull district) {
+        //        [weakSelf.Sure_parm setObject:Address forKey:@"address"];
+        //        [weakSelf.Sure_parm setObject:longStr forKey:@"longitude"];
+        //        [weakSelf.Sure_parm setObject:lat forKey:@"latitude"];
         weakSelf.Village_Field.text = Address;
     };
     [self.navigationController pushViewController:LocationVC animated:YES];
