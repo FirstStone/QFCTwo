@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Home_KDR_PlaceOrder_ViewController : UIViewController
 
+@property (nonatomic, assign) BOOL LiftBT_State;
+
 @end
 
 NS_ASSUME_NONNULL_END

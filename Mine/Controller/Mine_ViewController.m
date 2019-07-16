@@ -359,10 +359,17 @@
 //                        [MBProgressHUD py_showError:@"暂未开通" toView:nil];
 //                        [MBProgressHUD setAnimationDelay:0.7f];
                     }else if (indexPath.row == 1) {//我的服务 快速入驻
+                        
                         if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 0) {//普通用户  入驻跳转
-                            Mine_SettledIn_ViewController *settledinVC = [[Mine_SettledIn_ViewController alloc] init];
-                            [settledinVC setHidesBottomBarWhenPushed:YES];
-                            [self.navigationController pushViewController:settledinVC animated:YES];
+                            if ([[Singleton sharedSingleton].audit intValue] == 2) {//待审核
+                                Examine_State_ViewController *examVC = [[Examine_State_ViewController alloc] init];
+                                [examVC setHidesBottomBarWhenPushed:YES];
+                                [self.navigationController pushViewController:examVC animated:YES];
+                            }else {
+                                Mine_SettledIn_ViewController *settledinVC = [[Mine_SettledIn_ViewController alloc] init];
+                                [settledinVC setHidesBottomBarWhenPushed:YES];
+                                [self.navigationController pushViewController:settledinVC animated:YES];
+                            }
                         } else if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 1){//跑腿
                              Mine_RunErrands_ServiceViewController *runVC = [[Mine_RunErrands_ServiceViewController alloc] init];
                              [runVC setHidesBottomBarWhenPushed:YES];

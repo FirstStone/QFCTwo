@@ -18,13 +18,17 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *Tip_Label;
 
+@property (strong, nonatomic) IBOutlet UIButton *Lift_BT;
+
+@property (nonatomic, strong) NSString *Addressid;
+
 @end
 
 @implementation Home_KDR_PlaceOrder_ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.Lift_BT.hidden = !self.LiftBT_State;
 }
 
 - (IBAction)LiftBtuuonPOP:(id)sender {
@@ -69,8 +73,32 @@
         self.Year_BT.backgroundColor = QFC_Color_F5F5F5;
         self.Sum_BT.backgroundColor = QFC_Color_09D15A;
     }
+}
+
+- (IBAction)LiftButtonClick:(id)sender {
     
 }
+
+- (IBAction)RightButtonClick:(id)sender {
+    
+}
+
+- (IBAction)AddressButtonClick:(id)sender {
+    
+}
+
+- (void)POSTWasteOrderExperience {
+    /**
+     waste/order/experience
+     uid
+     addressid
+     免费预约
+     */
+    
+    
+    
+}
+
 
 
 @end

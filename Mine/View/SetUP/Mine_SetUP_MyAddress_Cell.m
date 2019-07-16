@@ -37,10 +37,18 @@
 
 - (void)setModelToCell:(Mine_SetUP_MyAddress_Model *)model {
     self.My_Model = model;
-    self.Name_Label.text = model.realname;
-    self.Phone_Label.text = model.phone;
-    self.Address_Label.text = [NSString stringWithFormat:@"%@%@", model.address, model.details];
-    self.Default_BT.selected = [model.status intValue];
+    if ([model.latitude doubleValue] && [model.longitude doubleValue]) {
+        self.Name_Label.text = model.realname;
+        self.Phone_Label.text = model.phone;
+        self.Address_Label.text = [NSString stringWithFormat:@"%@%@%@%@", model.city ,model.county, model.village, model.details];
+        self.Default_BT.selected = [model.status intValue];
+    }else {
+        self.Name_Label.text = model.realname;
+        self.Phone_Label.text = model.phone;
+        self.Address_Label.text = [NSString stringWithFormat:@"%@%@", model.address, model.details];
+        self.Default_BT.selected = [model.status intValue];
+    }
+    
 }
 
 - (IBAction)DelectBTClick:(id)sender {

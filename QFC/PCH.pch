@@ -259,6 +259,8 @@
 #import "Message_KDRViewController.h"
 #import "Message_KDR_TableView.h"
 #import "Home_KDR_SettledIn_ViewController.h"
+#import "Examine_State_ViewController.h"
+#import "Home_KDR_Novice_ViewController.h"
 
 //数据模型
 #import "Message_FansList_Model.h"
@@ -379,6 +381,10 @@
  Audit 0  1审核通过 2待审核 3审核未通过
  */
 #define User_Type @"UserType"
+
+/**Audit 审核状态*/
+#define User_Audit @"UserAudit"
+
 //网络请求接口
 //域名头
 #define HTTPHeader @"https://www.txkuaiyou.com/"
@@ -539,6 +545,82 @@
  */
 #define URL_WasteUsersAppserviceAdds HTTPHeader@"waste/users/AppserviceAdds"
 
+/**
+ 判断是否有下单权限
+ waste/users/uidUser
+ uid
+ */
+#define URL_WasteUsersUidUser HTTPHeader@"waste/users/uidUser"
+
+/**
+ 判断有没有下单地址
+ waste/address/defaultInfo
+ uid
+ */
+#define URL_WasteAddressDefaultInfo HTTPHeader@"waste/address/defaultInfo"
+
+/**
+ waste/order/GiveFindOrder
+ uid
+ 判断有没有订单
+ */
+#define URL_WasteOrderGiveFindOrder HTTPHeader@"waste/order/GiveFindOrder"
+
+/**
+ waste/order/makeAdd
+ uid
+ addressid
+ 下单
+ */
+#define URL_WasteOrderaMkeAdd HTTPHeader@"waste/order/makeAdd"
+
+/**
+ waste/order/experience
+ uid
+ addressid
+ 免费预约
+ */
+#define URL_WasteOrderExperience HTTPHeader@"waste/order/experience"
+
+/**
+ 1.KDR我的地址列表
+ URL : https://www.txkuaiyou.com/waste/address/addressList
+ 参数 :
+ uid 用户ID
+ */
+#define URL_WasteAddressAddressList HTTPHeader@"waste/address/addressList"
+
+/**
+ 3.KDR地址列表 设置默认地址
+ URL : https://www.txkuaiyou.com/waste/address/defaultFind
+ 参数 :
+ uid 用户ID
+ id 地址ID
+ */
+
+/**
+ 4.KDR地址列表 地址删除
+ URL : https://www.txkuaiyou.com/waste/address/delFind
+ 参数 :
+ uid 用户ID
+ id 地址ID
+ */
+
+/**
+ waste/address/addressAdds
+ uid
+ details    详细地址
+ realname      姓名
+ phone       手机号
+ address      定位地址
+ village       小区
+ province         省
+ city        市
+ county;            县/区
+ latitude;
+ longitude
+ */
+#define URL_WasteAddressAddressAdds HTTPHeader@"waste/address/addressAdds"
 
 #pragma mark----社区周边
 /**

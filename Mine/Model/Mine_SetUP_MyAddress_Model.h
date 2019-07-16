@@ -28,6 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *sex;
 @property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *latitude;
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *city;
+@property (nonatomic, strong) NSString *county;
+@property (nonatomic, strong) NSString *province;
+@property (nonatomic, strong) NSString *village;
 
 @end
 

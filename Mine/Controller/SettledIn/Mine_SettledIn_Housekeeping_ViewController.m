@@ -904,6 +904,7 @@
             [Singleton sharedSingleton].audit = [DataSoure objectForKey:@"audit"];
             [Singleton sharedSingleton].Mid = [DataSoure objectForKey:@"id"];
             [Singleton sharedSingleton].balance = [DataSoure objectForKey:@"balance"];
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:QFC_UpDataSoureToSelfView_NSNotification object:nil];
             [MBProgressHUD py_showSuccess:@"信息已提交，请等待审核" toView:nil];
             [SVProgressHUD setAnimationDelay:0.7f];

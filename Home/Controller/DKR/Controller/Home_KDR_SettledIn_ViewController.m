@@ -747,13 +747,33 @@
     [self.parm setObject:self.KDR_Name_View.Text_Field.text forKey:@"realname"];
     [self.parm setObject:self.KDR_Order_View.Text_Field.text forKey:@"age"];
     [self.parm setObject:self.KDR_PhoneNumber_View.Text_Field.text forKey:@"phone"];
-//    [self.parm setObject:self.KDR_Address_View.Text_Field.text forKey:@"address"];
     [self.parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
     
     [[HttpRequest sharedInstance] postWithURLString:URL_WasteUsersAppserviceAdds parameters:self.parm success:^(NSDictionary * _Nonnull responseObject) {
         [SVProgressHUD dismiss];
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
+            
+            NSDictionary *DataSoure = [responseObject objectForKey:@"info"];
+            NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
+            [defaults setObject:[DataSoure objectForKey:@"id"] forKey:User_Mid];
+            [defaults setObject:[DataSoure objectForKey:@"type_id"] forKey:User_Type];
+            [defaults setObject:[DataSoure objectForKey:@"audit"] forKey:User_Audit];
+            [Singleton sharedSingleton].nickname = [DataSoure objectForKey:@"nickname"];
+            [Singleton sharedSingleton].soleid = [DataSoure objectForKey:@"soleid"];
+            [Singleton sharedSingleton].avatar = [DataSoure objectForKey:@"avatar"];
+            [Singleton sharedSingleton].type_id = [DataSoure objectForKey:@"type_id"];
+            [Singleton sharedSingleton].address = [DataSoure objectForKey:@"address"];
+            [Singleton sharedSingleton].audit = [DataSoure objectForKey:@"audit"];
+            [Singleton sharedSingleton].Mid = [DataSoure objectForKey:@"id"];
+            [Singleton sharedSingleton].balance = [DataSoure objectForKey:@"balance"];
+            [Singleton sharedSingleton].attention_sum = [DataSoure objectForKey:@"attention_sum"];
+            [Singleton sharedSingleton].avatar = [DataSoure objectForKey:@"avatar"];
+            [Singleton sharedSingleton].collect_sum = [DataSoure objectForKey:@"collect_sum"];
+            [Singleton sharedSingleton].phone = [DataSoure objectForKey:@"phone"];
+            [Singleton sharedSingleton].plaza_sum = [DataSoure objectForKey:@"plaza_sum"];
+            [Singleton sharedSingleton].soleid = [DataSoure objectForKey:@"soleid"];
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:QFC_UpDataSoureToSelfView_NSNotification object:nil];
             [MBProgressHUD py_showSuccess:@"信息已提交，请等待审核" toView:nil];
             [SVProgressHUD setAnimationDelay:0.7f];
@@ -765,7 +785,7 @@
         }
     } failure:^(NSError * _Nonnull error) {
         [SVProgressHUD dismiss];
-        [MBProgressHUD py_showError:@"信息提交失败" toView:nil];
+        [MBProgressHUD py_showError:[NSString stringWithFormat:@"信息提交失败(%ld)", error.code] toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
         [self.imageArray removeAllObjects];
     }];
