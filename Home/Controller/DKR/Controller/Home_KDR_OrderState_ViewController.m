@@ -16,6 +16,12 @@
 
 @property (nonatomic, strong) Home_KDRState_View *BackView;
 
+@property (nonatomic, strong) UIImageView *imageView;
+
+@property (nonatomic, strong) UILabel *Tip_Label;
+
+@property (nonatomic, strong) UIButton *Sure_BT;
+
 @end
 
 @implementation Home_KDR_OrderState_ViewController
@@ -66,12 +72,66 @@
         make.top.offset(self.contView.centerY-350);
         make.size.mas_offset(CGSizeMake(150.0f, 150.0f));
     }];
+    [self.contView addSubview:self.imageView];
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.BackView);
+        make.centerY.equalTo(self.BackView);
+        make.size.mas_offset(CGSizeMake(130.0f, 130.0f));
+    }];
+    [self.contView addSubview:self.Tip_Label];
+    [self.Tip_Label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.contView);
+        make.top.mas_offset(self.contView.centerY - 60.0f);
+    }];
+    [self.contView addSubview:self.Sure_BT];
+    [self.Sure_BT mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.offset(30.0f);
+        make.left.equalTo(self.contView.mas_left).offset(20.0f);
+        make.right.equalTo(self.contView.mas_right).offset(-20.0f);
+        make.top.equalTo(self.Tip_Label.mas_bottom).offset(30.0f);
+    }];
 }
 
 
 
 - (IBAction)LiftButtonPOP:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSArray *viewcongtrollers = self.navigationController.viewControllers;
+    if (self.Number == 1) {
+        [self.navigationController popToViewController:viewcongtrollers[1]  animated:YES];
+    }else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (UILabel *)Tip_Label {
+    if (!_Tip_Label){
+        _Tip_Label = [[UILabel alloc] init];
+        _Tip_Label.text = @"等待服务人员接单中...";
+        _Tip_Label.textColor = QFC_Color_333333;
+        _Tip_Label.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightBold];
+        _Tip_Label.textAlignment = NSTextAlignmentCenter;
+    }
+    return _Tip_Label;
+}
+
+- (UIButton *)Sure_BT {
+    if (!_Sure_BT) {
+        _Sure_BT = [[UIButton alloc] init];
+        [_Sure_BT setTitle:@"返回首页" forState:UIControlStateNormal];
+        _Sure_BT.backgroundColor = QFC_Color_09D15A;
+        [_Sure_BT setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _Sure_BT.layer.cornerRadius = 15.0f;
+        [_Sure_BT addTarget:self action:@selector(surebuttonClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _Sure_BT;
+}
+
+- (UIImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [[UIImageView alloc] init];
+        _imageView.image = [UIImage imageNamed:@"icon_KDR_daifuwu"];
+    }
+    return _imageView;
 }
 
 - (UIView *)icon_View {
@@ -91,6 +151,10 @@
 //        _BackView.backgroundColor = [UIColor orangeColor];
     }
     return _BackView;
+}
+
+- (void)surebuttonClick {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

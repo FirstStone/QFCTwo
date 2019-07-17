@@ -336,10 +336,11 @@
                 Mine_Order_Model *model = [Mine_Order_Model  mj_objectWithKeyValues:dic];
                 [self.dataArray addObject:model];
             }
+            if (!Array.count) {
+                [self hidenFooterView:NO];
+            }
         }
-        if (self.dataArray.count && self.Page == 1) {
-            [self hidenFooterView:NO];
-        }else {
+        if (!self.dataArray.count){
             [self hidenFooterView:YES];
         }
         [self reloadData];

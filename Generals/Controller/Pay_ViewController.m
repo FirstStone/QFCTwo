@@ -48,8 +48,19 @@
     
     UITapGestureRecognizer *YuEZer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(YuEZer:)];
     [self.YuE_View addGestureRecognizer:YuEZer];
-    
-    [self setDataSoureToBacker:self.OrderID];
+    switch (self.PayStyle) {
+        case PayViewControllerDefault:
+        {
+            [self setDataSoureToBacker:self.OrderID];
+        }
+            break;
+        case PayViewControllerKDR:
+        {
+            [self POSTWasteOrderOrderInfo:self.OrderID];
+        }
+        default:
+            break;
+    }
 }
 - (IBAction)ApliayButtonClick:(id)sender {
     self.Apliay_BT.selected = YES;
@@ -103,17 +114,43 @@
 
 
 - (IBAction)ButtonClick:(id)sender {
-    if (self.Apliay_BT.selected) {//支付宝支付
-        [self LoadingApliayDataSoure];
-    }else if (self.WXPay_BT.selected){//微信支付
-        if (self.Number == 1) {//二次付款
-            [self PostIndexWxpayTwoParameter];
-        }else {
-             [self LoadingDataSoure];
-        }
-    }else {//余额支付
-        [self PostIndexBalancepayYePay];
+    if (self.WXPay_BT.selected && ![WXApi isWXAppInstalled]) {
+        [MBProgressHUD py_showError:@"无法进行支付" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+        return;
     }
+    switch (self.PayStyle) {
+        case PayViewControllerDefault:
+        {
+            if (self.Apliay_BT.selected) {//支付宝支付
+                [self LoadingApliayDataSoure];
+            }else if (self.WXPay_BT.selected){//微信支付
+                if (self.Number == 1) {//二次付款
+                    [self PostIndexWxpayTwoParameter];
+                }else {
+                    [self LoadingDataSoure];
+                }
+            }else {//余额支付
+                [self PostIndexBalancepayYePay];
+            }
+        }
+            break;
+        case PayViewControllerKDR:
+        {
+            if (self.Apliay_BT.selected) {//支付宝支付
+                [self POSTWasteAlipayAlipay];
+            }else if (self.WXPay_BT.selected){//微信支付
+                [self POSTWasteOrderParameter];
+            }else {//余额支付
+                [self PostIndexBalancepayYePay];
+            }
+        }
+            break;
+        default:
+            break;
+    }
+    
+
 }
 
 - (NSDictionary *)DataSoure {
@@ -335,4 +372,80 @@
         [MBProgressHUD setAnimationDelay:0.7f];
     }
 }
+
+- (void)POSTWasteOrderOrderInfo:(NSString *)orderid {
+    /**
+     获取订单ID
+     waste/order/orderInfo
+     orderid 订单ID
+     */
+    self.Sure_BT.userInteractionEnabled = NO;
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:orderid forKey:@"orderid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderOrderInfo parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            self.DataSoure = [responseObject objectForKey:@"info"];
+            self.Order_Label.text = [NSString stringWithFormat:@"订单号：%@", [self.DataSoure objectForKey:@"ordersn"]];
+            self.Price_Label.text = [NSString stringWithFormat:@"¥%@", [self.DataSoure objectForKey:@"price"]];
+        }else {
+            [MBProgressHUD py_showError:@"暂无数据" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+        self.Sure_BT.userInteractionEnabled = YES;
+    } failure:^(NSError * _Nonnull error) {
+        self.Sure_BT.userInteractionEnabled = YES;
+        [MBProgressHUD py_showError:@"数据加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+//快代扔
+- (void)POSTWasteOrderParameter {
+    /**
+     微信支付
+     waste/order/parameter
+     uid
+     orderid
+     支付
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[self.DataSoure objectForKey:@"id"] forKey:@"orderid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderParameter parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSDictionary *dic = [responseObject objectForKey:@"info"];
+            [self wxpay:[dic objectForKey:@"partnerid"] prepayid:[dic objectForKey:@"prepayid"] package:[dic objectForKey:@"package"] noncestr:[dic objectForKey:@"noncestr"] timestamp:[dic objectForKey:@"timestamp"] sign:[dic objectForKey:@"sign"]];
+        }else {
+            [MBProgressHUD py_showError:@"暂无数据" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"数据加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+//快代扔
+- (void)POSTWasteAlipayAlipay {
+    /**
+     waste/Alipay/alipay
+     orderid
+     支付宝支付
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[self.DataSoure objectForKey:@"id"] forKey:@"orderid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteAlipayAlipay parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSString *ApliayString = [responseObject objectForKey:@"message"];
+            [self ApliayPay:ApliayString];
+        }else {
+            [MBProgressHUD py_showError:@"暂无数据" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"数据加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
 @end

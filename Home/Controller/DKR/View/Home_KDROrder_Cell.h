@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class Home_KDR_Order_Model;
 @interface Home_KDROrder_Cell : UITableViewCell
+
+- (void)setDataSoureToCell:(Home_KDR_Order_Model *)model;
 
 @end
 

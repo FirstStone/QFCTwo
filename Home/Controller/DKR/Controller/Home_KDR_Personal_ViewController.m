@@ -55,7 +55,9 @@
 }
 
 - (IBAction)SureButtonClick:(id)sender {
-    NSLog(@"1111111111");
+    Home_KDR_PlaceOrder_ViewController *placeVC = [[Home_KDR_PlaceOrder_ViewController alloc] init];
+    [placeVC setAccessibilityElementsHidden:YES];
+    [self.navigationController pushViewController:placeVC animated:YES];
 }
 
 

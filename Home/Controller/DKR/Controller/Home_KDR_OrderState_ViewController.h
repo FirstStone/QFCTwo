@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Home_KDR_OrderState_ViewController : Basic_ViewController
 
+@property (nonatomic, assign) NSInteger Number;
+
 @end
 
 NS_ASSUME_NONNULL_END

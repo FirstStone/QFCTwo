@@ -37,7 +37,7 @@
 
 - (void)setModelToCell:(Mine_SetUP_MyAddress_Model *)model {
     self.My_Model = model;
-    if ([model.latitude doubleValue] && [model.longitude doubleValue]) {
+    if (model.city.length) {
         self.Name_Label.text = model.realname;
         self.Phone_Label.text = model.phone;
         self.Address_Label.text = [NSString stringWithFormat:@"%@%@%@%@", model.city ,model.county, model.village, model.details];

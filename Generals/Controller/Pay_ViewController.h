@@ -10,11 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSUInteger {
+    PayViewControllerDefault,
+    PayViewControllerKDR,
+} PayViewControllerStyle;
 @interface Pay_ViewController : Basic_ViewController
 
 @property (nonatomic, strong) NSString *OrderID;
-
+/**1 二次付款*/
 @property (nonatomic, assign) NSInteger Number;
+
+@property (nonatomic, assign) PayViewControllerStyle PayStyle;
 
 @end
 

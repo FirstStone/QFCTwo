@@ -263,6 +263,7 @@
 #import "Home_KDR_Novice_ViewController.h"
 
 //数据模型
+#import "Home_KDR_Order_Model.h"
 #import "Message_FansList_Model.h"
 #import "Home_ShoppingCatr_Settlement_Model.h"
 #import "Home_ShoppingCart_Model.h"
@@ -575,12 +576,12 @@
 #define URL_WasteOrderaMkeAdd HTTPHeader@"waste/order/makeAdd"
 
 /**
- waste/order/experience
+ waste/order/experiences
  uid
  addressid
  免费预约
  */
-#define URL_WasteOrderExperience HTTPHeader@"waste/order/experience"
+#define URL_WasteOrderExperiences HTTPHeader@"waste/order/experiences"
 
 /**
  1.KDR我的地址列表
@@ -597,6 +598,7 @@
  uid 用户ID
  id 地址ID
  */
+#define URL_wasteAddressDefaultFind HTTPHeader@"waste/address/defaultFind"
 
 /**
  4.KDR地址列表 地址删除
@@ -605,8 +607,10 @@
  uid 用户ID
  id 地址ID
  */
+#define URL_wasteAddressDelFind HTTPHeader@"waste/address/delFind"
 
 /**
+ 地址添加
  waste/address/addressAdds
  uid
  details    详细地址
@@ -621,6 +625,64 @@
  longitude
  */
 #define URL_WasteAddressAddressAdds HTTPHeader@"waste/address/addressAdds"
+
+/**
+ 地址修改
+ waste/address/addressUps
+ addressid
+ uid
+ details    详细地址
+ realname      姓名
+ phone       手机号
+ address      定位地址
+ village       小区
+ province         省
+ city        市
+ county;            县/区
+ latitude;
+ longitude
+ */
+#define URL_wasteAddressAddressUps HTTPHeader@"waste/address/addressUps"
+
+/**
+ 快代扔下单
+ waste/order/orderAdd
+ status   1月卡2年卡3单次
+ uid
+ addressid   地址ID
+ */
+#define URL_wasteOrderOrderAdd HTTPHeader@"waste/order/orderAdd"
+
+/**
+ 获取订单ID
+ waste/order/orderInfo
+ orderid 订单ID
+ */
+#define URL_wasteOrderOrderInfo HTTPHeader@"waste/order/orderInfo"
+
+/**
+ 微信支付
+ waste/order/parameter
+ uid
+ orderid
+ 支付
+ */
+#define URL_wasteOrderParameter HTTPHeader@"waste/order/parameter"
+
+/**
+ waste/Alipay/alipay
+ orderid
+ 支付宝支付
+ */
+#define URL_wasteAlipayAlipay HTTPHeader@"waste/Alipay/alipay"
+
+/**
+ waste/order/OrderLists
+ uid
+ page
+ 用户订单列表
+ */
+#define URL_wasteOrderOrderLists HTTPHeader@"waste/order/OrderLists"
 
 #pragma mark----社区周边
 /**

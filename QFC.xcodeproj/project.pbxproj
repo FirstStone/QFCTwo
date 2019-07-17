@@ -36,6 +36,7 @@
 		37053A4F2272EB36003D94DB /* Home_CommunityNearby_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37053A4D2272EB36003D94DB /* Home_CommunityNearby_ViewController.xib */; };
 		37053A532272F5B8003D94DB /* Home_RunErrands_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37053A512272F5B8003D94DB /* Home_RunErrands_ViewController.m */; };
 		37053A542272F5B8003D94DB /* Home_RunErrands_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37053A522272F5B8003D94DB /* Home_RunErrands_ViewController.xib */; };
+		3706791B22DF25D600E944BE /* Home_KDR_Order_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3706791A22DF25D600E944BE /* Home_KDR_Order_Model.m */; };
 		370B41E7225EDB69009489BA /* Square_HT_Details_Comment_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 370B41E5225EDB69009489BA /* Square_HT_Details_Comment_Cell.m */; };
 		370B41E8225EDB69009489BA /* Square_HT_Details_Comment_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370B41E6225EDB69009489BA /* Square_HT_Details_Comment_Cell.xib */; };
 		370B41F1225F2074009489BA /* Mine_CV_HeaderViewCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 370B41EF225F2074009489BA /* Mine_CV_HeaderViewCRV.m */; };
@@ -647,6 +648,8 @@
 		37053A502272F5B8003D94DB /* Home_RunErrands_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_RunErrands_ViewController.h; sourceTree = "<group>"; };
 		37053A512272F5B8003D94DB /* Home_RunErrands_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_RunErrands_ViewController.m; sourceTree = "<group>"; };
 		37053A522272F5B8003D94DB /* Home_RunErrands_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_RunErrands_ViewController.xib; sourceTree = "<group>"; };
+		3706791922DF25D600E944BE /* Home_KDR_Order_Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_Order_Model.h; sourceTree = "<group>"; };
+		3706791A22DF25D600E944BE /* Home_KDR_Order_Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_Order_Model.m; sourceTree = "<group>"; };
 		370B41E4225EDB69009489BA /* Square_HT_Details_Comment_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_HT_Details_Comment_Cell.h; sourceTree = "<group>"; };
 		370B41E5225EDB69009489BA /* Square_HT_Details_Comment_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_HT_Details_Comment_Cell.m; sourceTree = "<group>"; };
 		370B41E6225EDB69009489BA /* Square_HT_Details_Comment_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_HT_Details_Comment_Cell.xib; sourceTree = "<group>"; };
@@ -3055,6 +3058,8 @@
 		37BF7A9422D3238E00BEBF7F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3706791922DF25D600E944BE /* Home_KDR_Order_Model.h */,
+				3706791A22DF25D600E944BE /* Home_KDR_Order_Model.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3636,6 +3641,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3706791B22DF25D600E944BE /* Home_KDR_Order_Model.m in Sources */,
 				37E8BEFB226EDCE800B4493F /* Home_ShoppingCatr_HeaderView.m in Sources */,
 				37C458A32271935F004CDE32 /* Mine_Wallet_BillDetails_ViewController.m in Sources */,
 				37410F4A22BB6CAB001B884E /* Home_SearchResult_ViewContraller.m in Sources */,

@@ -9,8 +9,11 @@
 #import "Basic_ViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class Mine_SetUP_MyAddress_Model;
+typedef void(^HomeKDRAddressVCBlack)(Mine_SetUP_MyAddress_Model *model);
 @interface Home_KDR_Address_ViewController : Basic_ViewController
+
+@property (nonatomic, copy) HomeKDRAddressVCBlack addressBlock;
 
 @end
 

@@ -11,6 +11,10 @@
 @interface Home_KDR_Order_ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet Basic_TableView *tableView;
 
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, assign) NSInteger Page;
+
 @end
 
 @implementation Home_KDR_Order_ViewController
@@ -20,6 +24,29 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Home_KDROrder_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:Cell_HomeKDROrderCell];
+    MJWeakSelf;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.Page = 1;
+        [weakSelf.dataArray removeAllObjects];
+        [weakSelf POSTWasteOrderOrderLists];
+        
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        weakSelf.Page += 1;
+        [weakSelf POSTWasteOrderOrderLists];
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView beginFresh];
+}
+
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray = [[NSMutableArray alloc] init];
+    }
+    return _dataArray;
 }
 
 - (IBAction)LiftButtonPOP:(id)sender {
@@ -34,14 +61,51 @@
 }
 //返回一个分区里多少数据
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;//self.dataArray.count;
+    return self.dataArray.count;
 }
 // 返回Cell内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     Home_KDROrder_Cell *cell = [tableView dequeueReusableCellWithIdentifier:Cell_HomeKDROrderCell];
-    
+    [cell setDataSoureToCell:self.dataArray[indexPath.row]];
     return cell;
+}
+
+- (void)POSTWasteOrderOrderLists {
+    /**
+     waste/order/OrderLists
+     uid
+     page
+     用户订单列表
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:@(self.Page) forKey:@"page"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderOrderLists parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        [self.tableView endRefresh];
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSArray *Array = [responseObject objectForKey:@"list"];
+            [self.dataArray removeAllObjects];
+            for (NSDictionary *dic in Array) {
+                NSLog(@"------------------------------%@", [dic objectForKey:@"type"]);
+                Home_KDR_Order_Model *model = [Home_KDR_Order_Model  mj_objectWithKeyValues:dic];
+                [self.dataArray addObject:model];
+            }
+            if (!Array.count) {
+                [self.tableView hidenFooterView:NO];
+            }
+        }
+        if (!self.dataArray.count){
+            [self.tableView hidenFooterView:YES];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        [self.tableView endRefresh];
+        [MBProgressHUD py_showError:@"加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+    
 }
 
 

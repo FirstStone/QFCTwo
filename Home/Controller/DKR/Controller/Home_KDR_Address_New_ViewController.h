@@ -9,8 +9,10 @@
 #import "Basic_ViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class Mine_SetUP_MyAddress_Model;
 @interface Home_KDR_Address_New_ViewController : Basic_ViewController
+
+- (void)setDataSouerToMyaddress:(Mine_SetUP_MyAddress_Model *)model;
 
 @end
 

@@ -12,8 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Home_KDR_PlaceOrder_ViewController">
             <connections>
+                <outlet property="Address_BT" destination="fIF-6P-tAV" id="WCm-uU-DPe"/>
                 <outlet property="Lift_BT" destination="jZB-Am-4jV" id="FHE-xT-9YU"/>
                 <outlet property="Month_BT" destination="36R-5f-I97" id="qSg-qB-VGP"/>
+                <outlet property="Right_BT" destination="aMu-d7-B0Q" id="v6P-1c-e0i"/>
                 <outlet property="Sum_BT" destination="BEs-mU-NEw" id="s2Q-RM-7Df"/>
                 <outlet property="Tip_Label" destination="G1J-eY-Fen" id="lCy-Pz-O0O"/>
                 <outlet property="Year_BT" destination="4qs-1x-WpR" id="qbq-hS-Rav"/>

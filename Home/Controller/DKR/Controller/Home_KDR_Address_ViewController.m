@@ -28,6 +28,10 @@
         [self.dataArray removeAllObjects];
         [weakSelf POSTWasteAddressAddressList];
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.tableView beginFresh];
 }
 
@@ -67,6 +71,13 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.addressBlock) {
+        self.addressBlock(self.dataArray[indexPath.row]);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (void)POSTWasteAddressAddressList {
     /**
      1.KDR我的地址列表
@@ -96,6 +107,77 @@
 }
 
 #pragma mark----MineSetUPMyAddressCellDelegate
+
+- (void)MineSetUPMyAddressCellDefaltButtonClick:(nonnull Mine_SetUP_MyAddress_Model *)modle button:(nonnull UIButton *)BT {
+    [self POSTWasteAddressDefaultFind:modle.MyAddress_id];
+}
+
+- (void)MineSetUPMyAddressCellDelectButtonClick:(nonnull Mine_SetUP_MyAddress_Model *)modle button:(nonnull UIButton *)BT {
+    [self POSTWasteAddressDelFind:modle.MyAddress_id];
+}
+
+- (void)MineSetUPMyAddressCellEditButtonClick:(nonnull Mine_SetUP_MyAddress_Model *)modle button:(nonnull UIButton *)BT {
+    Home_KDR_Address_New_ViewController *KDRVC = [[Home_KDR_Address_New_ViewController alloc] init];
+    [KDRVC setDataSouerToMyaddress:modle];
+    [KDRVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:KDRVC animated:YES];
+}
+
+
+- (void)POSTWasteAddressDefaultFind:(NSString *)addressid {
+    /**
+     3.KDR地址列表 设置默认地址
+     URL : https://www.txkuaiyou.com/waste/address/defaultFind
+     参数 :
+     uid 用户ID
+     id 地址ID
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:addressid forKey:@"id"];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteAddressDefaultFind parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [self.tableView beginFresh];
+            [MBProgressHUD py_showSuccess:@"设置成功" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }else {
+            [MBProgressHUD py_showError:@"设置失败" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
+- (void)POSTWasteAddressDelFind:(NSString *)addressid {
+    /**
+     4.KDR地址列表 地址删除
+     URL : https://www.txkuaiyou.com/waste/address/delFind
+     参数 :
+     uid 用户ID
+     id 地址ID
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:addressid forKey:@"id"];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteAddressDelFind parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [self.tableView beginFresh];
+            [MBProgressHUD py_showSuccess:@"删除成功" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }else {
+            [MBProgressHUD py_showError:@"删除失败" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
 
 
 

@@ -16,7 +16,7 @@
 @implementation Home_KDRState_View
 
 // 设置静态常量 pulsingCount ，表示 Layer 的数量
-static NSInteger const pulsingCount = 3;
+static NSInteger const pulsingCount = 2;
 // 设置静态常量 animationDuration ，表示动画时间
 static double const animationDuration = 4;
 
@@ -24,7 +24,7 @@ static double const animationDuration = 4;
 {
     self = [super init];
     if (self) {
-        _multiple = 2.234;;
+        _multiple = 1.734;;
     }
     return self;
 }
