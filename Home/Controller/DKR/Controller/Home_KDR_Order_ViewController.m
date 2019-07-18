@@ -8,7 +8,7 @@
 
 #import "Home_KDR_Order_ViewController.h"
 #define Cell_HomeKDROrderCell @"HomeKDROrderCell"
-@interface Home_KDR_Order_ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface Home_KDR_Order_ViewController ()<UITableViewDelegate, UITableViewDataSource, HomeKDROrderCellDelegate>
 @property (strong, nonatomic) IBOutlet Basic_TableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -67,6 +67,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     Home_KDROrder_Cell *cell = [tableView dequeueReusableCellWithIdentifier:Cell_HomeKDROrderCell];
+    cell.delegate = self;
     [cell setDataSoureToCell:self.dataArray[indexPath.row]];
     return cell;
 }
@@ -86,7 +87,6 @@
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             NSArray *Array = [responseObject objectForKey:@"list"];
-            [self.dataArray removeAllObjects];
             for (NSDictionary *dic in Array) {
                 NSLog(@"------------------------------%@", [dic objectForKey:@"type"]);
                 Home_KDR_Order_Model *model = [Home_KDR_Order_Model  mj_objectWithKeyValues:dic];
@@ -108,5 +108,38 @@
     
 }
 
+#pragma mark----HomeKDROrderCellDelegate
+- (void)HomeKDROrderCellButtonClick:(Home_KDR_Order_Model *)model {
+    if ([model.status intValue] == 2) {
+        [self POSTWasteOrderOrderAffirm:model.Orderid];
+    }
+}
+
+
+- (void)POSTWasteOrderOrderAffirm:(NSString *)orderid {
+    /**
+     waste/order/orderAffirm
+     uid
+     orderid
+     确认完成 用户
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:orderid forKey:@"orderid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderOrderAffirm parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+//        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [MBProgressHUD py_showSuccess:@"操作成功" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+            [self.tableView beginFresh];
+//        }else {
+//            [MBProgressHUD py_showError:@"操作失败" toView:nil];
+//            [MBProgressHUD setAnimationDelay:0.7f];
+//        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
 
 @end

@@ -261,6 +261,9 @@
 #import "Home_KDR_SettledIn_ViewController.h"
 #import "Examine_State_ViewController.h"
 #import "Home_KDR_Novice_ViewController.h"
+#import "Home_KDR_InvitationViewController.h"
+
+
 
 //数据模型
 #import "Home_KDR_Order_Model.h"
@@ -547,7 +550,7 @@
 #define URL_WasteUsersAppserviceAdds HTTPHeader@"waste/users/AppserviceAdds"
 
 /**
- 判断是否有下单权限
+ 判断是否有卡权限
  waste/users/uidUser
  uid
  */
@@ -683,6 +686,52 @@
  用户订单列表
  */
 #define URL_wasteOrderOrderLists HTTPHeader@"waste/order/OrderLists"
+
+/**
+ waste/order/orderAffirm
+ uid
+ orderid
+ 确认完成 用户
+ */
+#define URL_wasteOrderOrderAffirm HTTPHeader@"waste/order/orderAffirm"
+
+/**
+ waste/order/MyOrderLists
+ uid
+ page
+ type  1待接单2待完成
+ */
+#define URL_wasteOrderMyOrderLists HTTPHeader@"waste/order/MyOrderLists"
+
+/**
+ waste/order/orderJoins
+ uid
+ orderid
+ 接单
+ */
+#define URL_wasteOrderOrderJoins HTTPHeader@"waste/order/orderJoins"
+
+/**
+ waste/order/orderFulfills
+ uid
+ orderid
+ 确认完成
+ */
+#define URL_wasteOrderOrderFulfills HTTPHeader@"waste/order/orderFulfills"
+
+/**
+ 获取列表
+ waste/users/invite
+ uid
+ page
+ */
+#define URL_wasteUsersInvite HTTPHeader@"waste/users/invite"
+/**
+ 获取二维码
+ waste/users/qrcodes
+ uid
+ */
+#define URL_wasteUsersQrcodes HTTPHeader@"waste/users/qrcodes"
 
 #pragma mark----社区周边
 /**

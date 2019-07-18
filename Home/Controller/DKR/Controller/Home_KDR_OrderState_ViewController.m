@@ -76,11 +76,13 @@
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.BackView);
         make.centerY.equalTo(self.BackView);
-        make.size.mas_offset(CGSizeMake(130.0f, 130.0f));
+        make.size.mas_offset(CGSizeMake(60.0f, 60.0f));
     }];
     [self.contView addSubview:self.Tip_Label];
     [self.Tip_Label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.contView);
+        make.left.equalTo(self.contView.mas_left).offset(20.0f);
+        make.right.equalTo(self.contView.mas_right).offset(-20.0f);
         make.top.mas_offset(self.contView.centerY - 60.0f);
     }];
     [self.contView addSubview:self.Sure_BT];
@@ -90,8 +92,36 @@
         make.right.equalTo(self.contView.mas_right).offset(-20.0f);
         make.top.equalTo(self.Tip_Label.mas_bottom).offset(30.0f);
     }];
+    [self setDataDoureToself:self.State];
 }
 
+- (void)setDataDoureToself:(NSInteger)state {
+    switch (state) {
+        case 0:
+        {
+            self.Tip_Label.text = @"等待服务人员接单中...";
+            self.imageView.image = [UIImage imageNamed:@"icon_KDR_Daijiedan"];
+            [self.Sure_BT setTitle:@"返回首页" forState:UIControlStateNormal];
+        }
+            break;
+        case 1:
+        {
+            self.Tip_Label.text = @"服务人员已接单，正在赶来的路上,请 耐心等待哦~";
+            self.imageView.image = [UIImage imageNamed:@"icon_KDR_daifuwu"];
+            [self.Sure_BT setTitle:@"前往订单" forState:UIControlStateNormal];
+        }
+            break;
+        case 2:
+        {
+            self.Tip_Label.text = @"订单已完成，请尽快确认完成哦~";
+            self.imageView.image = [UIImage imageNamed:@"icon_KDR_wancheng"];
+            [self.Sure_BT setTitle:@"确认完成" forState:UIControlStateNormal];
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 
 - (IBAction)LiftButtonPOP:(id)sender {
@@ -106,7 +136,6 @@
 - (UILabel *)Tip_Label {
     if (!_Tip_Label){
         _Tip_Label = [[UILabel alloc] init];
-        _Tip_Label.text = @"等待服务人员接单中...";
         _Tip_Label.textColor = QFC_Color_333333;
         _Tip_Label.font = [UIFont systemFontOfSize:15.0f weight:UIFontWeightBold];
         _Tip_Label.textAlignment = NSTextAlignmentCenter;
@@ -117,7 +146,7 @@
 - (UIButton *)Sure_BT {
     if (!_Sure_BT) {
         _Sure_BT = [[UIButton alloc] init];
-        [_Sure_BT setTitle:@"返回首页" forState:UIControlStateNormal];
+//        [_Sure_BT setTitle:@"返回首页" forState:UIControlStateNormal];
         _Sure_BT.backgroundColor = QFC_Color_09D15A;
         [_Sure_BT setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _Sure_BT.layer.cornerRadius = 15.0f;
@@ -129,7 +158,7 @@
 - (UIImageView *)imageView {
     if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
-        _imageView.image = [UIImage imageNamed:@"icon_KDR_daifuwu"];
+//        _imageView.image = [UIImage imageNamed:@"icon_KDR_daifuwu"];
     }
     return _imageView;
 }
@@ -154,7 +183,56 @@
 }
 
 - (void)surebuttonClick {
-    [self.navigationController popViewControllerAnimated:YES];
+    switch (self.State) {
+        case 0:
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+            break;
+        case 1:
+        {
+            Home_KDR_Order_ViewController *KDRVC = [[Home_KDR_Order_ViewController alloc] init];
+            [KDRVC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:KDRVC animated:YES];
+        }
+            break;
+        case 2:
+        {
+            [self POSTWasteOrderOrderAffirm];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)POSTWasteOrderOrderAffirm {
+    /**
+     waste/order/orderAffirm
+     uid
+     orderid
+     确认完成 用户
+     */
+    self.Sure_BT.userInteractionEnabled = NO;
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:self.orderid forKey:@"orderid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderOrderAffirm parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        self.Sure_BT.userInteractionEnabled = YES;
+        NSLog(@"%@", responseObject);
+//        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [MBProgressHUD py_showSuccess:@"操作成功" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+            [self.navigationController popViewControllerAnimated:YES];
+//        }else {
+//            [MBProgressHUD py_showError:@"操作失败" toView:nil];
+//            [MBProgressHUD setAnimationDelay:0.7f];
+//        }
+    } failure:^(NSError * _Nonnull error) {
+        self.Sure_BT.userInteractionEnabled = YES;
+        [MBProgressHUD py_showError:@"加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
 }
 
 @end

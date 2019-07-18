@@ -8,7 +8,7 @@
 
 #import "Message_KDRViewController.h"
 
-@interface Message_KDRViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface Message_KDRViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) HMSegmentedControl *segmentedControl;
@@ -85,7 +85,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat pageWidth = scrollView.frame.size.width;
     NSInteger page = scrollView.contentOffset.x / pageWidth;
-    
+
     [self.segmentedControl setSelectedSegmentIndex:page animated:YES];
 }
 

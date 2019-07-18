@@ -310,7 +310,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         }];
     }else if ([url.host isEqualToString:@"oauth"]) {//微信登录
         return [WXApi handleOpenURL:url delegate:self];
-    }else { //[url.host isEqualToString:@"qzapp"]//QQ 登录
+    }else if ([url.host isEqualToString:@"pay"]) {//微信支付
+        return [WXApi handleOpenURL:url delegate:self];
+    } else { //[url.host isEqualToString:@"qzapp"]//QQ 登录
         return [TencentOAuth HandleOpenURL:url];
     }
     return YES;

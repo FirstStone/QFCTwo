@@ -27,6 +27,7 @@
 
 @property (nonatomic, strong) NSString *Addressid;
 
+@property (nonatomic, strong) NSString *AddressText;
 @end
 
 @implementation Home_KDR_PlaceOrder_ViewController
@@ -92,14 +93,48 @@
 }
 
 - (IBAction)RightButtonClick:(id)sender {
-//      status   1月卡2年卡3单次
-    self.Right_BT.userInteractionEnabled = NO;
-    if (self.Month_BT.selected) {
-        [self POSTWasteOrderOrderAdd:@"1"];
-    }else if (self.Year_BT.selected){
-        [self POSTWasteOrderOrderAdd:@"2"];
+    if ([self.Addressid intValue]) {
+        //      status   1月卡2年卡3单次
+        self.Right_BT.userInteractionEnabled = NO;
+        if (self.Month_BT.selected) {
+            [self POSTWasteOrderOrderAdd:@"1"];
+        }else if (self.Year_BT.selected){
+            [self POSTWasteOrderOrderAdd:@"2"];
+        }else {
+            [self POSTWasteOrderOrderAdd:@"3"];
+        }
     }else {
-        [self POSTWasteOrderOrderAdd:@"3"];
+        if (self.AddressText.length) {
+            UIAlertController *alertV = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"是否在（%@）下单",self.AddressText] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"前往" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //成功返回Block
+                Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
+                [AddressVC setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:AddressVC animated:YES];
+            }];
+            UIAlertAction *cencal = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //成功返回Block
+            }];
+            [alertV addAction:cencal];
+            [alertV addAction:okAction];
+            
+            [self presentViewController:alertV animated:YES completion:nil];
+        }else {
+            UIAlertController *alertV = [UIAlertController alertControllerWithTitle:@"提示" message:@"前往选择默认下单地址" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"前往" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //成功返回Block
+                Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
+                [AddressVC setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:AddressVC animated:YES];
+            }];
+            UIAlertAction *cencal = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //成功返回Block
+            }];
+            [alertV addAction:cencal];
+            [alertV addAction:okAction];
+            
+            [self presentViewController:alertV animated:YES completion:nil];
+        }
     }
 }
 
@@ -159,11 +194,12 @@
             //            self.Middle_BT.userInteractionEnabled = YES;
             NSDictionary *DataSoure = [responseObject objectForKey:@"info"];
             self.Addressid = [DataSoure objectForKey:@"id"];
+            self.AddressText = [NSString stringWithFormat:@"%@%@", [DataSoure objectForKey:@"village"], [DataSoure objectForKey:@"details"]];
             [self.Address_BT setTitle:[NSString stringWithFormat:@"%@%@", [DataSoure objectForKey:@"village"], [DataSoure objectForKey:@"details"]] forState:UIControlStateNormal];
         }else {
             //            self.Middle_BT.userInteractionEnabled = YES;
-            [MBProgressHUD py_showError:@"获取失败" toView:nil];
-            [MBProgressHUD setAnimationDelay:0.7f];
+//            [MBProgressHUD py_showError:@"获取失败" toView:nil];
+//            [MBProgressHUD setAnimationDelay:0.7f];
         }
     } failure:^(NSError * _Nonnull error) {
         //        self.Middle_BT.userInteractionEnabled = YES;

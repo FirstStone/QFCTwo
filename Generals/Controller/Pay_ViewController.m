@@ -259,14 +259,12 @@
     [MBProgressHUD py_showError:@"支付成功" toView:nil];
     [MBProgressHUD setAnimationDelay:0.7f];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TabelViewBeginDataSoure" object:nil];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)zfbzfcg{
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示信息" message:@"支付成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    alertView.tag = 2;
-    
-    [alertView show];
+    if (self.PayStyle == PayViewControllerKDR) {
+        NSArray *viewcongtrollers = self.navigationController.viewControllers;
+        [self.navigationController popToViewController:viewcongtrollers[1]  animated:YES];
+    }else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 
@@ -316,7 +314,7 @@
     }];
 }
 //微信SDK自带的方法，处理从微信客户端完成操作后返回程序之后的回调方法,显示支付结果的
--(void) onResp:(BaseResp*)resp
+-(void)onResp:(BaseResp*)resp
 {
     //启动微信支付的response
     NSString *payResoult = [NSString stringWithFormat:@"errcode:%d", resp.errCode];

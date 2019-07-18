@@ -464,6 +464,8 @@
 		37CA64B2225E0DB70040387F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CA64B1225E0DB70040387F /* Assets.xcassets */; };
 		37CA64B6225E16C70040387F /* Square_HT_Details_First_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CA64B4225E16C70040387F /* Square_HT_Details_First_Cell.m */; };
 		37CA64B7225E16C70040387F /* Square_HT_Details_First_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CA64B5225E16C70040387F /* Square_HT_Details_First_Cell.xib */; };
+		37CAA9F022E07123001CDF22 /* Home_KDR_InvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CAA9EE22E0710B001CDF22 /* Home_KDR_InvitationViewController.m */; };
+		37CAA9F122E07123001CDF22 /* Home_KDR_InvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CAA9EF22E0710B001CDF22 /* Home_KDR_InvitationViewController.xib */; };
 		37CB94612280155E0013786A /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CB94602280155E0013786A /* Singleton.m */; };
 		37CD026522ADE9D400ED09E8 /* Mine_ShopCard_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CD026322ADE9D400ED09E8 /* Mine_ShopCard_ViewController.m */; };
 		37CD026622ADE9D400ED09E8 /* Mine_ShopCard_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CD026422ADE9D400ED09E8 /* Mine_ShopCard_ViewController.xib */; };
@@ -1380,6 +1382,9 @@
 		37CA64B3225E16C70040387F /* Square_HT_Details_First_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_HT_Details_First_Cell.h; sourceTree = "<group>"; };
 		37CA64B4225E16C70040387F /* Square_HT_Details_First_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_HT_Details_First_Cell.m; sourceTree = "<group>"; };
 		37CA64B5225E16C70040387F /* Square_HT_Details_First_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_HT_Details_First_Cell.xib; sourceTree = "<group>"; };
+		37CAA9ED22E0710A001CDF22 /* Home_KDR_InvitationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_InvitationViewController.h; sourceTree = "<group>"; };
+		37CAA9EE22E0710B001CDF22 /* Home_KDR_InvitationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_InvitationViewController.m; sourceTree = "<group>"; };
+		37CAA9EF22E0710B001CDF22 /* Home_KDR_InvitationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_InvitationViewController.xib; sourceTree = "<group>"; };
 		37CB945F2280155E0013786A /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		37CB94602280155E0013786A /* Singleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		37CD026222ADE9D400ED09E8 /* Mine_ShopCard_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_ShopCard_ViewController.h; sourceTree = "<group>"; };
@@ -3051,6 +3056,9 @@
 				3756600722DD7AC100EF3782 /* Home_KDR_Novice_ViewController.h */,
 				3756600822DD7AC100EF3782 /* Home_KDR_Novice_ViewController.m */,
 				3756600922DD7AC100EF3782 /* Home_KDR_Novice_ViewController.xib */,
+				37CAA9ED22E0710A001CDF22 /* Home_KDR_InvitationViewController.h */,
+				37CAA9EE22E0710B001CDF22 /* Home_KDR_InvitationViewController.m */,
+				37CAA9EF22E0710B001CDF22 /* Home_KDR_InvitationViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3543,6 +3551,7 @@
 				37B8B6FE226F381900434D61 /* Mine_MyOrder_Shop_Cell.xib in Resources */,
 				37698F6522867E03003324DC /* Home_HouseKeeping_PlacOrder_PriceCell.xib in Resources */,
 				373406582285291E00FC38F9 /* Home_CommunityNearby_FreshFruitSink_Three_Cell.xib in Resources */,
+				37CAA9F122E07123001CDF22 /* Home_KDR_InvitationViewController.xib in Resources */,
 				37B8B730226F38A400434D61 /* Mine_MyOrder_Shop_ViewController.xib in Resources */,
 				37B8B711226F382300434D61 /* Mine_SetUP_Privacy_Blacklist_Cell.xib in Resources */,
 				37CA64A6225DEDDC0040387F /* Message_TZ_Cell.xib in Resources */,
@@ -3795,6 +3804,7 @@
 				37AE45D42293912000E4A6DC /* YMTextView.m in Sources */,
 				37E6D8BD22C33A770042E96F /* Square_Complaint_ViewController.m in Sources */,
 				37C458AC2271935F004CDE32 /* Mine_SettledIn_Shoping_ViewController.m in Sources */,
+				37CAA9F022E07123001CDF22 /* Home_KDR_InvitationViewController.m in Sources */,
 				37B8B6D1226F358800434D61 /* Mine_SetUP_About_Me_VC.m in Sources */,
 				378CA7A8229847770087B29C /* Message_FansList_Model.m in Sources */,
 				3756C49822A7B24400A4FF30 /* Publish_Location_Cell.m in Sources */,

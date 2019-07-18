@@ -119,19 +119,18 @@
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             self.Middle_BT.userInteractionEnabled = YES;
+            Home_KDR_OrderState_ViewController *KDRVC = [[Home_KDR_OrderState_ViewController alloc] init];
+            KDRVC.orderid = [responseObject objectForKey:@"orderid"];
             if ([[responseObject objectForKey:@"type"] intValue] == 0) {//代接单
-                Home_KDR_OrderState_ViewController *KDRVC = [[Home_KDR_OrderState_ViewController alloc] init];
-                [KDRVC setHidesBottomBarWhenPushed:YES];
-                [self.navigationController pushViewController:KDRVC animated:YES];
+                KDRVC.State = 0;
             }else if ([[responseObject objectForKey:@"type"] intValue] == 1) {//代服务
-                Home_KDR_OrderState_ViewController *KDRVC = [[Home_KDR_OrderState_ViewController alloc] init];
-                [KDRVC setHidesBottomBarWhenPushed:YES];
-                [self.navigationController pushViewController:KDRVC animated:YES];
+                KDRVC.State = 1;
             }else if ([[responseObject objectForKey:@"type"] intValue] == 2) {//已完成
-                Home_KDR_OrderState_ViewController *KDRVC = [[Home_KDR_OrderState_ViewController alloc] init];
-                [KDRVC setHidesBottomBarWhenPushed:YES];
-                [self.navigationController pushViewController:KDRVC animated:YES];
+                KDRVC.State = 2;
             }
+            [KDRVC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:KDRVC animated:YES];
+            
         }else {
             [self POSTWasteUsersUidUser];
         }
@@ -140,8 +139,6 @@
         [MBProgressHUD py_showError:[NSString stringWithFormat:@"加载失败(%ld)", error.code] toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
-    
-    
     
 }
 

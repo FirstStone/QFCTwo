@@ -8,7 +8,7 @@
 
 #import "Message_KDR_TableView.h"
 #define Cell_HomeKDROrderCell @"HomeKDROrderCell"
-@interface Message_KDR_TableView ()<UITableViewDelegate, UITableViewDataSource>
+@interface Message_KDR_TableView ()<UITableViewDelegate, UITableViewDataSource, HomeKDROrderCellDelegate>
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @end
 
@@ -30,11 +30,11 @@
     self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.Page = 1;
         [weakSelf.dataArray removeAllObjects];
-        [weakSelf LoadingDataSoure];
+        [weakSelf POSTwasteOrderMyOrderLists];
     }];
     self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         weakSelf.Page += 1;
-        [weakSelf LoadingDataSoure];
+        [weakSelf POSTwasteOrderMyOrderLists];
         
     }];
     return self;
@@ -55,24 +55,110 @@
 }
 //返回一个分区里多少数据
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;//self.dataArray.count;
+    return self.dataArray.count;
 }
 // 返回Cell内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //    if (self.index == 1) {//待完成
-    //        Message_RunErrands_Tableview_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_MessageRunErrandsTableviewCell];
-    //        return cell;
-    //    }else {//待接单
     Home_KDROrder_Cell *cell = [tableView dequeueReusableCellWithIdentifier:Cell_HomeKDROrderCell];
-//    cell.delegate = self;
-//    [cell setDataSoureToCell:self.dataArray[indexPath.row] index:self.index];
+    cell.delegate = self;
+    [cell setDataSoureTocell:self.dataArray[indexPath.row] style:self.index];
     return cell;
-    //    }
 }
 
-- (void)LoadingDataSoure {
-    [self endRefresh];
+- (void)POSTwasteOrderMyOrderLists {
+    /**
+     waste/order/MyOrderLists
+     uid
+     page
+     type  1待接单2待完成
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:@(self.Page) forKey:@"page"];
+    [parm setObject:(self.index ? @"2" : @"1") forKey:@"type"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderMyOrderLists parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        [self endRefresh];
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSArray *Array = [responseObject objectForKey:@"list"];
+            for (NSDictionary *dic in Array) {
+                Home_KDR_Order_Model *model = [Home_KDR_Order_Model  mj_objectWithKeyValues:dic];
+                [self.dataArray addObject:model];
+            }
+            if (!Array.count) {
+                [self hidenFooterView:NO];
+            }
+        }
+        if (!self.dataArray.count && self.Page == 1) {
+            [self hidenFooterView:YES];
+        }else {
+            [self.emptyPlaceView hide];
+        }
+        [self reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        [self endRefresh];
+        [MBProgressHUD py_showError:@"加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+    
 }
 
+#pragma mark----HomeKDROrderCellDelegate
+- (void)HomeKDROrderCellButtonClick:(Home_KDR_Order_Model *)model {
+    if (self.index){//待完成
+        [self POSTWasteOrderOrderFulfill:model];
+    }else {
+        [self POSTWasteOrderOrderJoin:model];
+    }
+}
+
+
+- (void)POSTWasteOrderOrderJoin:(Home_KDR_Order_Model *)model {
+    /**
+     waste/order/orderJoins
+     uid
+     orderid
+     接单
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:model.Orderid forKey:@"orderid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderOrderJoins parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [MBProgressHUD py_showError:@"接单失败" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }else {
+            [self beginFresh];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
+
+- (void)POSTWasteOrderOrderFulfill:(Home_KDR_Order_Model *)model {
+    /**
+     waste/order/orderFulfills
+     uid
+     orderid
+     确认完成
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:model.Orderid forKey:@"orderid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderOrderFulfills parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [MBProgressHUD py_showError:@"操作失败" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }else {
+            [self beginFresh];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"加载失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
 
 @end

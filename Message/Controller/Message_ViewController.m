@@ -30,20 +30,24 @@
     self.tableView.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Message_TZ_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_MessageTZCell];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Message_TZ_Default_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_MessageTZDefaultCell];
+    NSUserDefaults  *userDefaults = [NSUserDefaults standardUserDefaults];
     MJWeakSelf;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.tableView.Page = 1;
         [weakSelf.dataArray removeAllObjects];
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 3) {//商家
+        if ([[userDefaults objectForKey:User_Type] intValue] == 3) {//商家
             weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心", @"商家接单中心"]];
             weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi", @"icon_XX_shangjia"]];
-        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 1) {//跑腿
+        }else if ([[userDefaults objectForKey:User_Type] intValue] == 1) {//跑腿
             weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心", @"跑腿抢单中心"]];
             weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi", @"icon_XX_paotui"]];
-        } else if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 2) {//家政
+        } else if ([[userDefaults objectForKey:User_Type] intValue] == 2) {//家政
             weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心", @"家政接单中心"]];
             weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi", @"icon_XX_jiazheng"]];
-        }else {//普通
+        }else if ([[userDefaults objectForKey:User_Type] intValue] == 4){//代扔
+            weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心", @"快代扔接单中心"]];
+            weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi", @"icon_Daireng"]];
+        } else {//普通
             weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"通知中心"]];
             weakSelf.iconArray = [NSMutableArray arrayWithArray:@[@"icon_XX_Tongzhi"]];
         }
@@ -120,7 +124,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+    NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
+    if ([[userdefaults objectForKey:User_Mid] intValue]) {
         if ([self.dataArray[indexPath.row] isMemberOfClass:[Message_infromLists_Model class]]) {
 //            [self.navigationController setNavigationBarHidden:NO];
 //            Message_infromLists_Model *model = self.dataArray[indexPath.row];
@@ -137,17 +142,22 @@
                 [notificationVC setHidesBottomBarWhenPushed:YES];
                 [self.navigationController pushViewController:notificationVC animated:YES];
             }else if (indexPath.row == 1){
-                if ([[[Singleton sharedSingleton] type_id] intValue] == 1) {//跑腿
+                if ([[userdefaults objectForKey:User_Type] intValue] == 1) {//跑腿
                     Message_RunErrands_VC *RunErrandsVC = [[Message_RunErrands_VC alloc] init];
                     [RunErrandsVC setHidesBottomBarWhenPushed:YES];
                     [self.navigationController pushViewController:RunErrandsVC animated:YES];
                     
-                } else if ([[[Singleton sharedSingleton] type_id] intValue] == 2) {//家政
+                } else if ([[userdefaults objectForKey:User_Type] intValue] == 2) {//家政
                     Message_Housekeeping_VC *houseVC = [[Message_Housekeeping_VC alloc] init];
                     [houseVC setHidesBottomBarWhenPushed:YES];
                     [self.navigationController pushViewController:houseVC animated:YES];
                     
-                }else {//商家
+                }else if ([[userdefaults objectForKey:User_Type] intValue] == 4) {//快代扔
+                    Message_KDRViewController *KDRVC = [[Message_KDRViewController alloc] init];
+                    [KDRVC setHidesBottomBarWhenPushed:YES];
+                    [self.navigationController pushViewController:KDRVC animated:YES];
+                    
+                } else {//商家
                     Messag_Shoping_VC *shopVC = [[Messag_Shoping_VC alloc] init];
                     [shopVC setHidesBottomBarWhenPushed:YES];
                     [self.navigationController pushViewController:shopVC animated:YES];
@@ -239,6 +249,8 @@
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
 }
+
+
 
 
 @end
