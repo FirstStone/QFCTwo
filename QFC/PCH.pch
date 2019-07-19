@@ -262,8 +262,8 @@
 #import "Examine_State_ViewController.h"
 #import "Home_KDR_Novice_ViewController.h"
 #import "Home_KDR_InvitationViewController.h"
-
-
+#import "Home_KDR_SD_CollectionViewCell.h"
+#import "Mine_KDR_ViewController.h"
 
 //数据模型
 #import "Home_KDR_Order_Model.h"
@@ -732,6 +732,19 @@
  uid
  */
 #define URL_wasteUsersQrcodes HTTPHeader@"waste/users/qrcodes"
+
+/**
+ 快代扔服务信息
+ waste/users/service
+ uid
+ */
+#define URL_wasteUsersService HTTPHeader@"waste/users/service"
+
+/**
+ waste/users/serviceUps
+ uid
+ */
+#define URL_wasteUsersServiceUps HTTPHeader@"waste/users/serviceUps"
 
 #pragma mark----社区周边
 /**

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Message_KDRViewController">
             <connections>
+                <outlet property="WD_BT" destination="QN0-BP-k5h" id="YY3-B3-QUW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,6 +25,17 @@
                     <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QN0-BP-k5h">
+                    <rect key="frame" x="314" y="742" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Yjn-WQ-Sn0"/>
+                        <constraint firstAttribute="width" constant="60" id="hWj-0s-P4z"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="icon_KDR_wode"/>
+                    <connections>
+                        <action selector="WDbuttonClick:" destination="-1" eventType="touchUpInside" id="fVv-6T-ENx"/>
+                    </connections>
+                </button>
                 <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1K-Ty-aKQ">
                     <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                     <constraints>
@@ -45,6 +57,8 @@
             <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="T1K-Ty-aKQ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="5QL-YD-ub6"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="QN0-BP-k5h" secondAttribute="trailing" constant="40" id="MN1-fD-Pkq"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="QN0-BP-k5h" secondAttribute="bottom" constant="60" id="T1H-WG-9ep"/>
                 <constraint firstItem="T1K-Ty-aKQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="aYH-rl-Ai8"/>
                 <constraint firstItem="p1s-2V-1YE" firstAttribute="top" secondItem="T1K-Ty-aKQ" secondAttribute="bottom" id="eJT-t1-tpn"/>
                 <constraint firstItem="p1s-2V-1YE" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="eut-wc-Ej9"/>
@@ -53,6 +67,10 @@
                 <constraint firstAttribute="trailing" secondItem="T1K-Ty-aKQ" secondAttribute="trailing" id="opR-74-LeH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_KDR_wode" width="143" height="143"/>
+    </resources>
 </document>

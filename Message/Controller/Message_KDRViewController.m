@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) HMSegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet UIButton *WD_BT;
 
 @property (nonatomic, strong) NSArray *itemArray;
 
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self.view insertSubview:self.WD_BT aboveSubview:self.scrollView];
     self.itemArray =@[@"待接单", @"待完成"];
     [self.view addSubview:self.segmentedControl];
     __weak typeof(self)weakSelf = self;
@@ -36,6 +38,7 @@
         [LiftTableview beginFresh];
         [self.scrollView addSubview:LiftTableview];
     }
+    [self.view bringSubviewToFront:self.WD_BT];
 }
 - (IBAction)LiftButtonPOP:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -88,5 +91,15 @@
 
     [self.segmentedControl setSelectedSegmentIndex:page animated:YES];
 }
+
+- (IBAction)WDbuttonClick:(id)sender {
+    Home_KDR_Personal_ViewController *KDRVC = [[Home_KDR_Personal_ViewController alloc] init];
+    [KDRVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:KDRVC animated:YES];
+    
+}
+
+
+
 
 @end

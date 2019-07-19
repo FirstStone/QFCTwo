@@ -34,6 +34,13 @@
     }else if (self.Number == 4){
         self.Navigation.topItem.title = @"我的标签";
         self.Text_Field.placeholder = @"请输入标签逗号隔开";
+    }else if (self.Number == 5) {
+        self.Navigation.topItem.title = @"修改姓名";
+        self.Text_Field.placeholder = @"请输入姓名";
+    }else if (self.Number == 6){
+        self.Navigation.topItem.title = @"修改年龄";
+        self.Text_Field.placeholder = @"请输入年龄";
+        self.Text_Field.keyboardType = UIKeyboardTypeNumberPad;
     }
 }
 - (IBAction)LiftButtonPOP:(id)sender {

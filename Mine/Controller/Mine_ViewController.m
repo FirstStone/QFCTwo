@@ -234,13 +234,7 @@
                 case 1://我的订单
                     {
                         if (indexPath.row == 0) {//家政我的订单跳转
-                            if ([[Singleton sharedSingleton].type_id intValue] == 0) {//普通
-                                Mine_MyOrder_ViewController *orderVC = [[Mine_MyOrder_ViewController alloc] init];
-                                orderVC.Number = 1;
-                                [orderVC setHidesBottomBarWhenPushed:YES];
-                                [self.navigationController pushViewController:orderVC animated:YES];
-                                
-                            }else if ([[Singleton sharedSingleton].type_id intValue] == 1) {//跑腿
+                            if ([[Singleton sharedSingleton].type_id intValue] == 1) {//跑腿
                                 Mine_MyOrder_RunErrands_ViewController *runErrandsVC = [[Mine_MyOrder_RunErrands_ViewController alloc] init];
                                 runErrandsVC.Number = 1;
                                 [runErrandsVC setHidesBottomBarWhenPushed:YES];
@@ -258,16 +252,16 @@
                                 [shopVC setHidesBottomBarWhenPushed:YES];
                                 [self.navigationController pushViewController:shopVC animated:YES];
                                 
+                            }else {//普通
+                                    Mine_MyOrder_ViewController *orderVC = [[Mine_MyOrder_ViewController alloc] init];
+                                    orderVC.Number = 1;
+                                    [orderVC setHidesBottomBarWhenPushed:YES];
+                                    [self.navigationController pushViewController:orderVC animated:YES];
+                                    
                             }
                             
                         }else if (indexPath.row == 1) {//跑腿我的订单跳转
-                            if ([[Singleton sharedSingleton].type_id intValue] == 0) {//普通
-                                Mine_MyOrder_ViewController *orderVC = [[Mine_MyOrder_ViewController alloc] init];
-                                orderVC.Number = 2;
-                                [orderVC setHidesBottomBarWhenPushed:YES];
-                                [self.navigationController pushViewController:orderVC animated:YES];
-                                
-                            }else if ([[Singleton sharedSingleton].type_id intValue] == 1) {//跑腿
+                            if ([[Singleton sharedSingleton].type_id intValue] == 1) {//跑腿
                                 Mine_MyOrder_RunErrands_ViewController *runErrandsVC = [[Mine_MyOrder_RunErrands_ViewController alloc] init];
                                 runErrandsVC.Number = 2;
                                 [runErrandsVC setHidesBottomBarWhenPushed:YES];
@@ -285,16 +279,15 @@
                                 [shopVC setHidesBottomBarWhenPushed:YES];
                                 [self.navigationController pushViewController:shopVC animated:YES];
                                 
+                            }else {//普通
+                                Mine_MyOrder_ViewController *orderVC = [[Mine_MyOrder_ViewController alloc] init];
+                                orderVC.Number = 2;
+                                [orderVC setHidesBottomBarWhenPushed:YES];
+                                [self.navigationController pushViewController:orderVC animated:YES];
                             }
                             
                         }else if (indexPath.row == 2) {//商家我的订单 跳转
-                            if ([[Singleton sharedSingleton].type_id intValue] == 0) {//普通
-                                Mine_MyOrder_ViewController *orderVC = [[Mine_MyOrder_ViewController alloc] init];
-                                orderVC.Number = 3;
-                                [orderVC setHidesBottomBarWhenPushed:YES];
-                                [self.navigationController pushViewController:orderVC animated:YES];
-                                
-                            }else if ([[Singleton sharedSingleton].type_id intValue] == 1) {//跑腿
+                            if ([[Singleton sharedSingleton].type_id intValue] == 1) {//跑腿
                                 Mine_MyOrder_RunErrands_ViewController *runErrandsVC = [[Mine_MyOrder_RunErrands_ViewController alloc] init];
                                 runErrandsVC.Number = 3;
                                 [runErrandsVC setHidesBottomBarWhenPushed:YES];
@@ -311,6 +304,11 @@
                                 shopVC.Number = 3;
                                 [shopVC setHidesBottomBarWhenPushed:YES];
                                 [self.navigationController pushViewController:shopVC animated:YES];
+                                
+                            }else {  Mine_MyOrder_ViewController *orderVC = [[Mine_MyOrder_ViewController alloc] init];
+                                orderVC.Number = 3;
+                                [orderVC setHidesBottomBarWhenPushed:YES];
+                                [self.navigationController pushViewController:orderVC animated:YES];
                                 
                             }
                             
@@ -374,8 +372,12 @@
                              Mine_RunErrands_ServiceViewController *runVC = [[Mine_RunErrands_ServiceViewController alloc] init];
                              [runVC setHidesBottomBarWhenPushed:YES];
                              [self.navigationController pushViewController:runVC animated:YES];
-                        }else {//家政
+                        }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 2) {//家政
                             Mine_HouseKeeping_Service_ViewController *houserVC = [[Mine_HouseKeeping_Service_ViewController alloc] init];
+                            [houserVC setHidesBottomBarWhenPushed:YES];
+                            [self.navigationController pushViewController:houserVC animated:YES];
+                        }else if([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 4) {//快代扔
+                            Mine_KDR_ViewController *houserVC = [[Mine_KDR_ViewController alloc] init];
                             [houserVC setHidesBottomBarWhenPushed:YES];
                             [self.navigationController pushViewController:houserVC animated:YES];
                         }

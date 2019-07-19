@@ -453,6 +453,8 @@
 		37C9E70022BC6B6B00443BC2 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6F922BC6B6A00443BC2 /* TLCityHeaderView.m */; };
 		37C9E70422BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E70222BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.m */; };
 		37C9E70522BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C9E70322BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.xib */; };
+		37CA0B6D22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CA0B6B22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.m */; };
+		37CA0B6E22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CA0B6C22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.xib */; };
 		37CA64A0225DCF600040387F /* Square_WD_SD_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CA649E225DCF600040387F /* Square_WD_SD_Cell.m */; };
 		37CA64A1225DCF600040387F /* Square_WD_SD_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CA649F225DCF600040387F /* Square_WD_SD_Cell.xib */; };
 		37CA64A5225DEDDC0040387F /* Message_TZ_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CA64A3225DEDDC0040387F /* Message_TZ_Cell.m */; };
@@ -501,6 +503,8 @@
 		37E04B6622C0999400693DB5 /* Mine_HouseKeep_Service_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E04B6422C0999400693DB5 /* Mine_HouseKeep_Service_Cell.xib */; };
 		37E04B6A22C0C3BB00693DB5 /* Mine_Agreement_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E04B6822C0C3BA00693DB5 /* Mine_Agreement_VC.m */; };
 		37E04B6B22C0C3BB00693DB5 /* Mine_Agreement_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E04B6922C0C3BA00693DB5 /* Mine_Agreement_VC.xib */; };
+		37E06FCA22E1ADA700F3BDA7 /* Mine_KDR_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E06FC822E1ADA700F3BDA7 /* Mine_KDR_ViewController.m */; };
+		37E06FCB22E1ADA700F3BDA7 /* Mine_KDR_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E06FC922E1ADA700F3BDA7 /* Mine_KDR_ViewController.xib */; };
 		37E200922278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E200902278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.m */; };
 		37E200932278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E200912278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.xib */; };
 		37E200972278563400B508B8 /* Mine_MyOrderDetails_Time_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E200952278563400B508B8 /* Mine_MyOrderDetails_Time_Cell.m */; };
@@ -1366,6 +1370,9 @@
 		37C9E70122BC828900443BC2 /* Mine_BeginAnd_EndTimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_BeginAnd_EndTimeCell.h; sourceTree = "<group>"; };
 		37C9E70222BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_BeginAnd_EndTimeCell.m; sourceTree = "<group>"; };
 		37C9E70322BC828A00443BC2 /* Mine_BeginAnd_EndTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_BeginAnd_EndTimeCell.xib; sourceTree = "<group>"; };
+		37CA0B6A22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_SD_CollectionViewCell.h; sourceTree = "<group>"; };
+		37CA0B6B22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_SD_CollectionViewCell.m; sourceTree = "<group>"; };
+		37CA0B6C22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_SD_CollectionViewCell.xib; sourceTree = "<group>"; };
 		37CA649D225DCF600040387F /* Square_WD_SD_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_WD_SD_Cell.h; sourceTree = "<group>"; };
 		37CA649E225DCF600040387F /* Square_WD_SD_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_WD_SD_Cell.m; sourceTree = "<group>"; };
 		37CA649F225DCF600040387F /* Square_WD_SD_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_WD_SD_Cell.xib; sourceTree = "<group>"; };
@@ -1439,6 +1446,9 @@
 		37E04B6722C0C3BA00693DB5 /* Mine_Agreement_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_Agreement_VC.h; sourceTree = "<group>"; };
 		37E04B6822C0C3BA00693DB5 /* Mine_Agreement_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_Agreement_VC.m; sourceTree = "<group>"; };
 		37E04B6922C0C3BA00693DB5 /* Mine_Agreement_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_Agreement_VC.xib; sourceTree = "<group>"; };
+		37E06FC722E1ADA700F3BDA7 /* Mine_KDR_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_KDR_ViewController.h; sourceTree = "<group>"; };
+		37E06FC822E1ADA700F3BDA7 /* Mine_KDR_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_KDR_ViewController.m; sourceTree = "<group>"; };
+		37E06FC922E1ADA700F3BDA7 /* Mine_KDR_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_KDR_ViewController.xib; sourceTree = "<group>"; };
 		37E2008F2278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrderDetails_RunErrands_Cell.h; sourceTree = "<group>"; };
 		37E200902278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrderDetails_RunErrands_Cell.m; sourceTree = "<group>"; };
 		37E200912278540300B508B8 /* Mine_MyOrderDetails_RunErrands_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrderDetails_RunErrands_Cell.xib; sourceTree = "<group>"; };
@@ -2161,6 +2171,9 @@
 				37EB082C22A92F22001FD70C /* Mine_ShopCoupon_ViewController.h */,
 				37EB082D22A92F22001FD70C /* Mine_ShopCoupon_ViewController.m */,
 				37EB082E22A92F22001FD70C /* Mine_ShopCoupon_ViewController.xib */,
+				37E06FC722E1ADA700F3BDA7 /* Mine_KDR_ViewController.h */,
+				37E06FC822E1ADA700F3BDA7 /* Mine_KDR_ViewController.m */,
+				37E06FC922E1ADA700F3BDA7 /* Mine_KDR_ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3080,6 +3093,9 @@
 				37B5AAA422D5899600FE79DD /* Home_KDROrder_Cell.xib */,
 				37C2788522D734D700994BE2 /* Home_KDRState_View.h */,
 				37C2788622D734D700994BE2 /* Home_KDRState_View.m */,
+				37CA0B6A22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.h */,
+				37CA0B6B22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.m */,
+				37CA0B6C22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3492,6 +3508,7 @@
 				37A29BE122534F3F00495D1B /* Square_ViewController.xib in Resources */,
 				371830E3225DB8AF006B97E5 /* Square_WD_Question_Cell.xib in Resources */,
 				37A61BE022B64D17007F6BA8 /* Home_ShopStore_Lift_TableViewCell.xib in Resources */,
+				37E06FCB22E1ADA700F3BDA7 /* Mine_KDR_ViewController.xib in Resources */,
 				37E25A7F227849D400EB90A0 /* Mine_MyOrderDetails_Statistics_Cell.xib in Resources */,
 				37F5FFCB226574840012245D /* Message_Fans_Cell.xib in Resources */,
 				37CA64B0225E06920040387F /* Square_HT_Details_VC.xib in Resources */,
@@ -3537,6 +3554,7 @@
 				37053A472272CF5B003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_VC.xib in Resources */,
 				37C3ECEA22759643006EB3C3 /* Mine_HouseKeeping_Service_ViewController.xib in Resources */,
 				3734065D2285291E00FC38F9 /* Home_CommunityNearby_EspecialRegion_ThreeCell.xib in Resources */,
+				37CA0B6E22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.xib in Resources */,
 				37053A3D2272A62F003D94DB /* Mine_Myorder_Shoping_AllEvaluate_Cell.xib in Resources */,
 				3749A86A225AF3AD006940A3 /* Home_CommunityHotSearchCell.xib in Resources */,
 				37CA64B7225E16C70040387F /* Square_HT_Details_First_Cell.xib in Resources */,
@@ -3731,6 +3749,7 @@
 				37CA64AA225DF41A0040387F /* Message_TZ_Default_Cell.m in Sources */,
 				37C9E70022BC6B6B00443BC2 /* TLCityHeaderView.m in Sources */,
 				37B8B6FC226F381900434D61 /* Mine_MyOrder_Shop_Cell.m in Sources */,
+				37E06FCA22E1ADA700F3BDA7 /* Mine_KDR_ViewController.m in Sources */,
 				37CA64A0225DCF600040387F /* Square_WD_SD_Cell.m in Sources */,
 				37C2788722D734DC00994BE2 /* Home_KDRState_View.m in Sources */,
 				37ACB95122B1F31E00C84669 /* EaseBubbleView.m in Sources */,
@@ -3953,6 +3972,7 @@
 				37B8B6A5226F0AAA00434D61 /* Home_ShopCatr_Settlement_FooterView.m in Sources */,
 				37F5FFE62265A9F10012245D /* Messag_Shoping_VC.m in Sources */,
 				37CD027C22AE3DA900ED09E8 /* Mine_SetUP_PersonalData_Nickname_VC.m in Sources */,
+				37CA0B6D22E15D120087CEBD /* Home_KDR_SD_CollectionViewCell.m in Sources */,
 				37CD027722AE21AB00ED09E8 /* Mine_Vouchers_ViewController.m in Sources */,
 				377F5E4A227ECEE4003B3E19 /* SquareTitle_Model.m in Sources */,
 				37ACB93A22B1F31E00C84669 /* EaseLocationViewController.m in Sources */,
