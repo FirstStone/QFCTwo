@@ -264,6 +264,7 @@
 #import "Home_KDR_InvitationViewController.h"
 #import "Home_KDR_SD_CollectionViewCell.h"
 #import "Mine_KDR_ViewController.h"
+#import "SJ_AlertViewController.h"
 
 //数据模型
 #import "Home_KDR_Order_Model.h"
@@ -576,7 +577,7 @@
  addressid
  下单
  */
-#define URL_WasteOrderaMkeAdd HTTPHeader@"waste/order/makeAdd"
+#define URL_WasteOrderMakeAdd HTTPHeader@"waste/order/makeAdd"
 
 /**
  waste/order/experiences

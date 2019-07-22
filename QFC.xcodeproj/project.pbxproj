@@ -489,6 +489,8 @@
 		37D999472295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D999452295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.m */; };
 		37D999482295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37D999462295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.xib */; };
 		37D9994B2295395A00A2122B /* Home_ShoppingCart_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D9994A2295395A00A2122B /* Home_ShoppingCart_Model.m */; };
+		37DA029D22E5887E005055F9 /* SJ_AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DA029B22E5887E005055F9 /* SJ_AlertViewController.m */; };
+		37DA029E22E5887E005055F9 /* SJ_AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DA029C22E5887E005055F9 /* SJ_AlertViewController.xib */; };
 		37DD14802260653D007FD9CB /* Square_HT_Details_Seach_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD147E2260653D007FD9CB /* Square_HT_Details_Seach_VC.m */; };
 		37DD14812260653D007FD9CB /* Square_HT_Details_Seach_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DD147F2260653D007FD9CB /* Square_HT_Details_Seach_VC.xib */; };
 		37DD148522607384007FD9CB /* Square_Prsonal_Details_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DD148322607384007FD9CB /* Square_Prsonal_Details_VC.m */; };
@@ -1425,6 +1427,9 @@
 		37D999462295176D00A2122B /* Home_CommunityNearby_Branch_Details_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_CommunityNearby_Branch_Details_VC.xib; sourceTree = "<group>"; };
 		37D999492295395A00A2122B /* Home_ShoppingCart_Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_ShoppingCart_Model.h; sourceTree = "<group>"; };
 		37D9994A2295395A00A2122B /* Home_ShoppingCart_Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_ShoppingCart_Model.m; sourceTree = "<group>"; };
+		37DA029A22E5887E005055F9 /* SJ_AlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SJ_AlertViewController.h; sourceTree = "<group>"; };
+		37DA029B22E5887E005055F9 /* SJ_AlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SJ_AlertViewController.m; sourceTree = "<group>"; };
+		37DA029C22E5887E005055F9 /* SJ_AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SJ_AlertViewController.xib; sourceTree = "<group>"; };
 		37DD147D2260653D007FD9CB /* Square_HT_Details_Seach_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_HT_Details_Seach_VC.h; sourceTree = "<group>"; };
 		37DD147E2260653D007FD9CB /* Square_HT_Details_Seach_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_HT_Details_Seach_VC.m; sourceTree = "<group>"; };
 		37DD147F2260653D007FD9CB /* Square_HT_Details_Seach_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_HT_Details_Seach_VC.xib; sourceTree = "<group>"; };
@@ -2000,6 +2005,9 @@
 				37A0372022CCACD600672618 /* NotDataSoureVC.h */,
 				37A0372122CCACD600672618 /* NotDataSoureVC.m */,
 				37A0372222CCACD600672618 /* NotDataSoureVC.xib */,
+				37DA029A22E5887E005055F9 /* SJ_AlertViewController.h */,
+				37DA029B22E5887E005055F9 /* SJ_AlertViewController.m */,
+				37DA029C22E5887E005055F9 /* SJ_AlertViewController.xib */,
 			);
 			path = Helpers;
 			sourceTree = SOURCE_ROOT;
@@ -3518,6 +3526,7 @@
 				37C458A42271935F004CDE32 /* Mine_Wallet_BillDetails_ViewController.xib in Resources */,
 				37B8B72E226F38A400434D61 /* Mine_MyOrder_RunErrands_ViewController.xib in Resources */,
 				37C3ECE5227592CD006EB3C3 /* Mine_RunErrands_ServiceViewController.xib in Resources */,
+				37DA029E22E5887E005055F9 /* SJ_AlertViewController.xib in Resources */,
 				37053A422272B1C9003D94DB /* Mine_MyOrder_HouseKeeping_AllEvaluate_Cell.xib in Resources */,
 				373406822285A7D900FC38F9 /* Home_HouseKeeping_PlaceOrder_AddressTimeCell.xib in Resources */,
 				37410F5A22BB8604001B884E /* Home_Seach_HT_Cell.xib in Resources */,
@@ -3917,6 +3926,7 @@
 				37C3ECDB22755215006EB3C3 /* RatingBar.m in Sources */,
 				37ACB90E22B1F31E00C84669 /* EaseChineseToPinyin.m in Sources */,
 				37ACB94322B1F31E00C84669 /* EaseCustomMessageCell.m in Sources */,
+				37DA029D22E5887E005055F9 /* SJ_AlertViewController.m in Sources */,
 				373406512285291E00FC38F9 /* Home_CommunityNearby_EspecialRegionFour_Cell.m in Sources */,
 				37C3ECE4227592CD006EB3C3 /* Mine_RunErrands_ServiceViewController.m in Sources */,
 				376D29F922646389009EA443 /* Square_QuestionsAndAnswersVC.m in Sources */,

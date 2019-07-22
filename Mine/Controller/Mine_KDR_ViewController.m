@@ -9,7 +9,7 @@
 #import "Mine_KDR_ViewController.h"
 #define CellID_MineSetUPCell @"MineSetUPCell"
 
-@interface Mine_KDR_ViewController ()<UITableViewDelegate, UITableViewDataSource, PickerViewResultDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, PYPhotosViewDelegate>
+@interface Mine_KDR_ViewController ()<UITableViewDelegate, UITableViewDataSource, PickerViewResultDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, PYPhotosViewDelegate, TZImagePickerControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *Sure_BT;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -686,6 +686,7 @@
     [parm setObject:self.My_Model.longitude forKey:@"longitude"];
     [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
     [[HttpRequest sharedInstance] postWithURLString:URL_wasteUsersServiceUps parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        [SVProgressHUD dismiss];
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             [MBProgressHUD py_showSuccess:@"修改成功" toView:nil];
@@ -696,6 +697,7 @@
             [MBProgressHUD setAnimationDelay:0.7f];
         }
     } failure:^(NSError * _Nonnull error) {
+        [SVProgressHUD dismiss];
         [MBProgressHUD py_showError:@"操作失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];

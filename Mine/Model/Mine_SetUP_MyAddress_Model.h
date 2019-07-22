@@ -34,6 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *county;
 @property (nonatomic, strong) NSString *province;
 @property (nonatomic, strong) NSString *village;
+/**是否有电梯*/
+@property (nonatomic, strong) NSString *elevator;
+/**楼层*/
+@property (nonatomic, strong) NSString *floor;
 
 @end
 
