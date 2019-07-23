@@ -139,6 +139,8 @@
 		3749A891225B67A1006940A3 /* Square_TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3749A88F225B67A1006940A3 /* Square_TextCell.xib */; };
 		3749A895225B6A63006940A3 /* Square_ES_Header_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3749A893225B6A63006940A3 /* Square_ES_Header_Cell.m */; };
 		3749A896225B6A63006940A3 /* Square_ES_Header_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3749A894225B6A63006940A3 /* Square_ES_Header_Cell.xib */; };
+		37510BFC22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37510BFA22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.m */; };
+		37510BFD22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37510BFB22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.xib */; };
 		3755239722AF82D100BD810A /* Mine_SetUP_Phone_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3755239522AF82D100BD810A /* Mine_SetUP_Phone_VC.m */; };
 		3755239822AF82D100BD810A /* Mine_SetUP_Phone_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3755239622AF82D100BD810A /* Mine_SetUP_Phone_VC.xib */; };
 		3756600522DD5D7600EF3782 /* Examine_State_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756600322DD5D7600EF3782 /* Examine_State_ViewController.m */; };
@@ -443,6 +445,10 @@
 		37C4A8B522769468008347D7 /* Mine_Goods_Supervise_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A8B322769468008347D7 /* Mine_Goods_Supervise_Cell.m */; };
 		37C4A8B622769468008347D7 /* Mine_Goods_Supervise_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A8B422769468008347D7 /* Mine_Goods_Supervise_Cell.xib */; };
 		37C4A8B922769C98008347D7 /* Mine_Goods_Supervise_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A8B822769C98008347D7 /* Mine_Goods_Supervise_View.m */; };
+		37C6373722E6A6FB00FBC588 /* Home_KDR_idea_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C6373522E6A6FB00FBC588 /* Home_KDR_idea_ViewController.m */; };
+		37C6373822E6A6FB00FBC588 /* Home_KDR_idea_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C6373622E6A6FB00FBC588 /* Home_KDR_idea_ViewController.xib */; };
+		37C6373C22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C6373A22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.m */; };
+		37C6373D22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C6373B22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.xib */; };
 		37C6437422B382F500FAD214 /* Mine_MyOrder_UserEvaluateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C6437222B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.m */; };
 		37C6437522B382F500FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C6437322B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib */; };
 		37C9E6FB22BC6B6B00443BC2 /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6F022BC6B6A00443BC2 /* TLCity.m */; };
@@ -826,6 +832,9 @@
 		3749A892225B6A63006940A3 /* Square_ES_Header_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_ES_Header_Cell.h; sourceTree = "<group>"; };
 		3749A893225B6A63006940A3 /* Square_ES_Header_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_ES_Header_Cell.m; sourceTree = "<group>"; };
 		3749A894225B6A63006940A3 /* Square_ES_Header_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_ES_Header_Cell.xib; sourceTree = "<group>"; };
+		37510BF922E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_MyCard_ViewController.h; sourceTree = "<group>"; };
+		37510BFA22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_MyCard_ViewController.m; sourceTree = "<group>"; };
+		37510BFB22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_MyCard_ViewController.xib; sourceTree = "<group>"; };
 		3755239422AF82D100BD810A /* Mine_SetUP_Phone_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_SetUP_Phone_VC.h; sourceTree = "<group>"; };
 		3755239522AF82D100BD810A /* Mine_SetUP_Phone_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_SetUP_Phone_VC.m; sourceTree = "<group>"; };
 		3755239622AF82D100BD810A /* Mine_SetUP_Phone_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_SetUP_Phone_VC.xib; sourceTree = "<group>"; };
@@ -1354,6 +1363,12 @@
 		37C4A8B422769468008347D7 /* Mine_Goods_Supervise_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_Goods_Supervise_Cell.xib; sourceTree = "<group>"; };
 		37C4A8B722769C98008347D7 /* Mine_Goods_Supervise_View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_Goods_Supervise_View.h; sourceTree = "<group>"; };
 		37C4A8B822769C98008347D7 /* Mine_Goods_Supervise_View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_Goods_Supervise_View.m; sourceTree = "<group>"; };
+		37C6373422E6A6FB00FBC588 /* Home_KDR_idea_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_idea_ViewController.h; sourceTree = "<group>"; };
+		37C6373522E6A6FB00FBC588 /* Home_KDR_idea_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_idea_ViewController.m; sourceTree = "<group>"; };
+		37C6373622E6A6FB00FBC588 /* Home_KDR_idea_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_idea_ViewController.xib; sourceTree = "<group>"; };
+		37C6373922E6B14C00FBC588 /* Home_KDR_BackService_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_BackService_ViewController.h; sourceTree = "<group>"; };
+		37C6373A22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_BackService_ViewController.m; sourceTree = "<group>"; };
+		37C6373B22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_BackService_ViewController.xib; sourceTree = "<group>"; };
 		37C6437122B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_MyOrder_UserEvaluateViewController.h; sourceTree = "<group>"; };
 		37C6437222B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_MyOrder_UserEvaluateViewController.m; sourceTree = "<group>"; };
 		37C6437322B382F200FAD214 /* Mine_MyOrder_UserEvaluateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_MyOrder_UserEvaluateViewController.xib; sourceTree = "<group>"; };
@@ -3080,6 +3095,15 @@
 				37CAA9ED22E0710A001CDF22 /* Home_KDR_InvitationViewController.h */,
 				37CAA9EE22E0710B001CDF22 /* Home_KDR_InvitationViewController.m */,
 				37CAA9EF22E0710B001CDF22 /* Home_KDR_InvitationViewController.xib */,
+				37C6373422E6A6FB00FBC588 /* Home_KDR_idea_ViewController.h */,
+				37C6373522E6A6FB00FBC588 /* Home_KDR_idea_ViewController.m */,
+				37C6373622E6A6FB00FBC588 /* Home_KDR_idea_ViewController.xib */,
+				37C6373922E6B14C00FBC588 /* Home_KDR_BackService_ViewController.h */,
+				37C6373A22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.m */,
+				37C6373B22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.xib */,
+				37510BF922E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.h */,
+				37510BFA22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.m */,
+				37510BFB22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3471,6 +3495,7 @@
 				370B41F2225F2074009489BA /* Mine_CV_HeaderViewCRV.xib in Resources */,
 				37C3ECD52275482B006EB3C3 /* Home_HouseKeeping_ViewController.xib in Resources */,
 				370032B522D4775200109C2B /* Home_KDR_PlaceOrder_ViewController.xib in Resources */,
+				37C6373822E6A6FB00FBC588 /* Home_KDR_idea_ViewController.xib in Resources */,
 				379753742271C0B8000F6A8D /* Mine_Myorder_RunErrands_AllEvaluate_Cell.xib in Resources */,
 				3734066F2285515400FC38F9 /* Home_HouseKeeping_StyleCell.xib in Resources */,
 				37B8B695226EFBC200434D61 /* Home_ShoppingCatr_Settlement_ViewController.xib in Resources */,
@@ -3489,6 +3514,7 @@
 				37C458AA2271935F004CDE32 /* Mine_SettledIn_ViewController.xib in Resources */,
 				376D29F02264136A009EA443 /* Mine_PublishViewController.xib in Resources */,
 				37B5AAA622D5899600FE79DD /* Home_KDROrder_Cell.xib in Resources */,
+				37510BFD22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.xib in Resources */,
 				37410F4B22BB6CAB001B884E /* Home_SearchResult_ViewContraller.xib in Resources */,
 				37F5FFC1226571100012245D /* Message_CommentViewController.xib in Resources */,
 				371830E8225DC17E006B97E5 /* Square_WD_Text_Cell.xib in Resources */,
@@ -3558,6 +3584,7 @@
 				37CE24C2225C45EE0049A57C /* Publish_ViewController.xib in Resources */,
 				37B8B6D5226F358800434D61 /* Mine_SetUP_PersonalData_VC.xib in Resources */,
 				3762201E22B62D5600F20613 /* Home_ShopStore_ViewController.xib in Resources */,
+				37C6373D22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.xib in Resources */,
 				37B8B6D7226F358800434D61 /* Mine_SetUP_Currency_VC.xib in Resources */,
 				3749A865225AE485006940A3 /* Home_RecommendCell.xib in Resources */,
 				37053A472272CF5B003D94DB /* Mine_MyOrder_RunErrands_Shoping_HouseKeeping_AllEvaluate_VC.xib in Resources */,
@@ -3801,6 +3828,7 @@
 				378CA7A5229799B80087B29C /* Home_ShoppingCatr_Settlement_Model.m in Sources */,
 				3755239722AF82D100BD810A /* Mine_SetUP_Phone_VC.m in Sources */,
 				37C4A8B522769468008347D7 /* Mine_Goods_Supervise_Cell.m in Sources */,
+				37510BFC22E6F69800BF09A7 /* Home_KDR_MyCard_ViewController.m in Sources */,
 				37ACB94922B1F31E00C84669 /* EaseFaceView.m in Sources */,
 				37ACB91822B1F31E00C84669 /* wav.mm in Sources */,
 				371830DD225DB1B2006B97E5 /* Square_WD_ImageCell.m in Sources */,
@@ -3823,6 +3851,7 @@
 				372E4E602255A892006CEB0A /* FMHorizontalMenuCollectionLayout.m in Sources */,
 				37ACB91F22B1F31E00C84669 /* EMAudioRecorderUtil.m in Sources */,
 				373406792285641C00FC38F9 /* Home_HouseKeeping_PlaceOrder_Depth_ViewController.m in Sources */,
+				37C6373722E6A6FB00FBC588 /* Home_KDR_idea_ViewController.m in Sources */,
 				378C8C46228D49090041EAAD /* Square_Details_Model.m in Sources */,
 				373D2E60227028E800ADB8E9 /* Mine_Wallet_CashOut_TableView.m in Sources */,
 				37B8B6F8226F381900434D61 /* Mine_MyOrder_RunErrands_Cell.m in Sources */,
@@ -3832,6 +3861,7 @@
 				37AE45D42293912000E4A6DC /* YMTextView.m in Sources */,
 				37E6D8BD22C33A770042E96F /* Square_Complaint_ViewController.m in Sources */,
 				37C458AC2271935F004CDE32 /* Mine_SettledIn_Shoping_ViewController.m in Sources */,
+				37C6373C22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.m in Sources */,
 				37CAA9F022E07123001CDF22 /* Home_KDR_InvitationViewController.m in Sources */,
 				37B8B6D1226F358800434D61 /* Mine_SetUP_About_Me_VC.m in Sources */,
 				378CA7A8229847770087B29C /* Message_FansList_Model.m in Sources */,

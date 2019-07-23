@@ -605,45 +605,56 @@
     NSString *currentVersion = infoDic[@"CFBundleShortVersionString"];
     
     //2.从网络获取appStore版本号
-    NSError *error;
-    NSData *response = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=%@",STOREAPPID]]]returningResponse:nil error:nil];
-    //2.1没有内容
-    if (response == nil) {
-        NSLog(@"你没有连接网络哦");
-        return;
-    }
-    //3.序列化解析
-    NSDictionary *appInfoDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    //3.1数据错误
-    if (error) {
-        NSLog(@"hsUpdateAppError:%@",error);
-        return;
-    }
-    //3.2字典解析
-    NSArray *array = appInfoDic[@"results"];
-    NSString *appStoreVersion = @"1.0";
-    if (array.count) {
-        NSDictionary *dic = array[0];
-        appStoreVersion = dic[@"version"];
-    }
-    
-    
-    //打印版本号
-    NSLog(@"当前版本号:%@\n商店版本号:%@",currentVersion,appStoreVersion);
-    
-    //4.当前版本号小于商店版本号,就更新
-    if([appStoreVersion compare:currentVersion options:NSNumericSearch] == NSOrderedDescending)
-    {
-        //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本有更新"  message:[NSString stringWithFormat:@"检测到新版本(%@),是否更新?",appStoreVersion] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"更新",nil];
-        //        [alert show];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"发现新版本" message:@"请更新最新版本" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        alertView.tag = 2;
-        alertView.delegate = self;
-        [alertView show];
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=%@",STOREAPPID]]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //2.1没有内容
+        if (data == nil) {
+            NSLog(@"你没有连接网络哦");
+            return;
+        }
+        //3.序列化解析
+        NSDictionary *appInfoDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+        //3.1数据错误
+        if (error) {
+            NSLog(@"hsUpdateAppError:%@",error);
+            return;
+        }
+        //3.2字典解析
+        NSArray *array = appInfoDic[@"results"];
+        NSString *appStoreVersion = @"1.0";
+        if (array.count) {
+            NSDictionary *dic = array[0];
+            appStoreVersion = dic[@"version"];
+        }
         
-    }else{
-        NSLog(@"检测到不需要更新");
-    }
+        
+        //打印版本号
+        NSLog(@"当前版本号:%@\n商店版本号:%@",currentVersion,appStoreVersion);
+        
+        //4.当前版本号小于商店版本号,就更新
+        if([appStoreVersion compare:currentVersion options:NSNumericSearch] == NSOrderedDescending)
+        {
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"发现新版本" message:@"请更新最新版本" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction * camera = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                UIApplication *application = [UIApplication sharedApplication];
+                NSString *APPStoreURL = @"https://itunes.apple.com/cn/app/id1461455050";
+                if (@available(iOS 10.0, *)) {
+                    [application openURL:[NSURL URLWithString:APPStoreURL] options:@{} completionHandler:nil];
+                } else {
+                    // Fallback on earlier versions
+                }
+            }];
+            [alertVC addAction:camera];
+            [self presentViewController:alertVC animated:YES completion:nil];
+//            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"发现新版本" message:@"请更新最新版本" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            alertView.tag = 2;
+//            alertView.delegate = self;
+//            [alertView show];
+            
+        }else{
+            NSLog(@"检测到不需要更新");
+        }
+    }];
+    [dataTask resume];
 }
 
 

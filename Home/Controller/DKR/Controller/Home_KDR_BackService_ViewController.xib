@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Home_KDR_BackService_ViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epq-Jz-eCM">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="rdz-AU-bU9"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.33333333329999998" green="0.80000000000000004" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <items>
+                        <navigationItem title="联系客服" id="iPR-fU-xOC">
+                            <barButtonItem key="leftBarButtonItem" title="返回" id="WdL-bg-qHX">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="LiftBtuuonPOP:" destination="-1" id="jDM-tZ-kqt"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyE-nc-9vA">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuK-qz-mJF">
+                            <rect key="frame" x="30" y="440" width="354" height="120"/>
+                            <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="dUe-Zn-usO"/>
+                            </constraints>
+                            <string key="text">条信科技（上海）有限公司公司地址：上海市松江区新桥镇莘砖公路 258号34号楼15A04室客服电话：021—57626829电子邮件：tiaoxinkeji@163.com官网：http://www.txkuaiyou.com</string>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_KDR_LXKF" translatesAutoresizingMaskIntoConstraints="NO" id="2zR-xt-YAK">
+                            <rect key="frame" x="30" y="10" width="354" height="400"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="400" id="t60-Fl-cR3"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="2zR-xt-YAK" firstAttribute="leading" secondItem="nyE-nc-9vA" secondAttribute="leading" constant="30" id="1eM-qH-3Cn"/>
+                        <constraint firstAttribute="trailing" secondItem="nuK-qz-mJF" secondAttribute="trailing" constant="30" id="Mo7-d7-gJX"/>
+                        <constraint firstItem="nuK-qz-mJF" firstAttribute="top" secondItem="2zR-xt-YAK" secondAttribute="bottom" constant="30" id="Onl-LL-b0V"/>
+                        <constraint firstItem="nuK-qz-mJF" firstAttribute="leading" secondItem="nyE-nc-9vA" secondAttribute="leading" constant="30" id="WIc-hd-GtE"/>
+                        <constraint firstAttribute="trailing" secondItem="2zR-xt-YAK" secondAttribute="trailing" constant="30" id="hzo-wF-JFf"/>
+                        <constraint firstItem="2zR-xt-YAK" firstAttribute="top" secondItem="nyE-nc-9vA" secondAttribute="top" constant="10" id="l1m-jy-vqI"/>
+                        <constraint firstItem="2zR-xt-YAK" firstAttribute="centerX" secondItem="nyE-nc-9vA" secondAttribute="centerX" id="yLi-gm-DYX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.33333333329999998" green="0.80000000000000004" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="nyE-nc-9vA" secondAttribute="trailing" id="4fs-oD-vub"/>
+                <constraint firstAttribute="trailing" secondItem="epq-Jz-eCM" secondAttribute="trailing" id="CzM-yt-chJ"/>
+                <constraint firstItem="epq-Jz-eCM" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="QmY-cx-ZfU"/>
+                <constraint firstItem="nyE-nc-9vA" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="UKx-Gr-0LB"/>
+                <constraint firstItem="epq-Jz-eCM" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="h02-lf-bR1"/>
+                <constraint firstItem="nyE-nc-9vA" firstAttribute="top" secondItem="epq-Jz-eCM" secondAttribute="bottom" id="m07-Jo-2I1"/>
+                <constraint firstAttribute="bottom" secondItem="nyE-nc-9vA" secondAttribute="bottom" id="yu3-Tj-ps4"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_KDR_LXKF" width="488" height="586"/>
+    </resources>
+</document>

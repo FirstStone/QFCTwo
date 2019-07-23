@@ -265,6 +265,9 @@
 #import "Home_KDR_SD_CollectionViewCell.h"
 #import "Mine_KDR_ViewController.h"
 #import "SJ_AlertViewController.h"
+#import "Home_KDR_idea_ViewController.h"
+#import "Home_KDR_BackService_ViewController.h"
+#import "Home_KDR_MyCard_ViewController.h"
 
 //数据模型
 #import "Home_KDR_Order_Model.h"
@@ -528,6 +531,15 @@
 #define URL_depthOrderAdd HTTPHeader@"index/Husbandry/depthOrderAdd"
 
 #pragma mark----快代扔
+
+/**
+ waste/users/feedback
+ uid
+ content   内容
+ phone  手机号
+ 回馈
+ */
+#define URL_WasteUsersFeedback HTTPHeader@"waste/users/feedback"
 
 /**
 快代扔入驻

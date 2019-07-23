@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Home_KDR_Personal_ViewController">
             <connections>
+                <outlet property="DayTip_BT" destination="mm4-x6-46o" id="ZVc-c0-3o0"/>
+                <outlet property="Day_Label" destination="Lqs-7c-1pH" id="88O-58-5Bh"/>
                 <outlet property="Name_Label" destination="aQn-yi-6Il" id="cFJ-7T-YlK"/>
                 <outlet property="Sure_Bt" destination="mm4-x6-46o" id="DdP-hg-Zcc"/>
                 <outlet property="Tap_View" destination="pCf-Mt-UvR" id="jab-DD-kla"/>
@@ -92,7 +94,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm4-x6-46o">
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm4-x6-46o">
                                         <rect key="frame" x="286" y="180" width="78" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="  立即购买  ">

@@ -37,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.Lift_BT.hidden = !self.LiftBT_State;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -94,7 +94,6 @@
         if ([[responseObject objectForKey:@"status"] intValue]) {
             self.Middle_BT.userInteractionEnabled = YES;
             NSDictionary *DataSoure = [responseObject objectForKey:@"info"];
-            self.UserType = [DataSoure objectForKey:@"type"];
             if ([[DataSoure objectForKey:@"type"] intValue] == 0) {//没卡
                 Home_KDR_PlaceOrder_ViewController *KDRVC = [[Home_KDR_PlaceOrder_ViewController alloc] init];
                 KDRVC.LiftBT_State = [[DataSoure objectForKey:@"experience"] intValue] ? YES : NO;
@@ -253,14 +252,17 @@
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             self.Right_BT.userInteractionEnabled = YES;
+            [MBProgressHUD py_showError:@"操作失败" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }else if ([[responseObject objectForKey:@"status"] intValue] == 0) {
+            [MBProgressHUD py_showError:[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]] toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }else {
+            self.Right_BT.userInteractionEnabled = YES;
             Home_KDR_OrderState_ViewController *KDRVC = [[Home_KDR_OrderState_ViewController alloc] init];
             KDRVC.Number = 1;
             [KDRVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:KDRVC animated:YES];
-        }else {
-            self.Right_BT.userInteractionEnabled = YES;
-            [MBProgressHUD py_showError:@"操作失败" toView:nil];
-            [MBProgressHUD setAnimationDelay:0.7f];
         }
     } failure:^(NSError * _Nonnull error) {
         self.Right_BT.userInteractionEnabled = YES;

@@ -96,4 +96,30 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *village;
 @end
 
+@interface Home_KDR_Card_Model : NSObject
+/**
+ audit = 0;
+ avatar = "http://thirdwx.qlogo.cn/mmopen/vi_32/1gzC2R9J7FhHjgtez4V73F7ib1ZXEzJ05bnZnXTzqIyspDuLya78KCDHDfqBIIWCrn4tPc6icRS0C8g89mSDIPyA/132";
+ endtime = 29;
+ experience = 0;
+ id = 25;
+ nickname = "\U7d2b\U8272\U70df\U82b1";
+ openid = "oNDkG1g_JUBm8oC5YO7Vlbmc-LdQ";
+ status = 1;
+ type = 1;
+ "type_id" = 4;
+ */
+@property (nonatomic, strong) NSString *audit;
+@property (nonatomic, strong) NSString *avatar;
+@property (nonatomic, strong) NSString *endtime;
+@property (nonatomic, strong) NSString *experience;
+@property (nonatomic, strong) NSString *uid_id;
+@property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *openid;
+@property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *type_id;
+
+@end
+
 NS_ASSUME_NONNULL_END
