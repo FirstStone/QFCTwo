@@ -8,7 +8,7 @@
 
 #import "Login_USer_ViewController.h"
 
-@interface Login_USer_ViewController ()
+@interface Login_USer_ViewController ()<TencentSessionDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *PhoneCode_BT;
 
 
@@ -26,19 +26,33 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *Login_BT;
 
+@property (nonatomic, strong) TencentOAuth *tencentOAuth;
+
 @end
 
 @implementation Login_USer_ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:@"101584572" andDelegate:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weiChatOK) name:@"weiChatOK" object:NULL];
-    if ([WXApi isWXAppInstalled]) {
+    if ([WXApi isWXAppInstalled] || [QQApiInterface isQQInstalled]) {
         self.Down_View.hidden = NO;
-        self.WX_BT.hidden = NO;
+        if ([WXApi isWXAppInstalled]) {
+            self.WX_BT.hidden = NO;
+        }else {
+            self.WX_BT.hidden = YES;
+        }
+        if ([QQApiInterface isQQInstalled]) {
+            self.QQ_BT.hidden = NO;
+        }else {
+            self.QQ_BT.hidden = YES;
+        }
+        
     }else {
         self.Down_View.hidden = YES;
         self.WX_BT.hidden = YES;
+        self.QQ_BT.hidden = YES;
     }
 }
 
@@ -77,6 +91,37 @@
 - (IBAction)WXButtonClick:(id)sender {
     [self sendWXAuthReq];
 }
+
+- (IBAction)QQbuttonClick:(id)sender {
+    NSMutableArray *permissions = [[NSMutableArray alloc] initWithObjects:kOPEN_PERMISSION_GET_INFO, kOPEN_PERMISSION_GET_SIMPLE_USER_INFO, nil];
+    [self.tencentOAuth authorize:permissions inSafari:NO];
+}
+
+#pragma mark----TencentSessionDelegate
+- (void)tencentDidLogin {
+    if (self.tencentOAuth.accessToken && 0 != [_tencentOAuth.accessToken length])
+    {
+        [self.tencentOAuth getUserInfo];
+        // 记录登录用户的OpenID、Token以及过期时间
+        //        _labelAccessToken.text = _tencentOAuth.accessToken;
+    }
+    else
+    {
+        //        _labelAccessToken.text = @"登录不成功 没有获取accesstoken";
+    }
+}
+
+//用户详细信息
+- (void)getUserInfoResponse:(APIResponse *)response {
+    NSLog(@"%@", response);
+    if (response.message.length) {
+        [self PostIndexLoginQqialogue:response.jsonResponse];
+    }else {
+        [MBProgressHUD py_showError:@"登录失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }
+}
+
 - (void)sendWXAuthReq{//复制即可
     
     if([WXApi isWXAppInstalled]){//判断用户是否已安装微信App
@@ -279,6 +324,63 @@
     [JPUSHService setAlias:alias completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
         NSLog(@"%ld",(long)iResCode);
     } seq:123];
+}
+
+- (void)PostIndexLoginQqialogue:(NSDictionary *)code {
+    /**
+     QQ登录
+     index/login/Qqialogue
+     code
+     openid
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[code mj_JSONString] forKey:@"code"];
+    [parm setObject:self.tencentOAuth.openId forKey:@"openid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_Login_Qqialogue parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSDictionary *DataSoure = [responseObject objectForKey:@"messahe"];
+            NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
+            [defaults setObject:[DataSoure objectForKey:@"id"] forKey:User_Mid];
+            [defaults setObject:[DataSoure objectForKey:@"type_id"] forKey:User_Type];
+            [defaults setObject:[DataSoure objectForKey:@"nickname"] forKey:User_Nickname];
+            [defaults setObject:[DataSoure objectForKey:@"avatar"] forKey:User_Avatar];
+            [defaults setObject:[DataSoure objectForKey:@"audit"] forKey:User_Audit];
+            [Singleton sharedSingleton].nickname = [DataSoure objectForKey:@"nickname"];
+            [Singleton sharedSingleton].soleid = [DataSoure objectForKey:@"soleid"];
+            [Singleton sharedSingleton].avatar = [DataSoure objectForKey:@"avatar"];
+            [Singleton sharedSingleton].type_id = [DataSoure objectForKey:@"type_id"];
+            [Singleton sharedSingleton].address = [DataSoure objectForKey:@"address"];
+            [Singleton sharedSingleton].audit = [DataSoure objectForKey:@"audit"];
+            [Singleton sharedSingleton].Mid = [DataSoure objectForKey:@"id"];
+            [Singleton sharedSingleton].balance = [DataSoure objectForKey:@"balance"];
+            [Singleton sharedSingleton].phone = [DataSoure objectForKey:@"phone"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:QFC_UpDataSoureToSelfView_NSNotification object:nil];
+            [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@Ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+                if (aError==nil) {
+                    NSLog(@"注册成功");
+                }
+            }];
+            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@Ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+                if (!aError) {
+                    NSLog(@"-----------------------------------登录成功");
+                    [[EMClient sharedClient] updatePushNotifiationDisplayName:[Singleton sharedSingleton].nickname completion:^(NSString *aDisplayName, EMError *aError) {
+                        if (aError) {
+                            NSLog(@"-----------------------------------昵称设置成功");
+                        }
+                    }];
+                }
+            }];
+            [self setJPUSHService];
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }else {
+            [MBProgressHUD py_showError:[responseObject objectForKey:@"message"] toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"登录失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
 }
 
 @end

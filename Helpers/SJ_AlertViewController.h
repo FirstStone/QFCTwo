@@ -15,6 +15,7 @@ typedef void(^SureBTBlock)(NSInteger Type);
 typedef enum : NSUInteger {
     SJAlterNoAddress,
     SJAlterNomelAddress,
+    SJAlterNotService,
 } SJAlertStyle;
 @interface SJ_AlertViewController : UIViewController
 @property (nonatomic, copy) SureBTBlock SJButtonBlock;

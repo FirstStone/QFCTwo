@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) Mine_SetUP_MyAddress_Model *MyModel;
 
-@property (nonatomic, strong) NSString *Addressid;
+//@property (nonatomic, strong) NSString *Addressid;
 
 @end
 
@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSLog(@"%@", [Singleton sharedSingleton].type_id);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AddressSelect) name:QFC_KDRHomeAlterView_NSNotification object:nil];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Type] intValue] == 4) {
         self.Lift_LAbel.text = @"新手指南";
     }else {
@@ -42,9 +42,6 @@
         Home_KDR_Novice_ViewController *KDRVC = [[Home_KDR_Novice_ViewController alloc] init];
         [KDRVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:KDRVC animated:YES];
-//        Home_KDR_OrderState_ViewController *KDRVC = [[Home_KDR_OrderState_ViewController alloc] init];
-//         [KDRVC setHidesBottomBarWhenPushed:YES];
-//         [self.navigationController pushViewController:KDRVC animated:YES];
     }else {
         if ([[userdefaults objectForKey:User_Type] intValue] == 0) {//普通用户
             if ([[userdefaults objectForKey:User_Audit] intValue] == 2) {//待审核
@@ -63,15 +60,8 @@
 }
 
 - (IBAction)MiddleButtonClick:(id)sender {
-//    SJ_AlertViewController *alterVC = [[SJ_AlertViewController alloc] init];
-//    alterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//    [self presentViewController:alterVC animated:NO completion:Nil];
-    
     self.Middle_BT.userInteractionEnabled = NO;
     [self POSTWasteOrderGiveFindOrder];
-//    Home_KDR_PlaceOrder_ViewController *KDRVC = [[Home_KDR_PlaceOrder_ViewController alloc] init];
-//    [KDRVC setHidesBottomBarWhenPushed:YES];
-//    [self.navigationController pushViewController:KDRVC animated:YES];
 }
 
 - (IBAction)RightButtonClick:(id)sender {
@@ -100,7 +90,11 @@
                 [KDRVC setHidesBottomBarWhenPushed:YES];
                 [self.navigationController pushViewController:KDRVC animated:YES];
             }else {
-                [self POSTWasteAddressDefaultInfo];
+                if (![self.MyModel.MyAddress_id intValue]) {
+                    [self POSTWasteAddressDefaultInfo];
+                }else {
+                    [self AddressSelect];
+                }
             }
         }else {
             self.Middle_BT.userInteractionEnabled = YES;
@@ -165,54 +159,9 @@
         if ([[responseObject objectForKey:@"status"] intValue]) {
             self.Middle_BT.userInteractionEnabled = YES;
             NSDictionary *DataSoure = [responseObject objectForKey:@"info"];
-//            if ([[DataSoure objectForKey:@"type"] intValue] == 0) {//没卡
-//                Home_KDR_PlaceOrder_ViewController *KDRVC = [[Home_KDR_PlaceOrder_ViewController alloc] init];
-//                [KDRVC setHidesBottomBarWhenPushed:YES];
-//                [self.navigationController pushViewController:KDRVC animated:YES];
-//            }else {
-//                UIAlertController *alertV = [UIAlertController alertControllerWithTitle:@"提示" message:@"无服务地址" preferredStyle:UIAlertControllerStyleAlert];
-//                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"去设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//                    //成功返回Block
-//                }];
-//                UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//                    //成功返回Block
-//                }];
-//                [alertV addAction:cancel];
-//                [alertV addAction:okAction];
-//
-//                [self presentViewController:alertV animated:YES completion:nil];
-//            }
-            self.Addressid = [DataSoure objectForKey:@"id"];
-            MJWeakSelf;
-            SJ_AlertViewController *alterVC = [[SJ_AlertViewController alloc] init];
-            alterVC.Address = [NSString stringWithFormat:@"%@%@%@", [DataSoure objectForKey:@"address"], [DataSoure objectForKey:@"village"], [DataSoure objectForKey:@"details"]];
-            alterVC.VillageName = [DataSoure objectForKey:@"village"];
-            alterVC.SJAlterType = SJAlterNomelAddress;
-            alterVC.SJButtonBlock = ^(NSInteger Type) {
-                if (Type == 1) {
-                    [weakSelf POSTWasteOrderMakeAdd];
-//                    //      status   1月卡2年卡3单次
-//                    weakSelf.Right_BT.userInteractionEnabled = NO;
-//                    if (weakSelf.Month_BT.selected) {
-//                        [weakSelf POSTWasteOrderOrderAdd:@"1"];
-//                    }else if (weakSelf.Year_BT.selected){
-//                        [weakSelf POSTWasteOrderOrderAdd:@"2"];
-//                    }else {
-//                        [weakSelf POSTWasteOrderOrderAdd:@"3"];
-//                    }
-                }else {
-                    Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
-                    MJWeakSelf;
-                    AddressVC.addressBlock = ^(Mine_SetUP_MyAddress_Model * _Nonnull model) {
-                        weakSelf.Addressid = model.MyAddress_id;
-//                        [weakSelf.Address_BT setTitle:[NSString stringWithFormat:@"%@%@", model.village, model.details] forState:UIControlStateNormal];
-                    };
-                    [AddressVC setHidesBottomBarWhenPushed:YES];
-                    [weakSelf.navigationController pushViewController:AddressVC animated:YES];
-                }
-            };
-            alterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            [self presentViewController:alterVC animated:NO completion:Nil];
+            self.MyModel = [Mine_SetUP_MyAddress_Model mj_objectWithKeyValues:DataSoure];
+//            self.Addressid = [DataSoure objectForKey:@"id"];
+            [self AddressSelect];
         }else {
             MJWeakSelf;
             self.Middle_BT.userInteractionEnabled = YES;
@@ -226,8 +175,6 @@
             };
             alterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             [self presentViewController:alterVC animated:NO completion:Nil];
-//            [MBProgressHUD py_showError:@"获取失败" toView:nil];
-//            [MBProgressHUD setAnimationDelay:0.7f];
         }
     } failure:^(NSError * _Nonnull error) {
         self.Middle_BT.userInteractionEnabled = YES;
@@ -246,15 +193,16 @@
      */
     NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
     [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
-    [parm setObject:self.Addressid forKey:@"addressid"];
+    [parm setObject:self.MyModel.MyAddress_id forKey:@"addressid"];
     
     [[HttpRequest sharedInstance] postWithURLString:URL_WasteOrderMakeAdd parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             self.Right_BT.userInteractionEnabled = YES;
-            [MBProgressHUD py_showError:@"操作失败" toView:nil];
+            [MBProgressHUD py_showError:[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]] toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
         }else if ([[responseObject objectForKey:@"status"] intValue] == 0) {
+            self.Right_BT.userInteractionEnabled = YES;
             [MBProgressHUD py_showError:[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]] toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
         }else {
@@ -270,6 +218,29 @@
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
     
+}
+
+- (void)AddressSelect {
+    MJWeakSelf;
+    SJ_AlertViewController *alterVC = [[SJ_AlertViewController alloc] init];
+    alterVC.Address = [NSString stringWithFormat:@"%@%@%@", self.MyModel.address, self.MyModel.village, self.MyModel.details];
+    alterVC.VillageName = self.MyModel.village;
+    alterVC.SJAlterType = SJAlterNomelAddress;
+    alterVC.SJButtonBlock = ^(NSInteger Type) {
+        if (Type == 1) {
+            [weakSelf POSTWasteOrderMakeAdd];
+        }else {
+            Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
+            MJWeakSelf;
+            AddressVC.addressBlock = ^(Mine_SetUP_MyAddress_Model * _Nonnull model) {
+                weakSelf.MyModel = model;
+            };
+            [AddressVC setHidesBottomBarWhenPushed:YES];
+            [weakSelf.navigationController pushViewController:AddressVC animated:YES];
+        }
+    };
+    alterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:alterVC animated:NO completion:Nil];
 }
 
 @end

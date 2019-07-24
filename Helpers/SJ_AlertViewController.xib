@@ -18,6 +18,7 @@
                 <outlet property="Tip_Label" destination="mks-xe-KkB" id="GRJ-Pt-RdQ"/>
                 <outlet property="Top_ImageView" destination="ZJ5-8g-ZeD" id="ITz-km-dzG"/>
                 <outlet property="VillageName_Label" destination="1Lk-Uw-brq" id="ONp-JQ-JaJ"/>
+                <outlet property="icon_TwoiamgeView" destination="8xH-NG-vPl" id="bY2-8t-jSB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -94,6 +95,12 @@
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_KDR_NoService" translatesAutoresizingMaskIntoConstraints="NO" id="8xH-NG-vPl">
+                            <rect key="frame" x="40" y="37" width="190" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="Qz3-eO-qZf"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -106,12 +113,16 @@
                         <constraint firstItem="ZJ5-8g-ZeD" firstAttribute="top" secondItem="lBx-hS-R9K" secondAttribute="top" constant="37" id="8cT-cV-ATk"/>
                         <constraint firstItem="JIQ-V7-qUx" firstAttribute="leading" secondItem="lBx-hS-R9K" secondAttribute="leading" constant="20" id="9L8-ML-aX2"/>
                         <constraint firstItem="ZJ5-8g-ZeD" firstAttribute="centerX" secondItem="lBx-hS-R9K" secondAttribute="centerX" id="CHp-a4-rmd"/>
+                        <constraint firstItem="8xH-NG-vPl" firstAttribute="leading" secondItem="lBx-hS-R9K" secondAttribute="leading" constant="40" id="NE5-9b-wPG"/>
                         <constraint firstAttribute="trailing" secondItem="QBc-6k-Qge" secondAttribute="trailing" constant="10" id="PaJ-HY-Hcv"/>
                         <constraint firstAttribute="width" constant="270" id="QMx-uH-hcs"/>
                         <constraint firstItem="0Np-ec-s0N" firstAttribute="top" secondItem="lBx-hS-R9K" secondAttribute="top" constant="10" id="TMl-YB-yjG"/>
+                        <constraint firstItem="8xH-NG-vPl" firstAttribute="top" secondItem="lBx-hS-R9K" secondAttribute="top" constant="37" id="XVa-bg-OmW"/>
                         <constraint firstItem="qfR-ef-jFK" firstAttribute="centerX" secondItem="ZJ5-8g-ZeD" secondAttribute="centerX" id="ahB-XI-crv"/>
+                        <constraint firstItem="8xH-NG-vPl" firstAttribute="centerX" secondItem="lBx-hS-R9K" secondAttribute="centerX" id="dMl-x6-fHv"/>
                         <constraint firstItem="0Np-ec-s0N" firstAttribute="leading" secondItem="lBx-hS-R9K" secondAttribute="leading" constant="10" id="dqn-Rl-cqd"/>
                         <constraint firstItem="mks-xe-KkB" firstAttribute="top" secondItem="ZJ5-8g-ZeD" secondAttribute="bottom" constant="10" id="eZn-MU-5mh"/>
+                        <constraint firstAttribute="trailing" secondItem="8xH-NG-vPl" secondAttribute="trailing" constant="40" id="hR6-go-3Bn"/>
                         <constraint firstItem="JIQ-V7-qUx" firstAttribute="top" secondItem="qfR-ef-jFK" secondAttribute="bottom" constant="10" id="iAh-k0-MS9"/>
                         <constraint firstItem="qfR-ef-jFK" firstAttribute="leading" secondItem="lBx-hS-R9K" secondAttribute="leading" constant="20" id="ihV-ZC-c2X"/>
                         <constraint firstItem="mks-xe-KkB" firstAttribute="centerX" secondItem="ZJ5-8g-ZeD" secondAttribute="centerX" id="ns5-CZ-KId"/>
@@ -135,6 +146,7 @@
     </objects>
     <resources>
         <image name="icon_KDR_AlterTip" width="64" height="64"/>
+        <image name="icon_KDR_NoService" width="16" height="16"/>
         <image name="icon_Login_QX" width="15" height="15"/>
     </resources>
 </document>

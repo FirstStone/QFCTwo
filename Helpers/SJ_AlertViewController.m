@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *Sure_BT;
 
 @property (strong, nonatomic) IBOutlet UIButton *Address_BT;
+@property (strong, nonatomic) IBOutlet UIImageView *icon_TwoiamgeView;
 
 @end
 
@@ -40,6 +41,16 @@
         {
             self.VillageName_Label.text = self.VillageName;
             self.Address_Label.text = self.Address;
+        }
+            break;
+        case SJAlterNotService:{
+            self.icon_TwoiamgeView.hidden = NO;
+            self.Top_ImageView.hidden = YES;
+            self.Tip_Label.text = @"您所在的小区暂无服务人员";
+            self.VillageName_Label.hidden = YES;
+            self.Address_Label.text = @"邀请服务人员入驻，即可获的邀请大礼包";
+            [self.Sure_BT setTitle:@"前往邀请" forState:UIControlStateNormal];
+            self.Address_BT.hidden = YES;
         }
             break;
         default:

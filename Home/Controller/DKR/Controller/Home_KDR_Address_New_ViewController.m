@@ -28,6 +28,11 @@
 
 @property (nonatomic, strong) Mine_SetUP_MyAddress_Model *My_Model;
 
+@property (strong, nonatomic) IBOutlet UIButton *LT_BT;
+@property (strong, nonatomic) IBOutlet UIButton *DT_BT;
+@property (strong, nonatomic) IBOutlet UIView *LC_View;
+
+
 @end
 
 @implementation Home_KDR_Address_New_ViewController
@@ -50,6 +55,23 @@
     }
     
 }
+- (IBAction)LTButtonClick:(id)sender {
+//    self.LT_BT.layer.cornerRadius
+    self.LT_BT.selected = YES;
+    self.DT_BT.selected = NO;
+    self.LC_View.hidden = NO;
+    self.LT_BT.backgroundColor = QFC_Color_30AC65;
+    self.DT_BT.backgroundColor = QFC_Color_F5F5F5;
+}
+- (IBAction)DTButtonClick:(id)sender {
+    self.LT_BT.selected = NO;
+    self.DT_BT.selected = YES;
+    self.LC_View.hidden = YES;
+    self.LT_BT.backgroundColor = QFC_Color_F5F5F5;
+    self.DT_BT.backgroundColor = QFC_Color_30AC65;
+}
+
+
 
 - (NSMutableDictionary *)parm {
     if (!_parm) {
@@ -137,11 +159,24 @@
     [[HttpRequest sharedInstance] postWithURLString:URL_WasteAddressAddressAdds parameters:self.parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
         self.Sure_BT.userInteractionEnabled = YES;
-        if ([[responseObject objectForKey:@"status"] intValue]) {
+        if ([[responseObject objectForKey:@"status"] intValue] == 1) {
             [MBProgressHUD py_showSuccess:@"添加成功" toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
             [self.navigationController popViewControllerAnimated:YES];
-        }else {
+        }else if ([[responseObject objectForKey:@"status"] intValue] == 2) {
+            MJWeakSelf;
+            SJ_AlertViewController *alterVC = [[SJ_AlertViewController alloc] init];
+            alterVC.SJAlterType = SJAlterNotService;
+            alterVC.SJButtonBlock = ^(NSInteger Type) {
+                if(Type == 1) {
+                    Home_KDR_InvitationViewController *invitationVC = [[Home_KDR_InvitationViewController alloc] init];
+                    [invitationVC setHidesBottomBarWhenPushed:YES];
+                    [weakSelf.navigationController pushViewController:invitationVC animated:YES];
+                }
+            };
+            alterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            [self presentViewController:alterVC animated:NO completion:Nil];
+        } else {
             [MBProgressHUD py_showError:@"操作失败" toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
         }

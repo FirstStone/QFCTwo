@@ -77,7 +77,7 @@
         _sdcyscrollview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectNull delegate:self placeholderImage:nil];
         _sdcyscrollview.scrollDirection = UICollectionViewScrollDirectionVertical;
         _sdcyscrollview.showPageControl = NO;
-        
+        _sdcyscrollview.hidden = YES;
     }
     return _sdcyscrollview;
 }
@@ -132,7 +132,10 @@
                 [self.titleArray addObject:model.nickname];
                 [self.imageArray addObject:model.avatar];
             }
-            self.sdcyscrollview.imageURLStringsGroup = self.imageArray;
+            if (self.imageArray.count) {
+                self.sdcyscrollview.hidden = NO;
+                self.sdcyscrollview.imageURLStringsGroup = self.imageArray;
+            }
         }
         
     } failure:^(NSError * _Nonnull error) {

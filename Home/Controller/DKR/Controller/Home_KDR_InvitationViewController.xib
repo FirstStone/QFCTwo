@@ -131,7 +131,7 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="2Wi-nG-eUT" firstAttribute="top" secondItem="knS-ID-cCm" secondAttribute="top" id="1vb-nm-PP8"/>
-                                <constraint firstAttribute="bottom" secondItem="2Wi-nG-eUT" secondAttribute="bottom" constant="52" id="JIM-MW-wJN"/>
+                                <constraint firstAttribute="bottom" secondItem="2Wi-nG-eUT" secondAttribute="bottom" id="JIM-MW-wJN"/>
                                 <constraint firstItem="2Wi-nG-eUT" firstAttribute="leading" secondItem="knS-ID-cCm" secondAttribute="leading" id="QzV-rz-BCH"/>
                                 <constraint firstItem="2Wi-nG-eUT" firstAttribute="centerX" secondItem="knS-ID-cCm" secondAttribute="centerX" id="RpZ-m4-Smb"/>
                                 <constraint firstAttribute="trailing" secondItem="2Wi-nG-eUT" secondAttribute="trailing" id="meE-1W-dQF"/>

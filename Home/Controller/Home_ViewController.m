@@ -331,6 +331,7 @@
 }
 
 
+
 #pragma mark----UISearchBarDelegate
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     [self goToSearchVC:self.hotTopArray];
@@ -339,36 +340,52 @@
 
 -(void)goToSearchVC:(NSArray *)hotDataArry;
 {
-//    UIButton * backBT= ({
-//        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [button setImage:[UIImage imageNamed:@"icon_Lift"] forState:UIControlStateNormal];
-//        button;
-//    });
-//    _searchViewController.lif
+    //    UIButton * backBT= ({
+    //        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    //        [button setImage:[UIImage imageNamed:@"icon_Lift"] forState:UIControlStateNormal];
+    //        button;
+    //    });
+    //    _searchViewController.lif
     // 2. 创建搜索控制器
     MJWeakSelf
     _searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotDataArry searchBarPlaceholder:@"搜索你想要的" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
         weakSelf.searchResultVC = [[Home_SearchResult_ViewContraller alloc] init];
-//        _searchResultVC.searchTypeArry = _typeArry;
-//        _searchResultVC.VCtag = 0;
+        //        _searchResultVC.searchTypeArry = _typeArry;
+        //        _searchResultVC.VCtag = 0;
         
         weakSelf.searchResultVC.SearcgText = searchText;
         weakSelf.searchViewController.searchResultController = weakSelf.searchResultVC;
         weakSelf.searchViewController.searchResultShowMode = PYSearchResultShowModeEmbed;
-//        weakSelf.searchViewController.searchSuggestionView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64.0f);
+        //        weakSelf.searchViewController.searchSuggestionView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64.0f);
         // 开始(点击)搜索时执行以下代码
     }];
     //     设置热门搜索为彩色标签风格
     _searchViewController.navigationController.navigationBar.tintColor = QFC_Color_30AC65;
     _searchViewController.hotSearchStyle = PYHotSearchStyleBorderTag;
-    [_searchViewController setCancelButton:nil];
+//    [_searchViewController.backButton setImage:[UIImage imageNamed:@"icon_HT_XiangQing_Zuo"] forState:UIControlStateNormal];
+    _searchViewController.cancelButton.hidden = YES;
     _searchViewController.delegate = self;
     _searchViewController.dataSource = self;
     _searchViewController.searchSuggestionHidden = NO;
+    _searchViewController.searchBar.frame = CGRectMake(0, 0, SCREEN_WIDTH - 80.0f, 40.0f);
     self.navigationController.navigationBarHidden = NO;
+    UIButton * BackBT = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[UIImage imageNamed:@"icon_Lift"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(searchButtonBack) forControlEvents:UIControlEventTouchUpInside];
+        button;
+    });
+    BackBT.frame = CGRectMake(0, 0, 40.0f, 40.0f);
+    UIView *leftCustomView = [[UIView alloc] initWithFrame: BackBT.frame];
+    [leftCustomView addSubview:BackBT];
+    _searchViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftCustomView];
     [_searchViewController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:_searchViewController animated:NO];
     [self.SearchBar endEditing:YES];
+}
+
+- (void)searchButtonBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark === FMHorizontalMenuViewDataSource
@@ -409,8 +426,8 @@
  @param index 点击下标
  */
 -(void)horizontalMenuView:(FMHorizontalMenuView *)horizontalMenuView didSelectItemAtIndex:(NSInteger)index{
-//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:[NSString stringWithFormat:@"您点击了第%ld个",index + 1] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//    [alert show];
+    //    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:[NSString stringWithFormat:@"您点击了第%ld个",index + 1] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    //    [alert show];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         if (index == 0) {
             Home_CommunityNearby_ViewController *CommunityNearbyVC = [[Home_CommunityNearby_ViewController alloc] init];
@@ -543,39 +560,39 @@
 }
 // 返回Cell内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-        Home_ShopStore_Model *model = self.dataArray[indexPath.row];
-        Home_ShopStore_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeShopStoreCell];
-        [cell SetDataSoureToCell:model];
-        return cell;
+    Home_ShopStore_Model *model = self.dataArray[indexPath.row];
+    Home_ShopStore_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeShopStoreCell];
+    [cell SetDataSoureToCell:model];
+    return cell;
     
-/*    if (indexPath.row == 0) {
-        Home_CommunityActivities_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_CommunityActivities];
-        if (!cell) {
-
-        }
-        return cell;
-    }
-    if (indexPath.row == 0){
-        Home_PreferentialCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomePreferentialCell];
-        if (!cell) {
-            
-        }
-        return cell;
-    } else {// (indexPath.row == 1)
-        Home_RecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeRecommendCell];
-        if (!cell) {
-            
-        }
-        return cell;
-    }
-    else {
-        Home_CommunityHotSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityHotSearchCell];
-        if (!cell) {
-
-        }
-        return cell;
-    }*/
- 
+    /*    if (indexPath.row == 0) {
+     Home_CommunityActivities_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_CommunityActivities];
+     if (!cell) {
+     
+     }
+     return cell;
+     }
+     if (indexPath.row == 0){
+     Home_PreferentialCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomePreferentialCell];
+     if (!cell) {
+     
+     }
+     return cell;
+     } else {// (indexPath.row == 1)
+     Home_RecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeRecommendCell];
+     if (!cell) {
+     
+     }
+     return cell;
+     }
+     else {
+     Home_CommunityHotSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_HomeCommunityHotSearchCell];
+     if (!cell) {
+     
+     }
+     return cell;
+     }*/
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -645,10 +662,10 @@
             }];
             [alertVC addAction:camera];
             [self presentViewController:alertVC animated:YES completion:nil];
-//            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"发现新版本" message:@"请更新最新版本" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//            alertView.tag = 2;
-//            alertView.delegate = self;
-//            [alertView show];
+            //            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"发现新版本" message:@"请更新最新版本" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            //            alertView.tag = 2;
+            //            alertView.delegate = self;
+            //            [alertView show];
             
         }else{
             NSLog(@"检测到不需要更新");
@@ -664,7 +681,7 @@
     if ([CLLocationManager locationServicesEnabled] && ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways)) {
         //定位功能可用
         //进行单次带逆地理定位请求
-//        [self.locationManager requestLocationWithReGeocode:YES completionBlock:self.completionBlock];
+        //        [self.locationManager requestLocationWithReGeocode:YES completionBlock:self.completionBlock];
         [self.locationManager startUpdatingLocation];
         
     }else if ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusDenied) {
@@ -690,10 +707,10 @@
     [self.locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     
     //设置不允许系统暂停定位
-//    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
+    //    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
     
     //设置允许在后台定位
-//    [self.locationManager setAllowsBackgroundLocationUpdates:NO];
+    //    [self.locationManager setAllowsBackgroundLocationUpdates:NO];
     
     //设置定位超时时间
     [self.locationManager setLocationTimeout:DefaultLocationTimeout];
@@ -756,10 +773,10 @@
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode
 {
     NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
-//    if (reGeocode)
-//    {
-//        NSLog(@"reGeocode:%@", reGeocode);
-//    }
+    //    if (reGeocode)
+    //    {
+    //        NSLog(@"reGeocode:%@", reGeocode);
+    //    }
     if (reGeocode) {
         [Singleton sharedSingleton].formattedAddress = reGeocode.formattedAddress;
         [Singleton sharedSingleton].City = reGeocode.city;
@@ -838,5 +855,6 @@
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
 }
+
 
 @end

@@ -119,6 +119,9 @@
                 }
             }else {
                 Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
+                AddressVC.addressBlock = ^(Mine_SetUP_MyAddress_Model * _Nonnull model) {
+                    weakSelf.MyModel = model;
+                };
                 [AddressVC setHidesBottomBarWhenPushed:YES];
                 [weakSelf.navigationController pushViewController:AddressVC animated:YES];
             }

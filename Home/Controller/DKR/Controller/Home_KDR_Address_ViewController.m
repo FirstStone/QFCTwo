@@ -75,6 +75,7 @@
     if (self.addressBlock) {
         self.addressBlock(self.dataArray[indexPath.row]);
         [self.navigationController popViewControllerAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:QFC_KDRHomeAlterView_NSNotification object:nil];
     }
 }
 
@@ -96,6 +97,12 @@
                 Mine_SetUP_MyAddress_Model *model = [Mine_SetUP_MyAddress_Model mj_objectWithKeyValues:dic];
                 [self.dataArray addObject:model];
             }
+            if (!dataSoure.count) {
+                [self.tableView hidenFooterView:NO];
+            }
+        }
+        if (!self.dataArray.count){
+            [self.tableView hidenFooterView:YES];
         }
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {

@@ -125,7 +125,7 @@
     [parm setObject:model.Orderid forKey:@"orderid"];
     [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderOrderJoins parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
-        if ([[responseObject objectForKey:@"status"] intValue]) {
+        if ([[responseObject objectForKey:@"status"] intValue] == 0) {
             [MBProgressHUD py_showError:@"接单失败" toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
         }else {
@@ -149,7 +149,7 @@
     [parm setObject:model.Orderid forKey:@"orderid"];
     [[HttpRequest sharedInstance] postWithURLString:URL_wasteOrderOrderFulfills parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
-        if ([[responseObject objectForKey:@"status"] intValue]) {
+        if ([[responseObject objectForKey:@"status"] intValue] == 0) {
             [MBProgressHUD py_showError:@"操作失败" toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
         }else {

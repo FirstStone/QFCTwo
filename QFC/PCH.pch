@@ -334,6 +334,9 @@
 /**用户界面刷新*/
 #define QFC_UpDataSoureToSelfView_NSNotification @"QFCUPDataSoureToViewNotification"
 
+/**快代扔弹窗通知*/
+#define QFC_KDRHomeAlterView_NSNotification@"KDRHomeAlterView"
+
 /**D5D5D5*/
 #define QFC_Color_D5D5D5 QFC_Color(213,213,213)
 
