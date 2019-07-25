@@ -129,6 +129,8 @@
     UISearchBar *searchBar = self.searchBar;
     UITextField *searchField = self.searchTextField;
     UIView *titleView = self.navigationItem.titleView;
+//    titleView.backgroundColor = [UIColor grayColor];
+    titleView.frame = CGRectMake(50, 10, PYScreenW - 80.0f, 40.0f);
     UIButton *backButton = self.navigationItem.leftBarButtonItem.customView;
     UIButton *cancelButton = self.navigationItem.rightBarButtonItem.customView;
     UIEdgeInsets backButtonLayoutMargins = UIEdgeInsetsZero;

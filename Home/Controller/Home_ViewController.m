@@ -367,7 +367,7 @@
     _searchViewController.delegate = self;
     _searchViewController.dataSource = self;
     _searchViewController.searchSuggestionHidden = NO;
-    _searchViewController.searchBar.frame = CGRectMake(0, 0, SCREEN_WIDTH - 80.0f, 40.0f);
+//    _searchViewController.navigationController.navigationBar.frame = CGRectMake(80, 0, SCREEN_WIDTH - 80.0f, 40.0f);
     self.navigationController.navigationBarHidden = NO;
     UIButton * BackBT = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
