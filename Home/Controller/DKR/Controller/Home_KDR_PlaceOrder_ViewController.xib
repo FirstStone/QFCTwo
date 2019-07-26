@@ -458,7 +458,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N12-gF-hHT">
                                     <rect key="frame" x="20" y="424" width="374" height="200.5"/>
                                     <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <string key="text"> 1. 本平台代扔服务24小时内只能呼叫一次，服务时间：08：00-20:00。
+                                    <string key="text"> 1. 本平台代扔服务24小时内只能呼叫一次，服务时间：07：00-09:00 或 18:00 -  20:00。
                         
 2. 用户下单预约后，服务人员将在半小时内赶到服务地址。
 

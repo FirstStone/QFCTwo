@@ -129,15 +129,13 @@
     UISearchBar *searchBar = self.searchBar;
     UITextField *searchField = self.searchTextField;
     UIView *titleView = self.navigationItem.titleView;
-//    titleView.backgroundColor = [UIColor grayColor];
-    titleView.frame = CGRectMake(50, 10, PYScreenW - 80.0f, 40.0f);
+    
     UIButton *backButton = self.navigationItem.leftBarButtonItem.customView;
     UIButton *cancelButton = self.navigationItem.rightBarButtonItem.customView;
     UIEdgeInsets backButtonLayoutMargins = UIEdgeInsetsZero;
     UIEdgeInsets cancelButtonLayoutMargins = UIEdgeInsetsZero;
     UIEdgeInsets navigationBarLayoutMargins = UIEdgeInsetsZero;
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
-
     if (@available(iOS 8.0, *)) {
         backButton.layoutMargins = UIEdgeInsetsMake(8, 0, 8, 8);
         backButtonLayoutMargins = backButton.layoutMargins;
@@ -165,7 +163,7 @@
         adaptWidth = self.cancelButtonWidth + 8;
     }
 
-    adaptWidth = adaptWidth + navigationBarLayoutMargins.left + navigationBarLayoutMargins.right;
+    adaptWidth = adaptWidth + navigationBarLayoutMargins.left + navigationBarLayoutMargins.right + 40.0f;
     // Adapt the search bar layout problem in the navigation bar on iOS 11
     // More details : https://github.com/iphone5solo/PYSearch/issues/108
     if (@available(iOS 11.0, *)) { // iOS 11
@@ -176,6 +174,7 @@
                 searchBar.py_x = PYSEARCH_MARGIN - navigationBarLayoutMargins.left;
             }
         }
+        
         searchBar.py_height = self.view.py_width > self.view.py_height ? 24 : 30;
         searchBar.py_width = self.view.py_width - adaptWidth - PYSEARCH_MARGIN;
         searchField.frame = searchBar.bounds;

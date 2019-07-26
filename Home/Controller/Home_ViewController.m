@@ -367,16 +367,16 @@
     _searchViewController.delegate = self;
     _searchViewController.dataSource = self;
     _searchViewController.searchSuggestionHidden = NO;
-//    _searchViewController.navigationController.navigationBar.frame = CGRectMake(80, 0, SCREEN_WIDTH - 80.0f, 40.0f);
+    _searchViewController.cancelButton.py_width = 40.0f;
     self.navigationController.navigationBarHidden = NO;
     UIButton * BackBT = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:@"icon_Lift"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(searchButtonBack) forControlEvents:UIControlEventTouchUpInside];
+        button.frame = CGRectMake(0, 0, 40.0f, 40.0f);
         button;
     });
-    BackBT.frame = CGRectMake(0, 0, 40.0f, 40.0f);
-    UIView *leftCustomView = [[UIView alloc] initWithFrame: BackBT.frame];
+    UIView *leftCustomView = [[UIView alloc] initWithFrame:BackBT.frame];
     [leftCustomView addSubview:BackBT];
     _searchViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftCustomView];
     [_searchViewController setHidesBottomBarWhenPushed:YES];
