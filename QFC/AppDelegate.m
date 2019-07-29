@@ -20,6 +20,7 @@ static BOOL isProduction = FALSE;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:User_Mid];
     }
@@ -91,7 +92,6 @@ static BOOL isProduction = FALSE;
     self.tabVC = [self setTabBar];
     self.tabVC.delegate = self;
     self.tabVC.selectedIndex = 0;
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = self.tabVC;
     [self.window makeKeyAndVisible];

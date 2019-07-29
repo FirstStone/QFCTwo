@@ -127,6 +127,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.locationManager stopUpdatingLocation];
+    
 }
 
 - (IBAction)AddressButtonClick:(id)sender {
@@ -360,7 +361,6 @@
         // 开始(点击)搜索时执行以下代码
     }];
     //     设置热门搜索为彩色标签风格
-    _searchViewController.navigationController.navigationBar.tintColor = QFC_Color_30AC65;
     _searchViewController.hotSearchStyle = PYHotSearchStyleBorderTag;
 //    [_searchViewController.backButton setImage:[UIImage imageNamed:@"icon_HT_XiangQing_Zuo"] forState:UIControlStateNormal];
     _searchViewController.cancelButton.hidden = YES;
@@ -368,10 +368,13 @@
     _searchViewController.dataSource = self;
     _searchViewController.searchSuggestionHidden = NO;
     _searchViewController.cancelButton.py_width = 40.0f;
+    self.navigationController.navigationBar.tintColor = QFC_Color_30AC65;
+    self.navigationController.navigationBar.backgroundColor = QFC_Color_30AC65;
+    self.navigationController.navigationBar.barTintColor = QFC_Color_30AC65;
     self.navigationController.navigationBarHidden = NO;
     UIButton * BackBT = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setImage:[UIImage imageNamed:@"icon_Lift"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"icon_HT_XiangQing_Zuo"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(searchButtonBack) forControlEvents:UIControlEventTouchUpInside];
         button.frame = CGRectMake(0, 0, 40.0f, 40.0f);
         button;
