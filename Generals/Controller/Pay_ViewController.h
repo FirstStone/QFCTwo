@@ -20,6 +20,8 @@ typedef enum : NSUInteger {
 /**1 二次付款*/
 @property (nonatomic, assign) NSInteger Number;
 
+@property (nonatomic, assign) NSInteger type;
+
 @property (nonatomic, assign) PayViewControllerStyle PayStyle;
 
 @end

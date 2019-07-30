@@ -65,7 +65,6 @@
 ////    self.locationManager.distanceFilter;
 //    [self.locationManager setLocatingWithReGeocode:YES];
 //    [self.locationManager startUpdatingLocation];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateApp) name:@"VersionAPP" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUPUIMapView) name:@"setUPUIMapView" object:nil];
     [self updateApp];

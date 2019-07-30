@@ -263,7 +263,12 @@
         NSArray *viewcongtrollers = self.navigationController.viewControllers;
         [self.navigationController popToViewController:viewcongtrollers[1]  animated:YES];
     }else {
-        [self.navigationController popViewControllerAnimated:YES];
+        if (self.type == 1) {
+            NSArray *viewcongtrollers = self.navigationController.viewControllers;
+            [self.navigationController popToViewController:viewcongtrollers[1]  animated:YES];
+        }else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 

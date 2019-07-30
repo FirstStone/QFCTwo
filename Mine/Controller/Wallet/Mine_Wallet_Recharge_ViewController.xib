@@ -214,14 +214,14 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="lEx-V9-kyD"/>
                     </constraints>
-                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="barTintColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                     <textAttributes key="titleTextAttributes">
-                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </textAttributes>
                     <items>
                         <navigationItem title="充值" id="ndz-mW-KdS">
                             <barButtonItem key="leftBarButtonItem" title="返回" id="PZc-T3-0Xv">
-                                <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="LiftButtonPOP:" destination="-1" id="IQ3-nE-MLz"/>
                                 </connections>
@@ -230,7 +230,7 @@
                     </items>
                 </navigationBar>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Pxy-8V-wyP" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="0ZX-g4-sPQ"/>
                 <constraint firstItem="Pxy-8V-wyP" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="6rc-sv-G3C"/>

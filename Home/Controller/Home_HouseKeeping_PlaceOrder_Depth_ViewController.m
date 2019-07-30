@@ -178,11 +178,15 @@
 - (void)setDataSouerToBacker {
     [self.parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
     [self.parm setObject:self.Top_Modle.HouseKeeping_id forKey:@"pid"];
-    [[HttpRequest sharedInstance] postWithURLString:URL_generalOrderAdd parameters:self.parm success:^(NSDictionary * _Nonnull responseObject) {
+    [[HttpRequest sharedInstance] postWithURLString:URL_depthOrderAdd parameters:self.parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
-            [MBProgressHUD py_showSuccess:@"下单成功" toView:nil];
-            [MBProgressHUD setAnimationDelay:0.7f];
-            [self.navigationController popViewControllerAnimated:YES];
+            Pay_ViewController *payVC = [[Pay_ViewController alloc] init];
+            payVC.OrderID = [responseObject objectForKey:@"message"];
+            payVC.PayStyle = PayViewControllerDefault;
+            payVC.type = 1;
+            [payVC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:payVC animated:YES];
         }else {
             [MBProgressHUD py_showError:@"预约失败" toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
