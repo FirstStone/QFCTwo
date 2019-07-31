@@ -20,7 +20,8 @@ PickerViewTypeCity,//城市
 PickerViewTypeDataAndTime,//年月日时分
 PickerViewTypeGoods,//物品和重量
 PickerViewTypeDataAndHour,//年月日时
-PickerViewTypeReason//退款原因
+PickerViewTypeReason,//退款原因
+PickerViewTypeFloor//楼层
 };
 
 

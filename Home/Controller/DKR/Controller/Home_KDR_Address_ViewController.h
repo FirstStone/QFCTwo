@@ -15,6 +15,8 @@ typedef void(^HomeKDRAddressVCBlack)(Mine_SetUP_MyAddress_Model *model);
 
 @property (nonatomic, copy) HomeKDRAddressVCBlack addressBlock;
 
+@property (nonatomic, assign) NSInteger Style;
+
 @end
 
 NS_ASSUME_NONNULL_END

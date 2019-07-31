@@ -53,7 +53,7 @@
     self.Year_BT.selected = NO;
     self.Sum_BT.selected = NO;
     self.Month_BT.selected = YES;
-    self.Tip_Label.hidden = YES;
+//    self.Tip_Label.hidden = YES;
     [self buttonStateChange];
 }
 
@@ -61,7 +61,7 @@
     self.Year_BT.selected = YES;
     self.Sum_BT.selected = NO;
     self.Month_BT.selected = NO;
-    self.Tip_Label.hidden = NO;
+//    self.Tip_Label.hidden = NO;
     [self buttonStateChange];
 }
 
@@ -78,10 +78,49 @@
         self.Month_BT.backgroundColor = QFC_Color_09D15A;
         self.Year_BT.backgroundColor = QFC_Color_F5F5F5;
         self.Sum_BT.backgroundColor = QFC_Color_F5F5F5;
+        if ([self.MyModel.elevator intValue] == 2) {//楼梯房
+            if ([self.MyModel.floor intValue] == 1) {
+                [self.Year_BT setTitle:@"30元/月\n月卡" forState:UIControlStateNormal];
+                [self.Year_BT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+            }else if ([self.MyModel.floor intValue] == 2 ||[self.MyModel.floor intValue] == 3) {
+                [self.Year_BT setTitle:@"40元/月\n月卡" forState:UIControlStateNormal];
+                [self.Year_BT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+            }else {
+                [self.Year_BT setTitle:@"50元/月\n月卡" forState:UIControlStateNormal];
+                [self.Year_BT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+            }
+        }else {
+            [self.Year_BT setTitle:@"30元/月\n月卡" forState:UIControlStateNormal];
+            [self.Year_BT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+        }
     }else if (self.Year_BT.selected) {
         self.Month_BT.backgroundColor = QFC_Color_F5F5F5;
         self.Year_BT.backgroundColor = QFC_Color_09D15A;
         self.Sum_BT.backgroundColor = QFC_Color_F5F5F5;
+        if ([self.MyModel.elevator intValue] == 2) {//楼梯房
+            if ([self.MyModel.floor intValue] == 1) {
+                [self.Year_BT setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+                [self.Year_BT setTitle:@"30元/月\n月卡" forState:UIControlStateSelected];
+                self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+            }else if ([self.MyModel.floor intValue] == 2 ||[self.MyModel.floor intValue] == 3) {
+                [self.Year_BT setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+                [self.Year_BT setTitle:@"40元/月\n月卡" forState:UIControlStateSelected];
+                self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+            }else {
+                [self.Year_BT setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+                [self.Year_BT setTitle:@"50元/月\n月卡" forState:UIControlStateSelected];
+                self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+            }
+        }else {
+            [self.Year_BT setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+            [self.Year_BT setTitle:@"30元/月\n月卡" forState:UIControlStateSelected];
+            self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+        }
+
     }else {
         self.Month_BT.backgroundColor = QFC_Color_F5F5F5;
         self.Year_BT.backgroundColor = QFC_Color_F5F5F5;
@@ -100,50 +139,53 @@
 }
 
 - (IBAction)RightButtonClick:(id)sender {
-    MJWeakSelf;
+//    MJWeakSelf;
     if ([self.Addressid intValue]) {
-        SJ_AlertViewController *alterVC = [[SJ_AlertViewController alloc] init];
-        alterVC.Address = [NSString stringWithFormat:@"%@%@%@", self.MyModel.address, self.MyModel.village, self.MyModel.details];
-        alterVC.VillageName = self.MyModel.village;
-        alterVC.SJAlterType = SJAlterNomelAddress;
-        alterVC.SJButtonBlock = ^(NSInteger Type) {
-            if (Type == 1) {
+//        SJ_AlertViewController *alterVC = [[SJ_AlertViewController alloc] init];
+//        alterVC.Address = [NSString stringWithFormat:@"%@%@%@", self.MyModel.address, self.MyModel.village, self.MyModel.details];
+//        alterVC.VillageName = self.MyModel.village;
+//        alterVC.SJAlterType = SJAlterNomelAddress;
+//        alterVC.SJButtonBlock = ^(NSInteger Type) {
+//            if (Type == 1) {
                 //      status   1月卡2年卡3单次
-                weakSelf.Right_BT.userInteractionEnabled = NO;
-                if (weakSelf.Month_BT.selected) {
-                    [weakSelf POSTWasteOrderOrderAdd:@"1"];
-                }else if (weakSelf.Year_BT.selected){
-                    [weakSelf POSTWasteOrderOrderAdd:@"2"];
+                self.Right_BT.userInteractionEnabled = NO;
+                if (self.Month_BT.selected) {
+                    [self POSTWasteOrderOrderAdd:@"1"];
+                }else if (self.Year_BT.selected){
+                    [self POSTWasteOrderOrderAdd:@"2"];
                 }else {
-                    [weakSelf POSTWasteOrderOrderAdd:@"3"];
+                    [self POSTWasteOrderOrderAdd:@"3"];
                 }
-            }else {
-                Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
-                AddressVC.addressBlock = ^(Mine_SetUP_MyAddress_Model * _Nonnull model) {
-                    weakSelf.MyModel = model;
-                };
-                [AddressVC setHidesBottomBarWhenPushed:YES];
-                [weakSelf.navigationController pushViewController:AddressVC animated:YES];
-            }
-        };
-        alterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        [self presentViewController:alterVC animated:NO completion:Nil];
+//            }else {
+//                Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
+//                AddressVC.addressBlock = ^(Mine_SetUP_MyAddress_Model * _Nonnull model) {
+//                    weakSelf.MyModel = model;
+//                };
+//                [AddressVC setHidesBottomBarWhenPushed:YES];
+//                [weakSelf.navigationController pushViewController:AddressVC animated:YES];
+//            }
+//        };
+//        alterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//        [self presentViewController:alterVC animated:NO completion:Nil];
         
     }else {//没有默认地址
-        SJ_AlertViewController *alterVC = [[SJ_AlertViewController alloc] init];
-        alterVC.SJAlterType = SJAlterNoAddress;
-        alterVC.SJButtonBlock = ^(NSInteger Type) {
-            Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
-            [AddressVC setHidesBottomBarWhenPushed:YES];
-            [weakSelf.navigationController pushViewController:AddressVC animated:YES];
-        };
-        alterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        [self presentViewController:alterVC animated:NO completion:Nil];
+        [MBProgressHUD py_showError:@"请选自默认地址" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+//        SJ_AlertViewController *alterVC = [[SJ_AlertViewController alloc] init];
+//        alterVC.SJAlterType = SJAlterNoAddress;
+//        alterVC.SJButtonBlock = ^(NSInteger Type) {
+//            Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
+//            [AddressVC setHidesBottomBarWhenPushed:YES];
+//            [weakSelf.navigationController pushViewController:AddressVC animated:YES];
+//        };
+//        alterVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//        [self presentViewController:alterVC animated:NO completion:Nil];
     }
 }
 
 - (IBAction)AddressButtonClick:(id)sender {
     Home_KDR_Address_ViewController *AddressVC = [[Home_KDR_Address_ViewController alloc] init];
+    AddressVC.Style = 1;
     MJWeakSelf;
     AddressVC.addressBlock = ^(Mine_SetUP_MyAddress_Model * _Nonnull model) {
         weakSelf.Addressid = model.MyAddress_id;
@@ -201,6 +243,25 @@
             self.Addressid = [DataSoure objectForKey:@"id"];
             self.AddressText = [NSString stringWithFormat:@"%@%@", [DataSoure objectForKey:@"village"], [DataSoure objectForKey:@"details"]];
             [self.Address_BT setTitle:[NSString stringWithFormat:@"%@%@", [DataSoure objectForKey:@"village"], [DataSoure objectForKey:@"details"]] forState:UIControlStateNormal];
+            if ([self.MyModel.elevator intValue] == 2) {//楼梯房
+                if ([self.MyModel.floor intValue] == 1) {
+                    [self.Year_BT setTitle:@"30元/月\n月卡" forState:UIControlStateNormal];
+                    [self.Year_BT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                    self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+                }else if ([self.MyModel.floor intValue] == 2 ||[self.MyModel.floor intValue] == 3) {
+                    [self.Year_BT setTitle:@"40元/月\n月卡" forState:UIControlStateNormal];
+                    [self.Year_BT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                    self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+                }else {
+                    [self.Year_BT setTitle:@"50元/月\n月卡" forState:UIControlStateNormal];
+                    [self.Year_BT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                    self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+                }
+            }else {
+                [self.Year_BT setTitle:@"30元/月\n月卡" forState:UIControlStateNormal];
+                [self.Year_BT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
+            }
         }else {
             //            self.Middle_BT.userInteractionEnabled = YES;
 //            [MBProgressHUD py_showError:@"获取失败" toView:nil];
@@ -219,7 +280,7 @@
     /**
      快代扔
      waste/order/orderAdd
-     status   1月卡2年卡3单次
+     status   1周卡2月卡3单次
      uid
      addressid   地址ID
      */
@@ -247,7 +308,7 @@
         [MBProgressHUD py_showError:[NSString stringWithFormat:@"下单失败(%ld)", error.code] toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
-    
 }
+
 
 @end

@@ -8,7 +8,7 @@
 
 #import "Home_KDR_Address_New_ViewController.h"
 
-@interface Home_KDR_Address_New_ViewController ()<UITextFieldDelegate>
+@interface Home_KDR_Address_New_ViewController ()<UITextFieldDelegate, PickerViewResultDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *Name_Field;
 
@@ -17,6 +17,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *Village_Field;
 
 @property (strong, nonatomic) IBOutlet UITextField *Detailed_Field;
+
+@property (strong, nonatomic) IBOutlet UITextField *Floor_Field;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *Sure_BT;
 
@@ -39,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.Floor_Field.delegate = self;
     self.SureBTStyle = 0;
     self.Village_Field.delegate = self;
 }
@@ -47,10 +51,52 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)AddressToBacker:(id)sender {
-    self.Sure_BT.userInteractionEnabled = NO;
+    if (!self.Name_Field.text.length) {
+        [MBProgressHUD py_showError:@"请填写姓名" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+        return;
+    }else if (!self.Name_Field.text.length) {
+        [MBProgressHUD py_showError:@"请填写电话" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+        return;
+    }else if (!self.Village_Field.text.length) {
+        [MBProgressHUD py_showError:@"请选择小区" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+        return;
+    }else if (!self.Detailed_Field.text.length) {
+        [MBProgressHUD py_showError:@"请填写详细地址" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+        return;
+    }
     if (self.SureBTStyle) {
+        if (self.LT_BT.isSelected) {
+            [self.parm setObject:@"1" forKey:@"elevator"];
+        }else {
+            if ([self.Floor_Field.text intValue]) {
+                [self.parm setObject:self.Floor_Field.text forKey:@"floor"];
+            }else {
+                [MBProgressHUD py_showError:@"请填写楼层" toView:nil];
+                [MBProgressHUD setAnimationDelay:0.7f];
+                return;
+            }
+            [self.parm setObject:@"2" forKey:@"elevator"];
+        }
+        self.Sure_BT.userInteractionEnabled = NO;
         [self POSTWasteAddressAddressUps];
     }else {
+        if (self.LT_BT.isSelected) {
+            [self.parm setObject:@"1" forKey:@"elevator"];
+        }else {
+            if ([self.Floor_Field.text intValue]) {
+                [self.parm setObject:self.Floor_Field.text forKey:@"floor"];
+            }else {
+                [MBProgressHUD py_showError:@"请填写楼层" toView:nil];
+                [MBProgressHUD setAnimationDelay:0.7f];
+                return;
+            }
+            [self.parm setObject:@"2" forKey:@"elevator"];
+        }
+        self.Sure_BT.userInteractionEnabled = NO;
         [self POSTWasteAddressAddressAdds];
     }
     
@@ -59,14 +105,14 @@
 //    self.LT_BT.layer.cornerRadius
     self.LT_BT.selected = YES;
     self.DT_BT.selected = NO;
-    self.LC_View.hidden = NO;
+    self.LC_View.hidden = YES;
     self.LT_BT.backgroundColor = QFC_Color_30AC65;
     self.DT_BT.backgroundColor = QFC_Color_F5F5F5;
 }
 - (IBAction)DTButtonClick:(id)sender {
     self.LT_BT.selected = NO;
     self.DT_BT.selected = YES;
-    self.LC_View.hidden = YES;
+    self.LC_View.hidden = NO;
     self.LT_BT.backgroundColor = QFC_Color_F5F5F5;
     self.DT_BT.backgroundColor = QFC_Color_30AC65;
 }
@@ -81,21 +127,43 @@
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
-    LocationVC.Number = 1;
-    MJWeakSelf;
-    LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr, NSString * _Nonnull name, NSString * _Nonnull province, NSString * _Nonnull city, NSString * _Nonnull district) {
-        [weakSelf.parm setObject:Address forKey:@"address"];
-        [weakSelf.parm setObject:name forKey:@"village"];
-        [weakSelf.parm setObject:province forKey:@"province"];
-        [weakSelf.parm setObject:city forKey:@"city"];
-        [weakSelf.parm setObject:district forKey:@"county"];
-        [weakSelf.parm setObject:longStr forKey:@"longitude"];
-        [weakSelf.parm setObject:lat forKey:@"latitude"];
-        weakSelf.Village_Field.text = name;
-    };
-    [self.navigationController pushViewController:LocationVC animated:YES];
-    return NO;
+    if (textField.tag == 383883) {
+        [self textFieldEditState];
+        PickerView *pick = [[PickerView alloc] init];
+        pick.delegate = self;
+        pick.type = PickerViewTypeFloor;
+        [self.view addSubview:pick];
+        return NO;
+    }else {
+        Publish_Location_VC *LocationVC = [[Publish_Location_VC alloc] init];
+        LocationVC.Number = 1;
+        MJWeakSelf;
+        LocationVC.PublishLocationVCBlock = ^(NSString * _Nonnull Address, NSString * _Nonnull lat, NSString * _Nonnull longStr, NSString * _Nonnull name, NSString * _Nonnull province, NSString * _Nonnull city, NSString * _Nonnull district) {
+            [weakSelf.parm setObject:Address forKey:@"address"];
+            [weakSelf.parm setObject:name forKey:@"village"];
+            [weakSelf.parm setObject:province forKey:@"province"];
+            [weakSelf.parm setObject:city forKey:@"city"];
+            [weakSelf.parm setObject:district forKey:@"county"];
+            [weakSelf.parm setObject:longStr forKey:@"longitude"];
+            [weakSelf.parm setObject:lat forKey:@"latitude"];
+            weakSelf.Village_Field.text = name;
+        };
+        [self.navigationController pushViewController:LocationVC animated:YES];
+        return NO;
+    }
+}
+
+#pragma mark----PickerViewResultDelegate
+- (void)pickerView:(UIView *)pickerView result:(NSString *)string {
+    self.Floor_Field.text = string;
+}
+
+- (void)textFieldEditState {
+    [self.Name_Field resignFirstResponder];
+    [self.Phone_Field resignFirstResponder];
+    [self.Village_Field resignFirstResponder];
+    [self.Detailed_Field resignFirstResponder];
+    [self.Detailed_Field resignFirstResponder];
 }
 
 - (void)POSTWasteAddressAddressUps {
@@ -151,6 +219,8 @@
      county;            县/区
      latitude;
      longitude
+     elevator 1电梯楼2无电梯
+     floor  多少层
      */
     [self.parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
     [self.parm setObject:self.Detailed_Field.text forKey:@"details"];
@@ -205,6 +275,18 @@
     self.Phone_Field.text = model.phone;
     self.Village_Field.text = model.village;
     self.Detailed_Field.text = model.details;
+    if ([model.elevator intValue] == 2) {//无电梯
+        self.DT_BT.selected = YES;
+        self.LT_BT.backgroundColor = QFC_Color_F5F5F5;
+        self.DT_BT.backgroundColor = QFC_Color_30AC65;
+        self.Floor_Field.text = model.floor;
+        self.LC_View.hidden = NO;
+    }else {
+        self.LT_BT.selected = YES;
+        self.LT_BT.backgroundColor = QFC_Color_30AC65;
+        self.DT_BT.backgroundColor = QFC_Color_F5F5F5;
+        self.LC_View.hidden = YES;
+    }
 }
 
 @end

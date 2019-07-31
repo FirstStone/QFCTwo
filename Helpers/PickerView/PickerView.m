@@ -294,6 +294,11 @@
             [self formatterReason];
             [self isDataPicker:NO];
         }
+        case PickerViewTypeFloor: {
+            self.titleLab.text = @"选择楼层";
+            [self FloorNumber];
+            [self isDataPicker:NO];
+        }
         default:
             break;
     }
@@ -440,9 +445,7 @@
         [formatter setDateFormat:@"yyyy-MM-dd HH"];
         
         resultStr = [formatter stringFromDate:self.datePicke.date];
-    }
-    
-    else{
+    }else{
         
         for (int i = 0; i < self.array.count; i++) {
             
@@ -753,7 +756,10 @@
     [self.array addObject:@[@"退运费",@"质量问题", @"少件/漏发", @"包装/商品破损", @"服务问题", @"拍错了"]];
 }
 
-
+//楼层
+- (void)FloorNumber {
+    [self.array addObject:@[@"1", @"2", @"3", @"4", @"5", @"6"]];
+}
 
 - (void)formatterRangeAry{
     

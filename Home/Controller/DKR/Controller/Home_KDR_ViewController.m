@@ -201,10 +201,6 @@
             self.Right_BT.userInteractionEnabled = YES;
             [MBProgressHUD py_showError:[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]] toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
-        }else if ([[responseObject objectForKey:@"status"] intValue] == 0) {
-            self.Right_BT.userInteractionEnabled = YES;
-            [MBProgressHUD py_showError:[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]] toView:nil];
-            [MBProgressHUD setAnimationDelay:0.7f];
         }else {
             self.Right_BT.userInteractionEnabled = YES;
             Home_KDR_OrderState_ViewController *KDRVC = [[Home_KDR_OrderState_ViewController alloc] init];
@@ -212,6 +208,15 @@
             [KDRVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:KDRVC animated:YES];
         }
+        /**
+         else if ([[responseObject objectForKey:@"status"] intValue] == 0) {
+         self.Right_BT.userInteractionEnabled = YES;
+         [MBProgressHUD py_showError:[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]] toView:nil];
+         [MBProgressHUD setAnimationDelay:0.7f];
+         }
+         */
+        
+        
     } failure:^(NSError * _Nonnull error) {
         self.Right_BT.userInteractionEnabled = YES;
         [MBProgressHUD py_showError:[NSString stringWithFormat:@"下单失败(%ld)", error.code] toView:nil];

@@ -35,8 +35,8 @@
     [super viewDidLoad];
 //    self.Name_Label.text = [[NSUserDefaults standardUserDefaults] objectForKey:User_Nickname];
 //    [self.icon_View sd_setImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:User_Avatar]]];
-    self.titleArray = [NSMutableArray arrayWithArray:@[@"我的订单", @"我的地址", @"我的卡包", @"邀请有礼", @"意见反馈", @"联系客服"]];
-    self.icon_Array = [NSMutableArray arrayWithArray:@[@"icon_KDR_wodedingdan", @"icon_KDR_Wodedizhi", @"icon_KDR_WDKB", @"icon_KDR_Yaoqingyouli", @"icon_KDR_Yijianfankui", @"icon_KDR_Lianxikefu"]];
+    self.titleArray = [NSMutableArray arrayWithArray:@[@"我的订单", @"我的地址", @"我的卡包", @"意见反馈", @"联系客服"]];//, @"邀请有礼"
+    self.icon_Array = [NSMutableArray arrayWithArray:@[@"icon_KDR_wodedingdan", @"icon_KDR_Wodedizhi", @"icon_KDR_WDKB", @"icon_KDR_Yijianfankui", @"icon_KDR_Lianxikefu"]];//, @"icon_KDR_Yaoqingyouli"
     /// 添加四边阴影效果
         // 阴影颜色
 //    self.Tap_View.layer.shadowColor = QFC_Color_Six.CGColor;
@@ -103,15 +103,17 @@
         Home_KDR_MyCard_ViewController *KDRVC = [[Home_KDR_MyCard_ViewController alloc] init];
         [KDRVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:KDRVC animated:YES];
-    }else if (indexPath.row == 3) {//邀请有礼
-        Home_KDR_InvitationViewController *invitationVC = [[Home_KDR_InvitationViewController alloc] init];
-        [invitationVC setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:invitationVC animated:YES];
-    }else if (indexPath.row == 4){//意见反馈
+    }
+//    else if (indexPath.row == 3) {//邀请有礼
+//        Home_KDR_InvitationViewController *invitationVC = [[Home_KDR_InvitationViewController alloc] init];
+//        [invitationVC setHidesBottomBarWhenPushed:YES];
+//        [self.navigationController pushViewController:invitationVC animated:YES];
+//    }
+    else if (indexPath.row == 3){//意见反馈
         Home_KDR_idea_ViewController *KDRVC = [[Home_KDR_idea_ViewController alloc] init];
         [KDRVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:KDRVC animated:YES];
-    }else if (indexPath.row == 5) {//联系客服
+    }else if (indexPath.row == 4) {//联系客服
         Home_KDR_BackService_ViewController *KDRVC = [[Home_KDR_BackService_ViewController alloc] init];
         [KDRVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:KDRVC animated:YES];

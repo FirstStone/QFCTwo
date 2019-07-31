@@ -72,7 +72,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.addressBlock) {
+    if (self.addressBlock && self.Style != 1) {
         self.addressBlock(self.dataArray[indexPath.row]);
         [self.navigationController popViewControllerAnimated:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:QFC_KDRHomeAlterView_NSNotification object:nil];
