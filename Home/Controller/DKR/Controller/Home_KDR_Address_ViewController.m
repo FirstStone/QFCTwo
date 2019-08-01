@@ -103,6 +103,8 @@
         }
         if (!self.dataArray.count){
             [self.tableView hidenFooterView:YES];
+        }else {
+             [self.tableView hidenFooterView:NO];
         }
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {

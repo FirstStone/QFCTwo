@@ -263,6 +263,9 @@
                 self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
             }
         }else {
+            [self.Year_BT setTitle:@"30元/月\n月卡" forState:UIControlStateNormal];
+            [self.Year_BT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            self.Year_BT.titleLabel.textAlignment = NSTextAlignmentCenter;
             //            self.Middle_BT.userInteractionEnabled = YES;
 //            [MBProgressHUD py_showError:@"获取失败" toView:nil];
 //            [MBProgressHUD setAnimationDelay:0.7f];

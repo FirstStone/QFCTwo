@@ -133,14 +133,15 @@
     [[HttpRequest sharedInstance] postWithURLString:URL_WasteUsersUidUser parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
-            self.DayTip_BT.userInteractionEnabled = NO;
-//            self.Middle_BT.userInteractionEnabled = YES;
             NSDictionary *DataSoure = [responseObject objectForKey:@"info"];
             self.Mymodel = [Home_KDR_Card_Model mj_objectWithKeyValues:DataSoure];
             self.Day_Label.text = [self.Mymodel.endtime intValue] > 0 ? [NSString stringWithFormat:@"剩余%@天", self.Mymodel.endtime] : @"代扔垃圾卡";
             [self.DayTip_BT setTitle:[self.Mymodel.type intValue] == 1 ? @"  代扔月卡  " : ([self.Mymodel.type intValue] == 2 ? @"  代扔年卡  " : @"  立即购买  ") forState:UIControlStateNormal];
             self.Name_Label.text = self.Mymodel.nickname;
             [self.icon_View sd_setImageWithURL:[NSURL URLWithString:self.Mymodel.avatar]];
+        }
+        if ([self.Mymodel.type intValue]) {
+            self.DayTip_BT.userInteractionEnabled = NO;
         }else {
             self.DayTip_BT.userInteractionEnabled = YES;
         }

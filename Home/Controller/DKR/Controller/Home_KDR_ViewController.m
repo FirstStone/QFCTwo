@@ -43,7 +43,7 @@
         [KDRVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:KDRVC animated:YES];
     }else {
-        if ([[userdefaults objectForKey:User_Type] intValue] == 0) {//普通用户
+//        if ([[userdefaults objectForKey:User_Type] intValue] == 0) {//普通用户
             if ([[userdefaults objectForKey:User_Audit] intValue] == 2) {//待审核
                 Examine_State_ViewController *examineVC = [[Examine_State_ViewController alloc] init];
                 [examineVC setHidesBottomBarWhenPushed:YES];
@@ -53,9 +53,9 @@
                 [setVC setHidesBottomBarWhenPushed:YES];
                 [self.navigationController pushViewController:setVC animated:YES];
             }
-        }else {//其他角色
-            
-        }
+//        }else {//其他角色
+//
+//        }
     }
 }
 
@@ -201,6 +201,10 @@
             self.Right_BT.userInteractionEnabled = YES;
             [MBProgressHUD py_showError:[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]] toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
+        }else if(responseObject) {
+            self.Right_BT.userInteractionEnabled = YES;
+            [MBProgressHUD py_showError:[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]] toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
         }else {
             self.Right_BT.userInteractionEnabled = YES;
             Home_KDR_OrderState_ViewController *KDRVC = [[Home_KDR_OrderState_ViewController alloc] init];
@@ -208,13 +212,6 @@
             [KDRVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:KDRVC animated:YES];
         }
-        /**
-         else if ([[responseObject objectForKey:@"status"] intValue] == 0) {
-         self.Right_BT.userInteractionEnabled = YES;
-         [MBProgressHUD py_showError:[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"message"]] toView:nil];
-         [MBProgressHUD setAnimationDelay:0.7f];
-         }
-         */
         
         
     } failure:^(NSError * _Nonnull error) {
