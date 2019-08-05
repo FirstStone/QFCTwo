@@ -80,6 +80,11 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
 - (NSMutableArray *)dataArray {
     if (!_dataArray) {
         _dataArray = [[NSMutableArray alloc] init];
@@ -251,7 +256,9 @@
 }
 
 - (IBAction)ChatButtonClick:(id)sender {
-    
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",self.uid] conversationType:EMConversationTypeChat];
+    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController pushViewController:chatController animated:YES];
 }
 
 #pragma mark----UPdata

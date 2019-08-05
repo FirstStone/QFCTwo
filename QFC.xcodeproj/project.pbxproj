@@ -405,6 +405,7 @@
 		37B8B732226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B8B727226F38A400434D61 /* Mine_MyOrder_User_Service_ViewController.m */; };
 		37BF7A9E22D323C700BEBF7F /* Home_KDR_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF7A9C22D323C700BEBF7F /* Home_KDR_ViewController.m */; };
 		37BF7A9F22D323C700BEBF7F /* Home_KDR_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37BF7A9D22D323C700BEBF7F /* Home_KDR_ViewController.xib */; };
+		37C15E2C22F82A5B005EF567 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C15E2A22F82A5A005EF567 /* ChatViewController.m */; };
 		37C24F2B22A756570062B4B2 /* Square_Answer_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C24F2922A756560062B4B2 /* Square_Answer_VC.m */; };
 		37C24F2C22A756570062B4B2 /* Square_Answer_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C24F2A22A756560062B4B2 /* Square_Answer_VC.xib */; };
 		37C2788322D6CB3800994BE2 /* Home_KDR_OrderState_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C2788122D6CB3800994BE2 /* Home_KDR_OrderState_ViewController.m */; };
@@ -1301,6 +1302,8 @@
 		37BF7A9B22D323C700BEBF7F /* Home_KDR_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_KDR_ViewController.h; sourceTree = "<group>"; };
 		37BF7A9C22D323C700BEBF7F /* Home_KDR_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_KDR_ViewController.m; sourceTree = "<group>"; };
 		37BF7A9D22D323C700BEBF7F /* Home_KDR_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_KDR_ViewController.xib; sourceTree = "<group>"; };
+		37C15E2A22F82A5A005EF567 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		37C15E2B22F82A5B005EF567 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		37C24F2822A756560062B4B2 /* Square_Answer_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Square_Answer_VC.h; sourceTree = "<group>"; };
 		37C24F2922A756560062B4B2 /* Square_Answer_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Square_Answer_VC.m; sourceTree = "<group>"; };
 		37C24F2A22A756560062B4B2 /* Square_Answer_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Square_Answer_VC.xib; sourceTree = "<group>"; };
@@ -2023,6 +2026,8 @@
 				37DA029A22E5887E005055F9 /* SJ_AlertViewController.h */,
 				37DA029B22E5887E005055F9 /* SJ_AlertViewController.m */,
 				37DA029C22E5887E005055F9 /* SJ_AlertViewController.xib */,
+				37C15E2B22F82A5B005EF567 /* ChatViewController.h */,
+				37C15E2A22F82A5A005EF567 /* ChatViewController.m */,
 			);
 			path = Helpers;
 			sourceTree = SOURCE_ROOT;
@@ -3959,6 +3964,7 @@
 				37DA029D22E5887E005055F9 /* SJ_AlertViewController.m in Sources */,
 				373406512285291E00FC38F9 /* Home_CommunityNearby_EspecialRegionFour_Cell.m in Sources */,
 				37C3ECE4227592CD006EB3C3 /* Mine_RunErrands_ServiceViewController.m in Sources */,
+				37C15E2C22F82A5B005EF567 /* ChatViewController.m in Sources */,
 				376D29F922646389009EA443 /* Square_QuestionsAndAnswersVC.m in Sources */,
 				37ACB93F22B1F31E00C84669 /* EaseViewController.m in Sources */,
 				37ACB93022B1F31E00C84669 /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,

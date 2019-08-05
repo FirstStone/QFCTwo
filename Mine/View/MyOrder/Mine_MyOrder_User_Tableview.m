@@ -330,7 +330,6 @@
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             NSArray *Array = [responseObject objectForKey:@"list"];
-            [self.dataArray removeAllObjects];
             for (NSDictionary *dic in Array) {
                 NSLog(@"------------------------------%@", [dic objectForKey:@"type"]);
                 Mine_Order_Model *model = [Mine_Order_Model  mj_objectWithKeyValues:dic];
