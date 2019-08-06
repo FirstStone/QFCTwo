@@ -201,12 +201,12 @@
             [Singleton sharedSingleton].balance = [DataSoure objectForKey:@"balance"];
             [Singleton sharedSingleton].phone = [DataSoure objectForKey:@"phone"];
             [[NSNotificationCenter defaultCenter] postNotificationName:QFC_UpDataSoureToSelfView_NSNotification object:nil];
-            [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@Ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+            [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
                 if (aError==nil) {
                     NSLog(@"注册成功");
                 }
             }];
-            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@Ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
                 if (!aError) {
                     NSLog(@"-----------------------------------登录成功");
                     [[EMClient sharedClient] updatePushNotifiationDisplayName:[Singleton sharedSingleton].nickname completion:^(NSString *aDisplayName, EMError *aError) {
@@ -376,12 +376,12 @@
             [Singleton sharedSingleton].balance = [DataSoure objectForKey:@"balance"];
             [Singleton sharedSingleton].phone = [DataSoure objectForKey:@"phone"];
             [[NSNotificationCenter defaultCenter] postNotificationName:QFC_UpDataSoureToSelfView_NSNotification object:nil];
-            [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@Ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+            [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
                 if (aError==nil) {
                     NSLog(@"注册成功");
                 }
             }];
-            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@Ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
                 if (!aError) {
                     NSLog(@"-----------------------------------登录成功");
                     [[EMClient sharedClient] updatePushNotifiationDisplayName:[Singleton sharedSingleton].nickname completion:^(NSString *aDisplayName, EMError *aError) {
@@ -403,7 +403,7 @@
     }];
 }
 - (void)setJPUSHService {
-    NSString *alias = [NSString stringWithFormat:@"%@Ky",[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid]];
+    NSString *alias = [NSString stringWithFormat:@"%@ky",[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid]];
     [JPUSHService setAlias:alias completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
     } seq:123];
 }
@@ -438,12 +438,12 @@
             [Singleton sharedSingleton].balance = [DataSoure objectForKey:@"balance"];
             [Singleton sharedSingleton].phone = [DataSoure objectForKey:@"phone"];
             [[NSNotificationCenter defaultCenter] postNotificationName:QFC_UpDataSoureToSelfView_NSNotification object:nil];
-            [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@Ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+            [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
                 if (aError==nil) {
                     NSLog(@"注册成功");
                 }
             }];
-            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@Ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
                 if (!aError) {
                     NSLog(@"-----------------------------------登录成功");
                     [[EMClient sharedClient] updatePushNotifiationDisplayName:[Singleton sharedSingleton].nickname completion:^(NSString *aDisplayName, EMError *aError) {

@@ -256,7 +256,9 @@
 }
 
 - (IBAction)ChatButtonClick:(id)sender {
+//    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",self.uid] conversationType:EMConversationTypeChat];
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",self.uid] conversationType:EMConversationTypeChat];
+    chatController.idStr = self.Mymodel.nickname;
     self.navigationController.navigationBarHidden = NO;
     [self.navigationController pushViewController:chatController animated:YES];
 }

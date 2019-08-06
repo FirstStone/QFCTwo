@@ -34,17 +34,21 @@
     self.delegate = self;
     self.dataSource = self;
     self.chatBarMoreView.delegate = self;
-//    self.navigationItem.title = self.conversation.conversationId;
+    self.navigationItem.title = self.idStr;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = QFC_Color_30AC65;
 //    if (self.pushtype.length==0) {
-        UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"头像zhanweitu"] style:(UIBarButtonItemStylePlain) target:self action:@selector(personLibCLICK)];
-        self.navigationItem.rightBarButtonItem = btnRight;
+        UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_HT_XiangQing_Zuo"] style:(UIBarButtonItemStylePlain) target:self action:@selector(personLibCLICK)];
+    btnRight.tintColor = [UIColor whiteColor];
+        self.navigationItem.leftBarButtonItem = btnRight;
 //    }
     //去掉多余不用的加号工具栏里面的按钮
     [self.chatBarMoreView removeItematIndex:4];
     
 }
 - (void) personLibCLICK {
-    NSLog(@"别点我");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 //加入黑名单
 - (void)addBlackFriend {
