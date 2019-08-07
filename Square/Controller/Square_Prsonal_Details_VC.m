@@ -53,6 +53,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *Store_BT;
 
+@property (strong, nonatomic) IBOutlet UIView *Down_View;
 
 @end
 
@@ -60,6 +61,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue] != [self.uid intValue]) {
+        self.Down_View.hidden = NO;
+    }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([Square_Default_Cell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CellID_SquareDefaultCell];
@@ -114,6 +118,9 @@
     [self presentViewController:alertV animated:YES completion:nil];
 }
 
+- (IBAction)FollowButtonClick:(id)sender {
+    [self setAttentionDataSoure:self.uid type:@"1"];
+}
 
 #pragma mark - UITableViewDelegate
 //返回多少个分区
@@ -256,6 +263,7 @@
 }
 
 - (IBAction)ChatButtonClick:(id)sender {
+    [self TakeChatDataSoure];
 //    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",self.uid] conversationType:EMConversationTypeChat];
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",self.uid] conversationType:EMConversationTypeChat];
     chatController.idStr = self.Mymodel.nickname;
@@ -274,14 +282,15 @@
      pid
      用户ID  对方的
      */
-    /*NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
     [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
-    [parm setObject:self.Mymodel. forKey:@"pid"];
+    [parm setObject:self.uid forKey:@"pid"];
     [[HttpRequest sharedInstance] postWithURLString:URL_Informations_infromAdd parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
-        <#code#>
+        NSLog(@"%@", responseObject);
     } failure:^(NSError * _Nonnull error) {
-        <#code#>
-    }];*/
+        [MBProgressHUD py_showError:@"创建失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
 }
 
 
@@ -313,5 +322,25 @@
     }];
 }
 
+/**关注*/
+/**type=1关注  2取消关注*/
+- (void)setAttentionDataSoure:(NSString *)modelID type:(NSString *)type {
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:modelID forKey:@"pid"];
+    [parm setObject:type forKey:@"type"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_Users_attention parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [MBProgressHUD py_showError:@"操作成功" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+//            [self.dataArray removeAllObjects];
+//            [self LoadingDataSoure];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
 
 @end

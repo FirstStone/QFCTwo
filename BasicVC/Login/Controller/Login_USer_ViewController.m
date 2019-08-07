@@ -173,14 +173,18 @@
                     NSLog(@"注册成功");
                 }
             }];
-            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
-                if (!aError) {
-                    NSLog(@"-----------------------------------登录成功");
-                    [[EMClient sharedClient] updatePushNotifiationDisplayName:[Singleton sharedSingleton].nickname completion:^(NSString *aDisplayName, EMError *aError) {
-                        if (aError) {
-                            NSLog(@"-----------------------------------昵称设置成功");
-                        }
-                    }];
+            BOOL isAutoLogin = [EMClient sharedClient].options.isAutoLogin;
+            if (!isAutoLogin) {
+                [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", [DataSoure objectForKey:@"id"]] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+                    if (!aError) {
+                        NSLog(@"-----------------------------------登录成功");
+                        [[EMClient sharedClient].options setIsAutoLogin:YES];
+                    }
+                }];
+            }
+            [[EMClient sharedClient] updatePushNotifiationDisplayName:[DataSoure objectForKey:@"nickname"] completion:^(NSString *aDisplayName, EMError *aError) {
+                if (aError) {
+                    NSLog(@"-----------------------------------昵称设置成功");
                 }
             }];
             [self setJPUSHService];
@@ -227,16 +231,21 @@
                     NSLog(@"注册成功");
                 }
             }];
-            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", [DataSoure objectForKey:@"id"]] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
-                if (!aError) {
-                    NSLog(@"-----------------------------------登录成功");
-                    [[EMClient sharedClient] updatePushNotifiationDisplayName:[DataSoure objectForKey:@"nickname"] completion:^(NSString *aDisplayName, EMError *aError) {
-                        if (aError) {
-                            NSLog(@"-----------------------------------昵称设置成功");
-                        }
-                    }];
+            BOOL isAutoLogin = [EMClient sharedClient].options.isAutoLogin;
+            if (!isAutoLogin) {
+                [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", [DataSoure objectForKey:@"id"]] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+                    if (!aError) {
+                        NSLog(@"-----------------------------------登录成功");
+                        [[EMClient sharedClient].options setIsAutoLogin:YES];
+                    }
+                }];
+            }
+            [[EMClient sharedClient] updatePushNotifiationDisplayName:[DataSoure objectForKey:@"nickname"] completion:^(NSString *aDisplayName, EMError *aError) {
+                if (aError) {
+                    NSLog(@"-----------------------------------昵称设置成功");
                 }
             }];
+        
             [self setJPUSHService];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }else {
@@ -361,14 +370,18 @@
                     NSLog(@"注册成功");
                 }
             }];
-            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", [Singleton sharedSingleton].Mid] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
-                if (!aError) {
-                    NSLog(@"-----------------------------------登录成功");
-                    [[EMClient sharedClient] updatePushNotifiationDisplayName:[Singleton sharedSingleton].nickname completion:^(NSString *aDisplayName, EMError *aError) {
-                        if (aError) {
-                            NSLog(@"-----------------------------------昵称设置成功");
-                        }
-                    }];
+            BOOL isAutoLogin = [EMClient sharedClient].options.isAutoLogin;
+            if (!isAutoLogin) {
+                [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", [DataSoure objectForKey:@"id"]] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+                    if (!aError) {
+                        NSLog(@"-----------------------------------登录成功");
+                        [[EMClient sharedClient].options setIsAutoLogin:YES];
+                    }
+                }];
+            }
+            [[EMClient sharedClient] updatePushNotifiationDisplayName:[DataSoure objectForKey:@"nickname"] completion:^(NSString *aDisplayName, EMError *aError) {
+                if (aError) {
+                    NSLog(@"-----------------------------------昵称设置成功");
                 }
             }];
             [self setJPUSHService];

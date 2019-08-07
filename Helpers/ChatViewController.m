@@ -23,9 +23,11 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     //去掉多余不用的加号工具栏里面的按钮
     [self.chatBarMoreView removeItematIndex:3];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

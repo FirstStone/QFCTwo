@@ -127,9 +127,16 @@
     NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
     if ([[userdefaults objectForKey:User_Mid] intValue]) {
         if ([self.dataArray[indexPath.row] isMemberOfClass:[Message_infromLists_Model class]]) {
+            Message_infromLists_Model *model = self.dataArray[indexPath.row];
+            
+            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",model.userid] conversationType:EMConversationTypeChat];
+            chatController.idStr = model.nickname;
+            [chatController setHidesBottomBarWhenPushed:YES];
+            [chatController.navigationController setNavigationBarHidden:YES animated:YES];
+            [self.navigationController pushViewController:chatController animated:YES];
+            
 //            [self.navigationController setNavigationBarHidden:NO];
 //            Message_infromLists_Model *model = self.dataArray[indexPath.row];
-//            
 //            Message_Conversation_ViewController *EMVC = [[Message_Conversation_ViewController alloc] initWithConversationChatter:model.userid conversationType:EMConversationTypeChat];
 //            EMVC.title = model.nickname;
 ////            EMVC.money = model.image_text_price;

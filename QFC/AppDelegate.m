@@ -11,7 +11,7 @@ static NSString *appKey = @"f74baa13307e0fdae9225276";
 static NSString *channel = @"Publish channel";
 static BOOL isProduction = FALSE;
 
-@interface AppDelegate ()<UITabBarControllerDelegate, UIApplicationDelegate, WXApiDelegate, JPUSHRegisterDelegate>
+@interface AppDelegate ()<UITabBarControllerDelegate, UIApplicationDelegate, WXApiDelegate, JPUSHRegisterDelegate, EMClientDelegate>
 @property (nonatomic, strong) UITabBarController *tabVC;
 
 @end
@@ -64,7 +64,7 @@ static BOOL isProduction = FALSE;
     // apnsCertName是证书名称，可以先传nil，等后期配置apns推送时在传入证书名称
     options.apnsCertName = nil;
     [[EMClient sharedClient] initializeSDKWithOptions:options];
-    
+    [[EMClient sharedClient] addDelegate:self delegateQueue:nil];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         NSString *Str = [[NSUserDefaults standardUserDefaults] objectForKey:User_Mid];
         [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@ky", Str] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
@@ -72,14 +72,18 @@ static BOOL isProduction = FALSE;
                 NSLog(@"注册成功");
             }
         }];
-        [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", Str] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
-            if (!aError) {
-                NSLog(@"-----------------------------------登录成功");
-                [[EMClient sharedClient] updatePushNotifiationDisplayName:[[NSUserDefaults standardUserDefaults] objectForKey:User_Nickname] completion:^(NSString *aDisplayName, EMError *aError) {
-                    if (aError) {
-                        NSLog(@"-----------------------------------昵称设置成功");
-                    }
-                }];
+        BOOL isAutoLogin = [EMClient sharedClient].options.isAutoLogin;
+        if (!isAutoLogin) {
+            [[EMClient sharedClient] loginWithUsername:[NSString stringWithFormat:@"%@ky", Str] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
+                if (!aError) {
+                    [[EMClient sharedClient].options setIsAutoLogin:YES];
+                    NSLog(@"-----------------------------------登录成功");
+                }
+            }];
+        }
+        [[EMClient sharedClient] updatePushNotifiationDisplayName:[[NSUserDefaults standardUserDefaults] objectForKey:User_Nickname] completion:^(NSString *aDisplayName, EMError *aError) {
+            if (aError) {
+                NSLog(@"-----------------------------------昵称设置成功");
             }
         }];
     }
@@ -97,6 +101,28 @@ static BOOL isProduction = FALSE;
     [self.window makeKeyAndVisible];
     return YES;
 }
+//即时通信
+/*!
+ *  自动登录返回结果
+ *
+ *  @param error 错误信息
+ */
+- (void)autoLoginDidCompleteWithError:(EMError *)error {
+    NSLog(@"%@", error);
+}
+/*!
+ *  SDK连接服务器的状态变化时会接收到该回调
+ *
+ *  有以下几种情况，会引起该方法的调用：
+ *  1. 登录成功后，手机无法上网时，会调用该回调
+ *  2. 登录成功后，网络状态变化时，会调用该回调
+ *
+ *  @param aConnectionState 当前状态
+ */
+- (void)connectionStateDidChange:(EMConnectionState)aConnectionState {
+    
+}
+
 //激光推送
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

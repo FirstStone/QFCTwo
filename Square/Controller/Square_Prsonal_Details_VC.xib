@@ -15,6 +15,7 @@
                 <outlet property="Address_Label" destination="bTV-hX-Iea" id="s76-UX-TWc"/>
                 <outlet property="Age_Label" destination="W3S-0j-jxD" id="rY5-xF-a0z"/>
                 <outlet property="Chat_BT" destination="Fmg-hY-luq" id="CmL-Sa-80O"/>
+                <outlet property="Down_View" destination="Dyu-Wq-Ott" id="za2-E8-ccn"/>
                 <outlet property="FaBu_Label" destination="w67-nl-msa" id="EMB-EK-ABd"/>
                 <outlet property="Fansi_Label" destination="jS6-xV-qkb" id="6mr-pw-Mju"/>
                 <outlet property="Follow_BT" destination="IXq-Bm-Coh" id="gKs-VZ-ZIO"/>
@@ -231,7 +232,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyu-Wq-Ott">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyu-Wq-Ott">
                     <rect key="frame" x="0.0" y="812" width="414" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXq-Bm-Coh">
@@ -244,6 +245,7 @@
                             <state key="normal" title="关注">
                                 <color key="titleColor" red="0.18823529410000001" green="0.67450980390000004" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <state key="selected" title="取消关注"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="17"/>
@@ -261,6 +263,9 @@
                                     <integer key="value" value="3"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="FollowButtonClick:" destination="-1" eventType="touchUpInside" id="FJU-0R-Gq5"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmg-hY-luq">
                             <rect key="frame" x="213" y="8" width="181" height="34"/>

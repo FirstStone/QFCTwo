@@ -1862,7 +1862,7 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark - public
-
+#pragma mark--------------修改所有数据---------------------
 - (NSArray *)formatMessages:(NSArray *)messages
 {
     NSMutableArray *formattedArray = [[NSMutableArray alloc] init];
@@ -1893,9 +1893,29 @@ typedef enum : NSUInteger {
             model = [_dataSource messageViewController:self modelForMessage:message];
         }
         else{
-            model = [[EaseMessageModel alloc] initWithMessage:message];
+
+             /****************下面为修改部分********************/
+            /*model = [[EaseMessageModel alloc] initWithMessage:message];
             model.avatarImage = [UIImage imageNamed:@"EaseUIResource.bundle/user"];
-            model.failImageName = @"imageDownloadFail";
+            model.failImageName = @"imageDownloadFail";*/
+            
+            model = [[EaseMessageModel alloc] initWithMessage:message];
+            NSString *loginUserName = [[EMClient sharedClient] currentUsername];
+            NSString *headUrlImage = [[NSUserDefaults standardUserDefaults]objectForKey:User_Avatar];
+            NSString *bianNickName = [[NSUserDefaults standardUserDefaults]objectForKey:User_Nickname];
+            if ([model.message.from isEqualToString:loginUserName]) {
+                model.avatarURLPath = headUrlImage;
+                model.failImageName = @"imageDownloadFail";
+                model.nickname = bianNickName;
+            }else{
+                model.avatarURLPath = message.ext[@"avatar"];
+                //昵称
+                model.nickname =  message.ext[@"nickname"];
+                model.failImageName = @"imageDownloadFail";
+            }
+            
+            /****************上面为修改部分********************/
+            
         }
         
         if (model) {
@@ -1973,7 +1993,7 @@ typedef enum : NSUInteger {
     }
     [self.tableView reloadData];
 }
-
+#pragma mark---------修改发送消息时用户头像和昵称----
 - (void)sendMessage:(EMMessage *)message isNeedUploadFile:(BOOL)isUploadFile
 {
     if (self.conversation.type == EMConversationTypeGroupChat){
@@ -1982,6 +2002,17 @@ typedef enum : NSUInteger {
     else if (self.conversation.type == EMConversationTypeChatRoom){
         message.chatType = EMChatTypeChatRoom;
     }
+    
+    /****************下面为修改部分********************/
+    NSString *headUrlImage = [[NSUserDefaults standardUserDefaults]objectForKey:User_Avatar];
+    NSString *bianNickName = [[NSUserDefaults standardUserDefaults]objectForKey:User_Nickname];
+    
+    NSMutableDictionary *Muext = [NSMutableDictionary dictionaryWithDictionary:message.ext];
+    [Muext setValue:bianNickName forKey:@"nickname"];
+    [Muext setValue:headUrlImage forKey:@"avatar"];
+    message.ext = Muext;
+    
+    /****************上面为修改部分********************/
     
     __weak typeof(self) weakself = self;
     if (!([EMClient sharedClient].options.isAutoTransferMessageAttachments) && isUploadFile) {
@@ -2234,5 +2265,38 @@ typedef enum : NSUInteger {
     return targets;
 }
 
+#pragma mark------------展示修改的头像和昵称---------------
+- (id<IMessageModel>)messageViewController:(EaseMessageViewController *)viewController
+                           modelForMessage:(EMMessage *)message{
+    id<IMessageModel> model = nil;
+    model = [[EaseMessageModel alloc] initWithMessage:message];
+    
+    NSString *headUrlImage = [[NSUserDefaults standardUserDefaults]objectForKey:User_Avatar];
+    NSString *bianNickName = [[NSUserDefaults standardUserDefaults]objectForKey:User_Nickname];
+    
+    if (model.isSender) {//自己发送
+        
+        
+        model.message.ext = @{@"avatar":headUrlImage,@"nickname":bianNickName};
+        // 头像
+        model.avatarURLPath = headUrlImage;
+        //昵称
+        model.nickname = bianNickName;
+        
+        //头像占位图
+        model.avatarImage = [UIImage imageNamed:@"EaseUIResource.bundle/user"];
+        
+    }else{//对方发送
+        //头像占位图
+        model.avatarImage = [UIImage imageNamed:@"EaseUIResource.bundle/user"];
+        //头像
+        model.avatarURLPath = message.ext[@"avatar"];
+        //昵称
+        model.nickname =  message.ext[@"nickname"];
+        
+    }
+    
+    return model;
+}
 
 @end
