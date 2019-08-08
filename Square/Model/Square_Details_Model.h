@@ -203,6 +203,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *plaza_sum;
 @property (nonatomic, strong) NSString *type_id;
 @property (nonatomic, strong) NSString *merchant_id;
+@property (nonatomic, strong) NSString *attention;
 
 
 @end

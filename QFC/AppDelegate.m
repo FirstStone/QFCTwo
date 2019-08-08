@@ -11,7 +11,7 @@ static NSString *appKey = @"f74baa13307e0fdae9225276";
 static NSString *channel = @"Publish channel";
 static BOOL isProduction = FALSE;
 
-@interface AppDelegate ()<UITabBarControllerDelegate, UIApplicationDelegate, WXApiDelegate, JPUSHRegisterDelegate, EMClientDelegate>
+@interface AppDelegate ()<UITabBarControllerDelegate, UIApplicationDelegate, WXApiDelegate, JPUSHRegisterDelegate, EMClientDelegate, EMChatManagerDelegate>
 @property (nonatomic, strong) UITabBarController *tabVC;
 
 @end
@@ -20,6 +20,19 @@ static BOOL isProduction = FALSE;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //即时通信推送
+    
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        //注册推送, 用于iOS8以及iOS8之后的系统
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil];
+        [application registerUserNotificationSettings:settings];
+    } else {
+        //注册推送，用于iOS8之前的系统
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
+    
+    
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:User_Mid];
@@ -62,9 +75,10 @@ static BOOL isProduction = FALSE;
     // appkey替换成自己在环信管理后台注册应用中的appkey
     EMOptions *options = [EMOptions optionsWithAppkey:@"1110190401216669#qfc"];
     // apnsCertName是证书名称，可以先传nil，等后期配置apns推送时在传入证书名称
-    options.apnsCertName = nil;
+    options.apnsCertName = @"kaifazhengshu";
     [[EMClient sharedClient] initializeSDKWithOptions:options];
     [[EMClient sharedClient] addDelegate:self delegateQueue:nil];
+    [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         NSString *Str = [[NSUserDefaults standardUserDefaults] objectForKey:User_Mid];
         [[EMClient sharedClient] registerWithUsername:[NSString stringWithFormat:@"%@ky", Str] password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
@@ -101,7 +115,23 @@ static BOOL isProduction = FALSE;
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+
 //即时通信
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [application registerForRemoteNotifications];
+}
+
+// 将得到的deviceToken传给SDK
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[EMClient sharedClient] bindDeviceToken:deviceToken];
+    });
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
 /*!
  *  自动登录返回结果
  *
@@ -123,23 +153,51 @@ static BOOL isProduction = FALSE;
     
 }
 
-//激光推送
-- (void)application:(UIApplication *)application
-didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
-    /// Required - 注册 DeviceToken
-    [JPUSHService registerDeviceToken:deviceToken];
+- (void)MessagesDidReceive:(NSArray *)aMessages {
+    for (EMMessage *msg in aMessages) {
+        UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+        // App在后台
+        if (state == UIApplicationStateBackground) {
+            //发送本地推送
+            if (NSClassFromString(@"UNUserNotificationCenter")) { // ios 10
+                // 设置触发时间
+                UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:0.01 repeats:NO];
+                UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+                content.sound = [UNNotificationSound defaultSound];
+                // 提醒，可以根据需要进行弹出，比如显示消息详情，或者是显示“您有一条新消息”
+                content.body = @"提醒内容";
+                UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:msg.messageId content:content trigger:trigger];
+                [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:nil];
+            }else {
+                UILocalNotification *notification = [[UILocalNotification alloc] init];
+                notification.fireDate = [NSDate date]; //触发通知的时间
+                notification.alertBody = @"提醒内容";
+                notification.alertAction = @"Open";
+                notification.timeZone = [NSTimeZone defaultTimeZone];
+                notification.soundName = UILocalNotificationDefaultSoundName;
+                [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+            }
+        }
+    }
 }
+
+////激光推送
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//
+//    /// Required - 注册 DeviceToken
+//    [JPUSHService registerDeviceToken:deviceToken];
+//}
 #pragma mark- JPUSHRegisterDelegate
 
 // iOS 12 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{
     if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         //从通知界面直接进入应用
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     }else{
         //从通知设置界面进入应用
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     }
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 // iOS 10 Support

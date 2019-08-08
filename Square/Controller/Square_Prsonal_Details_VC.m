@@ -187,6 +187,7 @@
 - (void)LoadingDataSoure {
     NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
     [parm setObject:self.uid forKey:@"uid"];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"userid"];
     [[HttpRequest sharedInstance] postWithURLString:URL_Plazas_plazaHomepage parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
@@ -201,6 +202,11 @@
             }
             if ([self.Mymodel.type_id intValue] == 3) {
                 self.Store_BT.enabled = YES;
+            }
+            if([self.Mymodel.attention intValue]){
+                self.Follow_BT.selected = YES;
+            }else {
+                self.Follow_BT.selected = NO;
             }
             self.Address_Label.text = [NSString stringWithFormat:@"  %@-%@  ", self.Mymodel.country, self.Mymodel.province];
             self.Age_Label.text = [NSString stringWithFormat:@"  %@后  ", self.Mymodel.year];
@@ -328,12 +334,13 @@
     NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
     [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
     [parm setObject:modelID forKey:@"pid"];
-    [parm setObject:type forKey:@"type"];
+//    [parm setObject:type forKey:@"type"];
     [[HttpRequest sharedInstance] postWithURLString:URL_Users_attention parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             [MBProgressHUD py_showError:@"操作成功" toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
+            self.Follow_BT.selected = !self.Follow_BT.selected;
 //            [self.dataArray removeAllObjects];
 //            [self LoadingDataSoure];
         }
