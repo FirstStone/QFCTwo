@@ -75,7 +75,7 @@ static BOOL isProduction = FALSE;
     // appkey替换成自己在环信管理后台注册应用中的appkey
     EMOptions *options = [EMOptions optionsWithAppkey:@"1110190401216669#qfc"];
     // apnsCertName是证书名称，可以先传nil，等后期配置apns推送时在传入证书名称
-    options.apnsCertName = @"kaifazhengshu";
+    options.apnsCertName = @"shengchanzhengshu";
     [[EMClient sharedClient] initializeSDKWithOptions:options];
     [[EMClient sharedClient] addDelegate:self delegateQueue:nil];
     [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
@@ -151,34 +151,6 @@ static BOOL isProduction = FALSE;
  */
 - (void)connectionStateDidChange:(EMConnectionState)aConnectionState {
     
-}
-
-- (void)MessagesDidReceive:(NSArray *)aMessages {
-    for (EMMessage *msg in aMessages) {
-        UIApplicationState state = [[UIApplication sharedApplication] applicationState];
-        // App在后台
-        if (state == UIApplicationStateBackground) {
-            //发送本地推送
-            if (NSClassFromString(@"UNUserNotificationCenter")) { // ios 10
-                // 设置触发时间
-                UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:0.01 repeats:NO];
-                UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
-                content.sound = [UNNotificationSound defaultSound];
-                // 提醒，可以根据需要进行弹出，比如显示消息详情，或者是显示“您有一条新消息”
-                content.body = @"提醒内容";
-                UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:msg.messageId content:content trigger:trigger];
-                [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:nil];
-            }else {
-                UILocalNotification *notification = [[UILocalNotification alloc] init];
-                notification.fireDate = [NSDate date]; //触发通知的时间
-                notification.alertBody = @"提醒内容";
-                notification.alertAction = @"Open";
-                notification.timeZone = [NSTimeZone defaultTimeZone];
-                notification.soundName = UILocalNotificationDefaultSoundName;
-                [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-            }
-        }
-    }
 }
 
 ////激光推送

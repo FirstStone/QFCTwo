@@ -97,29 +97,39 @@
 }
 
 - (IBAction)MoreButtonClick:(id)sender {
-    UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *TowAction = [UIAlertAction actionWithTitle:@"屏蔽他的动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //成功返回Block
+            [self PostindexPlazasBlock:self.uid];
+        }];
+        UIAlertAction *ThreeAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            Square_Complaint_ViewController *complaintVC = [[Square_Complaint_ViewController alloc] init];
+            [complaintVC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:complaintVC animated:YES];
+            //成功返回Block
+        }];
+        [alertV addAction:cancelAction];
+        [alertV addAction:TowAction];
+        [alertV addAction:ThreeAction];
         
-    }];
-    UIAlertAction *TowAction = [UIAlertAction actionWithTitle:@"屏蔽他的动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //成功返回Block
-        [self PostindexPlazasBlock:self.uid];
-    }];
-    UIAlertAction *ThreeAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        Square_Complaint_ViewController *complaintVC = [[Square_Complaint_ViewController alloc] init];
-        [complaintVC setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:complaintVC animated:YES];
-        //成功返回Block
-    }];
-    [alertV addAction:cancelAction];
-    [alertV addAction:TowAction];
-    [alertV addAction:ThreeAction];
-    
-    [self presentViewController:alertV animated:YES completion:nil];
+        [self presentViewController:alertV animated:YES completion:nil];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 - (IBAction)FollowButtonClick:(id)sender {
-    [self setAttentionDataSoure:self.uid type:@"1"];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        [self setAttentionDataSoure:self.uid type:@"1"];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -269,12 +279,17 @@
 }
 
 - (IBAction)ChatButtonClick:(id)sender {
-    [self TakeChatDataSoure];
-//    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",self.uid] conversationType:EMConversationTypeChat];
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",self.uid] conversationType:EMConversationTypeChat];
-    chatController.idStr = self.Mymodel.nickname;
-    self.navigationController.navigationBarHidden = NO;
-    [self.navigationController pushViewController:chatController animated:YES];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
+        [self TakeChatDataSoure];
+        //    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",self.uid] conversationType:EMConversationTypeChat];
+        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",self.uid] conversationType:EMConversationTypeChat];
+        chatController.idStr = self.Mymodel.nickname;
+        self.navigationController.navigationBarHidden = NO;
+        [self.navigationController pushViewController:chatController animated:YES];
+    }else {
+        Basic_NavigationController *LoginVC = [[Basic_NavigationController alloc] initWithRootViewController:[[Login_PhoneCodeViewControlloer alloc] init]];
+        [self.navigationController presentViewController:LoginVC animated:YES completion:Nil];
+    }
 }
 
 #pragma mark----UPdata
