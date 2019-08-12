@@ -131,6 +131,8 @@
             
             ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[NSString stringWithFormat:@"%@ky",model.userid] conversationType:EMConversationTypeChat];
             chatController.idStr = model.nickname;
+            chatController.avatar = model.avatar;
+            chatController.nickname = model.nickname;
             [chatController setHidesBottomBarWhenPushed:YES];
             [chatController.navigationController setNavigationBarHidden:YES animated:YES];
             [self.navigationController pushViewController:chatController animated:YES];

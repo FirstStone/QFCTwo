@@ -347,4 +347,9 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 @end

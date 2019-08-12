@@ -10,6 +10,8 @@
 
 @interface Basic_NavigationController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
+@property (nonatomic,strong) id popDelegate;
+
 @end
 
 @implementation Basic_NavigationController
@@ -17,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PustViewToSelfView) name:WANG_LUO_STATE object:nil];
+    //代理
+    self.popDelegate = self.interactivePopGestureRecognizer.delegate;
+    self.delegate = self;
 //    self.delegate = self;
 //    //设置全屏滚动
 //    id target = self.interactivePopGestureRecognizer.delegate;
@@ -50,6 +55,14 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:WANG_LUO_STATE object:nil];
+}
+
+#pragma UINavigationControllerDelegate方法
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    //实现滑动返回功能
+    //清空滑动返回手势的代理就能实现
+    self.interactivePopGestureRecognizer.delegate =  viewController == self.viewControllers[0]? self.popDelegate : nil;
 }
 
 @end

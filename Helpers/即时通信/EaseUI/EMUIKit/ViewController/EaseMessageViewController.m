@@ -2290,9 +2290,9 @@ typedef enum : NSUInteger {
         //头像占位图
         model.avatarImage = [UIImage imageNamed:@"EaseUIResource.bundle/user"];
         //头像
-        model.avatarURLPath = message.ext[@"avatar"];
+        model.avatarURLPath = self.avatar;
         //昵称
-        model.nickname =  message.ext[@"nickname"];
+        model.nickname =  self.nickname;
         
     }
     

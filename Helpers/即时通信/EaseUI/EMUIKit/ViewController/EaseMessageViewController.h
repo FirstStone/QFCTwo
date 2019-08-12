@@ -396,6 +396,15 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
  */
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
 
+/**
+ 对方的头像
+ */
+@property (nonatomic, strong) NSString *avatar;
+/**
+ 对方的昵称
+ */
+@property (nonatomic, strong) NSString *nickname;
+
 /*!
  @property
  @brief 是否已经加入聊天室
