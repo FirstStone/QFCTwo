@@ -11,7 +11,7 @@
 @interface Square_HT_Text_Cell ()
 @property (strong, nonatomic) IBOutlet UIImageView *Photo_imageView;
 @property (strong, nonatomic) IBOutlet UILabel *Name_Lable;
-@property (strong, nonatomic) IBOutlet UIButton *Ding_BT;
+@property (strong, nonatomic) IBOutlet UIButton *Type_BT;
 @property (strong, nonatomic) IBOutlet UILabel *Time_Label;
 @property (strong, nonatomic) IBOutlet UILabel *text_Label;
 @property (strong, nonatomic) IBOutlet UIButton *ding_BT;
@@ -59,8 +59,8 @@
     [self.pinglin_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
     [self.xihuang_BT setTitle:model.discuss_sum forState:UIControlStateNormal];
     [self.fenxiang_BT setTitle:model.share_sum forState:UIControlStateNormal];
+    [self.Type_BT setTitle:model.Type_name forState:UIControlStateNormal];
 //    [self.Address_BT setTitle:model.address forState:UIControlStateNormal];
 }
-
 
 @end

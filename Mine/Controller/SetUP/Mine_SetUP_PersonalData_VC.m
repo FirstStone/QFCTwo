@@ -420,8 +420,11 @@
             //            imagePickerController.delegate = self;
             TZImagePickerController *imagePickerController = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
             //是否限制图片显示区域大小
-            //            imagePickerController.allowsEditing = YES;
-            //            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            imagePickerController.allowCrop = YES;
+            imagePickerController.needCircleCrop = YES;
+            imagePickerController.circleCropRadius = 120;
+//            imagePickerController.allowsEditing = YES;
+//            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:imagePickerController animated:YES completion:nil];
             //            self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
             //            [self presentViewController:self.imagePickerController animated:YES completion:nil];

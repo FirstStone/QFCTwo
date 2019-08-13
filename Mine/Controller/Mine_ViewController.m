@@ -554,11 +554,11 @@
 - (void)MineCVPublicHeaderViewCRVRightButtonChange:(NSInteger)ClickNumber {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] intValue]) {
         if (ClickNumber == 1) {
-            if ([[Singleton sharedSingleton].type_id intValue] == 0) {//普通
-                Mine_MyOrder_ViewController *orderVC = [[Mine_MyOrder_ViewController alloc] init];
-                orderVC.Number = 0;
-                [orderVC setHidesBottomBarWhenPushed:YES];
-                [self.navigationController pushViewController:orderVC animated:YES];
+            if ([[Singleton sharedSingleton].type_id intValue] == 3) {//商家
+                Mine_MyOrder_Shop_ViewController *shopVC = [[Mine_MyOrder_Shop_ViewController alloc] init];
+                shopVC.Number = 0;
+                [shopVC setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:shopVC animated:YES];
                 
             }else if ([[Singleton sharedSingleton].type_id intValue] == 1) {//跑腿
                 Mine_MyOrder_RunErrands_ViewController *runErrandsVC = [[Mine_MyOrder_RunErrands_ViewController alloc] init];
@@ -572,11 +572,11 @@
                 [houseKeepingVC setHidesBottomBarWhenPushed:YES];
                 [self.navigationController pushViewController:houseKeepingVC animated:YES];
                 
-            }else {//商家
-                Mine_MyOrder_Shop_ViewController *shopVC = [[Mine_MyOrder_Shop_ViewController alloc] init];
-                shopVC.Number = 0;
-                [shopVC setHidesBottomBarWhenPushed:YES];
-                [self.navigationController pushViewController:shopVC animated:YES];
+            }else {//普通
+                Mine_MyOrder_ViewController *orderVC = [[Mine_MyOrder_ViewController alloc] init];
+                orderVC.Number = 0;
+                [orderVC setHidesBottomBarWhenPushed:YES];
+                [self.navigationController pushViewController:orderVC animated:YES];
                 
             }
         }else {

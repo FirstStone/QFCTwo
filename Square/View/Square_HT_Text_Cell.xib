@@ -50,49 +50,49 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="近期工作需要急求1号线红坡南路站的房源，精装修 次卧也想，能做饭 独立厨卫，有房源的可以直接微信私信我，谢谢！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBw-AO-Kkt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBw-AO-Kkt">
                                 <rect key="frame" x="10" y="54" width="329" height="72.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2H-GN-f36">
-                                <rect key="frame" x="181" y="137.5" width="41" height="12"/>
+                                <rect key="frame" x="132" y="137.5" width="27" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="N9J-yI-09j"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="999  " image="icon_Fenxiang">
+                                <state key="normal" title="0  " image="icon_Fenxiang">
                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYQ-m1-EST">
-                                <rect key="frame" x="124" y="137.5" width="43" height="12"/>
+                                <rect key="frame" x="96" y="137.5" width="22" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="mko-F4-BVv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="999  " image="icon_Xihuan_hui">
+                                <state key="normal" title="  " image="icon_Xihuan_hui">
                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REt-Lg-vZd">
-                                <rect key="frame" x="65" y="137.5" width="45" height="12"/>
+                                <rect key="frame" x="51" y="137.5" width="31" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="WCk-Iz-8IY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="999  " image="icon_Pinglun">
+                                <state key="normal" title="0  " image="icon_Pinglun">
                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWd-Vp-w5l">
-                                <rect key="frame" x="10" y="137.5" width="41" height="12"/>
+                                <rect key="frame" x="10" y="137.5" width="27" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="C2Z-uF-fwN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="999  " image="icon_Ding_Hui">
+                                <state key="normal" title="0  " image="icon_Ding_Hui">
                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <state key="selected" image="icon_Ding_Lv"/>
@@ -165,17 +165,17 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="Ding_BT" destination="ZAB-2H-J8r" id="DpJ-hV-seH"/>
                 <outlet property="Name_Lable" destination="yc8-bz-UFJ" id="d9J-uA-vpm"/>
                 <outlet property="Photo_imageView" destination="fFf-8O-yHR" id="aJb-4k-qh2"/>
                 <outlet property="Time_Label" destination="qRM-BO-Rsx" id="bgm-Yr-tA1"/>
+                <outlet property="Type_BT" destination="ZAB-2H-J8r" id="fyZ-kP-xxG"/>
                 <outlet property="ding_BT" destination="AWd-Vp-w5l" id="Qzp-pp-GoH"/>
                 <outlet property="fenxiang_BT" destination="I2H-GN-f36" id="zbE-t3-FL4"/>
                 <outlet property="pinglin_BT" destination="REt-Lg-vZd" id="AgW-cI-YPi"/>
                 <outlet property="text_Label" destination="EBw-AO-Kkt" id="wHu-24-OPz"/>
                 <outlet property="xihuang_BT" destination="QYQ-m1-EST" id="tGS-hY-cFg"/>
             </connections>
-            <point key="canvasLocation" x="7.9710144927536239" y="116.85267857142857"/>
+            <point key="canvasLocation" x="-173.18840579710147" y="-16.40625"/>
         </tableViewCell>
     </objects>
     <resources>

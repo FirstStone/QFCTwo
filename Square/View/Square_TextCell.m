@@ -76,6 +76,7 @@
     [self.ding_BT setTitle:[NSString stringWithFormat:@"%@ ",model.like_sum] forState:UIControlStateNormal];
     [self.pinglin_BT setTitle:[NSString stringWithFormat:@"%@ ",model.discuss_sum] forState:UIControlStateNormal];
      [self.fenxiang_BT setTitle:[NSString stringWithFormat:@"%@ ",model.share_sum] forState:UIControlStateNormal];
+    [self.Praise_BT setTitle:model.Type_name forState:UIControlStateNormal];
 }
 
 - (void)setSquareQuestionsAndAnswersListModelToCell:(Square_QuestionsAndAnswers_List_Model *)model {
