@@ -38,6 +38,7 @@
         _icon_View.image = [UIImage imageNamed:@"icon_touxiang"];
         _icon_View.layer.cornerRadius = 20.0f;
         _icon_View.layer.masksToBounds = YES;
+        _icon_View.contentMode = UIViewContentModeRedraw;
     }
     return _icon_View;
 }
@@ -48,6 +49,7 @@
 }
 
 - (IBAction)SureButtonClick:(id)sender {
+    self.Sure_BT.enabled = NO;
     [self UploadImageToBacker:self.icon_View.image];
 }
 
@@ -420,9 +422,9 @@
             //            imagePickerController.delegate = self;
             TZImagePickerController *imagePickerController = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
             //是否限制图片显示区域大小
-            imagePickerController.allowCrop = YES;
-            imagePickerController.needCircleCrop = YES;
-            imagePickerController.circleCropRadius = 120;
+//            imagePickerController.allowCrop = YES;
+//            imagePickerController.needCircleCrop = YES;
+//            imagePickerController.circleCropRadius = 120;
 //            imagePickerController.allowsEditing = YES;
 //            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:imagePickerController animated:YES completion:nil];
@@ -496,7 +498,6 @@
  签名
  */
 - (void)UPdataSoureSeleMessage:(NSString *)imageURL {
-    self.Sure_BT.enabled = YES;
     NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
     [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
     [parm setObject:[NSString stringWithFormat:@"%@-%@-%@", self.My_Model.year, self.My_Model.month, self.My_Model.day] forKey:@"birthday"];
@@ -520,7 +521,7 @@
         }
         [self.tableView reloadData];
     } failure:^(NSError * _Nonnull error) {
-        self.Sure_BT.enabled = NO;
+        self.Sure_BT.enabled = YES;
         [MBProgressHUD py_showError:@"操作失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];
     }];
@@ -542,11 +543,12 @@
         if ([success objectForKey:@"status"]) {
             [self UPdataSoureSeleMessage:[success objectForKey:@"url"]];
         }else {
+            self.Sure_BT.enabled = YES;
             [MBProgressHUD py_showError:@"上传失败" toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
         }
     } failure:^(NSError * _Nonnull error) {
-        self.Sure_BT.enabled = NO;
+        self.Sure_BT.enabled = YES;
         NSLog(@"%@",error);
         [MBProgressHUD py_showError:@"上传失败" toView:nil];
         [MBProgressHUD setAnimationDelay:0.7f];

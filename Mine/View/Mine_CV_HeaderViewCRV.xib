@@ -12,14 +12,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MineCVHeaderViewCRV" id="U6b-Vx-4bR" customClass="Mine_CV_HeaderViewCRV">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="MineCVHeaderViewCRV" id="U6b-Vx-4bR" customClass="Mine_CV_HeaderViewCRV">
             <rect key="frame" x="0.0" y="0.0" width="384" height="299"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GxA-la-Fan">
                     <rect key="frame" x="0.0" y="0.0" width="384" height="184"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="W06-UB-MXg">
+                        <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="W06-UB-MXg">
                             <rect key="frame" x="12" y="35" width="45" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="gqZ-iu-aWq"/>
