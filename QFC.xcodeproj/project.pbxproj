@@ -190,6 +190,7 @@
 		377F5E4A227ECEE4003B3E19 /* SquareTitle_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 377F5E49227ECEE4003B3E19 /* SquareTitle_Model.m */; };
 		3783A404226EB76700A88C32 /* Home_ShoppingCart_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3783A402226EB76700A88C32 /* Home_ShoppingCart_ViewController.m */; };
 		3783A405226EB76700A88C32 /* Home_ShoppingCart_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3783A403226EB76700A88C32 /* Home_ShoppingCart_ViewController.xib */; };
+		378AB53423054F240073375F /* Mine_FollowView_TableView_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7D42D2267462400905BD5 /* Mine_FollowView_TableView_Cell.xib */; };
 		378C8C43228D04C90041EAAD /* Square_WD_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 378C8C42228D04C90041EAAD /* Square_WD_Model.m */; };
 		378C8C46228D49090041EAAD /* Square_Details_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 378C8C45228D49090041EAAD /* Square_Details_Model.m */; };
 		378CA7A5229799B80087B29C /* Home_ShoppingCatr_Settlement_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 378CA7A4229799B70087B29C /* Home_ShoppingCatr_Settlement_Model.m */; };
@@ -531,7 +532,6 @@
 		37E7D42722673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7D42522673C9000905BD5 /* Message_HouseKeeping_Tableview_Cell.xib */; };
 		37E7D42A22673CCE00905BD5 /* Message_Housekeeping_Tableview.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D42922673CCE00905BD5 /* Message_Housekeeping_Tableview.m */; };
 		37E7D42E2267462400905BD5 /* Mine_FollowView_TableView_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D42C2267462400905BD5 /* Mine_FollowView_TableView_Cell.m */; };
-		37E7D42F2267462400905BD5 /* Mine_FollowView_TableView_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7D42D2267462400905BD5 /* Mine_FollowView_TableView_Cell.xib */; };
 		37E7D43222674C7500905BD5 /* Mine_Follow_Publish_Collection_Tableview.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D43122674C7500905BD5 /* Mine_Follow_Publish_Collection_Tableview.m */; };
 		37E8BEF7226ED6C900B4493F /* Home_Shopping_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E8BEF5226ED6C900B4493F /* Home_Shopping_Cell.m */; };
 		37E8BEF8226ED6C900B4493F /* Home_Shopping_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E8BEF6226ED6C900B4493F /* Home_Shopping_Cell.xib */; };
@@ -3516,6 +3516,7 @@
 				37698F5B22867750003324DC /* Home_HouseKeeping_PlacOrder_StandardCell.xib in Resources */,
 				370B41E8225EDB69009489BA /* Square_HT_Details_Comment_Cell.xib in Resources */,
 				371830DE225DB1B2006B97E5 /* Square_WD_ImageCell.xib in Resources */,
+				378AB53423054F240073375F /* Mine_FollowView_TableView_Cell.xib in Resources */,
 				37C458A62271935F004CDE32 /* Mine_Wallet_Bill_ViewController.xib in Resources */,
 				37DD148622607384007FD9CB /* Square_Prsonal_Details_VC.xib in Resources */,
 				37B8B6CD226F358800434D61 /* Mine_SetUP_Privacy_System_VC.xib in Resources */,
@@ -3575,7 +3576,6 @@
 				37B8B6DA226F358800434D61 /* Mine_SetUP_ViewController.xib in Resources */,
 				37C9E6FC22BC6B6B00443BC2 /* CityData.plist in Resources */,
 				37698F6022867BB5003324DC /* Home_HouseKeeping_PlacOrder_RemarksCell.xib in Resources */,
-				37E7D42F2267462400905BD5 /* Mine_FollowView_TableView_Cell.xib in Resources */,
 				37A29BD622534D4B00495D1B /* Home_ViewController.xib in Resources */,
 				3734067A2285641C00FC38F9 /* Home_HouseKeeping_PlaceOrder_Depth_ViewController.xib in Resources */,
 				37BF7A9F22D323C700BEBF7F /* Home_KDR_ViewController.xib in Resources */,

@@ -10,7 +10,7 @@
 #define CellID_MineFollowViewTableViewCell @"MineFollowViewTableViewCell"
 #define CellID_SquareTextCell @"SquareTextCell"
 #define CellID_SquareHTImageCell @"SquareHTImageCell"
-@interface Mine_Follow_Publish_Collection_Tableview ()<UITableViewDelegate, UITableViewDataSource>
+@interface Mine_Follow_Publish_Collection_Tableview ()<UITableViewDelegate, UITableViewDataSource, MineFollowViewTableViewCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -69,7 +69,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    if (self.MineStyle == MineTableViewFollow) {//关注
     Mine_FollowView_TableView_Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellID_MineFollowViewTableViewCell];
+    cell.Style = self.index;
     [cell setModelToCell:self.dataArray[indexPath.row]];
+    cell.delegate = self;
     return cell;
     /*} else if (self.MineStyle == MineTableViewPublish){//发布
         if (indexPath.row == 0) {
@@ -88,6 +90,25 @@
             return cell;
         }
     }*/
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+     Mine_Follow_Model *model = self.dataArray[indexPath.row];
+    if (self.index) {
+        Home_ShopStore_ViewController *ShopStoreVC = [[Home_ShopStore_ViewController alloc] init];
+        ShopStoreVC.Shopid = model.Follow_id;
+        [ShopStoreVC setHidesBottomBarWhenPushed:YES];
+        [self.My_NAVC pushViewController:ShopStoreVC animated:YES];
+    } else {
+        Square_Prsonal_Details_VC *preVC  = [[Square_Prsonal_Details_VC alloc] init];
+        preVC.backBlock = ^{
+            [self beginFresh];
+        };
+        preVC.uid = model.Follow_id;
+        [preVC setHidesBottomBarWhenPushed:YES];
+        [self.My_NAVC pushViewController:preVC animated:YES];
+    }
 }
 
 
@@ -128,7 +149,66 @@
     }];
 }
 
+#pragma mark----MineFollowViewTableViewCellDelegate
+- (void)MineFollowViewTableViewCellButtonClick:(Mine_Follow_Model *)model {
+    
+    UIAlertController *alertV = [UIAlertController alertControllerWithTitle:@"提示" message:@"要取消关注吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cacen = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //成功返回Block
+    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (self.index) {
+            [self POSTIndexMerchantsAttention:model.Follow_id];
+        }else {
+            [self setAttentionDataSoure:model.Follow_id type:@"1"];
+        }
+    }];
+    [alertV addAction:cacen];
+    [alertV addAction:okAction];
+    
+    [self.My_NAVC presentViewController:alertV animated:YES completion:nil];
+}
 
+/**关注*/
+/**type=1关注  2取消关注*/
+- (void)setAttentionDataSoure:(NSString *)modelID type:(NSString *)type {
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [parm setObject:modelID forKey:@"pid"];
+//    [parm setObject:type forKey:@"type"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_Users_attention parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [MBProgressHUD py_showError:@"操作成功" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+            [self beginFresh];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
 
+- (void)POSTIndexMerchantsAttention:(NSString *)merchantid {
+    /**关注店铺
+     index/merchants/attention
+     merchantid
+     uid
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:merchantid forKey:@"merchantid"];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_merchants_attention parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            [MBProgressHUD py_showError:@"操作成功" toView:nil];
+            [MBProgressHUD setAnimationDelay:0.7f];
+            [self beginFresh];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"操作失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
 
 @end

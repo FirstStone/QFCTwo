@@ -30,7 +30,8 @@
         make.width.equalTo(self.contentView.mas_width).multipliedBy(0.4f);
         make.height.equalTo(self.contentView.mas_width).multipliedBy(0.4f);
         make.centerX.equalTo(self.contentView.mas_centerX);
-        make.centerY.equalTo(self.contentView.mas_centerY);
+        make.top.equalTo(self.contentView.mas_top).offset(20.0f);
+//        make.centerY.equalTo(self.contentView.mas_centerY);
     }];
     [self.contentView addSubview:self.Text_Label];
     [self.Text_Label mas_makeConstraints:^(MASConstraintMaker *make) {

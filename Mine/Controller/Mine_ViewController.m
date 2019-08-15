@@ -150,7 +150,7 @@
 //设置item 大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
-        return CGSizeMake((SCREEN_WIDTH - 20)/5.0f, (SCREEN_WIDTH - 20)/5.0f);
+        return CGSizeMake((SCREEN_WIDTH - 20)/5.0f, (SCREEN_WIDTH - 20)/4.0f);
     }else  {//return CGSizeMake((SCREEN_WIDTH - 20)/5.0f, (SCREEN_WIDTH - 20)/5.0f);
         return CGSizeMake((SCREEN_WIDTH - 20)/3.0f, (SCREEN_WIDTH - 20)/3.0f);
     }

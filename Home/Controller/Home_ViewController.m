@@ -142,7 +142,7 @@
     [searchField setValue:[UIFont boldSystemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
     searchField.textAlignment = NSTextAlignmentCenter;
     UIView *tableViewHeaderView = [self getTableViewHeadView];
-    tableViewHeaderView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 475.0f);
+    tableViewHeaderView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 480.0f);
     self.tableView.tableHeaderView = tableViewHeaderView;
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
@@ -243,8 +243,10 @@
     
     [Down_View addSubview:self.sdcscrollView];
     [self.sdcscrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.left.right.equalTo(Down_View);
+        make.bottom.equalTo(Down_View);
         make.top.equalTo(self.menuView.mas_bottom);
+        make.left.equalTo(Down_View.mas_left).offset(10.0f);
+        make.right.equalTo(Down_View.mas_right).offset(-10.0f);
     }];
     //底部灰色背景
     UIView *Down_Hui_View = ({
@@ -494,6 +496,7 @@
 - (SDCycleScrollView *)sdcscrollView {
     if (!_sdcscrollView) {
         _sdcscrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 150) imageURLStringsGroup:@[@"https://www.txkuaiyou.com/uploads/images/20190615192428.png", @"https://www.txkuaiyou.com/uploads/images/20190615192440.png", @"https://www.txkuaiyou.com/uploads/images/20190615192445.png"]];
+        _sdcscrollView.backgroundColor = [UIColor whiteColor];
         _sdcscrollView.showPageControl = YES;
         _sdcscrollView.pageControlDotSize = CGSizeMake(13.0f, 3.0f);
         _sdcscrollView.currentPageDotColor = QFC_Color(233,233,233);

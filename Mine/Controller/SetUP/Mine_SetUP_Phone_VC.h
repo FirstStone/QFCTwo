@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Mine_SetUP_Phone_VC : Basic_ViewController
 
+@property (nonatomic, strong) NSString *phoneNumber;
+
 @end
 
 NS_ASSUME_NONNULL_END

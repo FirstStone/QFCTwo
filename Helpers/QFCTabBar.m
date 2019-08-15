@@ -25,8 +25,10 @@
         self.translucent = NO;
         
         self.plusItem = [[UIButton alloc] init];
+        self.plusItem.tintColor = QFC_Color_30AC65;
         self.plusItem.adjustsImageWhenHighlighted = NO; // 去除选择时高亮
         [self.plusItem setBackgroundImage:[UIImage imageNamed:@"icon_pubilsh"] forState:UIControlStateNormal];
+
         [self addSubview:self.plusItem];
     }
     return self;

@@ -100,6 +100,51 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.dataArray[indexPath.row] isMemberOfClass:[SquareRecommend_Model class]]) {
+        SquareRecommend_Model *model = self.dataArray[indexPath.row];
+        if ([model.status intValue] == 3) {//问答
+            Square_QuestionsAndAnswersVC *QAVC = [[Square_QuestionsAndAnswersVC alloc] init];
+            [QAVC setHidesBottomBarWhenPushed:YES];
+            QAVC.item_id = model.SquareRecommend_ID;
+            QAVC.uid = model.uid;
+            [self.navigationController pushViewController:QAVC animated:YES];
+        }else {
+            Square_HT_Details_VC *detailsVC = [[Square_HT_Details_VC alloc] init];
+            MJWeakSelf;
+            detailsVC.backBlock = ^{
+                [weakSelf.tableView beginFresh];
+            };
+            detailsVC.item_id = model.SquareRecommend_ID;
+            [detailsVC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:detailsVC animated:YES];
+        }
+    }
+//    else {
+//        if ([self.SquareRecommend_Array[indexPath.row] isMemberOfClass:[Square_info_Model class]]) {//头部第一个
+//            Square_info_Model *model = self.SquareRecommend_Array[indexPath.row];
+//            Square_QuestionsAndAnswersVC *QAVC = [[Square_QuestionsAndAnswersVC alloc] init];
+//            [QAVC setHidesBottomBarWhenPushed:YES];
+//            QAVC.item_id = model.info_id;
+//            QAVC.uid = @"0";
+//            [self.My_NAVC pushViewController:QAVC animated:YES];
+//        }else if ([self.SquareRecommend_Array[indexPath.row] isMemberOfClass:[Square_address_Model class]]) {//地址
+//            Square_address_Model *model = self.SquareRecommend_Array[indexPath.row];
+//            Square_QuestionsAndAnswersVC *QAVC = [[Square_QuestionsAndAnswersVC alloc] init];
+//            [QAVC setHidesBottomBarWhenPushed:YES];
+//            QAVC.item_id = model.address_id;
+//            QAVC.uid = model.uid;
+//            [self.My_NAVC pushViewController:QAVC animated:YES];
+//        }else if ([self.SquareRecommend_Array[indexPath.row] isMemberOfClass:[Square_WD_Model class]]) {//普通
+//            Square_WD_Model *model = self.SquareRecommend_Array[indexPath.row];
+//            Square_QuestionsAndAnswersVC *QAVC = [[Square_QuestionsAndAnswersVC alloc] init];
+//            [QAVC setHidesBottomBarWhenPushed:YES];
+//            QAVC.item_id = model.WD_id;
+//            QAVC.uid = model.uid;
+//            [self.My_NAVC pushViewController:QAVC animated:YES];
+//        }
+//    }
+}
 
 
 #pragma mark----UPdata
@@ -166,6 +211,16 @@
     [self presentViewController:alertV animated:YES completion:nil];
 }
 
+- (void)SquareTextCellIconViewClick:(NSString *)mid {
+    Square_Prsonal_Details_VC *preVC  = [[Square_Prsonal_Details_VC alloc] init];
+    preVC.backBlock = ^{
+        [self.tableView beginFresh];
+    };
+    preVC.uid = mid;
+    [preVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:preVC animated:YES];
+}
+
 #pragma mark----SquareHTImageCellDelegate
 - (void)SquareHTImageCellMoreButtonClick:(SquareRecommend_Model *)model QuestionsAndAnswersModel:(Square_QuestionsAndAnswers_List_Model *)ListModel Style:(NSInteger)index {
     UIAlertController *alertV = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -186,6 +241,15 @@
     [self presentViewController:alertV animated:YES completion:nil];
 }
 
+- (void)iconViewClick:(NSString *)mid {
+    Square_Prsonal_Details_VC *preVC  = [[Square_Prsonal_Details_VC alloc] init];
+    preVC.backBlock = ^{
+        [self.tableView beginFresh];
+    };
+    preVC.uid = mid;
+    [preVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:preVC animated:YES];
+}
 
 #pragma mark----SquareWDTextCellDelegate
 - (void)SquareWDTextCellMoreButtonClick:(SquareRecommend_Model *)model QuestionsAndAnswersModel:(Square_WD_Model *)WDModel Style:(NSInteger)index {
@@ -207,6 +271,15 @@
     [self presentViewController:alertV animated:YES completion:nil];
 }
 
+- (void)SquareWDTextCellIconView:(NSString *)mid {
+    Square_Prsonal_Details_VC *preVC  = [[Square_Prsonal_Details_VC alloc] init];
+    preVC.backBlock = ^{
+        [self.tableView beginFresh];
+    };
+    preVC.uid = mid;
+    [preVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:preVC animated:YES];
+}
 
 #pragma mark----SquareWDImageAndTextCellDelegate
 - (void)SquareWDImageAndTextCellMoreButtonClick:(SquareRecommend_Model *)model SquareWDModel:(Square_WD_Model *)ListModel Style:(NSInteger)index {
@@ -226,6 +299,16 @@
     [alertV addAction:cancelAction];
     
     [self presentViewController:alertV animated:YES completion:nil];
+}
+
+- (void)SquareWDImageAndTextCellIconimage:(NSString *)mid {
+    Square_Prsonal_Details_VC *preVC  = [[Square_Prsonal_Details_VC alloc] init];
+    preVC.backBlock = ^{
+        [self.tableView beginFresh];
+    };
+    preVC.uid = mid;
+    [preVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:preVC animated:YES];
 }
 
 - (void)setplazaCollectDataSoure:(NSString *)modelID {

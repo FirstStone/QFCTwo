@@ -634,9 +634,15 @@
             NSDictionary *infoDic = [responseObject objectForKey:@"info"];
             if (infoDic) {
                 self.My_Model = [KDR_People_Model mj_objectWithKeyValues:infoDic];
-                self.IDCard_Positive_View.images = [NSMutableArray arrayWithArray:@[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.My_Model.just]]]]];
-                self.IDCard_Back_View.images = [NSMutableArray arrayWithArray:@[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.My_Model.against]]]]];
-                self.IDCard_Hand_View.images = [NSMutableArray arrayWithArray:@[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.My_Model.hand]]]]];
+                if (self.My_Model.just.length) {
+                    self.IDCard_Positive_View.images = [NSMutableArray arrayWithArray:@[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.My_Model.just]]]]];
+                }
+                if (self.My_Model.against.length) {
+                     self.IDCard_Back_View.images = [NSMutableArray arrayWithArray:@[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.My_Model.against]]]]];
+                }
+                if (self.My_Model.hand.length) {
+                     self.IDCard_Hand_View.images = [NSMutableArray arrayWithArray:@[[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.My_Model.hand]]]]];
+                }
             }
             [self.tableView reloadData];
         }

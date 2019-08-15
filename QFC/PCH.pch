@@ -534,6 +534,12 @@
  */
 #define URL_depthOrderAdd HTTPHeader@"index/Husbandry/depthOrderAdd"
 
+/**
+ 判断是否有手机号和密码
+ index/users/findPhone
+ uid
+ */
+#define URL_indexUsersFindPhone HTTPHeader@"index/users/findPhone"
 #pragma mark----快代扔
 
 /**
@@ -1894,6 +1900,15 @@ index/discounts/mydisountList
  用户ID
  */
 #define URL_note_UpdateNote HTTPHeader@"index/note/UpdateNote"
+
+/**
+ 修改信息发送验证码
+ URL : https://www.txkuaiyou.com/index/note/UpdateNotes
+ 参数 :
+ uid
+ 用户ID
+ */
+#define URL_note_UpdateNotes HTTPHeader@"index/note/UpdateNotes"
 
 /**
  密码修改

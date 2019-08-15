@@ -9,7 +9,6 @@
 #import "Mine_SetUP_Phone_VC.h"
 
 @interface Mine_SetUP_Phone_VC ()
-
 @property (strong, nonatomic) IBOutlet UILabel *Phone_Label;
 
 @property (strong, nonatomic) IBOutlet UITextField *Code_Field;
@@ -26,7 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.Phone_Label.text = [NSString stringWithFormat:@"手机号：%@****%@", [[Singleton sharedSingleton].phone substringToIndex:3], [[Singleton sharedSingleton].phone substringFromIndex:7]];
+    if (self.phoneNumber.length) {
+        self.Phone_Label.text = [NSString stringWithFormat:@"手机号：%@****%@", [self.phoneNumber substringToIndex:3], [self.phoneNumber substringFromIndex:7]];
+    }else {
+        self.Phone_Label.text = @"未绑定手机号";
+    }
 }
 
 - (IBAction)SureButtonClick:(id)sender {
@@ -57,8 +60,8 @@
      */
     NSMutableDictionary * parm = [[NSMutableDictionary alloc]init];
     [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
-    
-    [[HttpRequest sharedInstance] postWithURLString:URL_note_UpdateNote parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+    [parm setObject:self.Phone_Field.text forKey:@"phone"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_note_UpdateNotes parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
             [self openCountdown];
@@ -129,10 +132,10 @@
     [parm setObject:self.Phone_Field.text forKey:@"phone"];
     [parm setObject:self.Code_Field.text forKey:@"note"];
     [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
-    [[HttpRequest sharedInstance] postWithURLString:URL_centres_Upassword parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+    [[HttpRequest sharedInstance] postWithURLString:URL_centres_uPhones parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
         NSLog(@"%@", responseObject);
         if ([[responseObject objectForKey:@"status"] intValue]) {
-            [MBProgressHUD py_showError:@"修改成功" toView:nil];
+            [MBProgressHUD py_showError:[responseObject objectForKey:@"message"] toView:nil];
             [MBProgressHUD setAnimationDelay:0.7f];
             [self.navigationController popViewControllerAnimated:YES];
         }else {

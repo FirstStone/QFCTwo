@@ -10,7 +10,7 @@
 
 @interface Mine_SetUP_PassWord_VC ()
 
-@property (strong, nonatomic) IBOutlet UILabel *Phone_Label;
+@property (strong, nonatomic) IBOutlet UITextField *Phone_Field;
 
 @property (strong, nonatomic) IBOutlet UITextField *Code_Field;
 
@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.Phone_Label.text = [NSString stringWithFormat:@"手机号：%@****%@", [[Singleton sharedSingleton].phone substringToIndex:3], [[Singleton sharedSingleton].phone substringFromIndex:7]];
+    [self POSTIndexUsersFindPhone];
 }
 
 - (IBAction)SureButtonClick:(id)sender {
@@ -49,6 +49,11 @@
 }
 
 - (IBAction)CodeButtonClick:(id)sender {
+    if (!self.Phone_Field.text.length) {
+        [MBProgressHUD py_showError:@"请输入手机号" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+        return;
+    }
     /**
      修改信息发送验证码
      URL : https://www.txkuaiyou.com/index/note/UpdateNote
@@ -148,5 +153,26 @@
     }];
 }
 
+
+- (void)POSTIndexUsersFindPhone {
+    /**
+     index/users/findPhone
+     uid
+     */
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc] init];
+    [parm setObject:[[NSUserDefaults standardUserDefaults] objectForKey:User_Mid] forKey:@"uid"];
+    [[HttpRequest sharedInstance] postWithURLString:URL_indexUsersFindPhone parameters:parm success:^(NSDictionary * _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] intValue]) {
+            NSDictionary *dataSoure = [responseObject objectForKey:@"info"];
+            if (dataSoure) {
+                self.Phone_Field.text = [dataSoure objectForKey:@"phone"];
+            }
+        }
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD py_showError:@"获取失败" toView:nil];
+        [MBProgressHUD setAnimationDelay:0.7f];
+    }];
+}
 
 @end
