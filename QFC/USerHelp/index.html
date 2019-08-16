@@ -1,0 +1,15 @@
+<!DOCTYPE html><html><head><meta charset=utf-8> <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><title>admin</title><link href=./static/css/app.526d80bb444e36db1f1b766fc5975a73.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.8a153b5afcf65d54a612.js></script><script type=text/javascript src=./static/js/app.eaf6b7af6323dc9856d8.js></script></body><script>fnResize()
+  fnResize();
+  window.onresize = function () {
+    fnResize();
+  }
+  function fnResize() {
+    var deviceWidth = document.documentElement.clientWidth || window.innerWidth;
+    if (deviceWidth >= 750) {
+      deviceWidth = 750;
+    }
+    if (deviceWidth <= 320) {
+      deviceWidth = 320;
+    }
+    document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px';
+  }</script></html>

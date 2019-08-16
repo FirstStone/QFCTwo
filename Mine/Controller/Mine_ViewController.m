@@ -350,9 +350,10 @@
                 case 3://发现更多
                 {
                     if (indexPath.row == 0) {//使用帮助
-                        Mine_Agreement_VC *VC = [[Mine_Agreement_VC alloc] init];
+//                        Mine_Agreement_VC *VC = [[Mine_Agreement_VC alloc] init];
+                        Mine_USerHelpViewController *VC = [[Mine_USerHelpViewController alloc] init];
                         [VC setHidesBottomBarWhenPushed:YES];
-                        VC.Type = 5;
+//                        VC.Type = 5;
                         [self.navigationController pushViewController:VC animated:YES];
 //                        [MBProgressHUD py_showError:@"暂未开通" toView:nil];
 //                        [MBProgressHUD setAnimationDelay:0.7f];
@@ -528,9 +529,10 @@
                 
             } else if (indexPath.section == 4) {//发现更多
                 if (indexPath.row == 0) {
-                    Mine_Agreement_VC *VC = [[Mine_Agreement_VC alloc] init];
+//                    Mine_Agreement_VC *VC = [[Mine_Agreement_VC alloc] init];
+                    Mine_USerHelpViewController *VC = [[Mine_USerHelpViewController alloc] init];
                     [VC setHidesBottomBarWhenPushed:YES];
-                    VC.Type = 5;
+//                    VC.Type = 5;
                     [self.navigationController pushViewController:VC animated:YES];
                     //家政
                 }else if (indexPath.row == 1) {

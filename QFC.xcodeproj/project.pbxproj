@@ -71,6 +71,9 @@
 		372E4E6C2255E334006CEB0A /* Home_ShangQiang_CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 372E4E6A2255E334006CEB0A /* Home_ShangQiang_CollectionViewCell.xib */; };
 		372E4E70225603AA006CEB0A /* Home_CommunityActivities_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 372E4E6E225603AA006CEB0A /* Home_CommunityActivities_Cell.m */; };
 		372E4E71225603AA006CEB0A /* Home_CommunityActivities_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 372E4E6F225603AA006CEB0A /* Home_CommunityActivities_Cell.xib */; };
+		3731278C23067AF200824630 /* Mine_USerHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3731278A23067AF200824630 /* Mine_USerHelpViewController.m */; };
+		3731278D23067AF200824630 /* Mine_USerHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3731278B23067AF200824630 /* Mine_USerHelpViewController.xib */; };
+		373127EE2306957A00824630 /* USerHelp in Resources */ = {isa = PBXBuildFile; fileRef = 373127ED2306957A00824630 /* USerHelp */; };
 		373385B8227056FF00DC08D9 /* Mine_Wallet_Bill_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 373385B6227056FF00DC08D9 /* Mine_Wallet_Bill_Cell.m */; };
 		373385B9227056FF00DC08D9 /* Mine_Wallet_Bill_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373385B7227056FF00DC08D9 /* Mine_Wallet_Bill_Cell.xib */; };
 		37340638228518E800FC38F9 /* Home_HouseKeeping_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 37340637228518E800FC38F9 /* Home_HouseKeeping_Model.m */; };
@@ -722,6 +725,10 @@
 		372E4E6D225603AA006CEB0A /* Home_CommunityActivities_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_CommunityActivities_Cell.h; sourceTree = "<group>"; };
 		372E4E6E225603AA006CEB0A /* Home_CommunityActivities_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_CommunityActivities_Cell.m; sourceTree = "<group>"; };
 		372E4E6F225603AA006CEB0A /* Home_CommunityActivities_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home_CommunityActivities_Cell.xib; sourceTree = "<group>"; };
+		3731278923067AF200824630 /* Mine_USerHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_USerHelpViewController.h; sourceTree = "<group>"; };
+		3731278A23067AF200824630 /* Mine_USerHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_USerHelpViewController.m; sourceTree = "<group>"; };
+		3731278B23067AF200824630 /* Mine_USerHelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_USerHelpViewController.xib; sourceTree = "<group>"; };
+		373127ED2306957A00824630 /* USerHelp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = USerHelp; sourceTree = "<group>"; };
 		373385B5227056FF00DC08D9 /* Mine_Wallet_Bill_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine_Wallet_Bill_Cell.h; sourceTree = "<group>"; };
 		373385B6227056FF00DC08D9 /* Mine_Wallet_Bill_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine_Wallet_Bill_Cell.m; sourceTree = "<group>"; };
 		373385B7227056FF00DC08D9 /* Mine_Wallet_Bill_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Mine_Wallet_Bill_Cell.xib; sourceTree = "<group>"; };
@@ -1642,6 +1649,7 @@
 				184850132251DC76002B7AA9 /* Square */,
 				18484FCF2251DA2C002B7AA9 /* AppDelegate.h */,
 				18484FD02251DA2C002B7AA9 /* AppDelegate.m */,
+				373127ED2306957A00824630 /* USerHelp */,
 				184850212251DD18002B7AA9 /* PCH.pch */,
 				37CB945F2280155E0013786A /* Singleton.h */,
 				37CB94602280155E0013786A /* Singleton.m */,
@@ -2205,6 +2213,9 @@
 				37E06FC722E1ADA700F3BDA7 /* Mine_KDR_ViewController.h */,
 				37E06FC822E1ADA700F3BDA7 /* Mine_KDR_ViewController.m */,
 				37E06FC922E1ADA700F3BDA7 /* Mine_KDR_ViewController.xib */,
+				3731278923067AF200824630 /* Mine_USerHelpViewController.h */,
+				3731278A23067AF200824630 /* Mine_USerHelpViewController.m */,
+				3731278B23067AF200824630 /* Mine_USerHelpViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3480,6 +3491,7 @@
 				37F5FFD0226582510012245D /* Message_ApexCell.xib in Resources */,
 				37B8B712226F382300434D61 /* Mine_SetUP_Cell.xib in Resources */,
 				373385B9227056FF00DC08D9 /* Mine_Wallet_Bill_Cell.xib in Resources */,
+				373127EE2306957A00824630 /* USerHelp in Resources */,
 				37CD026622ADE9D400ED09E8 /* Mine_ShopCard_ViewController.xib in Resources */,
 				371E297C22670924009EE0AA /* Message_Shoping_Tableview_Cell.xib in Resources */,
 				3734065C2285291E00FC38F9 /* Home_CommunityNearby_EspecialRegionFour_Cell.xib in Resources */,
@@ -3534,6 +3546,7 @@
 				373406542285291E00FC38F9 /* Home_CommunityNearby_EspecialRegion_OneCell.xib in Resources */,
 				37CA64AB225DF41A0040387F /* Message_TZ_Default_Cell.xib in Resources */,
 				37410F5522BB8449001B884E /* Home_Seach_ShopStore_Cell.xib in Resources */,
+				3731278D23067AF200824630 /* Mine_USerHelpViewController.xib in Resources */,
 				3734065F2285291E00FC38F9 /* Home_CommunityNearby_FreshFruitSink_One_Cell.xib in Resources */,
 				37053A4F2272EB36003D94DB /* Home_CommunityNearby_ViewController.xib in Resources */,
 				37B8B6D2226F358800434D61 /* Mine_SetUP_MyAddress_ViewController.xib in Resources */,
@@ -3872,6 +3885,7 @@
 				37C458AC2271935F004CDE32 /* Mine_SettledIn_Shoping_ViewController.m in Sources */,
 				37C6373C22E6B14C00FBC588 /* Home_KDR_BackService_ViewController.m in Sources */,
 				37CAA9F022E07123001CDF22 /* Home_KDR_InvitationViewController.m in Sources */,
+				3731278C23067AF200824630 /* Mine_USerHelpViewController.m in Sources */,
 				37B8B6D1226F358800434D61 /* Mine_SetUP_About_Me_VC.m in Sources */,
 				378CA7A8229847770087B29C /* Message_FansList_Model.m in Sources */,
 				3756C49822A7B24400A4FF30 /* Publish_Location_Cell.m in Sources */,

@@ -269,6 +269,8 @@
 #import "Home_KDR_BackService_ViewController.h"
 #import "Home_KDR_MyCard_ViewController.h"
 #import "ChatViewController.h"
+#import "Mine_USerHelpViewController.h"
+
 
 //数据模型
 #import "Home_KDR_Order_Model.h"
